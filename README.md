@@ -1,8 +1,5 @@
-#  Project Toolz
 
-Toolz merupakan project open source buatan saya dengan tujuan membantu dengan menciptakan tools online yang bisa digunakan dengan mudah dan simple. Project ini dibagun dengan menggunakan Next JS (App Router) dengan Javascript. Update mengenai project ini dan fitur akan diupdate melalui Repository ini. Terimakasih, mohon dukungannya
-<br>Project Start : 28/11/2023
-
+<img src="https://github.com/fajriyan/toolsz/assets/56616688/be46e701-d955-4cfe-999f-6161e6ed1fab" style="width:119px"/>
 
 [![Build](https://img.shields.io/github/followers/fajriyan)](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Ffajriyan)
 [![Badges](https://img.shields.io/github/stars/fajriyan/toolsz)]()
@@ -10,6 +7,12 @@ Toolz merupakan project open source buatan saya dengan tujuan membantu dengan me
 [![Badges](https://img.shields.io/bower/l/react)]()
 [![Badges](https://img.shields.io/github/directory-file-count/fajriyan/toolsz)]()
 [![Badges](https://img.shields.io/github/package-json/v/fajriyan/toolsz?label=package%20json)]()
+
+#  Project Toolz
+
+
+Toolz merupakan project open source buatan saya dengan tujuan membantu dengan menciptakan tools online yang bisa digunakan dengan mudah dan simple. Project ini dibagun dengan menggunakan Next JS (App Router) dengan Javascript. Update mengenai project ini dan fitur akan diupdate melalui Repository ini. Terimakasih, mohon dukungannya
+<br>Project Start : 28/11/2023
 
 ## How to run it
 
@@ -33,9 +36,16 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [x] Lorem Ipsum Generator
 - [x] Dummy File Download
 - [ ] Simple Logic Gate
+- [ ] MD5 GENERATOR
+- [ ] Whois
+- [ ] DNS Lookup 
+- [ ] IP Lookup
+- [ ] Web Scraper 
+- [ ] Diaplay
 
 ### Next Update
 - [ ] Build Responsive (Tablet and Mobile)
+- [ ] Group Product in Mega Menu
 - [ ] Improve SEO and Integration with Google Search Console
 
 
