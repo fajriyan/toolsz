@@ -41,11 +41,11 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [ ] DNS Lookup 
 - [ ] IP Lookup
 - [ ] Web Scraper 
-- [ ] Diaplay
+- [ ] Display Size 
 
 ### Next Update
 - [ ] Build Responsive (Tablet and Mobile)
-- [ ] Group Product in Mega Menu
+- [x] Group Product in Mega Menu
 - [ ] Improve SEO and Integration with Google Search Console
 
 
