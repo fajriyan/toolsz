@@ -10,7 +10,7 @@ const dataDummy = [
 
 const page = () => {
   return (
-    <div className="container mx-auto h-screen">
+    <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
           Dummy Some Download Files
@@ -20,7 +20,7 @@ const page = () => {
         </p>
       </div>
 
-      <div className="grid grid-rows-4 grid-cols-4 gap-8 py-4">
+      <div className="grid grid-rows-2 grid-cols-2 md:grid-rows-4 md:grid-cols-4 gap-8 py-4">
         {dataDummy.map((data) => (
           <div key={data.size + "0002"}>
             {/* Start Card  */}
@@ -51,7 +51,7 @@ const page = () => {
                 <a
                   href="/assets/PDFDummy.pdf"
                   download={true}
-                  className="px-14 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
+                  className="px-5 md:px-14 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
                 >
                   Download
                 </a>

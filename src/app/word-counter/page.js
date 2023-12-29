@@ -70,7 +70,7 @@ const WordCounter = () => {
   const duplicateWordPercentages = calculateDuplicatePercentages();
 
   return (
-    <div className="container mx-auto mb-10">
+    <div className="container mx-auto mb-10 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
           Word Counter Free Forever
@@ -80,17 +80,17 @@ const WordCounter = () => {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-6">
-        <div className="w-[70%]">
+      <div className="flex flex-wrap gap-2 md:gap-6">
+        <div className="w-full md:w-[70%]">
           <textarea
             onChange={handleChange}
             value={text}
-            className="border border-slate-700 w-full rounded-md p-2"
+            className="border h-52 md:h-auto border-slate-700 w-full rounded-md p-2"
             cols="30"
             rows="23"
           ></textarea>
         </div>
-        <div className="w-[27%]">
+        <div className="w-full md:w-[27%]">
           <div className="border border-slate-700 p-2 rounded-md">
             <div className="border-b border-slate-300 pb-1 font-semibold">
               Detail:

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="container mx-auto flex">
+    <main className="container mx-auto flex px-3 md:px-0">
       <div className="h-[85vh] flex flex-wrap flex-col gap-5 justify-center">
         {/* Start Bar Update */}
         <div className=" py-1 border rounded-full w-max flex">
@@ -26,7 +26,7 @@ export default function Home() {
           </button>
         </div>
         {/* End Bar Update  */}
-        <div className="relative">
+        <div className="relative z-0">
           <h1 className="font-bold text-5xl leading-[55px]">
             Temukan Alat{" "}
             <span className="underline decoration-yellow-500">
@@ -39,12 +39,12 @@ export default function Home() {
           <Image
             src="/cursor-blue.png"
             alt="cusror blue"
-            className="absolute lg:top-6 lg:right-16 2xl:right-56"
+            className="absolute top-20 lg:top-6 lg:right-16 2xl:right-56"
             width={70}
             height={70}
           />
         </div>
-        <p className="w-[90%] text-[18px] font-light">
+        <p className="md:w-[90%] text-[18px] font-light">
           Beragam Alat dapat Digunakan secara Gratis.{" "}
           <span className="font-semibold">Lorem Generator, Gerbang Logika</span>{" "}
           dan Banyak Lagi Kedepannya. Project Ini Bersifat Open Source.
@@ -55,7 +55,7 @@ export default function Home() {
         <Image
           src="/heros.webp"
           alt="hero Image"
-          className=""
+          className="hidden md:block"
           width={950}
           height={100}
         />
