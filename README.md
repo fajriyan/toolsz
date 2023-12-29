@@ -14,6 +14,11 @@
 Toolz merupakan project open source buatan saya dengan tujuan membantu dengan menciptakan tools online yang bisa digunakan dengan mudah dan simple. Project ini dibagun dengan menggunakan Next JS (App Router) dengan Javascript. Update mengenai project ini dan fitur akan diupdate melalui Repository ini. Terimakasih, mohon dukungannya
 <br>Project Start : 28/11/2023
 
+## Donation 
+if this project helps you, you can give it a cup of coffee. thanks!
+* [buymeacoffee](https://www.buymeacoffee.com/fajriyan)
+* [saweria](https://saweria.co/fajriyan)
+
 ## How to run it
 
 Untuk menjalankan project ini kalian bisa melakukan dengan 2 cara, sebagai berikut : 
@@ -44,9 +49,14 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [ ] Display Size 
 
 ### Next Update
-- [ ] Build Responsive (Tablet and Mobile)
+- [x] Build Responsive (Tablet and Mobile)
 - [x] Group Product in Mega Menu
 - [ ] Improve SEO and Integration with Google Search Console
+
+### changelog
+- [0.1.0] first commit, alpha version
+- [0.1.2] create mega menu and page tentang kami
+- [0.1.19] create responsive all page and create mega menu mobile
 
 
 ## Screenshot
