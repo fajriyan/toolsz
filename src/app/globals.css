@@ -5,18 +5,12 @@
 .scroll-custom::-webkit-scrollbar {
   width: 5px;
 }
-
-/* Track */
 .scroll-custom::-webkit-scrollbar-track {
   background: #e4e4e4;
 }
-
-/* Handle */
 .scroll-custom::-webkit-scrollbar-thumb {
   background: #888;
 }
-
-/* Handle on hover */
 .scroll-custom::-webkit-scrollbar-thumb:hover {
   background: #555;
 }

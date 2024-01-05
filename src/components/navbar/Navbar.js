@@ -89,9 +89,9 @@ const Navbar = () => {
           <div className="">
             <div className="flex flex-col w-full gap-1 px-1 py-2">
               <Link
-                href={"/word-counter"}
+                href={"/produk/word-counter"}
                 className={
-                  currentRoute === "/word-counter"
+                  currentRoute === "/produk/word-counter"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -113,9 +113,9 @@ const Navbar = () => {
                 <div className="">Word Counter</div>
               </Link>
               <Link
-                href={"/lorem-generator"}
+                href={"/produk/lorem-generator"}
                 className={
-                  currentRoute === "/lorem-generator"
+                  currentRoute === "/produk/lorem-generator"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -134,9 +134,9 @@ const Navbar = () => {
                 <div className="">Lorem Generator</div>
               </Link>
               <Link
-                href={"/dummy-file"}
+                href={"/produk/dummy-file"}
                 className={
-                  currentRoute === "/dummy-file"
+                  currentRoute === "/produk/dummy-file"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -179,9 +179,9 @@ const Navbar = () => {
               <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] h-[200px] md:w-[500px] bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default">
                 <div className="flex flex-col w-[40%] gap-1">
                   <Link
-                    href={"/word-counter"}
+                    href={"/produk/word-counter"}
                     className={
-                      currentRoute === "/word-counter"
+                      currentRoute === "/produk/word-counter"
                         ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
                         : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
                     }
@@ -203,9 +203,9 @@ const Navbar = () => {
                     <div className="">Word Counter</div>
                   </Link>
                   <Link
-                    href={"/lorem-generator"}
+                    href={"/produk/lorem-generator"}
                     className={
-                      currentRoute === "/lorem-generator"
+                      currentRoute === "/produk/lorem-generator"
                         ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
                         : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
                     }
@@ -224,9 +224,9 @@ const Navbar = () => {
                     <div className="">Lorem Generator</div>
                   </Link>
                   <Link
-                    href={"/dummy-file"}
+                    href={"/produk/dummy-file"}
                     className={
-                      currentRoute === "/dummy-file"
+                      currentRoute === "/produk/dummy-file"
                         ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
                         : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
                     }

@@ -57,6 +57,8 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [0.1.0] first commit, alpha version
 - [0.1.2] create mega menu and page tentang kami
 - [0.1.19] create responsive all page and create mega menu mobile
+- [0.1.20] fix structure folder and routes
+
 
 
 ## Screenshot

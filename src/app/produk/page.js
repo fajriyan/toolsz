@@ -38,7 +38,7 @@ const Produk = () => {
             </div>
             <div className="flex gap-1">
               <Link
-                href="/word-counter"
+                href="/produk/word-counter"
                 download={true}
                 className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
               >
@@ -68,7 +68,7 @@ const Produk = () => {
             </div>
             <div className="flex gap-1">
               <Link
-                href="/word-counter"
+                href="/produk/lorem-generator"
                 download={true}
                 className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
               >
@@ -98,7 +98,7 @@ const Produk = () => {
             </div>
             <div className="flex gap-1">
               <Link
-                href="/word-counter"
+                href="/produk/dummy-file"
                 download={true}
                 className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
               >
