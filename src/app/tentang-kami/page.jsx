@@ -2,7 +2,7 @@ const TentangKami = () => {
   return (
     <div className="container mx-auto h-screen py-5">
       <h1 className="text-xl text-slate-700 font-bold">
-        Tentang Layanan Open Source Toolz
+        Tentang Layanan Toolz (open source)
       </h1>
       <p className="w-11/12">
         Toolz merupakan project open source buatan saya dengan tujuan membantu

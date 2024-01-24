@@ -1,6 +1,7 @@
 {
   "name": "toolsz",
-  "version": "0.1.20",
+  "version": "0.1.50",
+  "author": "fajriyan",
   "private": true,
   "scripts": {
     "dev": "next dev",
