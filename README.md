@@ -40,13 +40,13 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [x] Word Counter
 - [x] Lorem Ipsum Generator
 - [x] Dummy File Download
+- [x] Display Size 
 - [ ] Simple Logic Gate
 - [ ] MD5 GENERATOR
 - [ ] Whois
 - [ ] DNS Lookup 
 - [ ] IP Lookup
 - [ ] Web Scraper 
-- [ ] Display Size 
 
 ### Next Update
 - [x] Build Responsive (Tablet and Mobile)
@@ -58,6 +58,8 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [0.1.2] create mega menu and page tentang kami
 - [0.1.19] create responsive all page and create mega menu mobile
 - [0.1.20] fix structure folder and routes
+- [0.1.50] create produk display
+
 
 
 
