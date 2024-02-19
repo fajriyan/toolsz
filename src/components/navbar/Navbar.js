@@ -87,7 +87,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="">
-            <div className="flex flex-col w-full gap-1 px-1 py-2">
+            <div className="flex flex-col w-full gap-1 px-1 py-2 z-[99]">
               <Link
                 href={"/produk/word-counter"}
                 className={
@@ -190,10 +190,10 @@ const Navbar = () => {
               height={40}
             />
           </Link>
-          <div className="hidden md:flex justify-center gap-5 md:w-[73%]">
+          <div className="hidden relative md:flex justify-center gap-5 md:w-[73%]">
             <span className="group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer">
               <Link href={"/produk"}>Produk</Link>
-              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] h-[200px] md:w-[500px] bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default">
+              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] h-[200px] md:w-[500px] bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
                 <div className="flex flex-col w-[40%] gap-1">
                   <Link
                     href={"/produk/word-counter"}

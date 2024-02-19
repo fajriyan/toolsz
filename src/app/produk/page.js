@@ -6,7 +6,7 @@ const Produk = () => {
       <div className="container mx-auto h-screen">
         <div className="py-5">
           <h1 className="text-xl text-center font-semibold">
-            Daftar Produk Toolz
+            Daftar Produk Toolsz
           </h1>
           <p className="text-center text-xs">
             Silahkan gunakan Layanan ini dengan Gratis
@@ -99,6 +99,35 @@ const Produk = () => {
             <div className="flex gap-1">
               <Link
                 href="/produk/dummy-file"
+                download={true}
+                className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
+              >
+                Buka Produk
+              </Link>
+            </div>
+          </div>
+          {/* End Card  */}
+          {/* Start Card  */}
+          <div className="border flex flex-col items-center gap-2 p-3 rounded-md">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              className="bi bi-filetype-pdf"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145" />
+            </svg>
+            <h2 className="font-semibold text-center">Display</h2>
+            <div className="flex gap-1">
+              <span className="text-xs text-center p-[4px] rounded-md border">
+                Informasi Ukuran Display
+              </span>
+            </div>
+            <div className="flex gap-1">
+              <Link
+                href="/produk/display"
                 download={true}
                 className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
               >
