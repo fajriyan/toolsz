@@ -1,67 +1,50 @@
 "use client";
 
+// pages/minifycss.js
+
 import React, { useState } from "react";
 
-const HashComponent = () => {
-  const [inputText, setInputText] = useState("");
-  const [md5Hash, setMd5Hash] = useState("");
-  const [sha1Hash, setSha1Hash] = useState("");
+function minifyCss(css) {
+  return css
+    .replace(/\/\*[\s\S]*?\*\//g, "") // Remove comments
+    .replace(/\s*([:;{}])\s*/g, "$1") // Remove spaces around :, ;, {, and }
+    .replace(/\s+/g, " ") // Collapse multiple spaces into one
+    .replace(/([;,{}])\s*/g, "$1"); // Remove spaces after ;, ,, {, }
+}
 
-  const handleInputChange = (e) => {
-    setInputText(e.target.value);
-  };
+export default function MinifyCssPage() {
+  const [originalCss, setOriginalCss] = useState("");
+  const [minifiedCss, setMinifiedCss] = useState("");
 
-  const calculateMD5 = (str) => {
-    let hash = 0;
-    if (str.length === 0) return hash;
-
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
-      hash = (hash << 5) - hash + char;
-      hash = hash & hash; // Convert to 32-bit integer
-    }
-
-    return hash.toString(16);
-  };
-
-  const calculateSHA1 = (str) => {
-    let hash = 0;
-    if (str.length === 0) return hash;
-
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
-      hash = (hash << 5) - hash + char;
-    }
-
-    return hash.toString(16);
-  };
-
-  const handleEncrypt = () => {
-    const md5HashedText = calculateMD5(inputText);
-    setMd5Hash(md5HashedText);
-
-    const sha1HashedText = calculateSHA1(inputText);
-    setSha1Hash(sha1HashedText);
+  const handleMinify = () => {
+    const minified = minifyCss(originalCss);
+    setMinifiedCss(minified);
   };
 
   return (
     <div>
-      <h2>MD5 and SHA-1 Hashing</h2>
-      <label>
-        Input Text:
-        <input type="text" value={inputText} onChange={handleInputChange} />
-      </label>
-      <br />
-      <button onClick={handleEncrypt}>Hash</button>
-      <br />
+      <h1>Minify CSS</h1>
       <div>
-        <strong>MD5 Hash:</strong> {md5Hash}
+        <textarea
+          value={originalCss}
+          onChange={(e) => setOriginalCss(e.target.value)}
+          placeholder="Masukkan CSS di sini..."
+          style={{ width: "100%", minHeight: "200px" }}
+        />
       </div>
-      <div>
-        <strong>SHA-1 Hash:</strong> {sha1Hash}
+      <div style={{ marginTop: "10px" }}>
+        <button className="bg-slate-600" onClick={handleMinify}>
+          Minify CSS
+        </button>
+      </div>
+      <div style={{ marginTop: "10px" }}>
+        <textarea
+          readOnly
+          value={minifiedCss}
+          placeholder="Hasil CSS yang diminyakan akan muncul di sini..."
+          style={{ width: "100%", minHeight: "200px" }}
+        />
       </div>
     </div>
   );
-};
-
-export default HashComponent;
+}
