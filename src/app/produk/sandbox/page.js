@@ -1,47 +1,50 @@
 "use client";
 
-// pages/minifycss.js
+// pages/unminifycss.js
 
 import React, { useState } from "react";
 
-function minifyCss(css) {
-  return css
-    .replace(/\/\*[\s\S]*?\*\//g, "") // Remove comments
-    .replace(/\s*([:;{}])\s*/g, "$1") // Remove spaces around :, ;, {, and }
-    .replace(/\s+/g, " ") // Collapse multiple spaces into one
-    .replace(/([;,{}])\s*/g, "$1"); // Remove spaces after ;, ,, {, }
+function unminifyCss(minifiedCss) {
+  return minifiedCss
+    .replace(/;\s*/g, ";\n") // Add newline after semicolon
+    .replace(/,\s*/g, ", ") // Add space after comma
+    .replace(/{\s*/g, " {\n") // Add newline after {
+    .replace(/\n\s*}\s*/g, "\n}\n") // Add newline after }
+    .replace(/{\s*(.+?)\s*}/gs, (match, p1) => {
+      const lines = p1.split("\n");
+      const indentedLines = lines.map((line) => `    ${line}`).join("\n");
+      return `{\n${indentedLines}\n}`;
+    }); // Add 4 spaces at the beginning of each line inside {}
 }
 
-export default function MinifyCssPage() {
-  const [originalCss, setOriginalCss] = useState("");
+export default function UnminifyCssPage() {
   const [minifiedCss, setMinifiedCss] = useState("");
+  const [originalCss, setOriginalCss] = useState("");
 
-  const handleMinify = () => {
-    const minified = minifyCss(originalCss);
-    setMinifiedCss(minified);
+  const handleUnminify = () => {
+    const unminified = unminifyCss(minifiedCss);
+    setOriginalCss(unminified);
   };
 
   return (
     <div>
-      <h1>Minify CSS</h1>
+      <h1>Unminify CSS</h1>
       <div>
         <textarea
-          value={originalCss}
-          onChange={(e) => setOriginalCss(e.target.value)}
-          placeholder="Masukkan CSS di sini..."
+          value={minifiedCss}
+          onChange={(e) => setMinifiedCss(e.target.value)}
+          placeholder="Masukkan CSS yang diminyakan di sini..."
           style={{ width: "100%", minHeight: "200px" }}
         />
       </div>
       <div style={{ marginTop: "10px" }}>
-        <button className="bg-slate-600" onClick={handleMinify}>
-          Minify CSS
-        </button>
+        <button onClick={handleUnminify}>Restore CSS</button>
       </div>
       <div style={{ marginTop: "10px" }}>
         <textarea
           readOnly
-          value={minifiedCss}
-          placeholder="Hasil CSS yang diminyakan akan muncul di sini..."
+          value={originalCss}
+          placeholder="Hasil CSS yang telah dikembalikan akan muncul di sini..."
           style={{ width: "100%", minHeight: "200px" }}
         />
       </div>
