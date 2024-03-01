@@ -40,7 +40,10 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [x] Word Counter
 - [x] Lorem Ipsum Generator
 - [x] Dummy File Download
-- [x] Display Size 
+- [x] Display Size
+- [x] Minify CSS
+- [x] Unminify CSS
+- [ ] Uppercase, Lowercase Converter
 - [ ] Simple Logic Gate
 - [ ] MD5 GENERATOR
 - [ ] Whois
