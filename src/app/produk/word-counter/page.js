@@ -2,13 +2,12 @@
 import React, { useEffect, useState } from "react";
 
 const WordCounter = () => {
-  const [styleAlign, setStyleAlign] = useState("text-left");
+  const [text, setText] = useState(
+    "This is a sample sentence, please change it as you need, don't worry we don't take anything that is filled in here, thank you."
+  );
   const [density, setDensity] = useState(0);
   const [excludedWords, setExcludedWords] = useState("");
   const [excludedWordArray, setExcludedWordArray] = useState([]);
-  const [text, setText] = useState(
-    "Ini adalah contoh kalimat yang berulang, silakan ubah sesuai kebutuhan Anda, jangan khawatir kami tidak mengambil apa pun disini : Alat penghitung kata online adalah aplikasi web yang memungkinkan pengguna untuk menghitung jumlah kata dalam sebuah teks atau dokumen. Dengan menggunakan alat ini, pengguna dapat dengan cepat dan mudah menentukan jumlah kata dalam tulisan mereka, baik itu untuk keperluan akademis, profesional, atau pribadi. Alat ini sering kali dilengkapi dengan fitur tambahan seperti menghitung jumlah karakter, paragraf, dan kalimat. Pengguna hanya perlu menyalin dan menempelkan teks mereka ke dalam alat tersebut, dan hasilnya akan ditampilkan secara instan. Alat ini sangat berguna bagi penulis, editor, mahasiswa, dan siapa pun yang membutuhkan analisis teks yang cepat. "
-  );
 
   useEffect(() => {
     setExcludedWordArray(excludedWords.split(" "));
@@ -74,92 +73,27 @@ const WordCounter = () => {
     <div className="container mx-auto mb-10 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Penghitung Kata | Word Counter
+          Word Counter Free Forever
         </h1>
         <p className="text-center text-xs">
-          Hitung jumlah kata dalam sebuah kalimat
+          Calculate the number of words in a sentence
         </p>
       </div>
 
       <div className="flex flex-wrap gap-2 md:gap-6">
-        <div className="w-full md:w-[70%] ">
+        <div className="w-full md:w-[70%]">
           <textarea
             onChange={handleChange}
             value={text}
-            className={`border h-52 md:h-auto border-slate-700 w-full rounded-md p-2 ${styleAlign}`}
+            className="border h-52 md:h-auto border-slate-700 w-full rounded-md p-2"
             cols="30"
             rows="23"
           ></textarea>
         </div>
         <div className="w-full md:w-[27%]">
           <div className="border border-slate-700 p-2 rounded-md">
-            <div className="border-b border-slate-300 pb-1 font-semibold flex justify-between ">
+            <div className="border-b border-slate-300 pb-1 font-semibold">
               Detail:
-              <div className="flex gap-2 ">
-                <button
-                  className={
-                    styleAlign === "text-left"
-                      ? "border border-slate-700 rounded-sm"
-                      : "border border-white"
-                  }
-                  onClick={() => setStyleAlign("text-left")}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"
-                    />
-                  </svg>
-                </button>
-                <button
-                  className={
-                    styleAlign === "text-right"
-                      ? "border border-slate-700 rounded-sm"
-                      : "border border-white"
-                  }
-                  onClick={() => setStyleAlign("text-right")}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"
-                    />
-                  </svg>
-                </button>
-                <button
-                  className={
-                    styleAlign === "text-justify"
-                      ? "border border-slate-700 rounded-sm"
-                      : "border border-white"
-                  }
-                  onClick={() => setStyleAlign("text-justify")}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"
-                    />
-                  </svg>
-                </button>
-              </div>
             </div>
 
             <p className="flex justify-between border-b py-1">

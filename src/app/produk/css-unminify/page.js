@@ -30,7 +30,7 @@ export default function UnminifyCssPage() {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          CSS Unminify Online & Uncompress
+          Online CSS Unminify & Uncompress
         </h1>
         <p className="text-center text-xs">
           Kembalikan Baris kode CSS menjadi Rapi Kembali
@@ -64,7 +64,6 @@ export default function UnminifyCssPage() {
         </div>
 
         <div className="mt-7">
-          <h2>Hasil Unminify CSS </h2>
           <textarea
             readOnly
             value={originalCss}

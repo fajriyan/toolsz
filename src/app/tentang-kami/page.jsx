@@ -1,32 +1,15 @@
-import Image from "next/image";
-
 const TentangKami = () => {
   return (
-    <div className="container px-3 md:px-0 mx-auto h-screen py-5">
-      <Image
-        src="https://images.unsplash.com/photo-1667584582921-6f09a49d4f6d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        width={0}
-        height={0}
-        sizes="100%"
-        className="w-full h-[280px] rounded-md object-cover"
-        alt="Gambar Hero Section Tentang Kami"
-      />
-
-      <h1 className="mt-5 text-xl text-slate-700 font-bold">
-        Tentang Layanan Toolsz
+    <div className="container mx-auto h-screen py-5">
+      <h1 className="text-xl text-slate-700 font-bold">
+        Tentang Layanan Toolz (open source)
       </h1>
-      <p className="">
-        Toolz merupakan project <i> open source</i> dengan tujuan membantu
-        dengan menciptakan tools online yang mudah dan ringan untuk digunakan.
-        Update mengenai project ini dan fitur akan diupdate melalui Repository
-        di github{" "}
-        <a
-          className=" underline hover:decoration-blue-800 "
-          href="https://github.com/fajriyan"
-        >
-          fajriyan
-        </a>
-        . Mohon dukungannya, terimakasih.
+      <p className="w-11/12">
+        Toolz merupakan project open source buatan saya dengan tujuan membantu
+        dengan menciptakan tools online yang bisa digunakan dengan mudah dan
+        simple. Update mengenai project ini dan fitur akan diupdate melalui
+        Repository di github <a href="https://github.com/fajriyan">fajriyan</a>.
+        Terimakasih, mohon dukungannya
       </p>
 
       <div className="mt-5">

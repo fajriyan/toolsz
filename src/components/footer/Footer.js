@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="container mx-auto border-t py-3 border-slate-200 flex justify-between px-3 md:px-0">
+    <div className="container mx-auto border-t py-3 border-slate-200 flex justify-between">
       <div>
         <span>Copyright © {new Date().getFullYear()}</span>
         <div className="text-sm">fajriyan</div>
