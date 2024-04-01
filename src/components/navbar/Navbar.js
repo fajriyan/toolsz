@@ -29,6 +29,11 @@ const Menu = [
 ];
 
 const Navbar = () => {
+  const classStyleDesktopActive =
+    "flex items-center gap-1 p-2 bg-slate-50 border rounded-md";
+  const classStyleDesktop =
+    "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md";
+
   const [mMob, setMob] = useState(false);
   const currentRoute = usePathname();
 
@@ -239,14 +244,14 @@ const Navbar = () => {
           <div className="hidden relative md:flex justify-center gap-5 md:w-[73%]">
             <span className="group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer">
               <Link href={"/produk"}>Produk</Link>
-              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-[500px] bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
-                <div className="flex flex-col w-[40%] gap-1">
+              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-max bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
+                <div className="grid grid-cols-2 gap-3">
                   <Link
                     href={"/produk/word-counter"}
                     className={
                       currentRoute === "/produk/word-counter"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -266,8 +271,8 @@ const Navbar = () => {
                     href={"/produk/lorem-generator"}
                     className={
                       currentRoute === "/produk/lorem-generator"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -287,8 +292,8 @@ const Navbar = () => {
                     href={"/produk/dummy-file"}
                     className={
                       currentRoute === "/produk/dummy-file"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -308,8 +313,8 @@ const Navbar = () => {
                     href={"/produk/display"}
                     className={
                       currentRoute === "/produk/display"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -328,8 +333,8 @@ const Navbar = () => {
                     href={"/produk/css-minify"}
                     className={
                       currentRoute === "/produk/css-minify"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -348,8 +353,8 @@ const Navbar = () => {
                     href={"/produk/css-unminify"}
                     className={
                       currentRoute === "/produk/css-unminify"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -365,22 +370,10 @@ const Navbar = () => {
                     <div className="">CSS Unminify</div>
                   </Link>
                 </div>
-                <div className="w-[60%] flex flex-col">
-                  <p>
-                    Memiliki saran untuk fitur lain, silahkan ide mengenai fitur
-                    yang anda harapkan.
-                  </p>
-                  <a
-                    href="https://github.com/fajriyan/toolsz/issues/new?assignees=&labels=&projects=&template=feature_request.md&title="
-                    className="py-1 px-3 mt-2 w-max border rounded-md bg-gray-800 text-slate-100"
-                  >
-                    Tambahkan ide fitur
-                  </a>
-                </div>
               </div>
             </span>
             <Link
-              href={"tentang-kami"}
+              href={"/tentang-kami"}
               className="group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer"
             >
               Tentang Kami
