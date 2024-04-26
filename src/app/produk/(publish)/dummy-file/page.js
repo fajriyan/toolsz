@@ -1,5 +1,3 @@
-import React from "react";
-
 const dataDummy = [
   {
     title: "Download PDF",
@@ -13,10 +11,10 @@ const page = () => {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Dummy Some Download Files
+          Download File Dummy (PDF Dummy)
         </h1>
         <p className="text-center text-xs">
-          Download Sample PDF, DOC, etc file easily
+          Unduh file dummy seperti : PDF, DOC, dll
         </p>
       </div>
 

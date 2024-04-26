@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Menu = [
@@ -29,8 +29,21 @@ const Menu = [
 ];
 
 const Navbar = () => {
+  const classStyleDesktopActive =
+    "flex items-center gap-1 p-2 bg-slate-50 border rounded-md";
+  const classStyleDesktop =
+    "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md";
+
+  const { push: navigate } = useRouter();
   const [mMob, setMob] = useState(false);
   const currentRoute = usePathname();
+
+  const LinkMobile = ({ to }) => {
+    navigate(to);
+    setTimeout(() => {
+      setMob(false);
+    }, 400);
+  };
 
   return (
     <>
@@ -88,8 +101,8 @@ const Navbar = () => {
           </div>
           <div className="">
             <div className="flex flex-col w-full gap-1 px-1 py-2 z-[99]">
-              <Link
-                href={"/produk/word-counter"}
+              <button
+                onClick={() => LinkMobile({ to: "/produk/word-counter" })}
                 className={
                   currentRoute === "/produk/word-counter"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
@@ -108,9 +121,9 @@ const Navbar = () => {
                   <path d="M10 5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4v1h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4zM6 5V4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v-1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />
                 </svg>
                 <div className="">Word Counter</div>
-              </Link>
-              <Link
-                href={"/produk/lorem-generator"}
+              </button>
+              <button
+                onClick={() => LinkMobile({ to: "/produk/lorem-generator" })}
                 className={
                   currentRoute === "/produk/lorem-generator"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
@@ -129,9 +142,9 @@ const Navbar = () => {
                   <path d="M11.434 4H4.566L4.5 5.994h.386c.21-1.252.612-1.446 2.173-1.495l.343-.011v6.343c0 .537-.116.665-1.049.748V12h3.294v-.421c-.938-.083-1.054-.21-1.054-.748V4.488l.348.01c1.56.05 1.963.244 2.173 1.496h.386z" />
                 </svg>
                 <div className="">Lorem Generator</div>
-              </Link>
-              <Link
-                href={"/produk/dummy-file"}
+              </button>
+              <button
+                onClick={() => LinkMobile({ to: "/produk/dummy-file" })}
                 className={
                   currentRoute === "/produk/dummy-file"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
@@ -150,9 +163,9 @@ const Navbar = () => {
                   <path d="M4.603 12.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.701 19.701 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.187-.012.395-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.065.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.716 5.716 0 0 1-.911-.95 11.642 11.642 0 0 0-1.997.406 11.311 11.311 0 0 1-1.021 1.51c-.29.35-.608.655-.926.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.27.27 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.647 12.647 0 0 1 1.01-.193 11.666 11.666 0 0 1-.51-.858 20.741 20.741 0 0 1-.5 1.05zm2.446.45c.15.162.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.881 3.881 0 0 0-.612-.053zM8.078 5.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z" />
                 </svg>
                 <div className="">PDF Dummy</div>
-              </Link>
-              <Link
-                href={"/produk/display"}
+              </button>
+              <button
+                onClick={() => LinkMobile({ to: "/produk/display" })}
                 className={
                   currentRoute === "/produk/display"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
@@ -170,9 +183,9 @@ const Navbar = () => {
                   <path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4q0 1 .25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75Q6 13 6 12H2s-2 0-2-2zm1.398-.855a.76.76 0 0 0-.254.302A1.5 1.5 0 0 0 1 4.01V10c0 .325.078.502.145.602q.105.156.302.254a1.5 1.5 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.76.76 0 0 0 .254-.302 1.5 1.5 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.76.76 0 0 0-.302-.254A1.5 1.5 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145" />
                 </svg>
                 <div className="">Display Info</div>
-              </Link>
-              <Link
-                href={"/produk/css-minify"}
+              </button>
+              <button
+                onClick={() => LinkMobile({ to: "/produk/css-minify" })}
                 className={
                   currentRoute === "/produk/css-minify"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
@@ -193,9 +206,9 @@ const Navbar = () => {
                   />
                 </svg>
                 <div className="">CSS Minify</div>
-              </Link>
-              <Link
-                href={"/produk/css-unminify"}
+              </button>
+              <button
+                onClick={() => LinkMobile({ to: "/produk/css-unminify" })}
                 className={
                   currentRoute === "/produk/css-unminify"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
@@ -216,7 +229,7 @@ const Navbar = () => {
                   />
                 </svg>
                 <div className="">CSS Unminify</div>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -239,14 +252,14 @@ const Navbar = () => {
           <div className="hidden relative md:flex justify-center gap-5 md:w-[73%]">
             <span className="group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer">
               <Link href={"/produk"}>Produk</Link>
-              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-[500px] bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
-                <div className="flex flex-col w-[40%] gap-1">
+              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-max bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
+                <div className="grid grid-cols-2 gap-3">
                   <Link
                     href={"/produk/word-counter"}
                     className={
                       currentRoute === "/produk/word-counter"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -266,8 +279,8 @@ const Navbar = () => {
                     href={"/produk/lorem-generator"}
                     className={
                       currentRoute === "/produk/lorem-generator"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -287,8 +300,8 @@ const Navbar = () => {
                     href={"/produk/dummy-file"}
                     className={
                       currentRoute === "/produk/dummy-file"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -308,8 +321,8 @@ const Navbar = () => {
                     href={"/produk/display"}
                     className={
                       currentRoute === "/produk/display"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -328,8 +341,8 @@ const Navbar = () => {
                     href={"/produk/css-minify"}
                     className={
                       currentRoute === "/produk/css-minify"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -348,8 +361,8 @@ const Navbar = () => {
                     href={"/produk/css-unminify"}
                     className={
                       currentRoute === "/produk/css-unminify"
-                        ? "flex items-center gap-1 p-2 bg-slate-50 border rounded-md"
-                        : "flex items-center gap-1 p-2 hover:bg-slate-50 border border-white rounded-md"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
                     }
                   >
                     <svg
@@ -365,22 +378,10 @@ const Navbar = () => {
                     <div className="">CSS Unminify</div>
                   </Link>
                 </div>
-                <div className="w-[60%] flex flex-col">
-                  <p>
-                    Memiliki saran untuk fitur lain, silahkan ide mengenai fitur
-                    yang anda harapkan.
-                  </p>
-                  <a
-                    href="https://github.com/fajriyan/toolsz/issues/new?assignees=&labels=&projects=&template=feature_request.md&title="
-                    className="py-1 px-3 mt-2 w-max border rounded-md bg-gray-800 text-slate-100"
-                  >
-                    Tambahkan ide fitur
-                  </a>
-                </div>
               </div>
             </span>
             <Link
-              href={"tentang-kami"}
+              href={"/tentang-kami"}
               className="group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer"
             >
               Tentang Kami

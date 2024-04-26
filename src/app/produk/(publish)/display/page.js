@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Utils = dynamic(() => import("@/app/produk/display/utils"), {
+const Utils = dynamic(() => import("@/app/produk/(publish)/display/utils"), {
   ssr: false,
   loading: () => <span className="">loading</span>,
 });
@@ -10,10 +10,10 @@ const Page = () => {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Informasi Ukuran Layar
+          Informasi Ukuran Layar | Display Info
         </h1>
         <p className="text-center text-xs">
-          Lihat berapa ukuran layar pada perangkat ini
+          Lihat informasi mengenai ukuran layar anda secara online
         </p>
       </div>
 

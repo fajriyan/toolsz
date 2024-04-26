@@ -29,7 +29,7 @@ export default function MinifyCssPage() {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Online CSS Minify & Compressor
+          CSS Minify Online & Compressor
         </h1>
         <p className="text-center text-xs">
           Buat baris kode CSS menjadi Kecil dan Ringan
@@ -62,7 +62,7 @@ export default function MinifyCssPage() {
         </div>
 
         <div className="mt-7">
-          <h2>Minified CSS Output</h2>
+          <h2>Hasil Minify CSS </h2>
           <textarea
             readOnly
             value={minifiedCss}
