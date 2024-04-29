@@ -15,20 +15,25 @@ const TentangKami = () => {
       <h1 className="mt-5 text-xl text-slate-700 font-bold">
         Tentang Layanan Toolsz
       </h1>
-      <p className="">
-        Toolz merupakan project <i> open source</i> dengan tujuan membantu
-        dengan menciptakan tools online yang mudah dan ringan untuk digunakan.
-        Update mengenai project ini dan fitur akan diupdate melalui Repository
-        di github{" "}
+
+      <p>
+        Toolsz adalah sebuah proyek <i>open source</i> yang bertujuan untuk
+        membantu pengguna dengan menyediakan berbagai alat secara <i>online</i>{" "}
+        yang ringan dan mudah digunakan. Kami berkomitmen untuk terus
+        memperbarui informasi terkait proyek ini serta menambahkan fitur-fitur
+        baru yang bermanfaat melalui repository kami di GitHub yang dapat
+        diakses di bawah akun{" "}
         <a
           className=" underline hover:decoration-blue-800 "
           href="https://github.com/fajriyan"
         >
           fajriyan
         </a>
-        . Mohon dukungannya, terimakasih.
+        . Kami sangat menghargai dukungan dan kontribusi dari semua pihak untuk
+        memajukan proyek ini. Terima kasih atas perhatiannya dan mari kita
+        bersama-sama mengembangkan Toolsz untuk kenyamanan dan kegunaan yang
+        lebih baik bagi pengguna.
       </p>
-
       <div className="mt-5">
         <a
           href="https://www.linkedin.com/in/fajriyan/"

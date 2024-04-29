@@ -6,11 +6,12 @@ import Footer from "@/components/footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Beranda | Toolsz",
-  description: "Web Tools online gratis, lorem generator, word counter, dll",
+  title: "Online Tools Yang Ringan dan Mudah | Toolsz",
+  description: "Temukan Alat Lorem Generator, Word Counter, PDF Dummy, dll",
   icons: {
     icon: "/favicon.png",
   },
+  keywords: "toolsz, open source, online tools",
   alternates: {
     canonical: `${process.env.SITE_URL}`,
   },
