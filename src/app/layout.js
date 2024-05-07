@@ -6,7 +6,7 @@ import Footer from "@/components/footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Online Tools Yang Ringan dan Mudah | Toolsz",
+  title: "Temukan Banyak Tools Online (Word Counter, Lorem Generator) | Toolsz",
   description: "Temukan Alat Lorem Generator, Word Counter, PDF Dummy, dll",
   icons: {
     icon: "/favicon.png",
