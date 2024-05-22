@@ -43,7 +43,7 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [x] Display Size
 - [x] Minify CSS
 - [x] Unminify CSS
-- [ ] Uppercase, Lowercase Converter
+- [x] Uppercase, Lowercase Converter
 - [ ] Simple Logic Gate
 - [ ] MD5 GENERATOR
 - [ ] Whois
@@ -54,7 +54,7 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 ### Next Update
 - [x] Build Responsive (Tablet and Mobile)
 - [x] Group Product in Mega Menu
-- [ ] Improve SEO and Integration with Google Search Console
+- [x] Improve SEO and Integration with Google Search Console
 
 ### changelog
 - [0.1.0] first commit, alpha version
@@ -62,6 +62,8 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [0.1.19] create responsive all page and create mega menu mobile
 - [0.1.20] fix structure folder and routes
 - [0.1.50] create produk display
+- [1.0.0] index to google and setup SEO all page
+- [1.1.0] create produk convertcase
 
 
 
