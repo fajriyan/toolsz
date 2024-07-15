@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="container mx-auto ">
       <section className="flex px-3 md:px-0">
-        <div className="h-[90vh] flex flex-wrap flex-col gap-5 justify-center">
+        <div className="h-[90vh] md:w-[70%] flex flex-wrap flex-col gap-5 justify-center">
           {/* Start Bar Update */}
           <Link
             href={"/changelog"}
@@ -34,29 +34,31 @@ export default function Home() {
 
           <div className="">
             <h1 className="font-bold text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
-              Temukan Alat{" "}
+              Temukan Tools{" "}
               <span className="underline decoration-yellow-500 z-0">
-                Produktivitas{" "}
+                Online{" "}
               </span>{" "}
               <br />
-              Terbaik dengan Mudah
+              Ringan, Simple di Toolsz
             </h1>
           </div>
           <p className="md:w-[90%] text-[16px] md:text-[18px]">
-            Beragam alat dapat digunakan secara gratis,{" "}
+            Beragam alat seperti
             <span className="font-semibold">
               {" "}
-              seperti : Word Counter, Lorem Generator, CSS Minify{" "}
+               Word Counter, Lorem Generator, CSS Minify{" "}
             </span>{" "}
-            dan banyak lagi. Project ini bersifat{" "}
-            <span className="underline">Open Source</span>, Terimakasih.
+            dan banyak lagi. 
           </p>
           <div className=" flex gap-4 items-center">
             <Link
-              href="/produk/"
-              className="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2 rounded-md w-max"
+              href="/layanan/"
+              className="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2 rounded-md w-max flex gap-2 items-center"
             >
-              Produk Kami
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+              <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3q0-.405-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708M3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
+            </svg>
+              Layanan Kami
             </Link>
             <a
               href="https://github.com/fajriyan/toolsz"
@@ -87,13 +89,13 @@ export default function Home() {
         {/* End Hero Image Assets  */}
       </section>
 
-      <section className="my-10">
+      <section className="my-10 px-3 md:px-0">
         <div className="py-5">
           <h2 className="text-2xl text-center font-semibold">
             Tools Paling Sering Digunakan
           </h2>
           <p className="text-center text-sm">
-            Semua produk disini dapat di akses pada halaman produk.
+            Semua layanan kami disini dapat di akses secara gratis pada toolsz.
           </p>
         </div>
 
@@ -101,7 +103,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4 py-4">
             {/* Start Card  */}
             <Link
-              href={"/produk/word-counter"}
+              href={"/layanan/word-counter"}
               className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800"
             >
               <svg
@@ -128,7 +130,7 @@ export default function Home() {
             {/* End Card  */}
             {/* Start Card  */}
             <Link
-              href={"/produk/lorem-generator"}
+              href={"/layanan/lorem-generator"}
               className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800"
             >
               <svg
@@ -153,7 +155,7 @@ export default function Home() {
 
             {/* Start Card  */}
             <Link
-              href={"/produk/css-minify"}
+              href={"/layanan/css-minify"}
               className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800"
             >
               <svg
@@ -176,7 +178,7 @@ export default function Home() {
             {/* End Card  */}
             {/* Start Card  */}
             <Link
-              href={"/produk/convertcase"}
+              href={"/layanan/convertcase"}
               className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 "
             >
               <svg
@@ -201,8 +203,8 @@ export default function Home() {
         </div>
         <p className="text-xs text-center">
           Tools lain dapat ditemukan pada halaman{" "}
-          <Link className="underline hover:shadow-md" href={"/produk"}>
-            produk
+          <Link className="underline hover:shadow-md" href={"/layanan"}>
+            layanan
           </Link>
         </p>
       </section>

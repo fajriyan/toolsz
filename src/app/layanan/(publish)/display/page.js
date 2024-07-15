@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Utils = dynamic(() => import("@/app/produk/(publish)/display/utils"), {
+const Utils = dynamic(() => import("@/app/layanan/(publish)/display/utils"), {
   ssr: false,
   loading: () => <span className="">loading</span>,
 });

@@ -6,12 +6,16 @@ const Footer = () => {
       <div className="container mx-auto flex justify-center px-3 md:px-0">
         <div className="text-sm text-center">
           <p>
-            Copyright ©{new Date().getFullYear()} Toolsz | All Rights Reserved{" "}
+            Copyright ©{new Date().getFullYear()} Toolsz. All Rights Reserved{" "}
           </p>
 
           <div className="flex gap-2 mt-1 justify-center">
             <span>Temukan saya : </span>
-            <a href="https://github.com/fajriyan" className="hover:scale-110">
+            <a href="https://github.com/fajriyan" 
+            className="hover:scale-110"
+            target="_blank"
+              rel="noopener"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -25,6 +29,8 @@ const Footer = () => {
             </a>
             <a
               href="https://www.instagram.com/fajriyan.nur/"
+              target="_blank"
+              rel="noopener"
               className="hover:scale-110"
             >
               <svg
@@ -41,6 +47,8 @@ const Footer = () => {
             <a
               href="https://www.linkedin.com/in/fajriyan"
               className="hover:scale-110"
+              target="_blank"
+              rel="noopener"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +59,25 @@ const Footer = () => {
                 viewBox="0 0 16 16"
               >
                 <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+              </svg>
+            </a>
+            <a
+              href="https://fajriyan.pages.dev/"
+              className="hover:scale-110"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-linkedin"
+                viewBox="0 0 16 16"
+              >
+               <path d="m10.495 6.92 1.278-.619a.483.483 0 0 0 .126-.782c-.252-.244-.682-.139-.932.107-.23.226-.513.373-.816.53l-.102.054c-.338.178-.264.626.1.736a.48.48 0 0 0 .346-.027ZM7.741 9.808V9.78a.413.413 0 1 1 .783.183l-.22.443a.6.6 0 0 1-.12.167l-.193.185a.36.36 0 1 1-.5-.516l.112-.108a.45.45 0 0 0 .138-.326M5.672 12.5l.482.233A.386.386 0 1 0 6.32 12h-.416a.7.7 0 0 1-.419-.139l-.277-.206a.302.302 0 1 0-.298.52z"/>
+               <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M1.612 10.867l.756-1.288a1 1 0 0 1 1.545-.225l1.074 1.005a.986.986 0 0 0 1.36-.011l.038-.037a.88.88 0 0 0 .26-.755c-.075-.548.37-1.033.92-1.099.728-.086 1.587-.324 1.728-.957.086-.386-.114-.83-.361-1.2-.207-.312 0-.8.374-.8.123 0 .24-.055.318-.15l.393-.474c.196-.237.491-.368.797-.403.554-.064 1.407-.277 1.583-.973.098-.391-.192-.634-.484-.88-.254-.212-.51-.426-.515-.741a7 7 0 0 1 3.425 7.692 1 1 0 0 0-.087-.063l-.316-.204a1 1 0 0 0-.977-.06l-.169.082a1 1 0 0 1-.741.051l-1.021-.329A1 1 0 0 0 11.205 9h-.165a1 1 0 0 0-.945.674l-.172.499a1 1 0 0 1-.404.514l-.802.518a1 1 0 0 0-.458.84v.455a1 1 0 0 0 1 1h.257a1 1 0 0 1 .542.16l.762.49a1 1 0 0 0 .283.126 7 7 0 0 1-9.49-3.409Z"/>
+
               </svg>
             </a>
           </div>

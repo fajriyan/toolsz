@@ -1,21 +1,21 @@
 import Link from "next/link";
 
-const Produk = () => {
+const Layanan = () => {
   return (
     <div className="">
-      <div className="container mx-auto px-3 md:px-0">
+      <div className="container mx-auto min-h-[82vh] px-3 md:px-0">
         <div className="py-5">
           <h1 className="text-xl text-center font-semibold">
-            Daftar Produk Toolsz
+            Daftar Layanan Toolsz
           </h1>
           <p className="text-center text-xs">
-            Silahkan gunakan Layanan ini dengan Gratis
+            Silahkan gunakan Layanan ini
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4 py-4">
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-5 md:gap-4 py-4">
           {/* Start Card  */}
-          <div className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
+          <Link href="/layanan/word-counter" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -35,19 +35,10 @@ const Produk = () => {
                 Hitung Kata Berulang
               </span>
             </div>
-            <div className="flex gap-1">
-              <Link
-                href="/produk/word-counter"
-                download={true}
-                className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
-              >
-                Buka Produk
-              </Link>
-            </div>
-          </div>
+          </Link>
           {/* End Card  */}
           {/* Start Card  */}
-          <div className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
+          <Link href="/layanan/lorem-generator" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -66,18 +57,11 @@ const Produk = () => {
               </span>
             </div>
             <div className="flex gap-1">
-              <Link
-                href="/produk/lorem-generator"
-                download={true}
-                className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
-              >
-                Buka Produk
-              </Link>
             </div>
-          </div>
+          </Link>
           {/* End Card  */}
           {/* Start Card  */}
-          <div className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
+          <Link href="/layanan/dummy-file" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -95,19 +79,10 @@ const Produk = () => {
                 Download Dummy PDF
               </span>
             </div>
-            <div className="flex gap-1">
-              <Link
-                href="/produk/dummy-file"
-                download={true}
-                className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
-              >
-                Buka Produk
-              </Link>
-            </div>
-          </div>
+          </Link>
           {/* End Card  */}
           {/* Start Card  */}
-          <div className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
+          <Link href="/layanan/display" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -124,19 +99,10 @@ const Produk = () => {
                 Informasi Ukuran Display
               </span>
             </div>
-            <div className="flex gap-1">
-              <Link
-                href="/produk/display"
-                download={true}
-                className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
-              >
-                Buka Produk
-              </Link>
-            </div>
-          </div>
+          </Link>
           {/* End Card  */}
           {/* Start Card  */}
-          <div className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
+          <Link href="/layanan/css-minify" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -153,19 +119,10 @@ const Produk = () => {
                 Compress Baris Kode CSS
               </span>
             </div>
-            <div className="flex gap-1">
-              <Link
-                href="/produk/css-minify"
-                download={true}
-                className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
-              >
-                Buka Produk
-              </Link>
-            </div>
-          </div>
+          </Link>
           {/* End Card  */}
           {/* Start Card  */}
-          <div className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 ">
+          <Link href="/layanan/css-unminify" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -182,16 +139,25 @@ const Produk = () => {
                 Rapikan Kembali Baris Kode CSS
               </span>
             </div>
+          </Link>
+          <Link href="/layanan/convertcase" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              className="bi bi-filetype-pdf"
+              viewBox="0 0 16 16"
+            >
+              <path d="M1.226 10.88H0l2.056-6.26h1.42l2.047 6.26h-1.29l-.48-1.61H1.707l-.48 1.61ZM2.76 5.818h-.054l-.75 2.532H3.51zm3.217 5.062V4.62h2.56c1.09 0 1.808.582 1.808 1.54 0 .762-.444 1.22-1.05 1.372v.055c.736.074 1.365.587 1.365 1.528 0 1.119-.89 1.766-2.133 1.766zM7.18 5.55v1.675h.8c.812 0 1.171-.308 1.171-.853 0-.51-.328-.822-.898-.822zm0 2.537V9.95h.903c.951 0 1.342-.312 1.342-.909 0-.591-.382-.954-1.095-.954zm5.089-.711v.775c0 1.156.49 1.803 1.347 1.803.705 0 1.163-.454 1.212-1.096H16v.12C15.942 10.173 14.95 11 13.607 11c-1.648 0-2.573-1.073-2.573-2.849v-.78c0-1.775.934-2.871 2.573-2.871 1.347 0 2.34.849 2.393 2.087v.115h-1.172c-.05-.665-.516-1.156-1.212-1.156-.849 0-1.347.67-1.347 1.83" />
+            </svg>
+            <h2 className="font-semibold text-center">Convert Case</h2>
             <div className="flex gap-1">
-              <Link
-                href="/produk/css-unminify"
-                download={true}
-                className="px-5 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
-              >
-                Buka Produk
-              </Link>
+              <span className="text-xs text-center p-[4px] rounded-md border">
+                Konversi kepekaan kalimat
+              </span>
             </div>
-          </div>
+          </Link>
           {/* End Card  */}
         </div>
       </div>
@@ -199,4 +165,4 @@ const Produk = () => {
   );
 };
 
-export default Produk;
+export default Layanan;

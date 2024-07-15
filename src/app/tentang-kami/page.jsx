@@ -22,17 +22,15 @@ const TentangKami = () => {
         yang ringan dan mudah digunakan. Kami berkomitmen untuk terus
         memperbarui informasi terkait proyek ini serta menambahkan fitur-fitur
         baru yang bermanfaat melalui repository kami di GitHub yang dapat
-        diakses di bawah akun{" "}
+        diakses pada akun{" "}
         <a
-          className=" underline hover:decoration-blue-800 "
+          className=" underline hover:decoration-blue-500 "
           href="https://github.com/fajriyan"
         >
           fajriyan
         </a>
         . Kami sangat menghargai dukungan dan kontribusi dari semua pihak untuk
-        memajukan proyek ini. Terima kasih atas perhatiannya dan mari kita
-        bersama-sama mengembangkan Toolsz untuk kenyamanan dan kegunaan yang
-        lebih baik bagi pengguna.
+        memajukan proyek ini. Terima kasih.
       </p>
       <div className="mt-5">
         <a
@@ -40,6 +38,12 @@ const TentangKami = () => {
           className="px-5 py-2 bg-slate-800 text-slate-100 rounded-md"
         >
           Hubungi Saya
+        </a>
+        <a
+          href="https://github.com/fajriyan/toolsz/issues/new/choose"
+          className="px-5 py-2 text-slate-800 hover:underline rounded-md"
+        >
+          Ikut berkontribusi
         </a>
       </div>
       {/* <section className="mt-10">

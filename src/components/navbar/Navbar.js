@@ -102,9 +102,9 @@ const Navbar = () => {
           <div className="">
             <div className="flex flex-col w-full gap-1 px-1 py-2 z-[99]">
               <button
-                onClick={() => LinkMobile({ to: "/produk/word-counter" })}
+                onClick={() => LinkMobile({ to: "/layanan/word-counter" })}
                 className={
-                  currentRoute === "/produk/word-counter"
+                  currentRoute === "/layanan/word-counter"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -123,9 +123,9 @@ const Navbar = () => {
                 <div className="">Word Counter</div>
               </button>
               <button
-                onClick={() => LinkMobile({ to: "/produk/lorem-generator" })}
+                onClick={() => LinkMobile({ to: "/layanan/lorem-generator" })}
                 className={
-                  currentRoute === "/produk/lorem-generator"
+                  currentRoute === "/layanan/lorem-generator"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -144,9 +144,9 @@ const Navbar = () => {
                 <div className="">Lorem Generator</div>
               </button>
               <button
-                onClick={() => LinkMobile({ to: "/produk/dummy-file" })}
+                onClick={() => LinkMobile({ to: "/layanan/dummy-file" })}
                 className={
-                  currentRoute === "/produk/dummy-file"
+                  currentRoute === "/layanan/dummy-file"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -165,9 +165,9 @@ const Navbar = () => {
                 <div className="">PDF Dummy</div>
               </button>
               <button
-                onClick={() => LinkMobile({ to: "/produk/display" })}
+                onClick={() => LinkMobile({ to: "/layanan/display" })}
                 className={
-                  currentRoute === "/produk/display"
+                  currentRoute === "/layanan/display"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -185,9 +185,9 @@ const Navbar = () => {
                 <div className="">Display Info</div>
               </button>
               <button
-                onClick={() => LinkMobile({ to: "/produk/css-minify" })}
+                onClick={() => LinkMobile({ to: "/layanan/css-minify" })}
                 className={
-                  currentRoute === "/produk/css-minify"
+                  currentRoute === "/layanan/css-minify"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -205,9 +205,9 @@ const Navbar = () => {
                 <div className="">CSS Minify</div>
               </button>
               <button
-                onClick={() => LinkMobile({ to: "/produk/css-unminify" })}
+                onClick={() => LinkMobile({ to: "/layanan/css-unminify" })}
                 className={
-                  currentRoute === "/produk/css-unminify"
+                  currentRoute === "/layanan/css-unminify"
                     ? "flex items-center gap-2 p-2 bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -225,9 +225,9 @@ const Navbar = () => {
                 <div className="">CSS Unminify</div>
               </button>
               <button
-                onClick={() => LinkMobile({ to: "/produk/convertcase" })}
+                onClick={() => LinkMobile({ to: "/layanan/convertcase" })}
                 className={
-                  currentRoute === "/produk/convertcase"
+                  currentRoute === "/layanan/convertcase"
                     ? "flex items-center gap-2 p-2  bg-slate-50 border rounded-md"
                     : "flex items-center gap-2 p-2 hover:bg-slate-50 border border-white rounded-md"
                 }
@@ -266,26 +266,26 @@ const Navbar = () => {
           <div className="hidden relative md:flex justify-center gap-5 md:w-[73%]">
             <span
               className={`group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer ${
-                currentRoute === "/produk" && "border-slate-500"
+                currentRoute === "/layanan" && "border-slate-500"
               }`}
             >
               <Link
-                href={"/produk"}
+                href={"/layanan"}
                 className="flex flex-grow items-center gap-1"
               >
                 {" "}
-                {currentRoute.startsWith("/produk") &&
-                  (currentRoute !== "/produk") && (
+                {currentRoute.startsWith("/layanan") &&
+                  (currentRoute !== "/layanan") && (
                   <i className="w-2 h-2 rounded-full bg-slate-600"></i>
                 )}{" "}
-                Produk
+                Layanan 
               </Link>
               <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-max bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
                 <div className="grid grid-cols-2 gap-3">
                   <Link
-                    href={"/produk/word-counter"}
+                    href={"/layanan/word-counter"}
                     className={
-                      currentRoute === "/produk/word-counter"
+                      currentRoute === "/layanan/word-counter"
                         ? classStyleDesktopActive
                         : classStyleDesktop
                     }
@@ -304,9 +304,9 @@ const Navbar = () => {
                     <div className="">Word Counter</div>
                   </Link>
                   <Link
-                    href={"/produk/lorem-generator"}
+                    href={"/layanan/lorem-generator"}
                     className={
-                      currentRoute === "/produk/lorem-generator"
+                      currentRoute === "/layanan/lorem-generator"
                         ? classStyleDesktopActive
                         : classStyleDesktop
                     }
@@ -325,9 +325,9 @@ const Navbar = () => {
                     <div className="">Lorem Generator</div>
                   </Link>
                   <Link
-                    href={"/produk/dummy-file"}
+                    href={"/layanan/dummy-file"}
                     className={
-                      currentRoute === "/produk/dummy-file"
+                      currentRoute === "/layanan/dummy-file"
                         ? classStyleDesktopActive
                         : classStyleDesktop
                     }
@@ -346,9 +346,9 @@ const Navbar = () => {
                     <div className="">PDF Dummy</div>
                   </Link>
                   <Link
-                    href={"/produk/display"}
+                    href={"/layanan/display"}
                     className={
-                      currentRoute === "/produk/display"
+                      currentRoute === "/layanan/display"
                         ? classStyleDesktopActive
                         : classStyleDesktop
                     }
@@ -366,9 +366,9 @@ const Navbar = () => {
                     <div className="">Display Info</div>
                   </Link>
                   <Link
-                    href={"/produk/css-minify"}
+                    href={"/layanan/css-minify"}
                     className={
-                      currentRoute === "/produk/css-minify"
+                      currentRoute === "/layanan/css-minify"
                         ? classStyleDesktopActive
                         : classStyleDesktop
                     }
@@ -386,9 +386,9 @@ const Navbar = () => {
                     <div className="">CSS Minify</div>
                   </Link>
                   <Link
-                    href={"/produk/css-unminify"}
+                    href={"/layanan/css-unminify"}
                     className={
-                      currentRoute === "/produk/css-unminify"
+                      currentRoute === "/layanan/css-unminify"
                         ? classStyleDesktopActive
                         : classStyleDesktop
                     }
@@ -406,9 +406,9 @@ const Navbar = () => {
                     <div className="">CSS Unminify</div>
                   </Link>
                   <Link
-                    href={"/produk/convertcase"}
+                    href={"/layanan/convertcase"}
                     className={
-                      currentRoute === "/produk/convertcase"
+                      currentRoute === "/layanan/convertcase"
                         ? classStyleDesktopActive
                         : classStyleDesktop
                     }
