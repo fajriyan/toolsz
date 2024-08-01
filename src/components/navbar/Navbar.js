@@ -265,8 +265,8 @@ const Navbar = () => {
           </Link>
           <div className="hidden relative md:flex justify-center gap-5 md:w-[73%]">
             <span
-              className={`group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer ${
-                currentRoute === "/layanan" && "border-slate-500"
+              className={`group py-[17px] relative border-b-2 font-medium  hover:border-slate-500 cursor-pointer ${
+                currentRoute === "/layanan" ? "border-slate-500" : "border-white"
               }`}
             >
               <Link
@@ -430,8 +430,8 @@ const Navbar = () => {
             </span>
             <Link
               href={"/tentang-kami"}
-              className={`group py-[17px] relative border-b-2 font-medium border-white hover:border-slate-500 cursor-pointer ${
-                currentRoute === "/tentang-kami" && "border-slate-500"
+              className={`group py-[17px] relative border-b-2  font-medium  hover:border-slate-500 cursor-pointer ${
+                currentRoute === "/tentang-kami" ? "border-slate-500" : "border-white"
               }`}
             >
               Tentang Kami
