@@ -44,7 +44,7 @@ const Navbar = () => {
       setMob(false);
     }, 400);
   };
-  
+
   return (
     <>
       <div className="bg-white text-black border-b top-0 sticky">
@@ -266,7 +266,9 @@ const Navbar = () => {
           <div className="hidden relative md:flex justify-center gap-5 md:w-[73%]">
             <span
               className={`group py-[17px] relative border-b-2 font-medium  hover:border-slate-500 cursor-pointer ${
-                currentRoute === "/layanan" ? "border-slate-500" : "border-white"
+                currentRoute === "/layanan"
+                  ? "border-slate-500"
+                  : "border-white"
               }`}
             >
               <Link
@@ -275,10 +277,10 @@ const Navbar = () => {
               >
                 {" "}
                 {currentRoute.startsWith("/layanan") &&
-                  (currentRoute !== "/layanan") && (
-                  <i className="w-2 h-2 rounded-full bg-slate-600"></i>
-                )}{" "}
-                Layanan 
+                  currentRoute !== "/layanan" && (
+                    <i className="w-2 h-2 rounded-full bg-slate-600"></i>
+                  )}{" "}
+                Layanan
               </Link>
               <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-max bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
                 <div className="grid grid-cols-2 gap-3">
@@ -431,7 +433,9 @@ const Navbar = () => {
             <Link
               href={"/tentang-kami"}
               className={`group py-[17px] relative border-b-2  font-medium  hover:border-slate-500 cursor-pointer ${
-                currentRoute === "/tentang-kami" ? "border-slate-500" : "border-white"
+                currentRoute === "/tentang-kami"
+                  ? "border-slate-500"
+                  : "border-white"
               }`}
             >
               Tentang Kami
