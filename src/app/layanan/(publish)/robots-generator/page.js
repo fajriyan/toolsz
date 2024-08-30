@@ -95,7 +95,7 @@ export default function RobotsTxtGenerator() {
         <p className="text-center text-xs">Hasilkan Robots.txt dengan Mudah</p>
       </div>
 
-      <div className="mt-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="mt-7 mb-5 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <div className="mb-4">
             <label className="block mb-2">Default Robot Access</label>
