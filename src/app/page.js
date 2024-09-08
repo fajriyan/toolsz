@@ -9,9 +9,9 @@ export default function Home() {
           {/* Start Bar Update */}
           <Link
             href={"/changelog"}
-            className="py-1 border hover:border-slate-700 group rounded-full w-max flex items-center"
+            className="py-1 border hover:border-slate-700 group rounded-full  w-[300px] md:w-max flex items-center"
           >
-            <span className="px-3 text-[16px]">
+            <span className="px-3 text-[16px] line-clamp-1">
               Version 1.1.0 | Add new tools (Convert Case)
             </span>
             <button className="me-[5px] bg-black rounded-full p-1  hover:bg-slate-900">
@@ -24,7 +24,6 @@ export default function Home() {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
                   d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
                 />
               </svg>
@@ -38,8 +37,8 @@ export default function Home() {
               <span className="underline decoration-yellow-500 z-0">
                 Online{" "}
               </span>{" "}
-              <br />
-              Ringan, Simple di Toolsz
+              <br className="hidden md:block" />
+              Ringan dan Mudah di Toolsz
             </h1>
           </div>
           <p className="md:w-[90%] text-[16px] md:text-[18px]">
@@ -55,7 +54,7 @@ export default function Home() {
               href="/layanan/"
               className="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2 rounded-md w-max flex gap-2 items-center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-tools" viewBox="0 0 16 16">
               <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3q0-.405-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708M3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
             </svg>
               Layanan Kami
@@ -91,16 +90,16 @@ export default function Home() {
 
       <section className="my-10 px-3 md:px-0">
         <div className="py-5">
-          <h2 className="text-2xl text-center font-semibold">
-            Tools Paling Sering Digunakan
+          <h2 className="text-2xl md:text-center font-semibold">
+            Layanan Paling Sering digunakan
           </h2>
-          <p className="text-center text-sm">
-            Semua layanan kami disini dapat di akses secara gratis pada toolsz.
+          <p className="md:text-center mt-2 text-sm">
+            Semua layanan kami dapat di akses secara gratis pada toolsz.
           </p>
         </div>
 
         <div>
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4 py-4">
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-4 py-4">
             {/* Start Card  */}
             <Link
               href={"/layanan/word-counter"}
@@ -115,7 +114,6 @@ export default function Home() {
                 viewBox="0 0 16 16"
               >
                 <path
-                  fill-rule="evenodd"
                   d="M5 2a.5.5 0 0 1 .5-.5c.862 0 1.573.287 2.06.566.174.099.321.198.44.286.119-.088.266-.187.44-.286A4.165 4.165 0 0 1 10.5 1.5a.5.5 0 0 1 0 1c-.638 0-1.177.213-1.564.434a3.49 3.49 0 0 0-.436.294V7.5H9a.5.5 0 0 1 0 1h-.5v4.272c.1.08.248.187.436.294.387.221.926.434 1.564.434a.5.5 0 0 1 0 1 4.165 4.165 0 0 1-2.06-.566A4.561 4.561 0 0 1 8 13.65a4.561 4.561 0 0 1-.44.285 4.165 4.165 0 0 1-2.06.566.5.5 0 0 1 0-1c.638 0 1.177-.213 1.564-.434.188-.107.335-.214.436-.294V8.5H7a.5.5 0 0 1 0-1h.5V3.228a3.49 3.49 0 0 0-.436-.294A3.166 3.166 0 0 0 5.5 2.5.5.5 0 0 1 5 2"
                 />
                 <path d="M10 5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4v1h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4zM6 5V4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v-1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />

@@ -158,6 +158,65 @@ const Layanan = () => {
               </span>
             </div>
           </Link>
+          <Link href="/layanan/convertcase" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              className="bi bi-filetype-pdf"
+              viewBox="0 0 16 16"
+            >
+              <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135" />
+              <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5" />
+            </svg>
+            <h2 className="font-semibold text-center">Robots Generator</h2>
+            <div className="flex gap-1">
+              <span className="text-xs text-center p-[4px] rounded-md border">
+                Hasilkan robots.txt praktis
+              </span>
+            </div>
+          </Link>
+          <Link href="/layanan/convertcase" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              className="bi bi-filetype-pdf"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5M.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5M4 4h1v1H4z"/>
+              <path d="M7 2H2v5h5zM3 3h3v3H3zm2 8H4v1h1z"/>
+              <path d="M7 9H2v5h5zm-4 1h3v3H3zm8-6h1v1h-1z"/>
+              <path d="M9 2h5v5H9zm1 1v3h3V3zM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8zm2 2H9V9h1zm4 2h-1v1h-2v1h3zm-4 2v-1H8v1z"/>
+              <path d="M12 9h2V8h-2z"/>
+            </svg>
+            <h2 className="font-semibold text-center">QR Code Generator</h2>
+            <div className="flex gap-1">
+              <span className="text-xs text-center p-[4px] rounded-md border">
+                Hasilkan QR Code
+              </span>
+            </div>
+          </Link>
+          <Link href="/layanan/convertcase" className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              className="bi bi-filetype-pdf"
+              viewBox="0 0 16 16"
+            >
+              <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
+            </svg>
+            <h2 className="font-semibold text-center">Meta Generator</h2>
+            <div className="flex gap-1">
+              <span className="text-xs text-center p-[4px] rounded-md border">
+                Hasilkan Meta Tag SEO
+              </span>
+            </div>
+          </Link>
           {/* End Card  */}
         </div>
       </div>

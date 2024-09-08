@@ -35,6 +35,7 @@ Cara kedua bisa digunakan apabila ingin melakukan run dengan `offline` dengan la
 Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut rincian teknologi yang digunakan
 * Next JS (React)
 * Tailwind CSS
+* Vercel
 
 ## List Features
 - [x] Word Counter
@@ -55,6 +56,7 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [x] Build Responsive (Tablet and Mobile)
 - [x] Group Product in Mega Menu
 - [x] Improve SEO and Integration with Google Search Console
+- [ ] Add New file PDF Dummy
 
 ### changelog
 - [0.1.0] first commit, alpha version
