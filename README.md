@@ -50,7 +50,13 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [ ] Whois
 - [ ] DNS Lookup 
 - [ ] IP Lookup
-- [ ] Web Scraper 
+- [ ] Web Scraper
+- [ ] Flexbox Playground
+- [ ] Grid Playground
+- [ ] Gradient Generator
+- [ ] JSON Formatter
+- [ ] CSS Keyframe Animation Generator
+- [ ] Barcode & QR Code Generator
 
 ### Next Update
 - [x] Build Responsive (Tablet and Mobile)
