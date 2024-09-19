@@ -331,7 +331,7 @@ const Navbar = () => {
               height={40}
             />
           </Link>
-          <div className="hidden relative md:flex justify-center gap-5 md:w-[73%]">
+          <div className="hidden relative md:flex justify-center gap-6 md:w-[73%]">
             <span
               className={`group py-[17px] relative border-b-2 font-medium  hover:border-slate-500 cursor-pointer ${
                 currentRoute === "/layanan"
@@ -339,17 +339,22 @@ const Navbar = () => {
                   : "border-white"
               }`}
             >
-              <Link
-                href={"/layanan"}
-                className="flex flex-grow items-center gap-1"
-              >
-                {" "}
-                {currentRoute.startsWith("/layanan") &&
-                  currentRoute !== "/layanan" && (
-                    <i className="w-2 h-2 rounded-full bg-slate-600"></i>
-                  )}{" "}
-                Layanan
-              </Link>
+              <div className="flex items-center gap-[7px]">
+                <Link
+                  href={"/layanan"}
+                  className="flex flex-grow items-center gap-1"
+                >
+                  {" "}
+                  {currentRoute.startsWith("/layanan") &&
+                    currentRoute !== "/layanan" && (
+                      <i className="w-2 h-2 rounded-full bg-slate-600"></i>
+                    )}{" "}
+                  Layanan
+                </Link>
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="group-hover:rotate-180 duration-300" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                </svg>
+              </div>
               <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-max bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
                 <div className="grid grid-cols-2 gap-3">
                   <Link
@@ -577,6 +582,16 @@ const Navbar = () => {
             >
               Tentang Kami
             </Link>
+            {/* <Link
+              href={"/blog"}
+              className={`group py-[17px] relative border-b-2  font-medium  hover:border-slate-500 cursor-pointer ${
+                currentRoute === "/blog"
+                  ? "border-slate-500"
+                  : "border-white"
+              }`}
+            >
+              Blog
+            </Link> */}
           </div>
           <div className=" flex items-center gap-2 md:gap-0 justify-end md:w-[21%] lg:w-[13%]">
             <svg

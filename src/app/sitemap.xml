@@ -54,6 +54,24 @@
     <priority>1</priority>
   </url>
   <url>
+    <loc>https://toolsz.vercel.app/layanan/robots-generator</loc>
+    <lastmod>2024-07-21T15:02:24.021Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://toolsz.vercel.app/layanan/qr-generator</loc>
+    <lastmod>2024-07-21T15:02:24.021Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://toolsz.vercel.app/layanan/meta-generator</loc>
+    <lastmod>2024-07-21T15:02:24.021Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
     <loc>https://toolsz.vercel.app/tentang-kami</loc>
     <lastmod>2024-07-21T15:02:24.021Z</lastmod>
     <changefreq>weekly</changefreq>

@@ -36,17 +36,21 @@ export const metadata = {
     "@graph": [
       {
         "@type": "Organization",
-        "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-6.2088",
-        "longitude": "106.8456"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Jakarta",
-          "addressRegion": "DKI Jakarta",
-          "postalCode": "10110",
-          "addressCountry": "ID"
+        "name": "Toolsz",
+        "location": {
+          "@type": "Place",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-6.2088",
+            "longitude": "106.8456"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Jakarta",
+            "addressRegion": "DKI Jakarta",
+            "postalCode": "10110",
+            "addressCountry": "ID"
+          }
         }
       },
       {

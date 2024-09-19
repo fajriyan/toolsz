@@ -11,6 +11,7 @@ export default function Page() {
   const [gap, setGap] = useState("gap-2");
 
   const [cssCode, setCssCode] = useState("");
+  const [htmlCode, setHtmlCode] = useState("");
 
   useEffect(() => {
     // Konversi kelas Tailwind menjadi CSS
@@ -64,6 +65,15 @@ export default function Page() {
   ${cssMap[gap]}
 }`;
     setCssCode(generatedCss);
+
+    // Generate the HTML code string for flex items
+    const generatedHtml = `<div class="container">
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+</div>`;
+    setHtmlCode(generatedHtml);
   }, [justifyContent, alignItems, flexDirection, flexWrap, alignContent, gap]);
 
   const copyToClipboard = () => {
@@ -72,12 +82,19 @@ export default function Page() {
   };
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-3xl font-bold mb-8 text-center">Flexbox Playground</h1>
+    <div className="container mx-auto pb-14">
+      <div className="py-5">
+        <h1 className="text-xl text-center font-semibold">
+          Flexbox Playground | Flexbox Guide
+        </h1>
+        <p className="text-center text-xs">
+          Pelajari Flexbox CSS dengan visual yang mudah dipahami
+        </p>
+      </div>
 
-      <div className="flex flex-wrap justify-center items-start gap-4">
+      <div className="flex flex-wrap justify-center items-start gap-4 mt-5">
         {/* Control Panel */}
-        <div className="flex flex-col gap-4 p-4 bg-gray-100 border rounded-md w-full md:w-1/4">
+        <div className="flex flex-col gap-4 p-4 border rounded-md w-full md:w-1/4">
           <h2 className="text-xl font-bold">Control Panel</h2>
 
           {/* Flex Direction */}
@@ -179,32 +196,41 @@ export default function Page() {
         </div>
 
         {/* Flexbox Container */}
-        <div className="flex-1 bg-gray-200 p-4 rounded-md">
+        <div className="flex-1 border p-4 rounded-md">
           <div
             className={`flex w-full h-[530px] bg-white p-4 rounded-md border ${flexDirection} ${flexWrap} ${justifyContent} ${alignItems} ${alignContent} ${gap}`}
           >
-            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">1</div>
-            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">2</div>
-            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">3</div>
-            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">4</div>
+            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">
+              1
+            </div>
+            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">
+              2
+            </div>
+            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">
+              3
+            </div>
+            <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">
+              4
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Textarea dan Copy Button */}
-      <div className="mt-8">
-        <h2 className="text-xl font-bold mb-4">Generated CSS:</h2>
-        <textarea
-          className="w-full p-4 h-48 border rounded-md mb-4"
-          readOnly
-          value={cssCode}
-        />
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded-md"
-          onClick={copyToClipboard}
-        >
-          Copy CSS
-        </button>
+        {/* Result Panel */}
+        <div className="w-full md:w-1/4 flex flex-col gap-4">
+          {/* Textarea untuk CSS */}
+          <textarea
+            className="w-full h-60 border p-4 rounded-md font-mono text-sm"
+            value={cssCode}
+            readOnly
+          />
+
+          {/* Textarea untuk HTML */}
+          <textarea
+            className="w-full h-60 border p-4 rounded-md font-mono text-sm"
+            value={htmlCode}
+            readOnly
+          />
+        </div>
       </div>
     </div>
   );
