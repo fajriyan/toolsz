@@ -1,15 +1,15 @@
 export const metadata = {
-  title: "Robots.txt Generator untuk SEO | Toolsz",
-  description: "Hasilkan Robots.text dengan mudah untuk optimasi SEO",
+  title: "Flexbox Playground Untuk Developer | Toolsz",
+  description: "Belajar Flexbox dengan visual yang mudah dan salin code.",
   robots:
     "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
   alternates: {
-    canonical: `${process.env.SITE_URL}/layanan/robots-generator`,
+    canonical: `${process.env.SITE_URL}/layanan/flex-playground`,
   },
   openGraph: {
-    title: "Robots.txt Generator untuk SEO | Toolsz",
-    description: "Hasilkan Robots.text dengan mudah untuk optimasi SEO",
-    url: `${process.env.SITE_URL}/layanan/robots-generator`,
+    title: "Flexbox Playground untuk Developer | Toolsz",
+    description: "Belajar Flexbox dengan visual yang mudah dan salin code.",
+    url: `${process.env.SITE_URL}/layanan/flex-playground`,
     type: "website",
     images: [
       {
