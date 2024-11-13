@@ -1,9 +1,9 @@
 import React from 'react'
 
-const sandbox = () => {
+const page = () => {
   return (
-    <div>sandbox</div>
+    <div>page</div>
   )
 }
 
-export default sandbox
+export default page
