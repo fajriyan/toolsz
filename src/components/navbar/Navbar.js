@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 const Menu = [
   {
@@ -411,8 +412,8 @@ const Navbar = () => {
                   />
                 </svg>
               </div>
-              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] md:w-max bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
-                <div className="grid grid-cols-2 gap-3">
+              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute -left-[200px] top-[60px] min-h-[200px] md:w-max bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
+                <div className="grid grid-cols-3 gap-3">
                   <Link
                     href={"/layanan/word-counter"}
                     className={
@@ -727,6 +728,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <Toaster position="top-right"/>
     </>
   );
 };

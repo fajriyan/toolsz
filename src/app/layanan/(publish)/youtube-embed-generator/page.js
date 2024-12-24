@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function Home() {
   const [videoId, setVideoId] = useState('hlWiI4xVXKY');
@@ -35,7 +36,16 @@ export default function Home() {
   const copyEmbedCode = () => {
     const iframeCode = `<iframe src="${embedUrl}" width="560" height="315" allow="autoplay; encrypted-media" title="YouTube Video" class="border rounded-lg shadow-lg"></iframe>`;
     navigator.clipboard.writeText(iframeCode).then(() => {
-      alert('Embed code copied to clipboard!');
+      toast((t) => (
+        <div className="flex items-center gap-2">
+          iframe Berhasil di Copy
+          <button onClick={() => toast.dismiss(t.id)}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+          </svg>
+          </button>
+        </div>
+      ));
     });
   };
 

@@ -87,7 +87,7 @@ export default function Home() {
         </div>
         {/* End Hero Image Assets  */}
       </section>
-
+      
       <section className="my-10 px-3 md:px-0">
         <div className="py-5">
           <h2 className="text-2xl md:text-center font-semibold">
