@@ -671,6 +671,28 @@ const Navbar = () => {
                     </svg>
                     <div className="">Grid Playground</div>
                   </Link>
+                  <Link
+                    href={"/layanan/youtube-embed-generator"}
+                    className={
+                      currentRoute === "/layanan/youtube-embed-generator"
+                        ? classStyleDesktopActive
+                        : classStyleDesktop
+                    }
+                  >
+                    <div className="absolute top-1 right-1 w-[5px] h-[5px] bg-red-600 rounded-full"></div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      className="bi bi-file-earmark-text"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+                    </svg>
+                    <div className="">Youtube Embed</div>
+                  </Link>
                 </div>
               </div>
             </span>
