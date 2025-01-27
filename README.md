@@ -1,4 +1,4 @@
-
+⅞
 <img src="https://github.com/fajriyan/toolsz/assets/56616688/be46e701-d955-4cfe-999f-6161e6ed1fab" style="width:119px"/>
 
 [![Build](https://img.shields.io/github/followers/fajriyan)](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Ffajriyan)
@@ -51,12 +51,12 @@ Project Toolsz bisa dibuat tentunya tidak terlepas dari banyak pihak, berikut ri
 - [ ] DNS Lookup 
 - [ ] IP Lookup
 - [ ] Web Scraper
-- [ ] Flexbox Playground
-- [ ] Grid Playground
+- [x] Flexbox Playground
+- [x] Grid Playground
 - [ ] Gradient Generator
 - [ ] JSON Formatter
 - [ ] CSS Keyframe Animation Generator
-- [ ] Barcode & QR Code Generator
+- [x] Barcode & QR Code Generator
 
 ### Next Update
 - [x] Build Responsive (Tablet and Mobile)
