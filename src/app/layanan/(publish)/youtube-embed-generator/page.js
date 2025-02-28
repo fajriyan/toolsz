@@ -34,13 +34,13 @@ export default function Home() {
   const embedUrl = `https://www.youtube.com/embed/${videoId}?controls=${controls ? 1 : 0}&autoplay=${autoplay ? 1 : 0}&mute=${mute ? 1 : 0}&loop=${loop ? 1 : 0}&showinfo=${showInfo ? 1 : 0}&autohide=${autohide ? 1 : 0}&modestbranding=${modestBranding ? 1 : 0}&rel=${rel ? 1 : 0}&disablekb=${disableKB ? 1 : 0}&enablejsapi=${enableJsApi ? 1 : 0}&iv_load_policy=${ivLoadPolicy}&playlist=${videoId}`;
 
   const copyEmbedCode = () => {
-    const iframeCode = `<iframe src="${embedUrl}" width="560" height="315" allow="autoplay; encrypted-media" title="YouTube Video" class="border rounded-lg shadow-lg"></iframe>`;
+    const iframeCode = `<iframe src="${embedUrl}" width="560" height="315" allow="autoplay; encrypted-media" title="YouTube Video" className="border rounded-lg shadow-lg"></iframe>`;
     navigator.clipboard.writeText(iframeCode).then(() => {
       toast((t) => (
         <div className="flex items-center gap-2">
           iframe Berhasil di Copy
           <button onClick={() => toast.dismiss(t.id)}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
           </svg>
           </button>
@@ -78,7 +78,7 @@ export default function Home() {
               onClick={applyCleanPreset}
               className="bg-slate-800 hover:bg-slate-950 text-white py-2 px-5 rounded-md flex justify-center  items-center gap-2 w-full relative"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eraser" viewBox="0 0 16 16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eraser" viewBox="0 0 16 16">
                 <path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293z"/>
               </svg>
               Terapkan Preset Clean 
@@ -129,7 +129,7 @@ export default function Home() {
           <textarea
             value={`<iframe src="${embedUrl}" width="560" height="315" allow="autoplay; encrypted-media" 
 title="YouTube Video Toolsz" 
-class="">
+className="">
 </iframe>`}
             readOnly
             rows={19}

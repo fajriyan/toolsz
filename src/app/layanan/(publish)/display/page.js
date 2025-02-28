@@ -1,3 +1,4 @@
+"use client"
 import dynamic from "next/dynamic";
 
 const Utils = dynamic(() => import("@/app/layanan/(publish)/display/utils"), {

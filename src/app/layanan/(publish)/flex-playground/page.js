@@ -67,11 +67,11 @@ export default function Page() {
     setCssCode(generatedCss);
 
     // Generate the HTML code string for flex items
-    const generatedHtml = `<div class="container">
-  <div class="box">1</div>
-  <div class="box">2</div>
-  <div class="box">3</div>
-  <div class="box">4</div>
+    const generatedHtml = `<div className="container">
+  <div className="box">1</div>
+  <div className="box">2</div>
+  <div className="box">3</div>
+  <div className="box">4</div>
 </div>`;
     setHtmlCode(generatedHtml);
   }, [justifyContent, alignItems, flexDirection, flexWrap, alignContent, gap]);
