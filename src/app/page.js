@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="container mx-auto ">
-      <section className="flex px-3 md:px-0">
-        <div className="h-[90vh] md:w-[70%] flex flex-wrap flex-col gap-5 justify-center">
+    <main className="">
+      <section className="container mx-auto flex items-center px-3 md:px-0 h-[90dvh] gap-0 sm:gap-14">
+        <div className="w-full md:w-[60%]  flex flex-wrap flex-col gap-5 justify-center">
           {/* Start Bar Update */}
           <Link
             href={"/changelog"}
@@ -23,78 +23,88 @@ export default function Home() {
                 className="bi bi-arrow-right-circle-fill group-hover:animate-pulse"
                 viewBox="0 0 16 16"
               >
-                <path
-                  d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
-                />
+                <path d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
               </svg>
             </button>
           </Link>
           {/* End Bar Update  */}
-
           <div className="">
-            <h1 className="font-bold text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
-              Temukan Tools{" "}
-              <span className="underline decoration-yellow-500 z-0">
-                Online{" "}
+            <h1 className="font-bold text-3xl sm:text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
+              Gunakan{" "}
+              <span className="text-cyan-200 border px-3 rounded-md border-cyan-700 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+                Tools Online
               </span>{" "}
-              <br className="hidden md:block" />
-              Ringan dan Mudah di Toolsz
+              Praktis, Ringan, dan Gratis di Toolsz
             </h1>
           </div>
-          <p className="md:w-[90%] text-[16px] md:text-[18px]">
-            Beragam alat seperti
-            <span className="font-semibold">
-              {" "}
-               Word Counter, Lorem Generator, CSS Minify{" "}
-            </span>{" "}
-            dan banyak lagi. 
+          <p className="md:w-[90%] text-[15px] sm:text-[16px] md:text-[18px]">
+            Toolsz berisi kumpulan tools online gratis yang ringan dan mudah
+            digunakan langsung dari browser Kalian. Didesain untuk mendukung
+            produktivitas tanpa perlu instalasi atau pendaftaran.
           </p>
-          <div className=" flex gap-4 items-center">
-            <Link
-              href="/layanan/"
-              className="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2 rounded-md w-max flex gap-2 items-center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-tools" viewBox="0 0 16 16">
-              <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3q0-.405-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708M3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026z"/>
-            </svg>
-              Layanan Kami
-            </Link>
+          <div className=" flex gap-4 items-center mt-3">
+            <div className="relative group">
+              <Link
+                href="/layanan/"
+                className="relative inline-block p-px font-semibold leading-6 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow-xl  hover:shadow-2xl cursor-pointer rounded-full shadow-emerald-900/30 transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-cyan-600"
+              >
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-sky-600 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                <span className="relative z-10 block px-6 py-2 rounded-full bg-gradient-to-r from-gray-700  to-cyan-950">
+                  <div className="relative z-10 flex items-center space-x-3">
+                    <span className="transition-all text-[14px] duration-500 group-hover:translate-x-1.5 group-hover:text-cyan-300">
+                      Explorasi Sekarang
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-5 h-5 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-cyan-300"
+                    >
+                      <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
+                    </svg>
+                  </div>
+                </span>
+              </Link>
+            </div>
+
             <a
               href="https://github.com/fajriyan/toolsz"
               className="hover:underline flex items-center gap-1"
             >
               <svg
+                className="w-6 h-6 text-gray-800"
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
+                width="24"
+                height="24"
+                fill="currentColor"
+                viewBox="0 0 24 24"
               >
-                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
+                <path d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" />
               </svg>
-              GitHub Stars
             </a>
           </div>
         </div>
         {/* Start Hero Image Assets  */}
-        <div className="flex items-center">
+        <div className="relative md:w-[40%]">
           <Image
-            src="/heros.webp"
+            src="https://images.unsplash.com/photo-1651611243377-2c15b94ad613?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="hero Image"
-            className="hidden md:block"
+            className="hidden md:block h-[400px] object-cover rounded-2xl"
             width={950}
             height={100}
           />
         </div>
         {/* End Hero Image Assets  */}
       </section>
-      
-      <section className="my-10 px-3 md:px-0">
+
+      <section className="container mx-auto my-10 px-3 md:px-0 ">
         <div className="py-5">
           <h2 className="text-2xl md:text-center font-semibold">
-            Layanan Paling Sering digunakan
+            Layanan yang Paling Banyak Digunakan
           </h2>
           <p className="md:text-center mt-2 text-sm">
-            Semua layanan kami dapat di akses secara gratis pada toolsz.
+            Beragam layanan populer yang siap menunjang produktivitas Anda.
           </p>
         </div>
 
@@ -103,7 +113,7 @@ export default function Home() {
             {/* Start Card  */}
             <Link
               href={"/layanan/word-counter"}
-              className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800"
+              className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -113,9 +123,7 @@ export default function Home() {
                 className="bi bi-filetype-pdf"
                 viewBox="0 0 16 16"
               >
-                <path
-                  d="M5 2a.5.5 0 0 1 .5-.5c.862 0 1.573.287 2.06.566.174.099.321.198.44.286.119-.088.266-.187.44-.286A4.165 4.165 0 0 1 10.5 1.5a.5.5 0 0 1 0 1c-.638 0-1.177.213-1.564.434a3.49 3.49 0 0 0-.436.294V7.5H9a.5.5 0 0 1 0 1h-.5v4.272c.1.08.248.187.436.294.387.221.926.434 1.564.434a.5.5 0 0 1 0 1 4.165 4.165 0 0 1-2.06-.566A4.561 4.561 0 0 1 8 13.65a4.561 4.561 0 0 1-.44.285 4.165 4.165 0 0 1-2.06.566.5.5 0 0 1 0-1c.638 0 1.177-.213 1.564-.434.188-.107.335-.214.436-.294V8.5H7a.5.5 0 0 1 0-1h.5V3.228a3.49 3.49 0 0 0-.436-.294A3.166 3.166 0 0 0 5.5 2.5.5.5 0 0 1 5 2"
-                />
+                <path d="M5 2a.5.5 0 0 1 .5-.5c.862 0 1.573.287 2.06.566.174.099.321.198.44.286.119-.088.266-.187.44-.286A4.165 4.165 0 0 1 10.5 1.5a.5.5 0 0 1 0 1c-.638 0-1.177.213-1.564.434a3.49 3.49 0 0 0-.436.294V7.5H9a.5.5 0 0 1 0 1h-.5v4.272c.1.08.248.187.436.294.387.221.926.434 1.564.434a.5.5 0 0 1 0 1 4.165 4.165 0 0 1-2.06-.566A4.561 4.561 0 0 1 8 13.65a4.561 4.561 0 0 1-.44.285 4.165 4.165 0 0 1-2.06.566.5.5 0 0 1 0-1c.638 0 1.177-.213 1.564-.434.188-.107.335-.214.436-.294V8.5H7a.5.5 0 0 1 0-1h.5V3.228a3.49 3.49 0 0 0-.436-.294A3.166 3.166 0 0 0 5.5 2.5.5.5 0 0 1 5 2" />
                 <path d="M10 5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4v1h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4zM6 5V4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v-1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />
               </svg>
               <h3 className="font-semibold text-center">Word Counter</h3>

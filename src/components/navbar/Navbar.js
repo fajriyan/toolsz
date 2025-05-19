@@ -284,7 +284,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="bg-white text-black border-b top-0 sticky">
+      <div className="bg-white text-black border-b top-0 sticky z-[999]">
         {/* Start Menu Mobile  */}
         <div
           className={

@@ -14,3 +14,10 @@
 .scroll-custom::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+.bg-mesh-1{
+    background-color: rgb(41, 37, 36);
+    background-image: radial-gradient(at 94% 11%, rgb(224, 242, 254) 0, transparent 65%), radial-gradient(at 52% 42%, rgb(250, 232, 255) 0, transparent 87%), radial-gradient(at 21% 2%, rgb(6, 95, 70) 0, transparent 2%), radial-gradient(at 23% 99%, rgb(56, 189, 248) 0, transparent 56%), radial-gradient(at 88% 55%, rgb(82, 82, 91) 0, transparent 20%), radial-gradient(at 35% 79%, rgb(4, 120, 87) 0, transparent 50%);
+  
+}
