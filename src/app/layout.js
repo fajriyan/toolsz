@@ -8,126 +8,129 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Temukan Tools Online (Word Counter, Lorem Generator) | Toolsz",
-  description: "Layanan Penyedia Tools Online yang Simple seperti Lorem Generator, Word Counter, PDF Dummy.",
+  description:
+    "Layanan Penyedia Tools Online yang Simple seperti Lorem Generator, Word Counter, PDF Dummy.",
   icons: {
     icon: "/favicon.png",
   },
   keywords: "toolsz, open source, online tools",
-  robots:"follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+  robots:
+    "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
   alternates: {
     canonical: `${process.env.SITE_URL}`,
   },
   openGraph: {
     title: "Temukan Tools Online (Word Counter, Lorem Generator) | Toolsz",
-    description: "Layanan Penyedia Tools Online yang Simple seperti Lorem Generator, Word Counter, PDF Dummy.",
+    description:
+      "Layanan Penyedia Tools Online yang Simple seperti Lorem Generator, Word Counter, PDF Dummy.",
     url: `${process.env.SITE_URL}`,
-    type: 'website',
+    type: "website",
     images: [
       {
-        url: '/_next/image?url=%2Ffavicon.png&w=96&q=75',
+        url: "/_next/image?url=%2Ffavicon.png&w=96&q=75",
         width: 200,
         height: 200,
-        alt: 'Layanan Toolsz'
-      }
+        alt: "Layanan Toolsz",
+      },
     ],
-    site_name: "Toolsz"
+    site_name: "Toolsz",
   },
   schema: {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "name": "Toolsz",
-        "location": {
+        name: "Toolsz",
+        location: {
           "@type": "Place",
-          "geo": {
+          geo: {
             "@type": "GeoCoordinates",
-            "latitude": "-6.2088",
-            "longitude": "106.8456"
+            latitude: "-6.2088",
+            longitude: "106.8456",
           },
-          "address": {
+          address: {
             "@type": "PostalAddress",
-            "addressLocality": "Jakarta",
-            "addressRegion": "DKI Jakarta",
-            "postalCode": "10110",
-            "addressCountry": "ID"
-          }
-        }
+            addressLocality: "Jakarta",
+            addressRegion: "DKI Jakarta",
+            postalCode: "10110",
+            addressCountry: "ID",
+          },
+        },
       },
       {
         "@type": ["ProfessionalService", "Organization"],
-        "name": "Toolsz",
-        "address": {
+        name: "Toolsz",
+        address: {
           "@type": "PostalAddress",
-          "addressLocality": "Jakarta",
-          "addressRegion": "DKI Jakarta",
-          "postalCode": "10110",
-          "addressCountry": "ID"
+          addressLocality: "Jakarta",
+          addressRegion: "DKI Jakarta",
+          postalCode: "10110",
+          addressCountry: "ID",
         },
-        "logo": {
+        logo: {
           "@type": "ImageObject",
-          "url": "https://toolsz.vercel.app/_next/image?url=%2Ffavicon.png&w=96&q=75",
-          "width": 200,
-          "height": 200
-        }
+          url: "https://toolsz.vercel.app/_next/image?url=%2Ffavicon.png&w=96&q=75",
+          width: 200,
+          height: 200,
+        },
       },
       {
         "@type": "WebSite",
-        "name": "Toolsz",
-        "url": "https://toolsz.vercel.app/",
-        "potentialAction": {
+        name: "Toolsz",
+        url: "https://toolsz.vercel.app/",
+        potentialAction: {
           "@type": "SearchAction",
-          "target": "https://toolsz.vercel.app/",
-          "query-input": "required name=search_term_string"
+          target: "https://toolsz.vercel.app/",
+          "query-input": "required name=search_term_string",
         },
-        "image": {
+        image: {
           "@type": "ImageObject",
-          "url": "https://toolsz.vercel.app/_next/image?url=%2Ffavicon.png&w=96&q=75",
-          "width": 200,
-          "height": 200
-        }
+          url: "https://toolsz.vercel.app/_next/image?url=%2Ffavicon.png&w=96&q=75",
+          width: 200,
+          height: 200,
+        },
       },
       {
         "@type": "WebPage",
-        "name": "Toolsz : Layanan Tools Online Simple",
-        "datePublished": "2024-07-20T00:00:00+07:00",
-        "dateModified": "2024-07-20T00:00:00+07:00",
-        "author": {
+        name: "Toolsz : Layanan Tools Online Simple",
+        datePublished: "2024-07-20T00:00:00+07:00",
+        dateModified: "2024-07-20T00:00:00+07:00",
+        author: {
           "@type": "Person",
-          "name": "Fajriyan Nur"
+          name: "Fajriyan Nur",
         },
-        "image": {
+        image: {
           "@type": "ImageObject",
-          "url": "https://avatars.githubusercontent.com/u/56616688?v=4",
-          "width": 200,
-          "height": 200
-        }
+          url: "https://avatars.githubusercontent.com/u/56616688?v=4",
+          width: 200,
+          height: 200,
+        },
       },
       {
         "@type": "Article",
-        "name": "Toolsz : Layanan Tools Online Simple",
-        "datePublished": "2022-08-31T10:02:56+07:00",
-        "dateModified": "2024-05-13T13:21:39+07:00",
-        "author": {
+        name: "Toolsz : Layanan Tools Online Simple",
+        datePublished: "2022-08-31T10:02:56+07:00",
+        dateModified: "2024-05-13T13:21:39+07:00",
+        author: {
           "@type": "Person",
-          "name": "Fajriyan Nur"
+          name: "Fajriyan Nur",
         },
-        "image": {
+        image: {
           "@type": "ImageObject",
-          "url": "https://avatars.githubusercontent.com/u/56616688?v=4",
-          "width": 200,
-          "height": 200
-        }
-      }
-    ]
-  }
+          url: "https://avatars.githubusercontent.com/u/56616688?v=4",
+          width: 200,
+          height: 200,
+        },
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <head>
-      <Script
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-L8KVKEM9NS"
           strategy="afterInteractive"
@@ -141,18 +144,18 @@ export default function RootLayout({ children }) {
           `}
         </Script>
         <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schema) }}
-            />
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(metadata.schema) }}
+        />
         <meta
           name="google-site-verification"
           content="gT1MhrQYGDjzx4R4YXRq6BXsHvBk7C15mksRwb6wUSo"
-          />
+        />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
+          <Navbar />
+          {children}
+          <Footer />
       </body>
     </html>
   );

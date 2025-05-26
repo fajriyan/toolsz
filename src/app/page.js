@@ -1,18 +1,20 @@
+import Changelog from "@/components/Changelog";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="">
-      <section className="container mx-auto flex items-center px-3 md:px-0 h-[90dvh] gap-0 sm:gap-14">
+      <section className="container mx-auto flex items-center px-5 md:px-0 h-[90dvh] gap-0 sm:gap-14">
         <div className="w-full md:w-[60%]  flex flex-wrap flex-col gap-5 justify-center">
           {/* Start Bar Update */}
           <Link
-            href={"/changelog"}
+            href={"https://github.com/fajriyan/toolsz"}
+            target="_blankfc"
             className="py-1 border hover:border-slate-700 group rounded-full  w-[300px] md:w-max flex items-center"
           >
-            <span className="px-3 text-[16px] line-clamp-1">
-              Version 1.1.0 | Add new tools (Convert Case)
+            <span className="px-5 text-[16px] line-clamp-1">
+              <Changelog />
             </span>
             <button className="me-[5px] bg-black rounded-full p-1  hover:bg-slate-900">
               <svg
@@ -31,7 +33,7 @@ export default function Home() {
           <div className="">
             <h1 className="font-bold text-3xl sm:text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
               Gunakan{" "}
-              <span className="text-cyan-200 border px-3 rounded-md border-cyan-700 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+              <span className="text-cyan-200 border px-5 rounded-md border-cyan-700 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
                 Tools Online
               </span>{" "}
               Praktis, Ringan, dan Gratis di Toolsz
@@ -52,7 +54,7 @@ export default function Home() {
                 <span className="relative z-10 block px-6 py-2 rounded-full bg-gradient-to-r from-gray-700  to-cyan-950">
                   <div className="relative z-10 flex items-center space-x-3">
                     <span className="transition-all text-[14px] duration-500 group-hover:translate-x-1.5 group-hover:text-cyan-300">
-                      Explorasi Sekarang
+                      Mulai Explorasi
                     </span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +100,7 @@ export default function Home() {
         {/* End Hero Image Assets  */}
       </section>
 
-      <section className="container mx-auto my-10 px-3 md:px-0 ">
+      <section className="container mx-auto my-[150px] px-5 md:px-0 ">
         <div className="py-5">
           <h2 className="text-2xl md:text-center font-semibold">
             Layanan yang Paling Banyak Digunakan
@@ -213,6 +215,42 @@ export default function Home() {
             layanan
           </Link>
         </p>
+      </section>
+
+      <section className="container mx-auto my-[150px] px-5 md:px-0 grid md:grid-cols-2 gap-10 ">
+        <div className="h-[400px] sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center  bg-cover bg-[url('https://64.media.tumblr.com/dc3489b52b5e40db67341b690629c72e/tumblr_pavrh0RH0D1x6r3nwo1_540.gif')]">
+          <div className="absolute w-full h-full bg-black/70"></div>
+          <div className="relative z-[3] p-5 md:p-10">
+            <h2 className="text-4xl text-white font-light">
+              Butuh tools tapi{" "}
+              <span className="font-bold">Belum tersedia?</span>
+            </h2>
+            <div className="text-white text-lg font-light mt-3 mb-8">
+              Jangan khawatir, ajukan ide kalian maka kami akan wujudkan ide
+              kalian dengan cara yang luar biasa.
+            </div>
+            <a
+              href="https://github.com/fajriyan/toolsz/issues"
+              target="_blank"
+              className="py-3 px-6 border border-white text-white font-medium rounded-lg hover:bg-white hover:text-black block w-max"
+            >
+              Submit Ide Kalian!
+            </a>
+            <p className="absolute hidden md:block lg:-bottom-[10%] right-7 text-xs text-slate-300 mt-1">Tenang ini Gratis kok</p>
+          </div>
+        </div>
+        <div className="sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center bg-cover border border-slate-700">
+          <div className="relative z-[3]  p-5 md:p-10">
+            <h2 className="text-4xl text-black font-light">
+              Terdapat Lebih dari <span className="font-bold">15+ Tools</span>
+            </h2>
+            <div className="text-black text-lg font-light mt-3 mb-8">
+              Nantikan update dari kami terkait tools lainnya, pendekatan
+              pembuatan tools yang digunakan adalah Developer & SEO, namun tidak
+              menutup kemungkinaan untuk menyediakan tools di bidang lain.
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );

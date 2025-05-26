@@ -1,27 +1,29 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import Logout from "@/components/navbar/Logout";
+import Image from "next/image";
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="p-10">
-      <h1 className="text-2xl mb-4">GitHub Profile</h1>
+    <div className="p-10 min-h-screen">
       {session?.user ? (
-        <div className="space-y-2">
-          <img
+        <div className="space-y-2 flex gap-5 items-center">
+          <Image
             src={session.user.image}
             alt="Avatar"
-            className="w-24 h-24 rounded-full"
+            width="100"
+            height="100"
+            className="w-24 h-24 rounded-full border-2 shadow-lg border-slate-800"
           />
-          <p>
-            <strong>Name:</strong> {session.user.name}
-          </p>
-          <p>
-            <strong>Email:</strong> {session.user.email}
-          </p>
-          <Logout />
+          <div className="">
+            <p className="text-2xl font-bold">{session.user.name}</p>
+            <p className="mt-1 text-sm">{session.user.email}</p>
+            <div className="mt-2">
+              <Logout />
+            </div>
+          </div>
         </div>
       ) : (
         <p>Not authenticated</p>
