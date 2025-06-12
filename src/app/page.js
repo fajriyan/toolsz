@@ -218,7 +218,7 @@ export default function Home() {
       </section>
 
       <section className="container mx-auto my-[150px] px-5 md:px-0 grid md:grid-cols-2 gap-10 ">
-        <div className="h-[400px] sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center  bg-cover bg-[url('https://64.media.tumblr.com/dc3489b52b5e40db67341b690629c72e/tumblr_pavrh0RH0D1x6r3nwo1_540.gif')]">
+        <div className="h-[400px] sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center  bg-cover bg-[url('https://i.giphy.com/fMYhlRdVtRnsk.webp')]">
           <div className="absolute w-full h-full bg-black/70"></div>
           <div className="relative z-[3] p-5 md:p-10">
             <h2 className="text-4xl text-white font-light">
