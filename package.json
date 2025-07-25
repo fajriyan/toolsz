@@ -12,6 +12,7 @@
   "dependencies": {
     "autoprefixer": "10.4.16",
     "cheerio": "^1.1.0",
+    "cron-parser": "^5.3.0",
     "diff": "^8.0.2",
     "dompurify": "^3.2.6",
     "eslint": "8.50.0",
