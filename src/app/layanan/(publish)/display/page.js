@@ -11,7 +11,7 @@ const Page = () => {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Informasi Ukuran Layar | Display Info
+          Informasi Ukuran Layar | Developer Tools
         </h1>
         <p className="text-center text-xs">
           Lihat informasi mengenai ukuran layar anda secara online

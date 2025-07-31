@@ -56,7 +56,7 @@ ${items.map((item) => `  <div className="grid-item">${item}</div>`).join("\n")}
     <div className="container mx-auto min-h-[84vh]">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Grid Playground | Grid Guide
+          Grid Playground | Developer Tools
         </h1>
         <p className="text-center text-xs">
           Pelajari Grid CSS dengan visual yang mudah dipahami

@@ -73,7 +73,7 @@ export default function Home() {
     <div className="container mx-auto mb-10 px-3 md:px-0">
       <div className="py-5 mb-10">
         <h1 className="text-xl text-center font-semibold">
-          Meta Generator | HTML Meta Tag
+          Meta Generator | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Membantu Anda membuat tag meta dan detail penting tentang halaman web

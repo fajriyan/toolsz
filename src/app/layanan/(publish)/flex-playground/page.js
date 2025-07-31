@@ -85,7 +85,7 @@ export default function Page() {
     <div className="container mx-auto pb-14">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Flexbox Playground | Flexbox Guide
+          Flexbox Playground | Developer Tools
         </h1>
         <p className="text-center text-xs">
           Pelajari Flexbox CSS dengan visual yang mudah dipahami

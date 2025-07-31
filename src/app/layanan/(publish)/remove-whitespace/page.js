@@ -28,7 +28,7 @@ export default function RemoveWhitespacePage() {
       <div className="container mx-auto pb-[80px] sm:py-0 sm:min-h-[83vh] z-0 px-3 md:px-0">
         <div className="py-5 mb-10">
           <h1 className="text-xl text-center font-semibold">
-            Remove Whitespace | Hapus Whitespace
+            Remove Whitespace | SEO Tools
           </h1>
           <p className="text-center text-xs">
             Bersihkan Whitespace pada kalimat, link atau apapun dengan mudah

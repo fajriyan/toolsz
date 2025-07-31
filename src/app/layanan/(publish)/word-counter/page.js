@@ -74,7 +74,7 @@ const WordCounter = () => {
     <div className="container mx-auto mb-10 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Penghitung Kata Online | Word Counter
+          Penghitung Kata Online | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Hitung jumlah kata dalam sebuah kalimat

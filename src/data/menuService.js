@@ -2,6 +2,7 @@ export const menuService = [
   {
     href: "/layanan/word-counter",
     text: "Word Counter",
+    category: "seo-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -19,6 +20,7 @@ export const menuService = [
   {
     href: "/layanan/lorem-generator",
     text: "Lorem Generator",
+    category: "seo-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +38,7 @@ export const menuService = [
   {
     href: "/layanan/dummy-file",
     text: "PDF Dummy",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -53,6 +56,7 @@ export const menuService = [
   {
     href: "/layanan/display",
     text: "Display Info",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +73,7 @@ export const menuService = [
   {
     href: "/layanan/css-minify",
     text: "CSS Minify",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +90,7 @@ export const menuService = [
   {
     href: "/layanan/css-unminify",
     text: "CSS Unminify",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -101,6 +107,7 @@ export const menuService = [
   {
     href: "/layanan/convertcase",
     text: "Convert Case",
+    category: "seo-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -117,6 +124,7 @@ export const menuService = [
   {
     href: "/layanan/robots-generator",
     text: "Robots Generator",
+    category: "seo-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -134,6 +142,7 @@ export const menuService = [
   {
     href: "/layanan/meta-generator",
     text: "Meta Generator",
+    category: "seo-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -150,6 +159,7 @@ export const menuService = [
   {
     href: "/layanan/qr-generator",
     text: "QR Code Generator",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -170,6 +180,7 @@ export const menuService = [
   {
     href: "/layanan/flex-playground",
     text: "Flex Playground",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -190,6 +201,7 @@ export const menuService = [
   {
     href: "/layanan/grid-playground",
     text: "Grid Playground",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +217,8 @@ export const menuService = [
   },
   {
     href: "/layanan/youtube-embed-generator",
-    text: "Youtube Embed Gen.",
+    text: "Youtube Embed",
+    category: "developer-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -223,6 +236,7 @@ export const menuService = [
   {
     href: "/layanan/remove-whitespace",
     text: "Remove Whitespace",
+    category: "seo-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -239,6 +253,7 @@ export const menuService = [
   {
     href: "/layanan/responsive-tester",
     text: "Responsive Tester",
+    category: "seo-tools",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -258,6 +273,7 @@ export const menuService = [
   {
     href: "/layanan/text-compare",
     text: "Text Compare",
+    category: "seo-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -281,6 +297,7 @@ export const menuService = [
   {
     href: "/layanan/sha-converter",
     text: "SHA Converter",
+    category: "developer-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -304,6 +321,7 @@ export const menuService = [
   {
     href: "/layanan/markdown-converter",
     text: "Markdown Converter",
+    category: "developer-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -327,6 +345,7 @@ export const menuService = [
   {
     href: "/layanan/jsonld-generator",
     text: "JSON LD Generator",
+    category: "seo-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -350,6 +369,7 @@ export const menuService = [
   {
     href: "/layanan/easy-cdn",
     text: "Easy CDN",
+    category: "developer-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -373,6 +393,7 @@ export const menuService = [
   {
     href: "/layanan/find-replace",
     text: "Find Replace",
+    category: "seo-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -395,6 +416,7 @@ export const menuService = [
   {
     href: "/layanan/css-animation",
     text: "CSS Animation",
+    category: "developer-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -418,6 +440,7 @@ export const menuService = [
   {
     href: "/layanan/meta-viewer",
     text: "Meta Viewer",
+    category: "seo-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -446,6 +469,7 @@ export const menuService = [
   {
     href: "/layanan/image-to-text",
     text: "Gambar ke Teks (ORC)",
+    category: "seo-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -469,6 +493,7 @@ export const menuService = [
   {
     href: "/layanan/cron-generator",
     text: "Cron Generator",
+    category: "developer-tools",
     icon: (
       <svg
         className="w-20 h-20 text-gray-800 "
@@ -485,6 +510,29 @@ export const menuService = [
           strokeLinejoin="round"
           strokeWidth="2"
           d="M12 8v4l3 3M3.22302 14C4.13247 18.008 7.71683 21 12 21c4.9706 0 9-4.0294 9-9 0-4.97056-4.0294-9-9-9-3.72916 0-6.92858 2.26806-8.29409 5.5M7 9H3V5"
+        />
+      </svg>
+    ),
+  },
+  {
+    href: "/layanan/regex-tester",
+    text: "Regex Tester",
+    category: "developer-tools",
+    icon: (
+      <svg
+        className="w-20 h-20 text-gray-800"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="2"
+          d="M20 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6h-2m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4m16 6H10m0 0a2 2 0 1 0-4 0m4 0a2 2 0 1 1-4 0m0 0H4"
         />
       </svg>
     ),

@@ -100,7 +100,7 @@ export default function RobotsTxtGenerator() {
     <div className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Robots.txt Generator
+          Robots.txt Generator | SEO Tools
         </h1>
         <p className="text-center text-xs">Hasilkan Robots.txt dengan Mudah</p>
       </div>

@@ -29,7 +29,7 @@ export default function MinifyCssPage() {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          CSS Minify Online & Compressor
+          CSS Minify Online | Developer Tools
         </h1>
         <p className="text-center text-xs">
           Buat baris kode CSS menjadi Kecil dan Ringan

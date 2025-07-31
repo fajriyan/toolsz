@@ -136,7 +136,7 @@ export default function ComparePage() {
     <div className="container mx-auto mb-10 px-3 md:px-0 min-h-screen">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Text Compare | Komparasi Text
+          Text Compare | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Komparasikan 2 text dengan mudah dengan sekali klik

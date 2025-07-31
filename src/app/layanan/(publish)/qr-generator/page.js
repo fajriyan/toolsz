@@ -63,7 +63,7 @@ const QRCodeGenerator = () => {
       <div className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0">
         <div className="py-5 mb-10">
           <h1 className="text-xl text-center font-semibold">
-            QR Code Generator | Buat Code QR
+            QR Code Generator | Developer Tools
           </h1>
           <p className="text-center text-xs">Hasilkan QR Code dengan Praktis dan Cepat</p>
         </div>

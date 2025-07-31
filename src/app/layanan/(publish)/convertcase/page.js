@@ -66,7 +66,7 @@ export default function MinifyCssPage() {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Konversi Kepekaan Kapital | Convert Case
+           Convert Case | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Buat pilihan kepekaan kalimat dengan sekali klik

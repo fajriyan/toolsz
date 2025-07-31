@@ -22,7 +22,7 @@ export default function MarkdownConverterPage() {
       <div className="container mx-auto mb-10 px-3 md:px-0">
         <div className="py-5">
           <h1 className="text-xl text-center font-semibold">
-            Markdown to HTML Converter
+            Markdown to HTML Converter | Developer Tools
           </h1>
           <p className="text-center text-xs">
             Hasilkan HTML dari Markdown secara langsung

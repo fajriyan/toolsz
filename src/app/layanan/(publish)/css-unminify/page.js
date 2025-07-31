@@ -37,7 +37,7 @@ export default function UnminifyCssPage() {
     <div className="container mx-auto h-screen px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          CSS Unminify Online & Uncompress
+          CSS Unminify Online | Developer Tools
         </h1>
         <p className="text-center text-xs">
           Kembalikan Baris kode CSS menjadi Rapi Kembali

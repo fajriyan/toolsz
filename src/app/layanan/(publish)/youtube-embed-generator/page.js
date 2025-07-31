@@ -53,7 +53,7 @@ export default function Home() {
     <div className="mb-10">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Youtube Embed Generator | Sematkan Video
+          Youtube Embed Generator | Developer Tools
         </h1>
         <p className="text-center text-xs">
           Sematkan video youtube pada situs dengan pilihan banyak option mudah

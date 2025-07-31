@@ -22,7 +22,7 @@ export default function ResponsiveTester() {
       <div className="container mx-auto pb-[80px] sm:py-0 sm:min-h-[83vh] z-0 px-3 md:px-0">
         <div className="py-5 mb-10">
           <h1 className="text-xl text-center font-semibold">
-            Responsive Tester, Cek Responsive Website
+            Responsive Tester | SEO Tools
           </h1>
           <p className="text-center text-xs">
             Cek Kemampuan Responsive pada Website Kalian dengan Preset yang umum
@@ -75,7 +75,14 @@ export default function ResponsiveTester() {
             )}
           </div>
 
-          <a href="https://github.com/fajriyan/toolsz/issues" target="_blank" rel="nofollow" className="mt-4 text-xs text-slate-600 hover:underline ">Request Preset Responsive</a>
+          <a
+            href="https://github.com/fajriyan/toolsz/issues"
+            target="_blank"
+            rel="nofollow"
+            className="mt-4 text-xs text-slate-600 hover:underline "
+          >
+            Request Preset Responsive
+          </a>
         </div>
       </div>
     </div>

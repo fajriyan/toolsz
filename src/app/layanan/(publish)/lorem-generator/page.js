@@ -71,7 +71,7 @@ const LoremGenerator = () => {
     <div className="container mx-auto mb-10 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Lorem Ipsum Generator
+          Lorem Ipsum Generator | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Hasilkan Kalimat &quot;Lorem&quot; dengan Mudah
