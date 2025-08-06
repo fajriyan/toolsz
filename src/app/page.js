@@ -36,7 +36,8 @@ export default function Home() {
               <span className="text-cyan-200 border px-5 rounded-md border-cyan-700 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
                 Tools Online
               </span>{" "}
-              Praktis, Ringan, dan Gratis di Toolsz
+              Praktis, Ringan, dan Gratis di{" "}
+              <span className="text-sky-800">Toolsz</span>
             </h1>
           </div>
           <p className="md:w-[90%] text-[15px] sm:text-[16px] md:text-[18px]">
@@ -236,7 +237,9 @@ export default function Home() {
             >
               Submit Ide Kalian!
             </a>
-            <p className="absolute hidden md:block lg:-bottom-[10%] right-7 text-xs text-slate-300 mt-1">Tenang ini Gratis kok</p>
+            <p className="absolute hidden md:block lg:-bottom-[10%] right-7 text-xs text-slate-300 mt-1">
+              Tenang ini Gratis kok
+            </p>
           </div>
         </div>
         <div className="sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center bg-cover border border-slate-700">
