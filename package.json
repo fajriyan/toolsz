@@ -22,6 +22,7 @@
     "marked": "^15.0.12",
     "next": "^15.2.3",
     "next-auth": "^4.24.11",
+    "nspell": "^2.1.5",
     "postcss": "^8.4.31",
     "qrcode.react": "^4.0.1",
     "react": "^19.0.0",
