@@ -1,15 +1,15 @@
 export const metadata = {
-  title: "SHA Converter | Toolsz",
+  title: "SHA Hash Generator | Toolsz",
   description: " Mendukung Konversi SHA 1, SHA 256, SHA 384, SHA 512",
   robots:
     "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
   alternates: {
-    canonical: `${process.env.SITE_URL}/layanan/sha-converter`,
+    canonical: `${process.env.SITE_URL}/layanan/sha-hash-generator`,
   },
   openGraph: {
-    title: "SHA Converter | Toolsz",
+    title: "SHA Hash Generator | Toolsz",
     description: " Mendukung Konversi SHA 1, SHA 256, SHA 384, SHA 512",
-    url: `${process.env.SITE_URL}/layanan/sha-converter`,
+    url: `${process.env.SITE_URL}/layanan/sha-hash-generator`,
     type: "website",
     images: [
       {

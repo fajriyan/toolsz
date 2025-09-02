@@ -29,7 +29,9 @@ export default function SHAForm() {
     <div className="">
       <div className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0">
         <div className="py-5">
-          <h1 className="text-xl text-center font-semibold">SHA Converter | Developer Tools</h1>
+          <h1 className="text-xl text-center font-semibold">
+            SHA Hash Generator | Developer Tools
+          </h1>
           <p className="text-center text-xs">
             Mendukung Konversi SHA 1, SHA 256, SHA 384, SHA 512
           </p>

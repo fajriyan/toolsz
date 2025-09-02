@@ -9,8 +9,7 @@ export default function Home() {
         <div className="w-full md:w-[60%]  flex flex-wrap flex-col gap-5 justify-center">
           {/* Start Bar Update */}
           <Link
-            href={"https://github.com/fajriyan/toolsz"}
-            target="_blankfc"
+            href={"/changelog"}
             className="py-1 border hover:border-slate-700 group rounded-full  w-[300px] md:w-max flex items-center"
           >
             <span className="px-5 text-[16px] line-clamp-1">
