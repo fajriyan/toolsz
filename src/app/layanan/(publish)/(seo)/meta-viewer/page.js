@@ -42,8 +42,8 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="flex gap-10 flex-col md:flex-row">
-        <div className="w-full md:w-[50%]">
+      <div className=" gap-10 flex-col md:flex-row md:w-[80%] xl:w-[50%] mx-auto">
+        <div className="w-full">
           <input
             type="text"
             placeholder="Masukkan URL..."
@@ -60,10 +60,10 @@ export default function HomePage() {
             {loading ? "Memuat..." : "Inspeksi Website"}
           </button>
         </div>
-        <div className="border p-4 rounded h-min sticky top-[80px] w-full md:w-[50%] !z-0">
+        <div className="border p-4 rounded-lg h-min sticky top-[80px] w-full z-0 mt-10">
           <div className="w-full">
-            <h3 className="text-lg font-semibold mb-2">Meta Detail:</h3>
-            <div className="border border-slate-300 min-h-[100px] overflow-x-auto">
+            <h3 className="text-md font-semibold mb-2">Meta Detail:</h3>
+            <div className="border rounded-lg border-slate-300 min-h-[100px] overflow-x-auto">
               <ul className="p-4 space-y-2">
                 {meta.map((item, i) => (
                   <li key={i} className="text-sm">
