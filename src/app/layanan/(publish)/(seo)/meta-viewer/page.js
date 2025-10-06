@@ -8,15 +8,26 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const normalizeUrl = (input) => {
+    if (!input) return "";
+    // kalau belum ada protokol, tambahkan https://
+    if (!/^https?:\/\//i.test(input)) {
+      return `https://${input}`;
+    }
+    return input;
+  };
+
   const fetchMeta = async () => {
     setLoading(true);
     setError("");
     setMeta([]);
 
     try {
+      const finalUrl = normalizeUrl(url);
+
       const res = await fetch("/layanan/meta-viewer/meta", {
         method: "POST",
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url: finalUrl }),
         headers: { "Content-Type": "application/json" },
       });
 
@@ -32,7 +43,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container mx-auto mb-10 px-3 md:px-0">
+    <div className="container mx-auto mb-10 px-3 md:px-0 min-h-[80dvh]">
       <div className="py-5 mb-10">
         <h1 className="text-xl text-center font-semibold">
           Meta Viewer | SEO Tools

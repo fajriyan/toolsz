@@ -42,7 +42,14 @@ export default function ResponsiveTester() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const device = devices[selectedDevice];
+  const device = (() => {
+    for (const group of Object.keys(devices)) {
+      if (devices[group][selectedDevice]) {
+        return devices[group][selectedDevice];
+      }
+    }
+    return null;
+  })();
 
   const fetchHtml = async () => {
     setLoading(true);

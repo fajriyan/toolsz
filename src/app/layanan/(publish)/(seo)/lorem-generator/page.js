@@ -68,7 +68,7 @@ const LoremGenerator = () => {
   }, [words, paragraphs]);
 
   return (
-    <div className="container mx-auto mb-10 px-3 md:px-0">
+    <div className="container mx-auto mb-10 px-3 md:px-0 min-h-[80dvh]">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
           Lorem Ipsum Generator | SEO Tools

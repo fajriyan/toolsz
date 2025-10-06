@@ -1,17 +1,22 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const WordCounter = () => {
   const [styleAlign, setStyleAlign] = useState("text-left");
-  const [density, setDensity] = useState(0);
+  const [showHighlight, setShowHighlight] = useState(false);
   const [excludedWords, setExcludedWords] = useState("");
   const [excludedWordArray, setExcludedWordArray] = useState([]);
   const [text, setText] = useState(
     "Penghitung kata online : Ini adalah contoh kalimat yang berulang, silakan ubah sesuai kebutuhan Anda, jangan khawatir kami tidak mengambil apa pun disini. Alat penghitung kata online adalah aplikasi web yang memungkinkan pengguna untuk menghitung jumlah kata dalam sebuah teks atau dokumen. Dengan menggunakan alat ini, pengguna dapat dengan cepat dan mudah menentukan jumlah kata dalam tulisan mereka, baik itu untuk keperluan akademis, profesional, atau pribadi. Alat ini sering kali dilengkapi dengan fitur tambahan seperti menghitung jumlah karakter, paragraf, dan kalimat. Pengguna hanya perlu menyalin dan menempelkan teks mereka ke dalam alat tersebut, dan hasilnya akan ditampilkan secara instan. Alat ini sangat berguna bagi penulis, editor, mahasiswa, dan siapa pun yang membutuhkan analisis teks yang cepat. "
   );
+  const [activeTab, setActiveTab] = useState(1); // 1 kata default
+
+  // Refs untuk sync scroll
+  const highlightRef = useRef(null);
+  const textareaRef = useRef(null);
 
   useEffect(() => {
-    setExcludedWordArray(excludedWords.split(" "));
+    setExcludedWordArray(excludedWords.split(" ").filter(Boolean));
   }, [excludedWords]);
 
   const punctuation = /[\.,?!]/g;
@@ -32,141 +37,187 @@ const WordCounter = () => {
   const handleChange = (e) => {
     setText(e.target.value);
   };
+  const handleExcludedWordsChange = (e) => setExcludedWords(e.target.value);
 
-  const handleExcludedWordsChange = (e) => {
-    setExcludedWords(e.target.value);
+  // escape html untuk mencegah XSS / tag HTML bermasalah
+  const escapeHtml = (unsafe) =>
+    unsafe
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  // Fungsi untuk cari kata / frasa berulang
+  const findDuplicatePhrases = (n = 1) => {
+    const phrases = {};
+    for (let i = 0; i <= pureWords.length - n; i++) {
+      const phrase = pureWords.slice(i, i + n).join(" ");
+      phrases[phrase] = (phrases[phrase] || 0) + 1;
+    }
+
+    // filter hanya yg muncul lebih dari 1x
+    const filtered = Object.entries(phrases)
+      .filter(([_, count]) => count > 1)
+      .map(([word, count]) => ({
+        word,
+        count,
+        percentage: (count / pureWords.length) * 100,
+      }))
+      .sort((a, b) => b.count - a.count);
+
+    return filtered;
   };
 
-  const findDuplicateWords = () => {
-    const wordCounts = {};
-    pureWords.forEach((word) => {
-      wordCounts[word] = (wordCounts[word] || 0) + 1;
-    });
+  // Data sesuai tab
+  const duplicateData = findDuplicatePhrases(activeTab);
 
-    return wordCounts;
+  const getHighlightedText = (textContent, n, duplicates) => {
+    if (!textContent) return "";
+
+    const highlightSet = new Set(duplicates.map((d) => d.word));
+    const tokens = textContent.split(/(\s+)/); // preserve whitespace as tokens
+    const punctuationLocal = /[\.,?!]/g;
+
+    // indeks token yang berisi kata (bukan whitespace)
+    const wordTokenIndexes = [];
+    for (let i = 0; i < tokens.length; i++) {
+      if (tokens[i].trim() !== "") {
+        wordTokenIndexes.push(i);
+      }
+    }
+
+    // array untuk mark status
+    const marked = new Array(tokens.length).fill(false);
+
+    for (let wi = 0; wi <= wordTokenIndexes.length - n; wi++) {
+      const startTokenIdx = wordTokenIndexes[wi];
+      const endTokenIdx = wordTokenIndexes[wi + n - 1];
+
+      // Ambil N kata (bukan whitespace), normalize
+      const phraseWords = wordTokenIndexes
+        .slice(wi, wi + n)
+        .map((idx) =>
+          tokens[idx].toLowerCase().replace(punctuationLocal, "").trim()
+        )
+        .filter(Boolean);
+
+      const normalized = phraseWords.join(" ");
+
+      if (highlightSet.has(normalized)) {
+        // Cek overlap
+        let overlap = false;
+        for (let k = startTokenIdx; k <= endTokenIdx; k++) {
+          if (marked[k]) {
+            overlap = true;
+            break;
+          }
+        }
+        if (overlap) continue;
+
+        // Wrap seluruh kata dalam range
+        for (let k = startTokenIdx; k <= endTokenIdx; k++) {
+          tokens[k] = `<mark class="bg-yellow-200 text-black">${escapeHtml(
+            tokens[k]
+          )}</mark>`;
+          marked[k] = true;
+        }
+      }
+    }
+
+    // Escape token sisanya
+    for (let i = 0; i < tokens.length; i++) {
+      if (!tokens[i].startsWith("<mark")) {
+        tokens[i] = escapeHtml(tokens[i]);
+      }
+    }
+
+    return tokens.join("");
   };
 
-  const duplicateWordCounts = findDuplicateWords();
+  // Sync scroll: saat textarea discroll, highlight ikut; juga sinkronisasi saat teks/activeTab berubah
+  useEffect(() => {
+    const ta = textareaRef.current;
+    const hl = highlightRef.current;
+    if (!ta || !hl) return;
 
-  const calculateDuplicatePercentages = () => {
-    const duplicatePercentages = {};
+    const onScroll = () => {
+      hl.scrollTop = ta.scrollTop;
+      hl.scrollLeft = ta.scrollLeft;
+    };
 
-    Object.keys(duplicateWordCounts).forEach((word) => {
-      const count = duplicateWordCounts[word];
-      const percentage = (count / pureWords.length) * 100;
-      duplicatePercentages[word] = percentage;
-    });
+    ta.addEventListener("scroll", onScroll);
+    // sync initial
+    hl.scrollTop = ta.scrollTop;
+    hl.scrollLeft = ta.scrollLeft;
 
-    // Mengurutkan kata-kata berdasarkan persentase tertinggi ke terendah
-    const sortedDuplicatePercentages = Object.keys(duplicatePercentages).sort(
-      (a, b) => duplicatePercentages[b] - duplicatePercentages[a]
-    );
+    return () => {
+      ta.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
-    return sortedDuplicatePercentages.map((word) => ({
-      word,
-      percentage: duplicatePercentages[word],
-    }));
-  };
-
-  const duplicateWordPercentages = calculateDuplicatePercentages();
+  // juga update highlight scroll pos ketika konten atau tab berubah (agar tidak mismatch)
+  useEffect(() => {
+    const ta = textareaRef.current;
+    const hl = highlightRef.current;
+    if (ta && hl) {
+      hl.scrollTop = ta.scrollTop;
+      hl.scrollLeft = ta.scrollLeft;
+    }
+  }, [text, activeTab, duplicateData]);
 
   return (
     <div className="container mx-auto mb-10 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Penghitung Kata Online | SEO Tools
+          Keyword Density Online | SEO Tools
         </h1>
         <p className="text-center text-xs">
-          Hitung jumlah kata dalam sebuah kalimat
+          Hitung jumlah kata dalam sebuah kalimat online
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2 md:gap-6">
-        <div className="w-full md:w-[70%] ">
-          <textarea
-            onChange={handleChange}
-            value={text}
-            className={`border h-52 md:h-auto border-slate-700 w-full rounded-md p-2 ${styleAlign}`}
-            cols="30"
-            rows="23"
-          ></textarea>
+      <div className="flex flex-wrap gap-2 md:gap-6 w-full">
+        <div className="w-full lg:w-[70%]">
+          {/* Container absolute overlay + textarea */}
+          <div className="relative w-full h-52 md:h-full border border-slate-700 rounded-md">
+            {/* Highlight layer */}
+            {showHighlight && (
+              <div
+                ref={highlightRef}
+                className={`absolute inset-0 whitespace-pre-wrap p-2 overflow-auto ${styleAlign} text-transparent`}
+                style={{
+                  // text-transparent untuk menyembunyikan teks biasa; <mark> punya text-black jadi akan terlihat
+                  // pastikan font/line-height/padding sama dengan textarea
+                  whiteSpace: "pre-wrap",
+                  pointerEvents: "none",
+                }}
+                dangerouslySetInnerHTML={{
+                  __html: getHighlightedText(text, activeTab, duplicateData),
+                }}
+              />
+            )}
+
+            {/* Textarea layer */}
+            <textarea
+              ref={textareaRef}
+              onChange={handleChange}
+              value={text}
+              className={`absolute inset-0 resize-none w-full h-full p-2 bg-transparent text-black ${styleAlign} overflow-auto`}
+              cols="30"
+              rows="23"
+              // onScroll handled in useEffect via addEventListener on ref
+            />
+          </div>
         </div>
-        <div className="w-full md:w-[27%]">
+
+        <div className="w-full lg:w-[27%]">
+          {/* Detail Kalimat */}
+
           <div className="border border-slate-700 p-2 rounded-md">
             <div className="border-b border-slate-300 pb-1 font-semibold flex justify-between ">
-              <div className="flex items-center gap-2">
-              <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-body-text" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
-              </svg></i>
-              Detail Kalimat:
-              </div>
-              <div className="flex gap-2 ">
-                <button
-                  className={
-                    styleAlign === "text-left"
-                      ? "border border-slate-700 rounded-sm"
-                      : "border border-white"
-                  }
-                  onClick={() => setStyleAlign("text-left")}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"
-                    />
-                  </svg>
-                </button>
-                <button
-                  className={
-                    styleAlign === "text-right"
-                      ? "border border-slate-700 rounded-sm"
-                      : "border border-white"
-                  }
-                  onClick={() => setStyleAlign("text-right")}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"
-                    />
-                  </svg>
-                </button>
-                <button
-                  className={
-                    styleAlign === "text-justify"
-                      ? "border border-slate-700 rounded-sm"
-                      : "border border-white"
-                  }
-                  onClick={() => setStyleAlign("text-justify")}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5m0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5"
-                    />
-                  </svg>
-                </button>
-              </div>
+              <span>Detail Kalimat:</span>
             </div>
-
             <p className="flex justify-between border-b py-1">
               Jumlah Huruf: <span>{wordLetters}</span>
             </p>
@@ -174,45 +225,73 @@ const WordCounter = () => {
               Jumlah Kata: <span>{wordCount}</span>
             </p>
             <p className="flex justify-between border-b py-1">
-              Jumlah Paragraf: <span> {paragraphs.length}</span>
+              Jumlah Paragraf: <span>{paragraphs.length}</span>
             </p>
             <p className="flex justify-between py-1">
-              Waktu Membaca: <span> {readingTime} Menit</span>
+              Waktu Membaca: <span>{readingTime} Menit</span>
             </p>
           </div>
 
+          {/* Kata yang Berulang */}
           <div className="border border-slate-700 mt-5 p-2 rounded-md">
-            <div className="border-b border-slate-300 pb-1 font-semibold flex gap-2 items-center">
-              <i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bricks" viewBox="0 0 16 16">
-                <path d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5zM3 4v2h4.5V4zm5.5 0v2H13V4zM3 10v2h4.5v-2zm5.5 0v2H13v-2zM1 1v2h3.5V1zm4.5 0v2h5V1zm6 0v2H15V1zM1 7v2h3.5V7zm4.5 0v2h5V7zm6 0v2H15V7zM1 13v2h3.5v-2zm4.5 0v2h5v-2zm6 0v2H15v-2z"/>
-              </svg></i> 
+            <div className="border-b border-slate-300 pb-1 font-semibold mb-2">
               Kata yang Berulang:
             </div>
-            <ul className="overflow-y-scroll h-[200px] pr-2 scroll-custom">
-              {duplicateWordPercentages.map((item) => (
-                <li
-                  key={item.word}
-                  className="flex items-center justify-between border-b py-1 text-sm"
+
+            {/* Tabs */}
+            <div className="flex gap-2 mb-3 overflow-x-auto">
+              {[1, 2, 3, 4].map((n) => (
+                <button
+                  key={n}
+                  onClick={() => setActiveTab(n)}
+                  className={`px-3 min-w-max py-1 text-xs rounded ${
+                    activeTab === n
+                      ? "bg-slate-800 text-white"
+                      : "bg-slate-200 text-black"
+                  }`}
                 >
-                  {item.word}
-                  <span className="border border-slate-700 py-[1px] rounded-md pl-1 pr-2">
-                    <span className="bg-slate-800 text-white px-2 rounded-sm font-semibold">{duplicateWordCounts[item.word]}</span>
-                    {" "}
-                    {item.percentage.toFixed(2)}%
-                  </span>
-                </li>
+                  {n} Kata
+                </button>
               ))}
+            </div>
+            <div className="flex items-center gap-2 mb-3 text-xs">
+              <input
+                id="highlight-toggle"
+                type="checkbox"
+                checked={showHighlight}
+                onChange={() => setShowHighlight(!showHighlight)}
+                className="w-4 h-4"
+              />
+              <label htmlFor="highlight-toggle">Tampilkan Highlight</label>
+            </div>
+
+            <ul className="overflow-y-scroll h-[200px] pr-2 scroll-custom">
+              {duplicateData.length === 0 ? (
+                <li className="text-sm text-gray-500">
+                  Tidak ada {activeTab}-kata berulang
+                </li>
+              ) : (
+                duplicateData.map((item) => (
+                  <li
+                    key={item.word}
+                    className="flex items-center justify-between border-b py-1 text-sm"
+                  >
+                    {item.word}
+                    <span className="border border-slate-700 py-[1px] rounded-md pl-1 pr-2">
+                      <span className="bg-slate-800 text-white px-2 rounded-sm font-semibold">
+                        {item.count}
+                      </span>{" "}
+                      {item.percentage.toFixed(2)}%
+                    </span>
+                  </li>
+                ))
+              )}
             </ul>
           </div>
 
+          {/* Pengecualian */}
           <div className="border border-slate-700 mt-5 p-2 rounded-md">
-            <div className="border-b border-slate-300 pb-1 font-semibold mb-2 flex items-center gap-2">
-              <i>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-input-cursor-text" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M5 2a.5.5 0 0 1 .5-.5c.862 0 1.573.287 2.06.566.174.099.321.198.44.286.119-.088.266-.187.44-.286A4.17 4.17 0 0 1 10.5 1.5a.5.5 0 0 1 0 1c-.638 0-1.177.213-1.564.434a3.5 3.5 0 0 0-.436.294V7.5H9a.5.5 0 0 1 0 1h-.5v4.272c.1.08.248.187.436.294.387.221.926.434 1.564.434a.5.5 0 0 1 0 1 4.17 4.17 0 0 1-2.06-.566A5 5 0 0 1 8 13.65a5 5 0 0 1-.44.285 4.17 4.17 0 0 1-2.06.566.5.5 0 0 1 0-1c.638 0 1.177-.213 1.564-.434.188-.107.335-.214.436-.294V8.5H7a.5.5 0 0 1 0-1h.5V3.228a3.5 3.5 0 0 0-.436-.294A3.17 3.17 0 0 0 5.5 2.5.5.5 0 0 1 5 2"/>
-                <path d="M10 5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4v1h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4zM6 5V4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v-1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/>
-              </svg>
-              </i>
+            <div className="border-b border-slate-300 pb-1 font-semibold mb-2">
               Pengecualian Kata:
             </div>
             <input

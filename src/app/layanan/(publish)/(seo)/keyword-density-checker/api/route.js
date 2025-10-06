@@ -134,6 +134,11 @@ export async function POST(req) {
     const html = await res.text();
 
     const $ = cheerio.load(html);
+
+    // buang elemen yang bukan konten
+    $("script, style, noscript, meta, link, svg").remove();
+
+    // ambil teks murni dari body
     const bodyText = $("body").text();
 
     const cleanedText = cleanText(bodyText);
