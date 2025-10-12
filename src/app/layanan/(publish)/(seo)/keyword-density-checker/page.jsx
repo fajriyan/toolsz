@@ -80,7 +80,7 @@ export default function KeywordCheckerPage() {
 
   return (
     <div>
-      <div className="container mx-auto min-h-[84vh] pb-20 px-3 lg:px-0">
+      <div className="container mx-auto min-h-[84vh] pb-10 px-3 lg:px-0">
         <div className="py-5">
           <h1 className="text-xl text-center font-semibold">
             Keyword Density Checker | SEO Tools
@@ -90,8 +90,8 @@ export default function KeywordCheckerPage() {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-7 mt-8">
-          <div className="md:w-[30%]">
+        <div className="flex flex-col md:w-[80%] xl:w-[50%] mx-auto gap-7 mt-8">
+          <div className="">
             <input
               type="text"
               placeholder="Masukkan URL halaman"
@@ -167,7 +167,7 @@ export default function KeywordCheckerPage() {
               )}
             </div>
           </div>
-          <div className="md:w-[70%] border border-slate-300 p-6 rounded-md">
+          <div className=" border border-slate-300 p-6 rounded-md">
             {displayedNgrams.length > 0 ? (
               <div className="mx-auto">
                 <h3 className="font-semibold mb-2">

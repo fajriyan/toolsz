@@ -73,7 +73,7 @@ export default function MinifyCssPage() {
         </p>
       </div>
 
-      <div>
+      <div className="md:w-[80%] xl:w-[50%] mx-auto">
         <h2>Masukkan kalimat dibawah</h2>
         <div>
           <textarea

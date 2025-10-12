@@ -22,7 +22,7 @@ export default function Home() {
       <div className="container mx-auto min-h-[82vh] px-3 md:px-0">
         <div className="py-5">
           <h1 className="text-xl text-center font-semibold">
-            Typo Detector | SEO Tools
+            Typo Detector | SEO Tools (Alpha 1)
           </h1>
           <p className="text-center text-xs mt-1">
             Silahkan cek kalimat kalian, apakah terdapat typo yang bisa di

@@ -618,7 +618,7 @@ export const menuService = [
   },
   {
     href: "/layanan/typo-detector",
-    top: 1,
+    top: 0,
     text: "Typo Detector ",
     category: "SEO Tools",
     icon: (

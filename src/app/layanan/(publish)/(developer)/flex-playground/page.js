@@ -92,9 +92,9 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center items-start gap-4 mt-5">
+      <div className="flex flex-col lg:flex-row justify-center items-start gap-4 mt-5 px-3 lg:px-0">
         {/* Control Panel */}
-        <div className="flex flex-col gap-4 p-4 border rounded-md w-full md:w-1/4">
+        <div className="flex flex-col gap-4 p-4 border rounded-md w-full lg:w-1/4">
           <h2 className="text-xl font-bold">Control Panel</h2>
 
           {/* Flex Direction */}
@@ -196,9 +196,9 @@ export default function Page() {
         </div>
 
         {/* Flexbox Container */}
-        <div className="flex-1 border p-4 rounded-md">
+        <div className="flex-1 border p-4 rounded-md w-full">
           <div
-            className={`flex w-full h-[530px] bg-white p-4 rounded-md border ${flexDirection} ${flexWrap} ${justifyContent} ${alignItems} ${alignContent} ${gap}`}
+            className={`flex w-full h-[300px] lg:h-[530px] bg-white p-4 rounded-md border ${flexDirection} ${flexWrap} ${justifyContent} ${alignItems} ${alignContent} ${gap}`}
           >
             <div className="w-24 h-24 bg-slate-800 text-white flex justify-center items-center rounded-md">
               1
@@ -216,7 +216,7 @@ export default function Page() {
         </div>
 
         {/* Result Panel */}
-        <div className="w-full md:w-1/4 flex flex-col gap-4">
+        <div className="w-full lg:w-1/4 flex flex-col gap-4">
           {/* Textarea untuk CSS */}
           <textarea
             className="w-full h-60 border p-4 rounded-md font-mono text-sm"

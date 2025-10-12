@@ -36,7 +36,7 @@ export default function SHAForm() {
             Mendukung Konversi SHA 1, SHA 256, SHA 384, SHA 512
           </p>
         </div>
-        <div className="">
+        <div className="md:w-[80%] xl:w-[50%] mx-auto">
           <div className="mb-4">
             <label className="block font-medium mb-2">Text to Hash:</label>
             <textarea

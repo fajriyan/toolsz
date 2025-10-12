@@ -1,27 +1,27 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function RemoveWhitespacePage() {
-  const [input, setInput] = useState('')
-  const [output, setOutput] = useState('')
-  const [copied, setCopied] = useState(false)
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const handleRemoveWhitespace = () => {
-    const cleaned = input.replace(/\s+/g, '')
-    setOutput(cleaned)
-    setCopied(false)
-  }
+    const cleaned = input.replace(/\s+/g, "");
+    setOutput(cleaned);
+    setCopied(false);
+  };
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(output)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000) // Reset "copied" after 2 seconds
+      await navigator.clipboard.writeText(output);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset "copied" after 2 seconds
     } catch (err) {
-      console.error('Failed to copy!', err)
+      console.error("Failed to copy!", err);
     }
-  }
+  };
 
   return (
     <div>
@@ -34,8 +34,8 @@ export default function RemoveWhitespacePage() {
             Bersihkan Whitespace pada kalimat, link atau apapun dengan mudah
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between gap-10">
-          <div className="sm:w-[50%]">
+        <div className="flex flex-col gap-10 md:w-[80%] xl:w-[50%] mx-auto">
+          <div className="">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -49,7 +49,7 @@ export default function RemoveWhitespacePage() {
               Hapus Whitespace
             </button>
           </div>
-          <div className="sm:w-[50%]">
+          <div className="">
             <textarea
               value={output}
               readOnly
@@ -60,11 +60,45 @@ export default function RemoveWhitespacePage() {
               onClick={handleCopy}
               className="mt-4 bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
             >
-              {copied ? 'Berhasil Copy!' : 'Copy Hasil'}
+              {copied ? (
+                <svg
+                  className="w-6 h-6 text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6 text-white"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"
+                  />
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

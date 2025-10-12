@@ -42,7 +42,7 @@ export default function BcryptPage() {
           Hasilkan hash bcrypt dengan mudah dan verifikasi keasliannya.
         </p>
       </div>
-      <div className="flex gap-10">
+      <div className="flex flex-col gap-8 md:w-[80%] xl:w-[50%] mx-auto pb-10">
         {/* Generate Hash */}
         <div className="bg-white p-4 rounded border border-slate-700 w-full">
           <h2 className="text-xl font-bold mb-2">Generate Hash</h2>

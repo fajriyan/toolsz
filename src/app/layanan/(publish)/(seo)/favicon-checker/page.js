@@ -44,7 +44,7 @@ export default function FaviconCheckerPage() {
         </p>
       </div>
 
-      <div className="max-w-xl mx-auto min-h-[67dvh]">
+      <div className=" md:w-[80%] xl:w-[50%] mx-auto min-h-[67dvh]">
         <input
           type="text"
           placeholder="Masukkan URL (https://...)"
@@ -55,7 +55,7 @@ export default function FaviconCheckerPage() {
         <button
           onClick={fetchIcons}
           disabled={loading}
-          className="block bg-gradient-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg"
+          className="block bg-gradient-to-r w-max from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] text-center cursor-pointer rounded-lg"
         >
           {loading ? "Memuat..." : "Periksa Favicon"}
         </button>

@@ -1,44 +1,47 @@
-"use client"
-import { useState } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
-import Image from 'next/image';
+"use client";
+import { useState } from "react";
+import { QRCodeCanvas } from "qrcode.react";
+import Image from "next/image";
 
 const QRCodeGenerator = () => {
-  const [inputType, setInputType] = useState('text');
-  const [inputValue, setInputValue] = useState('');
-  const [qrColor, setQrColor] = useState('#000000');
-  const [error, setError] = useState('');
+  const [inputType, setInputType] = useState("text");
+  const [inputValue, setInputValue] = useState("");
+  const [qrColor, setQrColor] = useState("#000000");
+  const [error, setError] = useState("");
 
   const handleTypeChange = (e) => {
     setInputType(e.target.value);
-    setInputValue('');
-    setError('');
+    setInputValue("");
+    setError("");
   };
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
-    setError('');
+    setError("");
   };
 
   const validateInput = () => {
-    if (inputType === 'url' && !inputValue.match(/^https?:\/\/.+/)) {
-      setError('Format URL salah, mulai dengan http:// or https://');
+    if (inputType === "url" && !inputValue.match(/^https?:\/\/.+/)) {
+      setError("Format URL salah, mulai dengan http:// or https://");
       return false;
     }
-    if (inputType === 'email' && !inputValue.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      setError('Format Email salah, silahkan perbaiki');
+    if (
+      inputType === "email" &&
+      !inputValue.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
+    ) {
+      setError("Format Email salah, silahkan perbaiki");
       return false;
     }
     return true;
   };
 
   const generateQRCode = () => {
-    if (!validateInput()) return '';
-    
+    if (!validateInput()) return "";
+
     switch (inputType) {
-      case 'url':
+      case "url":
         return inputValue;
-      case 'email':
+      case "email":
         return `mailto:${inputValue}`;
       default:
         return inputValue;
@@ -46,13 +49,13 @@ const QRCodeGenerator = () => {
   };
 
   const handleDownload = () => {
-    const canvas = document.querySelector('canvas');
+    const canvas = document.querySelector("canvas");
     const pngUrl = canvas
-      .toDataURL('image/png')
-      .replace('image/png', 'image/octet-stream');
-    const downloadLink = document.createElement('a');
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    const downloadLink = document.createElement("a");
     downloadLink.href = pngUrl;
-    downloadLink.download = 'qrcode.png';
+    downloadLink.download = "qrcode.png";
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -65,52 +68,63 @@ const QRCodeGenerator = () => {
           <h1 className="text-xl text-center font-semibold">
             QR Code Generator | Developer Tools
           </h1>
-          <p className="text-center text-xs">Hasilkan QR Code dengan Praktis dan Cepat</p>
+          <p className="text-center text-xs">
+            Hasilkan QR Code dengan Praktis dan Cepat
+          </p>
         </div>
-        <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-[70%]">
+        <div className="md:w-[80%] xl:w-[50%] mx-auto min-h-[67dvh]">
+          <div className="w-full">
             <div className="flex gap-3 w-full">
-
-            <select className="w-[100px] border border-slate-700 py-[9px] rounded-md" onChange={handleTypeChange} value={inputType}>
-              <option value="text">Text</option>
-              <option value="url">URL</option>
-              <option value="email">Email</option>
-            </select>
-
-            <input
-              type="text"
-              className="w-[300px] md:w-1/2 border border-slate-700 p-2 rounded-md"
-              placeholder={`Enter ${inputType}`}
-              value={inputValue}
-              onChange={handleChange}
-            />
+              <input
+                type="text"
+                className="w-full border border-slate-700 p-2 rounded-md"
+                placeholder={`Enter ${inputType}`}
+                value={inputValue}
+                onChange={handleChange}
+              />
             </div>
-
 
             {error && <p className="text-xs mt-1 text-red-600">{error}</p>}
 
-            <div className="mt-5">
-              <h2>Gaya QR Code</h2>
-              <div className="flex items-center gap-3 mt-2">
-                <input 
-                  type="color" 
-                  value={qrColor} 
-                  className="rounded-md h-10 w-10 border-2 border-gray-300 cursor-pointer"
-                  onChange={(e) => setQrColor(e.target.value)} 
-                  title="Choose QR Code color"
-                />
-                <span className="text-sm text-gray-700">
-                  {qrColor.toUpperCase()}
-                </span>
+            <div className="mt-5 flex justify-start gap-5">
+              <select
+                className="min-w-[50%] sm:min-w-[30%] border border-slate-700 rounded-md"
+                onChange={handleTypeChange}
+                value={inputType}
+              >
+                <option value="text">Text</option>
+                <option value="url">URL</option>
+                <option value="email">Email</option>
+              </select>
+              <div className="min-w-[50%] sm:min-w-[30%]">
+                <div className="flex items-center gap-3 mt-2">
+                  <input
+                    type="color"
+                    value={qrColor}
+                    className="rounded-md h-8 w-8 border-2 border-gray-300 cursor-pointer"
+                    onChange={(e) => setQrColor(e.target.value)}
+                    title="Choose QR Code color"
+                  />
+                  <span className="text-sm text-gray-700">
+                    {qrColor.toUpperCase()}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-          <div className="mt-5 md:mt-0 md:w-[30%]">
+          <div className="mt-10 w-full flex flex-col items-center justify-center border border-slate-500 p-5 rounded-lg">
             {inputValue && !error ? (
               <>
-                <QRCodeCanvas value={generateQRCode()} size={250} fgColor={qrColor} />
+                <QRCodeCanvas
+                  value={generateQRCode()}
+                  size={250}
+                  fgColor={qrColor}
+                />
                 <div className="mt-5">
-                  <button onClick={handleDownload} className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex gap-2 items-center">
+                  <button
+                    onClick={handleDownload}
+                    className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex gap-2 items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -127,7 +141,13 @@ const QRCodeGenerator = () => {
                 </div>
               </>
             ) : (
-              <Image className="opacity-60 animate-pulse" src="/assets/images/placolder-qr.png" alt="hero Image" width={250} height={250}/>
+              <Image
+                className="opacity-60 animate-pulse"
+                src="/assets/images/placolder-qr.png"
+                alt="hero Image"
+                width={250}
+                height={250}
+              />
             )}
           </div>
         </div>

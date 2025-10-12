@@ -64,7 +64,7 @@ export default function CDNGenerator() {
 
   return (
     <>
-      <div className="container mx-auto min-h-screen px-3 md:px-0 pb-32">
+      <div className="container mx-auto min-h-screen px-3 md:px-0 pb-10">
         <div className="py-5">
           <h1 className="text-xl text-center font-semibold">
             Easy CDN Importer | Developer Tools
@@ -74,8 +74,8 @@ export default function CDNGenerator() {
           </p>
         </div>
 
-        <div className="flex ">
-          <div className="w-[50%]">
+        <div className="flex flex-col gap-8 md:w-[80%] xl:w-[50%] mx-auto">
+          <div className=" border border-slate-300 p-4 rounded-lg">
             {Object.entries(cdnGroups).map(([group, items]) => (
               <div key={group} className="mb-4">
                 <h2 className="text-lg font-semibold">{group}</h2>
@@ -96,10 +96,10 @@ export default function CDNGenerator() {
             ))}
           </div>
 
-          <div className="w-[50%] border border-slate-300 rounded-md p-3">
+          <div className=" border border-slate-300 rounded-md p-3">
             <h3 className="mb-2 font-semibold">Generated CDN Scripts:</h3>
             <textarea
-              className="w-full h-[75%] p-4 font-mono border border-slate-300 rounded-md text-xs overflow-x-auto"
+              className="w-full min-h-[300px] p-2 font-mono border border-slate-300 rounded-md text-xs overflow-x-auto"
               value={getScripts()}
               ref={previewRef}
               readOnly
@@ -126,7 +126,7 @@ export default function CDNGenerator() {
           </div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6  md:w-[80%] xl:w-[50%] mx-auto">
           <label className="flex items-center gap-2">
             <input
               type="checkbox"
