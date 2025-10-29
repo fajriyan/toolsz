@@ -4,10 +4,13 @@ import * as cheerio from "cheerio";
 
 export async function POST(req) {
   try {
-    const { url: rawUrl } = await req.json();
+    const { url: rawUrl, includeBackground = false } = await req.json(); // 🆕
 
     if (!rawUrl)
-      return Response.json({ error: "URL tidak boleh kosong" }, { status: 400 });
+      return Response.json(
+        { error: "URL tidak boleh kosong" },
+        { status: 400 }
+      );
 
     // Normalisasi URL
     let url = rawUrl.trim();
@@ -15,7 +18,6 @@ export async function POST(req) {
 
     const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
-    // Ambil HTML (retries + timeout)
     async function fetchHTML(target, retries = 3) {
       try {
         const res = await axios.get(target, {
@@ -45,44 +47,63 @@ export async function POST(req) {
     const html = await fetchHTML(url);
     const $ = cheerio.load(html);
 
-    // Bersihkan elemen tidak perlu
     $("script, style, noscript, svg, iframe, template, meta, link").remove();
     $("[hidden], [aria-hidden='true'], [style*='display:none']").remove();
 
-    // Ambil gambar absolut
+    // Ambil gambar dari <img> dan data-src
     const imgs = $("img")
       .map((_, el) => $(el).attr("src") || $(el).attr("data-src"))
       .get()
       .filter(Boolean)
-      .filter((src) => !src.startsWith("data:image")) // skip base64
-      .map((src) => {
-        if (src.startsWith("//")) return "https:" + src;
-        if (src.startsWith("/")) {
-          try {
-            const u = new URL(url);
-            return `${u.origin}${src}`;
-          } catch {
-            return src;
-          }
+      .filter((src) => !src.startsWith("data:image"))
+      .map((src) => normalizeUrl(src, url));
+
+    // 🆕 Ambil background-image dari inline style
+    let bgImgs = [];
+    if (includeBackground) {
+      $("[style*='background']").each((_, el) => {
+        const style = $(el).attr("style") || "";
+        // const matches = style.match(/background(?:-image)?:\s*url\((['"]?)(.*?)\1\)/gi);
+        const matches = style.match(/background(?:-image)?\s*:\s*[^;]*url\((['"]?)(.*?)\1\)/gi);
+        if (matches) {
+          matches.forEach((m) => {
+            const urlMatch = m.match(/url\((['"]?)(.*?)\1\)/i);
+            if (urlMatch && urlMatch[2]) {
+              bgImgs.push(normalizeUrl(urlMatch[2], url));
+            }
+          });
         }
-        return src;
       });
+    }
 
-    // Hapus duplikat dan kosong
-    const uniqueImgs = [...new Set(imgs)];
+    // Gabungkan dan hapus duplikat
+    const uniqueImgs = [...new Set([...imgs, ...bgImgs].filter(Boolean))];
 
-    const result = {
+    return Response.json({
       url,
       total_images: uniqueImgs.length,
       images: uniqueImgs,
-    };
-
-    return Response.json(result);
+    });
   } catch (err) {
     console.error("Image Extractor error:", err);
     return Response.json(
       { error: `Gagal mengambil gambar: ${err.message}` },
       { status: 500 }
     );
+  }
+}
+
+// 🧩 helper buat URL absolut
+function normalizeUrl(src, base) {
+  try {
+    if (src.startsWith("//")) return "https:" + src;
+    if (src.startsWith("/")) return new URL(src, base).toString();
+    if (!/^https?:\/\//i.test(src)) {
+      const u = new URL(base);
+      return `${u.origin}/${src}`;
+    }
+    return src;
+  } catch {
+    return src;
   }
 }

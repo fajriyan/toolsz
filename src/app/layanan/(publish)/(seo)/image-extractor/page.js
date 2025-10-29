@@ -12,6 +12,7 @@ export default function Page() {
   const [orderBy, setOrderBy] = useState("normal");
   const [sizes, setSizes] = useState({});
   const [selected, setSelected] = useState([]);
+  const [includeBackground, setIncludeBackground] = useState(false);
 
   const [downloading, setDownloading] = useState(false);
   const [downloadingAll, setDownloadingAll] = useState(false);
@@ -28,7 +29,7 @@ export default function Page() {
       const res = await fetch("/layanan/image-extractor/api", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url }),
+        body: JSON.stringify({ url, includeBackground }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Terjadi kesalahan di server");
@@ -264,7 +265,7 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="flex flex-col md:w-[80%] xl:w-[50%] mx-auto gap-7 mt-8">
+      <div className="flex flex-col md:w-[80%] xl:w-[50%] mx-auto gap-4 mt-8">
         <div className="">
           <input
             type="text"
@@ -281,6 +282,15 @@ export default function Page() {
             {loading ? "Memuat Website..." : "Identifikasi Website"}
           </button>
         </div>
+        <label className="flex items-center gap-2 text-sm mb-4">
+          <input
+            type="checkbox"
+            checked={includeBackground}
+            onChange={(e) => setIncludeBackground(e.target.checked)}
+            className="accent-slate-800"
+          />
+          Sertakan background-image (CSS)
+        </label>
       </div>
 
       <div className="mt-10">
