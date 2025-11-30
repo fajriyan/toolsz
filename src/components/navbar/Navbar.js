@@ -248,7 +248,7 @@ function NavbarContent() {
             <a
               href="https://saweria.co/fajriyan"
               target="_blank"
-              className="hidden sm:flex bg-gradient-to-r from-gray-800 to-slate-900 font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center"
+              className="hidden sm:flex bg-gradient-to-r hover:ring-2 ring-cyan-600 from-gray-800 to-slate-900 font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center"
             >
               Dukung Kami
             </a>

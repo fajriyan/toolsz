@@ -35,7 +35,7 @@ const TentangKami = () => {
       <div className="mt-5">
         <a
           href="https://www.linkedin.com/in/fajriyan/"
-          className="px-5 py-2 bg-slate-800 text-slate-100 rounded-md"
+          className="px-5 py-2 bg-slate-800 text-slate-100 rounded-lg hover:bg-cyan-900"
         >
           Hubungi Saya
         </a>
@@ -46,12 +46,6 @@ const TentangKami = () => {
           Ikut berkontribusi
         </a>
       </div>
-      {/* <section className="mt-10">
-        <h2 className="font-semibold text-lg">List Fitur</h2>
-        Word Counter, Lorem Ipsum Generator, Dummy File Download, Simple Logic
-        Gate, MD5 GENERATOR, Whois, DNS Lookup, IP Lookup, Web Scraper, Display
-        Resolution View
-      </section> */}
     </div>
   );
 };

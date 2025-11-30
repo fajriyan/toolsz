@@ -1,4 +1,5 @@
 import Changelog from "@/components/Changelog";
+import GalleryFadeSlide from "@/components/GalleryFadeSlide";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,9 +33,12 @@ export default function Home() {
           <div className="">
             <h1 className="font-bold text-3xl sm:text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
               Gunakan{" "}
-              <span className="text-cyan-200 border px-5 rounded-md border-cyan-700 bg-gradient-to-r from-gray-700 via-gray-900 to-black">
+              <Link
+                href={"/layanan"}
+                className="text-cyan-200 border px-5 rounded-md duration-500 transition-colors border-cyan-700 bg-gradient-to-r hover:to-cyan-900 from-gray-700 via-gray-900 to-black"
+              >
                 Tools Online
-              </span>{" "}
+              </Link>{" "}
               Praktis, Ringan, dan Gratis di{" "}
               <span className="text-sky-800">Toolsz</span>
             </h1>
@@ -48,24 +52,9 @@ export default function Home() {
             <div className="relative group">
               <Link
                 href="/layanan/"
-                className="relative inline-block p-px font-semibold leading-6 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black shadow-xl  hover:shadow-2xl cursor-pointer rounded-full shadow-emerald-900/30 transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-cyan-600"
+                className="relative inline-block p-px font-semibold leading-6 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black cursor-pointer rounded-xl shadow-emerald-900/30 transition-all duration-300 ease-in-out hover:shadow-cyan-600 py-2.5 px-6 hover:ring-4 ring-cyan-600"
               >
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-sky-600 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                <span className="relative z-10 block px-6 py-2 rounded-full bg-gradient-to-r from-gray-700  to-cyan-950">
-                  <div className="relative z-10 flex items-center space-x-3">
-                    <span className="transition-all text-[14px] duration-500 group-hover:translate-x-1.5 group-hover:text-cyan-300">
-                      Mulai Explorasi
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="w-5 h-5 transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-cyan-300"
-                    >
-                      <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
-                    </svg>
-                  </div>
-                </span>
+                Mulai Explorasi
               </Link>
             </div>
 
@@ -89,13 +78,14 @@ export default function Home() {
         </div>
         {/* Start Hero Image Assets  */}
         <div className="relative md:w-[40%]">
-          <Image
+          {/* <Image
             src="https://images.unsplash.com/photo-1651611243377-2c15b94ad613?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="hero Image"
             className="hidden md:block h-[400px] object-cover rounded-2xl"
             width={950}
             height={100}
-          />
+          /> */}
+          <GalleryFadeSlide />
         </div>
         {/* End Hero Image Assets  */}
       </section>
@@ -111,11 +101,10 @@ export default function Home() {
         </div>
 
         <div>
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-4 py-4">
-            {/* Start Card  */}
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-4 xl:grid-cols-5 md:gap-4 py-4">
             <Link
               href={"/layanan/word-counter"}
-              className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 "
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,95 +118,119 @@ export default function Home() {
                 <path d="M10 5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4v1h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4zM6 5V4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v-1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />
               </svg>
               <h3 className="font-semibold text-center">Word Counter</h3>
-              <div className="flex gap-1">
-                <span className="text-xs text-center p-[4px] rounded-md border">
-                  Hitung Kata Berulang
-                </span>
+              <div className="text-xs">
+                Hitung Kata Berulang dengan Penyajian Statistik Lengkap
               </div>
             </Link>
-            {/* End Card  */}
-            {/* Start Card  */}
             <Link
-              href={"/layanan/lorem-generator"}
-              className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800"
+              href={"/layanan/meta-generator"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
                 height="40"
                 fill="currentColor"
-                className="bi bi-filetype-pdf"
+                className="bi bi-file-earmark-text"
                 viewBox="0 0 16 16"
               >
-                <path d="M1.5 2.5A1.5 1.5 0 0 1 3 1h10a1.5 1.5 0 0 1 1.5 1.5v3.563a2 2 0 0 1 0 3.874V13.5A1.5 1.5 0 0 1 13 15H3a1.5 1.5 0 0 1-1.5-1.5V9.937a2 2 0 0 1 0-3.874zm1 3.563a2 2 0 0 1 0 3.874V13.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V9.937a2 2 0 0 1 0-3.874V2.5A.5.5 0 0 0 13 2H3a.5.5 0 0 0-.5.5v3.563M2 7a1 1 0 1 0 0 2 1 1 0 0 0 0-2m12 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
-                <path d="M11.434 4H4.566L4.5 5.994h.386c.21-1.252.612-1.446 2.173-1.495l.343-.011v6.343c0 .537-.116.665-1.049.748V12h3.294v-.421c-.938-.083-1.054-.21-1.054-.748V4.488l.348.01c1.56.05 1.963.244 2.173 1.496h.386z" />
+                <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"></path>
               </svg>
-              <h3 className="font-semibold text-center">Lorem Generator</h3>
-              <div className="flex gap-1">
-                <span className="text-xs text-center p-[4px] rounded-md border">
-                  Buat Kalimat Lorem Ipsum
-                </span>
+              <h3 className="font-semibold text-center">Meta Generator</h3>
+              <div className="text-xs">
+                Buat Meta tag meta dan detail penting tentang halaman web milik
+                anda.
               </div>
             </Link>
-            {/* End Card  */}
-
-            {/* Start Card  */}
             <Link
-              href={"/layanan/css-minify"}
-              className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800"
+              href={"/layanan/cron-generator"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+            >
+              <svg
+                className="w-10 h-10 text-gray-800 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 8v4l3 3M3.22302 14C4.13247 18.008 7.71683 21 12 21c4.9706 0 9-4.0294 9-9 0-4.97056-4.0294-9-9-9-3.72916 0-6.92858 2.26806-8.29409 5.5M7 9H3V5"
+                />
+              </svg>
+              <h3 className="font-semibold text-center">Cron Generator</h3>
+              <div className="text-xs">
+                Buat dan preview cron expression untuk scheduler Anda.
+              </div>
+            </Link>
+            <Link
+              href={"/layanan/youtube-embed-generator"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="40"
                 height="40"
                 fill="currentColor"
-                className="bi bi-filetype-pdf"
+                className="bi bi-file-earmark-text"
                 viewBox="0 0 16 16"
               >
-                <path d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM3.397 14.841a1.13 1.13 0 0 0 .401.823q.195.162.478.252.284.091.665.091.507 0 .859-.158.354-.158.539-.44.187-.284.187-.656 0-.336-.134-.56a1 1 0 0 0-.375-.357 2 2 0 0 0-.566-.21l-.621-.144a1 1 0 0 1-.404-.176.37.37 0 0 1-.144-.299q0-.234.185-.384.188-.152.512-.152.214 0 .37.068a.6.6 0 0 1 .246.181.56.56 0 0 1 .12.258h.75a1.1 1.1 0 0 0-.2-.566 1.2 1.2 0 0 0-.5-.41 1.8 1.8 0 0 0-.78-.152q-.439 0-.776.15-.337.149-.527.421-.19.273-.19.639 0 .302.122.524.124.223.352.367.228.143.539.213l.618.144q.31.073.463.193a.39.39 0 0 1 .152.326.5.5 0 0 1-.085.29.56.56 0 0 1-.255.193q-.167.07-.413.07-.175 0-.32-.04a.8.8 0 0 1-.248-.115.58.58 0 0 1-.255-.384zM.806 13.693q0-.373.102-.633a.87.87 0 0 1 .302-.399.8.8 0 0 1 .475-.137q.225 0 .398.097a.7.7 0 0 1 .272.26.85.85 0 0 1 .12.381h.765v-.072a1.33 1.33 0 0 0-.466-.964 1.4 1.4 0 0 0-.489-.272 1.8 1.8 0 0 0-.606-.097q-.534 0-.911.223-.375.222-.572.632-.195.41-.196.979v.498q0 .568.193.976.197.407.572.626.375.217.914.217.439 0 .785-.164t.55-.454a1.27 1.27 0 0 0 .226-.674v-.076h-.764a.8.8 0 0 1-.118.363.7.7 0 0 1-.272.25.9.9 0 0 1-.401.087.85.85 0 0 1-.478-.132.83.83 0 0 1-.299-.392 1.7 1.7 0 0 1-.102-.627zM6.78 15.29a1.2 1.2 0 0 1-.111-.449h.764a.58.58 0 0 0 .255.384q.106.073.25.114.142.041.319.041.245 0 .413-.07a.56.56 0 0 0 .255-.193.5.5 0 0 0 .085-.29.39.39 0 0 0-.153-.326q-.152-.12-.463-.193l-.618-.143a1.7 1.7 0 0 1-.539-.214 1 1 0 0 1-.351-.367 1.1 1.1 0 0 1-.123-.524q0-.366.19-.639.19-.272.527-.422t.777-.149q.456 0 .779.152.326.153.5.41.18.255.2.566h-.75a.56.56 0 0 0-.12-.258.6.6 0 0 0-.246-.181.9.9 0 0 0-.37-.068q-.324 0-.512.152a.47.47 0 0 0-.184.384q0 .18.143.3a1 1 0 0 0 .404.175l.621.143q.326.075.566.211t.375.358.135.56q0 .37-.188.656a1.2 1.2 0 0 1-.539.439q-.351.158-.858.158-.381 0-.665-.09a1.4 1.4 0 0 1-.478-.252 1.1 1.1 0 0 1-.29-.375" />
+                <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
               </svg>
-              <h3 className="font-semibold text-center">CSS Minify</h3>
-              <div className="flex gap-1">
-                <span className="text-xs text-center p-[4px] rounded-md border">
-                  Compress Baris Kode CSS
-                </span>
+              <h3 className="font-semibold text-center">Youtube Embed Code</h3>
+              <div className="text-xs">
+                Sematkan video youtube pada situs dengan pilihan banyak option
+                mudah
               </div>
             </Link>
-            {/* End Card  */}
-            {/* Start Card  */}
             <Link
-              href={"/layanan/convertcase"}
-              className="border flex flex-col items-center gap-2 p-3 rounded-md hover:border-slate-800 "
+              href={"/layanan/bcrypt-hash-generator"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
               <svg
+                className="w-10 h-10 text-gray-800"
+                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="currentColor"
-                className="bi bi-filetype-pdf"
-                viewBox="0 0 16 16"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
               >
-                <path d="M1.226 10.88H0l2.056-6.26h1.42l2.047 6.26h-1.29l-.48-1.61H1.707l-.48 1.61ZM2.76 5.818h-.054l-.75 2.532H3.51zm3.217 5.062V4.62h2.56c1.09 0 1.808.582 1.808 1.54 0 .762-.444 1.22-1.05 1.372v.055c.736.074 1.365.587 1.365 1.528 0 1.119-.89 1.766-2.133 1.766zM7.18 5.55v1.675h.8c.812 0 1.171-.308 1.171-.853 0-.51-.328-.822-.898-.822zm0 2.537V9.95h.903c.951 0 1.342-.312 1.342-.909 0-.591-.382-.954-1.095-.954zm5.089-.711v.775c0 1.156.49 1.803 1.347 1.803.705 0 1.163-.454 1.212-1.096H16v.12C15.942 10.173 14.95 11 13.607 11c-1.648 0-2.573-1.073-2.573-2.849v-.78c0-1.775.934-2.871 2.573-2.871 1.347 0 2.34.849 2.393 2.087v.115h-1.172c-.05-.665-.516-1.156-1.212-1.156-.849 0-1.347.67-1.347 1.83" />
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"
+                />
               </svg>
-              <h3 className="font-semibold text-center">Convert Case</h3>
-              <div className="flex gap-1">
-                <span className="text-xs text-center p-[4px] rounded-md border">
-                  Konversi Kepekaan Kapital
-                </span>
+              <h3 className="font-semibold text-center">
+                Bcrypt Hash Generator
+              </h3>
+              <div className="text-xs">
+                Hasilkan hash bcrypt dengan mudah dan verifikasi keasliannya.
               </div>
             </Link>
-            {/* End Card  */}
           </div>
         </div>
         <p className="text-xs text-center">
-          Tools lain dapat ditemukan pada halaman{" "}
+          Terdapat Lebih dari 15+ Tools. Nantikan update dari kami terkait tools
+          lainnya, pendekatan pembuatan tools yang digunakan adalah <br />{" "}
+          Developer & SEO, namun tidak menutup kemungkinaan untuk menyediakan
+          tools di bidang lain.{" "}
           <Link className="underline hover:shadow-md" href={"/layanan"}>
             layanan
           </Link>
         </p>
       </section>
 
-      <section className="container mx-auto my-[150px] px-5 md:px-0 grid md:grid-cols-2 gap-10 ">
+      <section className="container mx-auto my-[150px] px-5 md:px-0 ">
         <div className="h-[400px] sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center  bg-cover bg-[url('https://i.giphy.com/fMYhlRdVtRnsk.webp')]">
           <div className="absolute w-full h-full bg-black/70"></div>
           <div className="relative z-[3] p-5 md:p-10">
@@ -232,25 +245,29 @@ export default function Home() {
             <a
               href="https://github.com/fajriyan/toolsz/issues"
               target="_blank"
-              className="py-3 px-6 border border-white text-white font-medium rounded-lg hover:bg-white hover:text-black block w-max"
+              className="py-3 px-6 border flex items-center gap-2 border-white font-medium rounded-xl hover:ring-4 ring-cyan-600 bg-white/90 backdrop-blur-sm text-gray-900 w-max"
             >
+              <svg
+                className="w-6 h-6 text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeWidth="2"
+                  d="M8.737 8.737a21.49 21.49 0 0 1 3.308-2.724m0 0c3.063-2.026 5.99-2.641 7.331-1.3 1.827 1.828.026 6.591-4.023 10.64-4.049 4.049-8.812 5.85-10.64 4.023-1.33-1.33-.736-4.218 1.249-7.253m6.083-6.11c-3.063-2.026-5.99-2.641-7.331-1.3-1.827 1.828-.026 6.591 4.023 10.64m3.308-9.34a21.497 21.497 0 0 1 3.308 2.724m2.775 3.386c1.985 3.035 2.579 5.923 1.248 7.253-1.336 1.337-4.245.732-7.295-1.275M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                />
+              </svg>
               Submit Ide Kalian!
             </a>
             <p className="absolute hidden md:block lg:-bottom-[10%] right-7 text-xs text-slate-300 mt-1">
               Tenang ini Gratis kok
             </p>
-          </div>
-        </div>
-        <div className="sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center bg-cover border border-slate-700">
-          <div className="relative z-[3]  p-5 md:p-10">
-            <h2 className="text-4xl text-black font-light">
-              Terdapat Lebih dari <span className="font-bold">15+ Tools</span>
-            </h2>
-            <div className="text-black text-lg font-light mt-3 mb-8">
-              Nantikan update dari kami terkait tools lainnya, pendekatan
-              pembuatan tools yang digunakan adalah Developer & SEO, namun tidak
-              menutup kemungkinaan untuk menyediakan tools di bidang lain.
-            </div>
           </div>
         </div>
       </section>

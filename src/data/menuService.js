@@ -292,7 +292,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -317,7 +317,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -342,7 +342,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -367,7 +367,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -392,7 +392,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -417,7 +417,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -441,7 +441,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -466,7 +466,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -496,7 +496,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -521,7 +521,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800 "
+        className="w-5 h-5 text-gray-800 "
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -546,7 +546,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -570,7 +570,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -598,7 +598,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -623,7 +623,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -647,7 +647,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -672,7 +672,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -697,7 +697,7 @@ export const menuService = [
     category: "SEO Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -722,7 +722,7 @@ export const menuService = [
     category: "Developer Tools",
     icon: (
       <svg
-        className="w-20 h-20 text-gray-800"
+        className="w-5 h-5 text-gray-800"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
