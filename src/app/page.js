@@ -78,14 +78,14 @@ export default function Home() {
         </div>
         {/* Start Hero Image Assets  */}
         <div className="relative md:w-[40%]">
-          {/* <Image
-            src="https://images.unsplash.com/photo-1651611243377-2c15b94ad613?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="hero Image"
-            className="hidden md:block h-[400px] object-cover rounded-2xl"
-            width={950}
-            height={100}
-          /> */}
-          <GalleryFadeSlide />
+          <GalleryFadeSlide
+            images={[
+              "https://images.unsplash.com/photo-1651611243377-2c15b94ad613?q=80&w=2500&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1740568439425-8ef0deafe965?q=80&w=2532&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1679173480513-8e2d4f583b86?q=80&w=1035&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1676799910063-a349396b70e7?q=80&w=1035&auto=format&fit=crop",
+            ]}
+          />
         </div>
         {/* End Hero Image Assets  */}
       </section>

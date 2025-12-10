@@ -164,11 +164,24 @@ export default function CronGenerator() {
     }
   }
 
+  function formatTanggalIndo(dateStr) {
+    const date = new Date(dateStr);
+
+    return date.toLocaleString("id-ID", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
   return (
     <div className="container mx-auto px-3 md:px-0 pb-20">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Cron Generator | Developer Tools 
+          Cron Generator | Developer Tools
         </h1>
         <p className="text-center text-xs">
           Buat dan preview cron expression untuk scheduler Anda.
@@ -199,7 +212,9 @@ export default function CronGenerator() {
         ) : (
           <ul className="list-none text-sm mt-1 text-center">
             {preview.map((time, idx) => (
-              <li key={idx}>{time}</li>
+              <li key={idx}>
+                {formatTanggalIndo(time)} <span className="text-xs bg-gray-700 text-white py-0.5 px-1 rounded-md"> GMT+0700 (WIB)</span>
+              </li>
             ))}
           </ul>
         )}

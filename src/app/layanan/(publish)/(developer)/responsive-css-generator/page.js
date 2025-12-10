@@ -1,5 +1,6 @@
 "use client";
 
+import GalleryFadeSlide from "@/components/GalleryFadeSlide";
 import { useState, useMemo, useRef } from "react";
 
 export default function Page() {
@@ -19,7 +20,7 @@ h1 {
   const [copied, setCopied] = useState(false);
 
   // NEW: Width state
-  const [previewWidth, setPreviewWidth] = useState(600);
+  const [previewWidth, setPreviewWidth] = useState(400);
   const isResizing = useRef(false);
 
   const breakpoints = {
@@ -108,6 +109,23 @@ h1 {
     window.onmousemove = onResize;
     window.onmouseup = stopResize;
   }
+
+  const presets = [
+    { name: "iPhone X / 11 / 12 / 13 / 14", width: 375 },
+    { name: "iPhone 14 Pro Max", width: 430 },
+    { name: "Android Large", width: 412 },
+
+    { name: "iPad Mini (8.3”)", width: 768 },
+    { name: "iPad 9th Gen", width: 810 },
+    { name: "iPad Pro 11”", width: 834 },
+    { name: "iPad Pro 12.9”", width: 1024 },
+
+    { name: "Surface Pro 7", width: 912 },
+    { name: "MacBook Air 13”", width: 1280 },
+    { name: "MacBook Pro 14”", width: 1512 },
+    { name: "Desktop HD", width: 1440 },
+    { name: "Desktop 1080p", width: 1920 },
+  ];
 
   return (
     <main className="container mx-auto min-h-[84vh] pb-10 px-3 lg:px-0 mb-10 overflow-hidden">
@@ -214,37 +232,52 @@ h1 {
           />
         </section>
 
-        {/* RESIZABLE LIVE PREVIEW */}
+        {/* LIVE PREVIEW DENGAN PRESET */}
         <section>
-          <label className="block mb-2 font-medium">
-            Live Preview (Resizable)
-          </label>
+          <label className="block mb-2 font-medium">Live Preview</label>
 
-          <div className="relative border border-slate-200 rounded-lg p-4 bg-white">
+          {/* Tombol Preset */}
+          <div className="flex flex-wrap gap-3 mb-4">
+            {presets.map((p, i) => (
+              <button
+                key={i}
+                onClick={() => setPreviewWidth(p.width)}
+                className={`px-3 py-1 border rounded-md text-sm ${
+                  previewWidth == p.width ? "bg-gray-800 text-white" : ""
+                }`}
+              >
+                {p.name} ({p.width}px)
+              </button>
+            ))}
+          </div>
+
+          <div className="relative border border-slate-200 rounded-lg p-4 bg-white overflow-scroll">
             <style>{previewCss}</style>
 
-            {/* Resizable container wrapper */}
+            {/* Preview Box */}
             <div
-              className="border rounded-lg shadow-sm bg-white overflow-hidden relative"
+              className="border rounded-lg shadow-sm bg-white overflow-hidden"
               style={{ width: previewWidth }}
             >
               <div className="container p-4">
-                <h1 className="text-xl font-semibold mb-2">Preview Heading</h1>
+                <GalleryFadeSlide
+                  images={[
+                    "https://images.unsplash.com/photo-1757586757358-fc4d154d6b4a?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    "https://images.unsplash.com/photo-1758162684745-deb947152abd?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    "https://images.unsplash.com/photo-1758162684848-fd04556bbc1f?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                    "https://images.unsplash.com/photo-1765351347050-b93b849a7d4f?q=80&w=1343&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  ]}
+                  className="h-[230px] mb-3"
+                />
+                <h2 className="text-xl font-semibold mb-2">Preview Heading</h2>
                 <p className="text-sm">
-                  Resize kanan untuk melihat efek responsive tanpa devtools.
+                  Pilih preset ukuran untuk melihat efek responsive.
                 </p>
               </div>
-
-              {/* drag handle */}
-              <div
-                onMouseDown={startResize}
-                className="absolute top-0 right-0 h-full w-3 cursor-ew-resize bg-transparent hover:bg-slate-200/40"
-              />
             </div>
 
             <p className="text-xs text-slate-500 mt-3">
-              Width: {previewWidth}px — tarik sisi kanan untuk mengubah ukuran
-              preview.
+              Width: {previewWidth}px — berubah sesuai preset.
             </p>
           </div>
         </section>

@@ -79,19 +79,21 @@ export default function CDNGenerator() {
             {Object.entries(cdnGroups).map(([group, items]) => (
               <div key={group} className="mb-4">
                 <h2 className="text-lg font-semibold">{group}</h2>
-                {items.map((item) => (
-                  <label
-                    key={item.name}
-                    className="flex items-center gap-2 mt-2"
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selected.includes(item.name)}
-                      onChange={() => handleToggle(item.name)}
-                    />
-                    {item.name}
-                  </label>
-                ))}
+                <div className="grid grid-cols-2">
+                  {items.map((item) => (
+                    <label
+                      key={item.name}
+                      className="flex items-center gap-2 mt-2 text-sm"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selected.includes(item.name)}
+                        onChange={() => handleToggle(item.name)}
+                      />
+                      {item.name}
+                    </label>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

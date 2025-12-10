@@ -4,7 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Home() {
-  const [videoId, setVideoId] = useState("hlWiI4xVXKY");
+  const [videoId, setVideoId] = useState("PHGV8VUjuts");
   const [controls, setControls] = useState(false);
   const [autoplay, setAutoplay] = useState(true);
   const [mute, setMute] = useState(true);
@@ -81,6 +81,10 @@ export default function Home() {
           <div className="mb-10">
             <label className="block mb-2">
               <span className="font-semibold">Video ID:</span>
+              <p className="text-xs">
+                https://www.youtube.com/watch?v=
+                <b className="text-orange-700">PHGV8VUjuts</b>
+              </p>
               <input
                 type="text"
                 value={videoId}
@@ -174,15 +178,15 @@ export default function Home() {
             height="315"
             allow="autoplay; encrypted-media"
             title="YouTube Video Toolsz"
-            className="border rounded-lg"
+            className="rounded-md"
           ></iframe>
         </div>
 
         <div className="lg:w-[100%] 2xl:w-[30%] p-4 border rounded-md space-y-4">
           <h2 className="text-lg font-bold">Embed Code</h2>
           <textarea
-            value={`<iframe src="${embedUrl}" width="560" height="315" allow="autoplay; encrypted-media" 
-title="YouTube Video Toolsz" 
+            value={`<iframe src="${embedUrl}" width="560" height="315" allow="autoplay; encrypted-media; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+title="YouTube Video Toolsz" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
 className="">
 </iframe>`}
             readOnly
