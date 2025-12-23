@@ -217,6 +217,108 @@ export default function Home() {
                 Hasilkan hash bcrypt dengan mudah dan verifikasi keasliannya.
               </div>
             </Link>
+            <Link
+              href={"/layanan/json-formatter"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+            >
+              <svg
+                className="w-10 h-10 text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M3 15v3c0 .5523.44772 1 1 1h4v-4m-5 0v-4m0 4h5m-5-4V6c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v1.98935M3 11h5v4m9.4708 4.1718-.8696-1.4388-2.8164-.235-2.573-4.2573 1.4873-2.8362 1.4441 2.3893c.3865.6396 1.2183.8447 1.8579.4582.6396-.3866.8447-1.2184.4582-1.858l-1.444-2.38925h3.1353l2.6101 4.27715-1.0713 2.5847.8695 1.4388"
+                />
+              </svg>
+              <h3 className="font-semibold text-center">JSON Formatter</h3>
+              <div className="text-xs">
+                Beautify, minify, dan kelola JSON dengan cepat dan rapi.
+              </div>
+            </Link>
+            <Link
+              href={"/layanan/text-compare"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+            >
+              <svg
+                className="w-10 h-10 text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m6 10 1.99994 1.9999-1.99994 2M11 5v14m-7 0h16c.5523 0 1-.4477 1-1V6c0-.55228-.4477-1-1-1H4c-.55228 0-1 .44772-1 1v12c0 .5523.44772 1 1 1Z"
+                />
+              </svg>
+              <h3 className="font-semibold text-center">Text Compare </h3>
+              <div className="text-xs">
+                Komparasikan Perbedaan 2 text/ kalimat dengan mudah
+              </div>
+            </Link>
+            <Link
+              href={"/layanan/image-extractor"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+            >
+              <svg
+                className="w-10 h-10 text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m3 16 5-7 6 6.5m6.5 2.5L16 13l-4.286 6M14 10h.01M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
+                />
+              </svg>
+              <h3 className="font-semibold text-center">Image Extractor</h3>
+              <div className="text-xs">
+                Alat sederhana untuk mengekstrak dan mengunduh gambar dari
+                halaman web.
+              </div>
+            </Link>
+            <Link
+              href={"/layanan/robots-generator"}
+              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+            >
+              <svg
+                className="w-10 h-10 text-gray-800"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135" />
+                <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5" />
+              </svg>
+              <h3 className="font-semibold text-center">
+                Robots.txt Generator
+              </h3>
+              <div className="text-xs">
+                Hasilkan Robots.txt SEO Friendly dengan UI yang Simple
+              </div>
+            </Link>
           </div>
         </div>
         <p className="text-xs text-center">
@@ -224,8 +326,8 @@ export default function Home() {
           lainnya, pendekatan pembuatan tools yang digunakan adalah <br />{" "}
           Developer & SEO, namun tidak menutup kemungkinaan untuk menyediakan
           tools di bidang lain.{" "}
-          <Link className="underline hover:shadow-md" href={"/layanan"}>
-            layanan
+          <Link className="underline hover:text-cyan-700" href={"/layanan"}>
+            Semua Tools
           </Link>
         </p>
       </section>
