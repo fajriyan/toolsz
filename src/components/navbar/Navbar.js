@@ -11,7 +11,7 @@ import { menuService } from "@/data/menuService";
 function NavbarContent() {
   const { data: session, status } = useSession();
   const classStyleDesktopActive =
-    "flex items-center gap-1 p-2 bg-slate-50 rounded-md relative border border-slate-200 text-sm relative";
+    "flex items-center gap-1 p-2 bg-slate-50 rounded-md relative border border-cyan-800 text-sm relative";
   const classStyleDesktop =
     "flex items-center gap-1 p-2 hover:bg-slate-50 border border-slate-200 rounded-md relative text-sm relative";
 

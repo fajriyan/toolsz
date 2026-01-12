@@ -33,7 +33,7 @@ export default function BcryptPage() {
     hashToVerify.trim() === "" || originalText.trim() === "";
 
   return (
-    <div className="min-h-screen bg-white flex flex-col gap-10 container mx-auto px-5 lg:px-0">
+    <div className="container mx-auto min-h-[84vh] z-0 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
           Bcrypt Hash Generator | Developer Tools
@@ -43,15 +43,12 @@ export default function BcryptPage() {
         </p>
       </div>
       <div className="flex flex-col gap-8 md:w-[80%] xl:w-[50%] mx-auto pb-10">
-        {/* Generate Hash */}
-        <div className="bg-white p-4 rounded border border-slate-700 w-full">
-          <h2 className="text-xl font-bold mb-2">Generate Hash</h2>
-          <p className="mb-4 text-gray-600 text-sm">
-            Buat hash bcrypt dari teks Anda. Semakin tinggi jumlah ronde,
-            semakin aman hash, tetapi prosesnya akan lebih lama.
-          </p>
+        <div className="border border-slate-500 rounded-lg p-3 pt-5 relative mt-5">
+          <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+            Generate Hash
+          </span>
 
-          <label className="block mb-2 font-medium">Text to Hash</label>
+          <label className="block font-medium mb-1 text-sm">Text to Hash</label>
           <input
             type="text"
             value={textToHash}
@@ -129,12 +126,10 @@ export default function BcryptPage() {
 
           {generatedHash && (
             <div className="mt-4 p-2 bg-gray-100 rounded break-all flex items-center justify-between">
-              <div className="break-words w-[85%]">
-                <strong>Hash:</strong> <br /> {generatedHash}
-              </div>
+              <div className="break-words w-[85%]">{generatedHash}</div>
               <button
                 onClick={() => navigator.clipboard.writeText(generatedHash)}
-                className="ml-2 bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600 text-sm"
+                className="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600 text-sm"
               >
                 Copy
               </button>
@@ -143,11 +138,11 @@ export default function BcryptPage() {
         </div>
 
         {/* Verify Hash */}
-        <div className="bg-white p-4 rounded border border-slate-700 w-full">
-          <h2 className="text-xl font-bold mb-2">Verify Hash</h2>
-          <p className="mb-4 text-gray-600 text-sm">
-            Periksa apakah hash bcrypt cocok dengan teks asli.
-          </p>
+
+        <div className="border border-slate-500 rounded-lg p-3 pt-5 relative mt-5">
+          <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+            Verify Hash
+          </span>
 
           <label className="block mb-2 font-medium">Bcrypt Hash</label>
           <input
@@ -191,6 +186,7 @@ export default function BcryptPage() {
             </div>
           )}
         </div>
+
       </div>
     </div>
   );
