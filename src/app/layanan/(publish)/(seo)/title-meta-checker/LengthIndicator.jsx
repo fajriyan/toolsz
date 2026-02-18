@@ -1,7 +1,7 @@
 export default function LengthIndicator({ value = 0, min = 30, max = 60 }) {
   const percent = Math.min((value / max) * 100, 100);
 
-  let color = "bg-lime-400"; // ideal
+  let color = "bg-lime-600"; // ideal
 
   if (value < min) {
     color = "bg-red-500"; // terlalu pendek

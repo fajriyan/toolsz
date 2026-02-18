@@ -9,7 +9,7 @@ export async function POST(req) {
     if (!rawUrl)
       return Response.json(
         { error: "URL tidak boleh kosong" },
-        { status: 400 }
+        { status: 400 },
       );
 
     // Normalisasi URL
@@ -23,8 +23,20 @@ export async function POST(req) {
         const res = await axios.get(target, {
           headers: {
             "User-Agent":
-              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-            Accept: "text/html,application/xhtml+xml",
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+
+            Accept:
+              "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+
+            "Accept-Language": "en-US,en;q=0.9,id;q=0.8",
+
+            "Accept-Encoding": "gzip, deflate, br",
+
+            Connection: "keep-alive",
+
+            "Upgrade-Insecure-Requests": "1",
+
+            "Cache-Control": "max-age=0",
           },
           httpsAgent,
           timeout: 20000,
@@ -64,7 +76,9 @@ export async function POST(req) {
       $("[style*='background']").each((_, el) => {
         const style = $(el).attr("style") || "";
         // const matches = style.match(/background(?:-image)?:\s*url\((['"]?)(.*?)\1\)/gi);
-        const matches = style.match(/background(?:-image)?\s*:\s*[^;]*url\((['"]?)(.*?)\1\)/gi);
+        const matches = style.match(
+          /background(?:-image)?\s*:\s*[^;]*url\((['"]?)(.*?)\1\)/gi,
+        );
         if (matches) {
           matches.forEach((m) => {
             const urlMatch = m.match(/url\((['"]?)(.*?)\1\)/i);
@@ -88,7 +102,7 @@ export async function POST(req) {
     console.error("Image Extractor error:", err);
     return Response.json(
       { error: `Gagal mengambil gambar: ${err.message}` },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
