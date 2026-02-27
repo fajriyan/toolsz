@@ -60,9 +60,16 @@ export default function Home() {
         <div className="flex items-center gap-2">
           Meta Tag Berhasil di Copy
           <button onClick={() => toast.dismiss(t.id)}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
-            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-x-lg"
+              viewBox="0 0 16 16"
+            >
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg>
           </button>
         </div>
       ));
@@ -82,9 +89,12 @@ export default function Home() {
       </div>
       <div className=" flex flex-wrap justify-between text-slate-800">
         {/* Form Section */}
-        <div className=" bg-white rounded w-full md:w-[65%]">
-          <div className="flex flex-wrap gap-10">
-            <form className="w-full md:w-[45%]">
+        <div className=" bg-white w-full md:w-[65%] border border-slate-700 p-3 rounded-md relative">
+          <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+            Peraturan Meta HTML
+          </span>
+          <div className="grid lg:grid-cols-2 gap-10 mt-2 w-full">
+            <form className="w-full">
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
@@ -138,7 +148,7 @@ export default function Home() {
                 </div>
               ))}
             </form>
-            <form className="w-full md:w-[45%]">
+            <form className="w-full">
               {[
                 {
                   name: "revisitAfter",
@@ -233,14 +243,15 @@ export default function Home() {
         </div>
 
         {/* Preview Section */}
-        <div className="border p-4 rounded h-min sticky top-[80px] w-full md:w-[30%] !z-0 mt-10 md:mt-0">
-          <h3 className="text-xl font-semibold mb-2">Preview Meta Tag:</h3>
+        <div className="border p-4 border-slate-700 rounded h-min sticky top-[80px] w-full md:w-[30%] !z-0 mt-10 md:mt-0">
+           <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+           Preview Meta Tag
+          </span>
           <pre
             ref={previewRef}
-            className="bg-white p-2 py-0 rounded border text-xs overflow-x-auto"
+            className="bg-white py-0 rounded text-xs overflow-x-auto mt-1"
           >
-            {`
-<!-- Meta Here -->
+            {`<!-- Meta Here -->
 <meta charSet="${metaTags.charSet}"/>
 <title>${metaTags.siteTitle}</title>
 <meta name="description" content="${metaTags.siteDescription}"/>
@@ -273,8 +284,18 @@ export default function Home() {
               onClick={handleCopy}
               className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-copy" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-copy"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
+                />
               </svg>
             </button>
             <button
@@ -282,9 +303,19 @@ export default function Home() {
               onClick={resetForm}
               className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-repeat" viewBox="0 0 16 16">
-                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9"/>
-                <path fillRule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-arrow-repeat"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41m-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9" />
+                <path
+                  fillRule="evenodd"
+                  d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"
+                />
               </svg>
             </button>
           </div>

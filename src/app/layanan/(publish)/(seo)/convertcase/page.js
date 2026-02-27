@@ -22,7 +22,7 @@ export default function MinifyCssPage() {
   const convertToCapitalize = () => {
     const words = inputText.toLowerCase().split(" ");
     const capitalizedWords = words.map(
-      (word) => word.charAt(0).toUpperCase() + word.slice(1)
+      (word) => word.charAt(0).toUpperCase() + word.slice(1),
     );
     setConvertText(capitalizedWords.join(" "));
     setStateGroup({ statusCopy: "converted" });
@@ -31,7 +31,7 @@ export default function MinifyCssPage() {
   const convertToSentenceCase = () => {
     const sentences = inputText.toLowerCase().split(". ");
     const capitalizedSentences = sentences.map(
-      (sentence) => sentence.charAt(0).toUpperCase() + sentence.slice(1)
+      (sentence) => sentence.charAt(0).toUpperCase() + sentence.slice(1),
     );
     setConvertText(capitalizedSentences.join(". "));
     setStateGroup({ statusCopy: "converted" });
@@ -45,7 +45,7 @@ export default function MinifyCssPage() {
   const handleClear = () => {
     setInputText("");
     setConvertText("");
-     setStateGroup({ statusCopy: "none" });
+    setStateGroup({ statusCopy: "none" });
   };
 
   const copyClipboard = () => {
@@ -63,26 +63,29 @@ export default function MinifyCssPage() {
   };
 
   return (
-    <div className="container mx-auto h-screen px-3 md:px-0">
+    <div className="container mx-auto min-h-[85dvh] px-3 md:px-0 pb-10">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-           Convert Case | SEO Tools
+          Convert Case | Kapitalisasi | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Buat pilihan kepekaan kalimat dengan sekali klik
         </p>
       </div>
-
       <div className="md:w-[80%] xl:w-[50%] mx-auto">
-        <h2>Masukkan kalimat dibawah</h2>
-        <div>
+        <div className="border border-slate-500 rounded-lg p-2 relative mt-5">
+          <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+            Masukkan kalimat Disini
+          </span>
+
           <textarea
             value={inputText}
             onChange={(e) => handleInputChange(e.target.value)}
             placeholder="Contoh : UPPERCASE ADALAH SEPERTI INI. Capitalize Hanya Kapital Di Awal Saja. Sentence case hanya kapital pada awal kalimat saja. dan lowercase semua teks menjadi kecil."
-            className="h-[150px] w-full md:h-[170px] p-2 border border-slate-800 rounded-md"
+            className="w-full p-2 h-[250px] resize-none rounded-md focus-within:outline-none"
           />
         </div>
+
         <div className="mt-2 flex gap-2 flex-wrap">
           <button
             className={`bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800`}
@@ -116,12 +119,15 @@ export default function MinifyCssPage() {
             Hapus
           </button>
         </div>
-        {/* ${stateGroup.statusCopy != "converted" && "opacity-40"} */}
-        <div className="mt-7 flex flex-wrap gap-2 items-center">
-          <h2>Hasil Konversi Kalimat</h2>
+
+        <div className="border border-slate-500 rounded-lg p-2 relative mt-10">
+          <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+            Output Konversi Kalimat
+          </span>
+
           <button
             onClick={copyClipboard}
-            className={`px-3rounded-md text-white  ${
+            className={`px-3rounded-md text-white absolute bg-black p-1 rounded-md right-3 top-3 z-10  ${
               (stateGroup.statusCopy == "none" && "opacity-0") ||
               (stateGroup.statusCopy == "waiting" && "opacity-0") ||
               (stateGroup.statusCopy == "converted" && "opacity-100")
@@ -133,7 +139,7 @@ export default function MinifyCssPage() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                className="bi bi-clipboard-check fill-green-800"
+                className="bi bi-clipboard-check fill-white"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -148,7 +154,7 @@ export default function MinifyCssPage() {
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                className="bi bi-clipboard-check fill-black"
+                className="bi bi-clipboard-check fill-white"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -162,7 +168,7 @@ export default function MinifyCssPage() {
             readOnly
             placeholder="..."
             value={convertText}
-            className="w-full md:h-[100px] p-2 border border-slate-800 rounded-md"
+            className="w-full min-h-[180px] p-2 relative z-0 focus-within:outline-none resize-none rounded-md"
           />
         </div>
       </div>

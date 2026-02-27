@@ -7,7 +7,7 @@ const WordCounter = () => {
   const [excludedWords, setExcludedWords] = useState("");
   const [excludedWordArray, setExcludedWordArray] = useState([]);
   const [text, setText] = useState(
-    "Penghitung kata online : Ini adalah contoh kalimat yang berulang, silakan ubah sesuai kebutuhan Anda, jangan khawatir kami tidak mengambil apa pun disini. Alat penghitung kata online adalah aplikasi web yang memungkinkan pengguna untuk menghitung jumlah kata dalam sebuah teks atau dokumen. Dengan menggunakan alat ini, pengguna dapat dengan cepat dan mudah menentukan jumlah kata dalam tulisan mereka, baik itu untuk keperluan akademis, profesional, atau pribadi. Alat ini sering kali dilengkapi dengan fitur tambahan seperti menghitung jumlah karakter, paragraf, dan kalimat. Pengguna hanya perlu menyalin dan menempelkan teks mereka ke dalam alat tersebut, dan hasilnya akan ditampilkan secara instan. Alat ini sangat berguna bagi penulis, editor, mahasiswa, dan siapa pun yang membutuhkan analisis teks yang cepat. "
+    "Penghitung kata online : Ini adalah contoh kalimat yang berulang, silakan ubah sesuai kebutuhan Anda, jangan khawatir kami tidak mengambil apa pun disini. Alat penghitung kata online adalah aplikasi web yang memungkinkan pengguna untuk menghitung jumlah kata dalam sebuah teks atau dokumen. Dengan menggunakan alat ini, pengguna dapat dengan cepat dan mudah menentukan jumlah kata dalam tulisan mereka, baik itu untuk keperluan akademis, profesional, atau pribadi. Alat ini sering kali dilengkapi dengan fitur tambahan seperti menghitung jumlah karakter, paragraf, dan kalimat. Pengguna hanya perlu menyalin dan menempelkan teks mereka ke dalam alat tersebut, dan hasilnya akan ditampilkan secara instan. Alat ini sangat berguna bagi penulis, editor, mahasiswa, dan siapa pun yang membutuhkan analisis teks yang cepat. ",
   );
   const [activeTab, setActiveTab] = useState(1); // 1 kata default
 
@@ -98,7 +98,7 @@ const WordCounter = () => {
       const phraseWords = wordTokenIndexes
         .slice(wi, wi + n)
         .map((idx) =>
-          tokens[idx].toLowerCase().replace(punctuationLocal, "").trim()
+          tokens[idx].toLowerCase().replace(punctuationLocal, "").trim(),
         )
         .filter(Boolean);
 
@@ -117,8 +117,8 @@ const WordCounter = () => {
 
         // Wrap seluruh kata dalam range
         for (let k = startTokenIdx; k <= endTokenIdx; k++) {
-          tokens[k] = `<mark class="bg-yellow-200 text-black">${escapeHtml(
-            tokens[k]
+          tokens[k] = `<mark className="bg-yellow-200 text-black">${escapeHtml(
+            tokens[k],
           )}</mark>`;
           marked[k] = true;
         }
@@ -167,10 +167,10 @@ const WordCounter = () => {
   }, [text, activeTab, duplicateData]);
 
   return (
-    <div className="container mx-auto mb-10 px-3 md:px-0">
+    <div className="container mx-auto mb-10 px-3 md:px-0 min-h-[79dvh]">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Keyword Density Online | SEO Tools
+          World Counter Online | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Hitung jumlah kata dalam sebuah kalimat online
@@ -212,34 +212,32 @@ const WordCounter = () => {
         </div>
 
         <div className="w-full lg:w-[27%]">
-          {/* Detail Kalimat */}
-
-          <div className="border border-slate-700 p-2 rounded-md">
-            <div className="border-b border-slate-300 pb-1 font-semibold flex justify-between ">
-              <span>Detail Kalimat:</span>
-            </div>
-            <p className="flex justify-between border-b py-1">
+          <div className="border border-slate-700 p-2 rounded-md relative">
+            <span className="absolute text-sm bg-white -top-3 left-2 px-2">
+              Detail Kalimat :
+            </span>
+            <p className="flex justify-between border-b py-1 px-2 mt-1">
               Jumlah Huruf: <span>{wordLetters}</span>
             </p>
-            <p className="flex justify-between border-b py-1">
+            <p className="flex justify-between border-b py-1 px-2">
               Jumlah Kata: <span>{wordCount}</span>
             </p>
-            <p className="flex justify-between border-b py-1">
+            <p className="flex justify-between border-b py-1 px-2">
               Jumlah Paragraf: <span>{paragraphs.length}</span>
             </p>
-            <p className="flex justify-between py-1">
+            <p className="flex justify-between py-1 px-2">
               Waktu Membaca: <span>{readingTime} Menit</span>
             </p>
           </div>
 
           {/* Kata yang Berulang */}
-          <div className="border border-slate-700 mt-5 p-2 rounded-md">
-            <div className="border-b border-slate-300 pb-1 font-semibold mb-2">
-              Kata yang Berulang:
-            </div>
+          <div className="border border-slate-700 mt-5 p-2 rounded-md relative">
+            <span className="absolute text-sm bg-white -top-3 left-2 px-2">
+              Kata yang Berulang :
+            </span>
 
             {/* Tabs */}
-            <div className="flex gap-2 mb-3 overflow-x-auto">
+            <div className="flex gap-2 mb-3 overflow-x-auto mt-1">
               {[1, 2, 3, 4].map((n) => (
                 <button
                   key={n}
@@ -290,15 +288,15 @@ const WordCounter = () => {
           </div>
 
           {/* Pengecualian */}
-          <div className="border border-slate-700 mt-5 p-2 rounded-md">
-            <div className="border-b border-slate-300 pb-1 font-semibold mb-2">
+          <div className="border border-slate-700 mt-5 p-2 rounded-md relative">
+            <span className="absolute text-sm bg-white -top-3 left-2 px-2">
               Pengecualian Kata:
-            </div>
+            </span>
             <input
               type="text"
               value={excludedWords}
               onChange={handleExcludedWordsChange}
-              className="w-full rounded-md p-2 border border-slate-600"
+              className="w-full rounded-md p-2 border border-slate-600 mt-2"
               placeholder="Pilih Kata, pisahkan dengan spasi"
             />
           </div>
