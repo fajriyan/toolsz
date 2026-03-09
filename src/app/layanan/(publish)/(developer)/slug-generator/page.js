@@ -73,7 +73,7 @@ export default function SlugGeneratorPage() {
     <div className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          URL Slug Generator | Developer Tools
+          URL Slug Generator | SEO Tools
         </h1>
         <p className="text-center text-xs">
           Generate URL-friendly slug dari teks dengan pilihan lowercase,
