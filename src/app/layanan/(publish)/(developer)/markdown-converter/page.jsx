@@ -70,7 +70,7 @@ export default function MarkdownConverterPage() {
             <div className=" h-full overflow-auto border rounded-b bg-white p-4 border-slate-700 rounded-lg">
               {activeTab === "preview" ? (
                 <div
-                  className="prose max-w-none"
+                  className="prose max-w-none content-dynamic"
                   dangerouslySetInnerHTML={{ __html: cleanHtml }}
                 />
               ) : (

@@ -64,7 +64,7 @@ const QRCodeGenerator = () => {
   return (
     <div>
       <div className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0">
-        <div className="py-5 mb-10">
+        <div className="py-5">
           <h1 className="text-xl text-center font-semibold">
             QR Code Generator | Developer Tools
           </h1>
@@ -72,13 +72,13 @@ const QRCodeGenerator = () => {
             Hasilkan QR Code dengan Praktis dan Cepat
           </p>
         </div>
-        <div className="md:w-[80%] xl:w-[50%] mx-auto min-h-[67dvh]">
+        <div className="md:w-[80%] xl:w-[50%] mx-auto min-h-[67dvh] mt-7">
           <div className="w-full">
             <div className="flex gap-3 w-full">
               <input
                 type="text"
-                className="w-full border border-slate-700 p-2 rounded-md"
-                placeholder={`Enter ${inputType}`}
+                className="w-full border-2 border-cyan-600 px-2 py-3 rounded-lg"
+                placeholder={`Masukkan ${inputType} disini`}
                 value={inputValue}
                 onChange={handleChange}
               />
@@ -112,7 +112,10 @@ const QRCodeGenerator = () => {
               </div>
             </div>
           </div>
-          <div className="mt-10 w-full flex flex-col items-center justify-center border border-slate-500 p-5 rounded-lg">
+          <div className="w-max border border-slate-500 rounded-lg p-3 pt-5 relative mt-5">
+            <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+              Output QR Code
+            </span>
             {inputValue && !error ? (
               <>
                 <QRCodeCanvas

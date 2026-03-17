@@ -21,3 +21,103 @@
     background-image: radial-gradient(at 94% 11%, rgb(224, 242, 254) 0, transparent 65%), radial-gradient(at 52% 42%, rgb(250, 232, 255) 0, transparent 87%), radial-gradient(at 21% 2%, rgb(6, 95, 70) 0, transparent 2%), radial-gradient(at 23% 99%, rgb(56, 189, 248) 0, transparent 56%), radial-gradient(at 88% 55%, rgb(82, 82, 91) 0, transparent 20%), radial-gradient(at 35% 79%, rgb(4, 120, 87) 0, transparent 50%);
   
 }
+
+
+
+.content-dynamic h2,
+.content-dynamic h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.content-dynamic ol {
+  list-style-type: decimal;
+  padding-left: 30px;
+  margin-top: 10px;
+}
+
+.content-dynamic ul {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+
+.content-dynamic ul ul {
+  list-style-type: circle;
+  padding-left: 25px;
+}
+
+.content-dynamic ul ul li::marker {
+  color: #c11d00;
+  font-size: 1.2em;
+}
+
+.content-dynamic table tbody tr:first-child {
+  background-color: #2d2d2d;
+}
+
+.content-dynamic table tbody tr:first-child:hover {
+  background-color: #2d2d2d;
+}
+
+.content-dynamic table tbody tr:first-child p {
+  color: rgb(254, 254, 254);
+  font-weight: 600;
+}
+
+.content-dynamic table tbody tr:first-child td {
+  text-align: center;
+}
+
+.content-dynamic table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 25px 0;
+  font-size: 16px;
+  text-align: left;
+  border: 1px solid #dddddd;
+}
+
+.content-dynamic table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.content-dynamic table th,
+.content-dynamic table td {
+  padding: 12px 15px;
+  border: 1px solid #dddddd;
+}
+
+.content-dynamic table tbody tr:hover {
+  background-color: #f1f1f1;
+  color: #333333;
+}
+
+.content-dynamic img {
+  max-height: 500px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.content-dynamic h1 {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 130%;
+  letter-spacing: 1%;
+}
+.content-dynamic h2 {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 130%;
+  letter-spacing: 1%;
+}
+
+.content-dynamic h3 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 148%;
+  letter-spacing: 1%;
+}
