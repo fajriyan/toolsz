@@ -37,7 +37,7 @@ export default function JsonLdGenerator() {
   const handleArrayChange = (path, value) => {
     handleInputChange(
       path,
-      value.split(",").map((v) => v.trim())
+      value.split(",").map((v) => v.trim()),
     );
   };
 
@@ -84,71 +84,76 @@ export default function JsonLdGenerator() {
 
       <div className=" flex flex-wrap justify-between text-slate-800">
         {/* Form Section */}
-        <div className=" bg-white rounded w-full md:w-[65%]">
-          <div className="mb-6">
-            <label className="block font-medium mb-2">Schema Type</label>
-            <select
-              value={selectedType}
-              onChange={(e) => handleTypeChange(e.target.value)}
-              className="w-full border p-2 rounded"
-            >
-              {schemaTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Dynamic Form */}
-          <div className="space-y-4">{renderFields(formData)}</div>
-        </div>
-        <div className="border p-4 rounded h-min sticky top-[80px] w-full md:w-[30%] !z-0 mt-10 md:mt-0">
-          {/* Output Section */}
-          <div className="">
-            <label className="block font-semibold mb-2 ">Hasil JSON LD </label>
-            <pre className=" p-4 rounded overflow-auto text-sm whitespace-pre-wrap border border-slate-200">
-              {jsonLd}
-            </pre>
-            <div className="mt-4">
-              <button
-                onClick={() => {
-                  navigator.clipboard.writeText(jsonLd);
-                  toast((t) => (
-                    <div className="flex items-center gap-2">
-                      JSON LD Berhasil di Copy
-                      <button onClick={() => toast.dismiss(t.id)}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-x-lg"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                        </svg>
-                      </button>
-                    </div>
-                  ));
-                }}
-                className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+        <div className=" bg-white rounded w-full lg:w-[65%]">
+          <div className="border border-slate-500 rounded-lg p-3 pt-5 relative">
+            <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+              Peraturan
+            </span>
+            <div className="mb-6">
+              <label className="block font-medium mb-2">Schema Type</label>
+              <select
+                value={selectedType}
+                onChange={(e) => handleTypeChange(e.target.value)}
+                className="w-full border p-2 rounded"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-copy"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
-                  />
-                </svg>
-              </button>
+                {schemaTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
             </div>
+
+            {/* Dynamic Form */}
+            <div className="space-y-4">{renderFields(formData)}</div>
+          </div>
+        </div>
+        {/* Output Section */}
+        <div className="border border-slate-500 rounded-lg p-3 pt-5 sticky top-[80px] w-full lg:w-[30%] !z-0 mt-10 lg:mt-0">
+          <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+            Hasil JSON LD
+          </span>
+          <pre className="rounded overflow-auto text-sm whitespace-pre-wrap border-none">
+            {jsonLd}
+          </pre>
+          <div className="absolute top-3 right-3">
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(jsonLd);
+                toast((t) => (
+                  <div className="flex items-center gap-2">
+                    JSON LD Berhasil di Copy
+                    <button onClick={() => toast.dismiss(t.id)}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-x-lg"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                      </svg>
+                    </button>
+                  </div>
+                ));
+              }}
+              className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-copy"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

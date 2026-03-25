@@ -1,8 +1,13 @@
 const dataDummy = [
   {
-    title: "Download PDF",
-    size: "7KB",
-    url: "/assets/PDFDummy.pdf",
+    title: "Download PDF 1",
+    size: "8KB",
+    url: "/assets/pdf/PDFDummy_7KB.pdf",
+  },
+  {
+    title: "Download PDF 2",
+    size: "1.3MB",
+    url: "/assets/pdf/PDFDummy_1MB.pdf",
   },
 ];
 
@@ -47,14 +52,14 @@ const page = () => {
               </div>
               <div className="flex gap-1">
                 <a
-                  href="/assets/PDFDummy.pdf"
+                  href={data.url}
                   download={true}
                   className="px-5 md:px-14 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900"
                 >
                   Download
                 </a>
                 <a
-                  href="/assets/PDFDummy.pdf"
+                  href={data.url}
                   className="px-2 py-2 text-center text-white bg-slate-700 rounded-md hover:bg-slate-900 flex items-center"
                   target="_blank"
                 >
