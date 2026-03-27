@@ -39,9 +39,9 @@ const Changelog = () => {
   return (
     <div className="container mx-auto py-3 px-3 md:px-0">
       <div className="py-5">
-        <h1 className="text-xl text-center font-semibold">Changelog</h1>
+        <h1 className="text-xl text-center font-semibold">Changelog Toolsz</h1>
         <p className="text-center text-xs mt-1">
-          Semua Rekam Update dari Website <span> Toolsz </span>
+          Riwayat update, perbaikan, dan fitur baru di <span>Toolsz</span>
         </p>
       </div>
 
@@ -71,7 +71,7 @@ const Changelog = () => {
                       onClick={() =>
                         window.open(
                           `https://github.com/fajriyan/toolsz/commit/${commit.sha}`,
-                          "_blank"
+                          "_blank",
                         )
                       }
                       className="bg-black py-1 px-3 rounded-lg text-xs font-semibold text-white hover:bg-cyan-800"

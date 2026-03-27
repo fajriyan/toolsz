@@ -29,19 +29,22 @@ const Layanan = () => {
                 {category}
               </h3>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 md:gap-4 py-4">
-                {items.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="border flex items-center gap-2 p-3 rounded-md hover:border-slate-800"
-                    title={item.text}
-                  >
-                    {item.icon}
-                    <h2 className="font-semibold text-left line-clamp-1">
-                      {item.text}
-                    </h2>
-                  </Link>
-                ))}
+                {items.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="border flex items-center gap-2 p-3 rounded-md hover:border-slate-800"
+                      title={item.text}
+                    >
+                      <Icon className="w-5 h-5" />
+                      <h2 className="font-semibold text-left line-clamp-1">
+                        {item.text}
+                      </h2>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           ))}

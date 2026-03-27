@@ -2,6 +2,17 @@ import Changelog from "@/components/Changelog";
 import GalleryFadeSlide from "@/components/GalleryFadeSlide";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  PointerOne,
+  MetaIcon,
+  CronIcon,
+  YoutubeIcon,
+  BcryptIcon,
+  JsonFormatterIcon,
+  TextCompareIcon,
+  ImageExtractIcon,
+  RobotsIcon,
+} from "@/icons";
 
 export default function Home() {
   return (
@@ -106,17 +117,7 @@ export default function Home() {
               href={"/layanan/word-counter"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="currentColor"
-                className="bi bi-filetype-pdf"
-                viewBox="0 0 16 16"
-              >
-                <path d="M5 2a.5.5 0 0 1 .5-.5c.862 0 1.573.287 2.06.566.174.099.321.198.44.286.119-.088.266-.187.44-.286A4.165 4.165 0 0 1 10.5 1.5a.5.5 0 0 1 0 1c-.638 0-1.177.213-1.564.434a3.49 3.49 0 0 0-.436.294V7.5H9a.5.5 0 0 1 0 1h-.5v4.272c.1.08.248.187.436.294.387.221.926.434 1.564.434a.5.5 0 0 1 0 1 4.165 4.165 0 0 1-2.06-.566A4.561 4.561 0 0 1 8 13.65a4.561 4.561 0 0 1-.44.285 4.165 4.165 0 0 1-2.06.566.5.5 0 0 1 0-1c.638 0 1.177-.213 1.564-.434.188-.107.335-.214.436-.294V8.5H7a.5.5 0 0 1 0-1h.5V3.228a3.49 3.49 0 0 0-.436-.294A3.166 3.166 0 0 0 5.5 2.5.5.5 0 0 1 5 2" />
-                <path d="M10 5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4v1h4a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-4zM6 5V4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v-1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />
-              </svg>
+              <PointerOne className="w-10 h-10" />
               <h3 className="font-semibold text-center">Word Counter</h3>
               <div className="text-xs">
                 Hitung Kata Berulang dengan Penyajian Statistik Lengkap
@@ -126,16 +127,7 @@ export default function Home() {
               href={"/layanan/meta-generator"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="currentColor"
-                className="bi bi-file-earmark-text"
-                viewBox="0 0 16 16"
-              >
-                <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"></path>
-              </svg>
+              <MetaIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">Meta Generator</h3>
               <div className="text-xs">
                 Buat Meta tag meta dan detail penting tentang halaman web milik
@@ -146,23 +138,7 @@ export default function Home() {
               href={"/layanan/cron-generator"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                className="w-10 h-10 text-gray-800 "
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8v4l3 3M3.22302 14C4.13247 18.008 7.71683 21 12 21c4.9706 0 9-4.0294 9-9 0-4.97056-4.0294-9-9-9-3.72916 0-6.92858 2.26806-8.29409 5.5M7 9H3V5"
-                />
-              </svg>
+              <CronIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">Cron Generator</h3>
               <div className="text-xs">
                 Buat dan preview cron expression untuk scheduler Anda.
@@ -172,17 +148,7 @@ export default function Home() {
               href={"/layanan/youtube-embed-generator"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="currentColor"
-                className="bi bi-file-earmark-text"
-                viewBox="0 0 16 16"
-              >
-                <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
-              </svg>
+              <YoutubeIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">Youtube Embed Code</h3>
               <div className="text-xs">
                 Sematkan video youtube pada situs dengan pilihan banyak option
@@ -193,23 +159,7 @@ export default function Home() {
               href={"/layanan/bcrypt-hash-generator"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                className="w-10 h-10 text-gray-800"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"
-                />
-              </svg>
+              <BcryptIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">
                 Bcrypt Hash Generator
               </h3>
@@ -221,23 +171,7 @@ export default function Home() {
               href={"/layanan/json-formatter"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                className="w-10 h-10 text-gray-800"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 15v3c0 .5523.44772 1 1 1h4v-4m-5 0v-4m0 4h5m-5-4V6c0-.55228.44772-1 1-1h16c.5523 0 1 .44772 1 1v1.98935M3 11h5v4m9.4708 4.1718-.8696-1.4388-2.8164-.235-2.573-4.2573 1.4873-2.8362 1.4441 2.3893c.3865.6396 1.2183.8447 1.8579.4582.6396-.3866.8447-1.2184.4582-1.858l-1.444-2.38925h3.1353l2.6101 4.27715-1.0713 2.5847.8695 1.4388"
-                />
-              </svg>
+              <JsonFormatterIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">JSON Formatter</h3>
               <div className="text-xs">
                 Beautify, minify, dan kelola JSON dengan cepat dan rapi.
@@ -247,23 +181,7 @@ export default function Home() {
               href={"/layanan/text-compare"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                className="w-10 h-10 text-gray-800"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m6 10 1.99994 1.9999-1.99994 2M11 5v14m-7 0h16c.5523 0 1-.4477 1-1V6c0-.55228-.4477-1-1-1H4c-.55228 0-1 .44772-1 1v12c0 .5523.44772 1 1 1Z"
-                />
-              </svg>
+              <TextCompareIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">Text Compare </h3>
               <div className="text-xs">
                 Komparasikan Perbedaan 2 text/ kalimat dengan mudah
@@ -273,23 +191,7 @@ export default function Home() {
               href={"/layanan/image-extractor"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                className="w-10 h-10 text-gray-800"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m3 16 5-7 6 6.5m6.5 2.5L16 13l-4.286 6M14 10h.01M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"
-                />
-              </svg>
+              <ImageExtractIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">Image Extractor</h3>
               <div className="text-xs">
                 Alat sederhana untuk mengekstrak dan mengunduh gambar dari
@@ -300,18 +202,7 @@ export default function Home() {
               href={"/layanan/robots-generator"}
               className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
             >
-              <svg
-                className="w-10 h-10 text-gray-800"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5M3 8.062C3 6.76 4.235 5.765 5.53 5.886a26.6 26.6 0 0 0 4.94 0C11.765 5.765 13 6.76 13 8.062v1.157a.93.93 0 0 1-.765.935c-.845.147-2.34.346-4.235.346s-3.39-.2-4.235-.346A.93.93 0 0 1 3 9.219zm4.542-.827a.25.25 0 0 0-.217.068l-.92.9a25 25 0 0 1-1.871-.183.25.25 0 0 0-.068.495c.55.076 1.232.149 2.02.193a.25.25 0 0 0 .189-.071l.754-.736.847 1.71a.25.25 0 0 0 .404.062l.932-.97a25 25 0 0 0 1.922-.188.25.25 0 0 0-.068-.495c-.538.074-1.207.145-1.98.189a.25.25 0 0 0-.166.076l-.754.785-.842-1.7a.25.25 0 0 0-.182-.135" />
-                <path d="M8.5 1.866a1 1 0 1 0-1 0V3h-2A4.5 4.5 0 0 0 1 7.5V8a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1v-.5A4.5 4.5 0 0 0 10.5 3h-2zM14 7.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.5A3.5 3.5 0 0 1 5.5 4h5A3.5 3.5 0 0 1 14 7.5" />
-              </svg>
+              <RobotsIcon className="w-10 h-10" />
               <h3 className="font-semibold text-center">
                 Robots.txt Generator
               </h3>
