@@ -38,6 +38,7 @@ import {
   KeywordPermIcon,
   TitleCheckIcon,
   PageSizeIcon,
+  ToaIcon,
 } from "@/icons";
 
 export const menuService = [
@@ -362,5 +363,12 @@ export const menuService = [
     text: "Page Size Checker",
     category: "Developer Tools",
     icon: PageSizeIcon,
+  },
+  {
+    href: "/layanan/campaign-url-builder",
+    top: 1,
+    text: "Campaign URL Builder",
+    category: "SEO Tools",
+    icon: ToaIcon,
   },
 ];

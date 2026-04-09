@@ -37,3 +37,4 @@ export { default as TintShadeIcon } from "./TintShadeIcon";
 export { default as KeywordPermIcon } from "./KeywordPermIcon";
 export { default as TitleCheckIcon } from "./TitleCheckIcon";
 export { default as PageSizeIcon } from "./PageSizeIcon";
+export { default as ToaIcon } from "./ToaIcon";
