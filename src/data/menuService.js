@@ -39,6 +39,7 @@ import {
   TitleCheckIcon,
   PageSizeIcon,
   ToaIcon,
+  LampIcon,
 } from "@/icons";
 
 export const menuService = [
@@ -370,5 +371,12 @@ export const menuService = [
     text: "Campaign URL Builder",
     category: "SEO Tools",
     icon: ToaIcon,
+  },
+  {
+    href: "/layanan/gerbang-logika",
+    top: 0,
+    text: "Gerbang Logika",
+    category: "Developer Tools",
+    icon: LampIcon,
   },
 ];
