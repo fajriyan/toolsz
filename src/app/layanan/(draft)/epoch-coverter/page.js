@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 export default function EpochConverterPage() {
   const [nowSec, setNowSec] = useState(() => Math.floor(Date.now() / 1000));
   const [inputEpoch, setInputEpoch] = useState(
-    String(Math.floor(Date.now() / 1000))
+    String(Math.floor(Date.now() / 1000)),
   );
   const [assumeMillis, setAssumeMillis] = useState(false);
   const [relative, setRelative] = useState("");
@@ -37,7 +37,7 @@ export default function EpochConverterPage() {
     const intRegex = /^\s*-?\d+\s*$/;
     if (!intRegex.test(inputEpoch)) {
       setErrorEpoch(
-        "Input epoch harus berupa angka bulat (detik atau milidetik)."
+        "Input epoch harus berupa angka bulat (detik atau milidetik).",
       );
       setRelative("");
       return;
@@ -47,12 +47,11 @@ export default function EpochConverterPage() {
     setErrorEpoch("");
 
     // update relative time
-    const epochToMs = (val) => (Math.abs(val) > 1e12 ? val : val * 1000);
     const num = Number(inputEpoch);
-    const ms = epochToMs(num);
+    const ms = assumeMillis || Math.abs(num) > 1e12 ? num : num * 1000;
     const diffSec = Math.floor((Date.now() - ms) / 1000);
     setRelative(formatRelative(diffSec));
-  }, [inputEpoch]);
+  }, [inputEpoch, assumeMillis]);
 
   function formatDateIntl(date, locale = "id-ID", timeZone = undefined) {
     const opts = {
@@ -134,7 +133,7 @@ export default function EpochConverterPage() {
 
   const converted = useMemo(
     () => epochToDateStrings(inputEpoch),
-    [inputEpoch, assumeMillis]
+    [inputEpoch, assumeMillis],
   );
 
   function handleDateToEpoch() {
@@ -156,111 +155,112 @@ export default function EpochConverterPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 p-6 md:p-12 text-slate-800">
-      <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-2xl p-6 md:p-10">
-        <h1 className="text-2xl md:text-3xl font-semibold mb-2">
-          Epoch → Tanggal (Bahasa Indonesia)
+    <main className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0 pb-20">
+      <div className="py-5">
+        <h1 className="text-xl text-center font-semibold">
+          Epoch → Tanggal | Developer Tools
         </h1>
-        <p className="text-slate-600 mb-6">
+        <p className="text-center text-xs">
           Alat sederhana untuk mengonversi Unix epoch (detik/ms) ke tanggal dan
           sebaliknya.
         </p>
+      </div>
 
-        {/* Bagian epoch ke tanggal */}
-        <section className="mb-6">
-          <div className="bg-slate-100 p-4 rounded-lg">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-sm text-slate-500">
-                  Waktu Unix saat ini (detik)
+      <div className="md:w-[80%] xl:w-[50%] mx-auto mt-7">
+        <div className="border border-slate-500 rounded-lg p-3 pt-4 relative">
+          <span className="absolute text-sm bg-white -top-3 left-3 px-2">
+            Pengaturan
+          </span>
+
+          <section>
+            <div className="border border-gray-300 p-2 rounded-lg">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm text-slate-500">
+                    Waktu Unix saat ini (detik)
+                  </div>
+                  <div className="text-lg font-mono">{nowSec}</div>
                 </div>
-                <div className="text-lg font-mono">{nowSec}</div>
-              </div>
-              <div>
-                <button
-                  className="px-3 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
-                  onClick={() => {
-                    setInputEpoch(String(nowSec));
-                    setErrorEpoch("");
-                  }}
-                >
-                  Gunakan sekarang
-                </button>
+                <div>
+                  <button
+                    className="px-3 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900"
+                    onClick={() => {
+                      setInputEpoch(String(nowSec));
+                      setErrorEpoch("");
+                    }}
+                  >
+                    Gunakan sekarang
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="mb-6">
-          <h2 className="font-medium mb-2">Konversi epoch ke tanggal</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-center mb-1">
-            <input
-              type="text"
-              className={`p-2 border rounded-md col-span-2 font-mono ${
-                errorEpoch ? "border-red-500" : ""
-              }`}
-              value={inputEpoch}
-              onChange={(e) => setInputEpoch(e.target.value)}
-              aria-label="Input epoch"
-            />
-            <label className="flex items-center gap-2 text-sm">
+          <section className="my-6">
+            <h2 className="font-medium mb-2">Konversi epoch ke tanggal</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 items-center mb-1">
               <input
-                type="checkbox"
-                checked={assumeMillis}
-                onChange={(e) => setAssumeMillis(e.target.checked)}
+                type="text"
+                className={`p-2 border rounded-md col-span-2 font-mono ${
+                  errorEpoch ? "border-red-500" : ""
+                }`}
+                value={inputEpoch}
+                onChange={(e) => setInputEpoch(e.target.value)}
+                aria-label="Input epoch"
               />
-              Anggap input sebagai milidetik
-            </label>
-          </div>
-
-          {errorEpoch && (
-            <p className="text-red-500 text-sm mt-1" role="alert">
-              {errorEpoch}
-            </p>
-          )}
-
-          <div className="bg-slate-50 p-4 rounded-md mt-3">
-            <div className="mb-2">
-              {assumeMillis
-                ? "Menganggap sebagai milidetik (ms)"
-                : "Menganggap sebagai detik (s) jika jumlah digit ≤ 12"}
+              <label className="flex items-center gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={assumeMillis}
+                  onChange={(e) => setAssumeMillis(e.target.checked)}
+                />
+                Anggap input sebagai milidetik
+              </label>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <div className="text-sm text-slate-500">Epoch (detik)</div>
-                <div className="font-mono text-lg">{converted.seconds}</div>
-                <div className="text-sm text-slate-500 mt-2">
-                  Epoch (milidetik)
-                </div>
-                <div className="font-mono">{converted.milliseconds}</div>
+
+            {errorEpoch && (
+              <p className="text-red-500 text-sm mt-1" role="alert">
+                {errorEpoch}
+              </p>
+            )}
+
+            <div className="bg-slate-50 p-4 rounded-md mt-3">
+              <div className="mb-2">
+                {assumeMillis
+                  ? "Menganggap sebagai milidetik (ms)"
+                  : "Menganggap sebagai detik (s) jika jumlah digit ≤ 12"}
               </div>
-              <div>
-                <div className="text-sm text-slate-500">
-                  Tanggal dan waktu (GMT)
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <div className="text-sm text-slate-500">Epoch (detik)</div>
+                  <div className="font-mono text-lg">{converted.seconds}</div>
+                  <div className="text-sm text-slate-500 mt-2">
+                    Epoch (milidetik)
+                  </div>
+                  <div className="font-mono">{converted.milliseconds}</div>
                 </div>
-                <div>{converted.gmt}</div>
-                <div className="text-sm text-slate-500 mt-2">
-                  Tanggal dan waktu (zona Anda)
-                </div>
-                <div>{converted.local}</div>
-                <div className="text-sm text-slate-400 mt-2">
-                  Relative: {relative || "-"}
+                <div>
+                  <div className="text-sm text-slate-500">
+                    Tanggal dan waktu (GMT)
+                  </div>
+                  <div>{converted.gmt}</div>
+                  <div className="text-sm text-slate-500 mt-2">
+                    Tanggal dan waktu (zona Anda)
+                  </div>
+                  <div>{converted.local}</div>
+                  <div className="text-sm text-slate-400 mt-2">
+                    Relative: {relative || "-"}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Bagian tanggal ke epoch */}
-        <section className="mb-6">
-          <h2 className="font-medium mb-2">Konversi tanggal ke epoch</h2>
-          {/* ... bagian input tanggal sama persis dengan kode kamu, tidak berubah */}
-        </section>
-
-        <footer className="text-sm text-slate-500 mt-6">
-          Mendukung timestamp Unix dalam detik dan milidetik. Format tanggal
-          menggunakan bahasa Indonesia.
-        </footer>
+          <footer className="text-sm text-slate-500 mt-2">
+            Mendukung timestamp Unix dalam detik dan milidetik. Format tanggal
+            menggunakan bahasa Indonesia.
+          </footer>
+        </div>
       </div>
     </main>
   );

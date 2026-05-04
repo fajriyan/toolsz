@@ -117,7 +117,7 @@ const WordCounter = () => {
 
         // Wrap seluruh kata dalam range
         for (let k = startTokenIdx; k <= endTokenIdx; k++) {
-          tokens[k] = `<mark className="bg-yellow-200 text-black">${escapeHtml(
+          tokens[k] = `<mark class="bg-yellow-200 text-black">${escapeHtml(
             tokens[k],
           )}</mark>`;
           marked[k] = true;
@@ -137,6 +137,8 @@ const WordCounter = () => {
 
   // Sync scroll: saat textarea discroll, highlight ikut; juga sinkronisasi saat teks/activeTab berubah
   useEffect(() => {
+    if (!showHighlight) return;
+
     const ta = textareaRef.current;
     const hl = highlightRef.current;
     if (!ta || !hl) return;
@@ -154,17 +156,19 @@ const WordCounter = () => {
     return () => {
       ta.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [showHighlight]);
 
   // juga update highlight scroll pos ketika konten atau tab berubah (agar tidak mismatch)
   useEffect(() => {
+    if (!showHighlight) return;
+
     const ta = textareaRef.current;
     const hl = highlightRef.current;
     if (ta && hl) {
       hl.scrollTop = ta.scrollTop;
       hl.scrollLeft = ta.scrollLeft;
     }
-  }, [text, activeTab, duplicateData]);
+  }, [showHighlight, text, activeTab, duplicateData]);
 
   return (
     <div className="container mx-auto mb-10 px-3 md:px-0 min-h-[79dvh]">
@@ -185,10 +189,8 @@ const WordCounter = () => {
             {showHighlight && (
               <div
                 ref={highlightRef}
-                className={`absolute inset-0 whitespace-pre-wrap p-2 overflow-auto ${styleAlign} text-transparent`}
+                className={`absolute inset-0 z-10 whitespace-pre-wrap p-2 overflow-auto ${styleAlign}`}
                 style={{
-                  // text-transparent untuk menyembunyikan teks biasa; <mark> punya text-black jadi akan terlihat
-                  // pastikan font/line-height/padding sama dengan textarea
                   whiteSpace: "pre-wrap",
                   pointerEvents: "none",
                 }}
@@ -203,7 +205,9 @@ const WordCounter = () => {
               ref={textareaRef}
               onChange={handleChange}
               value={text}
-              className={`absolute inset-0 resize-none w-full h-full p-2 bg-transparent text-black ${styleAlign} overflow-auto`}
+              className={`absolute inset-0 z-20 resize-none w-full h-full p-2 bg-transparent ${
+                showHighlight ? "text-transparent caret-black" : "text-black"
+              } ${styleAlign} overflow-auto`}
               cols="30"
               rows="23"
               // onScroll handled in useEffect via addEventListener on ref
@@ -238,7 +242,7 @@ const WordCounter = () => {
 
             {/* Tabs */}
             <div className="flex gap-2 mb-3 overflow-x-auto mt-1">
-              {[1, 2, 3, 4].map((n) => (
+              {[1, 2, 3, 4, 5].map((n) => (
                 <button
                   key={n}
                   onClick={() => setActiveTab(n)}
@@ -265,7 +269,7 @@ const WordCounter = () => {
 
             <ul className="overflow-y-scroll h-[200px] pr-2 scroll-custom">
               {duplicateData.length === 0 ? (
-                <li className="text-sm text-gray-500">
+                <li className="text-xs text-gray-500">
                   Tidak ada {activeTab}-kata berulang
                 </li>
               ) : (
@@ -296,7 +300,7 @@ const WordCounter = () => {
               type="text"
               value={excludedWords}
               onChange={handleExcludedWordsChange}
-              className="w-full rounded-md p-2 border border-slate-600 mt-2"
+              className="w-full rounded-md p-2 border-none text-sm focus-within:outline-none"
               placeholder="Pilih Kata, pisahkan dengan spasi"
             />
           </div>
