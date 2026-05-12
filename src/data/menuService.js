@@ -49,6 +49,8 @@ export const menuService = [
     text: "Word Counter",
     category: "SEO Tools",
     icon: PointerOne,
+    description: "Hitung kata, karakter, dan statistik teks dengan cepat.",
+    keywords: ["word", "counter", "kata", "teks", "karakter"],
   },
   {
     href: "/layanan/lorem-generator",
@@ -56,6 +58,8 @@ export const menuService = [
     text: "Lorem Generator",
     category: "SEO Tools",
     icon: LoremIcon,
+    description: "Generate teks lorem ipsum untuk kebutuhan dummy content.",
+    keywords: ["lorem", "ipsum", "dummy", "content", "placeholder"],
   },
   {
     href: "/layanan/dummy-file",
@@ -63,6 +67,8 @@ export const menuService = [
     text: "PDF Dummy",
     category: "Developer Tools",
     icon: PdfIcon,
+    description: "Buat file PDF dummy untuk testing atau contoh dokumen.",
+    keywords: ["pdf", "dummy", "document", "test", "file"],
   },
   {
     href: "/layanan/display",
@@ -70,6 +76,8 @@ export const menuService = [
     text: "Display Info",
     category: "Developer Tools",
     icon: DisplayIcon,
+    description: "Lihat informasi display dan viewport perangkat.",
+    keywords: ["display", "viewport", "screen", "device", "info"],
   },
   {
     href: "/layanan/css-minify",
@@ -77,6 +85,8 @@ export const menuService = [
     text: "CSS Minify",
     category: "Developer Tools",
     icon: CssMinifyIcon,
+    description: "Kecilkan ukuran CSS dengan minification cepat.",
+    keywords: ["css", "minify", "compress", "optimize", "style"],
   },
   {
     href: "/layanan/css-unminify",
@@ -84,6 +94,8 @@ export const menuService = [
     text: "CSS Unminify",
     category: "Developer Tools",
     icon: CssUnminifyIcon,
+    description: "Rapikan CSS minified menjadi format yang mudah dibaca.",
+    keywords: ["css", "unminify", "beautify", "format", "style"],
   },
   {
     href: "/layanan/convertcase",
@@ -91,6 +103,8 @@ export const menuService = [
     text: "Convert Case",
     category: "SEO Tools",
     icon: ConvertCaseIcon,
+    description: "Ubah kapitalisasi teks dengan berbagai style.",
+    keywords: ["case", "uppercase", "lowercase", "title", "text"],
   },
   {
     href: "/layanan/robots-generator",
@@ -98,6 +112,8 @@ export const menuService = [
     text: "Robots Generator",
     category: "SEO Tools",
     icon: RobotsIcon,
+    description: "Hasilkan robots.txt SEO friendly.",
+    keywords: ["robots", "seo", "crawler", "txt", "file"],
   },
   {
     href: "/layanan/meta-generator",
@@ -105,6 +121,8 @@ export const menuService = [
     text: "Meta Generator",
     category: "SEO Tools",
     icon: MetaIcon,
+    description: "Buat meta tag SEO dan detail halaman web.",
+    keywords: ["meta", "seo", "tag", "website", "head"],
   },
   {
     href: "/layanan/qr-generator",
@@ -112,6 +130,8 @@ export const menuService = [
     text: "QR Code Generator",
     category: "Developer Tools",
     icon: QrIcon,
+    description: "Generate QR code untuk teks, link, atau data.",
+    keywords: ["qr", "code", "link", "data", "barcode"],
   },
   {
     href: "/layanan/flex-playground",
@@ -119,6 +139,8 @@ export const menuService = [
     text: "Flex Playground",
     category: "Developer Tools",
     icon: FlexIcon,
+    description: "Eksperimen layout CSS flexbox secara visual.",
+    keywords: ["flex", "layout", "css", "playground", "box"],
   },
   {
     href: "/layanan/grid-playground",
@@ -126,6 +148,8 @@ export const menuService = [
     text: "Grid Playground",
     category: "Developer Tools",
     icon: GridIcon,
+    description: "Buat dan uji layout CSS grid dengan cepat.",
+    keywords: ["grid", "layout", "css", "playground", "box"],
   },
   {
     href: "/layanan/youtube-embed-generator",
@@ -133,6 +157,8 @@ export const menuService = [
     text: "Youtube Embed",
     category: "Developer Tools",
     icon: YoutubeIcon,
+    description: "Buat embed code video YouTube dengan cepat.",
+    keywords: ["youtube", "embed", "video", "iframe", "player"],
   },
   {
     href: "/layanan/remove-whitespace",
@@ -140,6 +166,8 @@ export const menuService = [
     text: "Remove Whitespace",
     category: "SEO Tools",
     icon: RemoveWhitespaceIcon,
+    description: "Hapus spasi kosong dari teks atau kode.",
+    keywords: ["whitespace", "trim", "clean", "text", "code"],
   },
   {
     href: "/layanan/responsive-tester",
@@ -147,6 +175,8 @@ export const menuService = [
     text: "Responsive Tester",
     category: "SEO Tools",
     icon: ResponsiveTestIcon,
+    description: "Uji tampilan website pada berbagai ukuran layar.",
+    keywords: ["responsive", "tester", "viewport", "screen", "device"],
   },
   {
     href: "/layanan/text-compare",
@@ -154,6 +184,8 @@ export const menuService = [
     text: "Text Compare",
     category: "SEO Tools",
     icon: TextCompareIcon,
+    description: "Bandingkan dua teks dan lihat perbedaannya.",
+    keywords: ["text", "compare", "diff", "banding", "review"],
   },
   {
     href: "/layanan/sha-hash-generator",
@@ -161,6 +193,8 @@ export const menuService = [
     text: "SHA Generator",
     category: "Developer Tools",
     icon: ShaIcon,
+    description: "Generate hash SHA untuk kebutuhan keamanan.",
+    keywords: ["sha", "hash", "security", "password", "digest"],
   },
   {
     href: "/layanan/markdown-converter",
@@ -168,6 +202,8 @@ export const menuService = [
     text: "Markdown Converter",
     category: "Developer Tools",
     icon: MarkdownIcon,
+    description: "Konversi markdown menjadi format yang lebih siap pakai.",
+    keywords: ["markdown", "converter", "html", "format", "text"],
   },
   {
     href: "/layanan/jsonld-generator",
@@ -175,6 +211,8 @@ export const menuService = [
     text: "JSON LD Generator",
     category: "SEO Tools",
     icon: JsonldIcon,
+    description: "Buat schema JSON-LD untuk kebutuhan SEO.",
+    keywords: ["jsonld", "schema", "seo", "structured", "data"],
   },
   {
     href: "/layanan/easy-cdn",
@@ -182,6 +220,8 @@ export const menuService = [
     text: "Easy CDN",
     category: "Developer Tools",
     icon: CdnIcon,
+    description: "Bantu mencari dan memakai library dari CDN.",
+    keywords: ["cdn", "library", "script", "asset", "link"],
   },
   {
     href: "/layanan/find-replace",
@@ -189,6 +229,8 @@ export const menuService = [
     text: "Find Replace",
     category: "SEO Tools",
     icon: FindReplaceIcon,
+    description: "Cari dan ganti teks dengan cepat.",
+    keywords: ["find", "replace", "text", "search", "edit"],
   },
   {
     href: "/layanan/css-animation",
@@ -196,6 +238,8 @@ export const menuService = [
     text: "CSS Animation",
     category: "Developer Tools",
     icon: CssAnimationIcon,
+    description: "Buat dan preview animasi CSS.",
+    keywords: ["css", "animation", "keyframes", "playground", "motion"],
   },
   {
     href: "/layanan/meta-viewer",
@@ -203,6 +247,8 @@ export const menuService = [
     text: "Meta Viewer",
     category: "SEO Tools",
     icon: ViewerIcon,
+    description: "Lihat dan audit meta tag halaman web.",
+    keywords: ["meta", "viewer", "seo", "tags", "audit"],
   },
   {
     href: "/layanan/image-to-text",
@@ -210,6 +256,8 @@ export const menuService = [
     text: "Gambar ke Teks (ORC)",
     category: "SEO Tools",
     icon: OcrIcon,
+    description: "Ekstrak teks dari gambar dengan OCR.",
+    keywords: ["ocr", "image", "text", "extract", "scan"],
   },
   {
     href: "/layanan/cron-generator",
@@ -217,6 +265,8 @@ export const menuService = [
     text: "Cron Generator",
     category: "Developer Tools",
     icon: CronIcon,
+    description: "Generate cron expression untuk scheduler.",
+    keywords: ["cron", "scheduler", "schedule", "expression", "job"],
   },
   {
     href: "/layanan/regex-tester",
@@ -224,6 +274,8 @@ export const menuService = [
     text: "Regex Tester",
     category: "Developer Tools",
     icon: RegexIcon,
+    description: "Uji pola regex dan lihat hasil match.",
+    keywords: ["regex", "pattern", "test", "match", "string"],
   },
   {
     href: "/layanan/keyword-density-checker",
@@ -231,6 +283,8 @@ export const menuService = [
     text: "Keyword Density Check ",
     category: "SEO Tools",
     icon: KeywordDensityIcon,
+    description: "Cek kepadatan keyword pada teks atau halaman.",
+    keywords: ["keyword", "density", "seo", "content", "check"],
   },
   {
     href: "/layanan/favicon-checker",
@@ -238,6 +292,8 @@ export const menuService = [
     text: "Favicon Checker ",
     category: "SEO Tools",
     icon: FaviconIcon,
+    description: "Periksa favicon dan aset ikon website.",
+    keywords: ["favicon", "icon", "website", "seo", "check"],
   },
   // {
   //   href: "/layanan/typo-detector",
@@ -269,6 +325,8 @@ export const menuService = [
     text: "Bcrypt Generator",
     category: "Developer Tools",
     icon: BcryptIcon,
+    description: "Generate hash bcrypt untuk password.",
+    keywords: ["bcrypt", "hash", "password", "security", "login"],
   },
   {
     href: "/layanan/image-extractor",
@@ -276,6 +334,8 @@ export const menuService = [
     text: "Image Extractor",
     category: "SEO Tools",
     icon: ImageExtractIcon,
+    description: "Ekstrak gambar dari halaman web.",
+    keywords: ["image", "extractor", "scrape", "web", "download"],
   },
   // {
   //   href: "/layanan/crawler-simulator",
@@ -308,6 +368,8 @@ export const menuService = [
     text: "Responsive CSS",
     category: "Developer Tools",
     icon: ResponsiveCssIcon,
+    description: "Generate CSS responsif untuk berbagai breakpoint.",
+    keywords: ["responsive", "css", "breakpoint", "media", "query"],
   },
   {
     href: "/layanan/json-formatter",
@@ -315,6 +377,8 @@ export const menuService = [
     text: "JSON Formatter",
     category: "Developer Tools",
     icon: JsonFormatterIcon,
+    description: "Beautify, minify, dan rapikan JSON.",
+    keywords: ["json", "formatter", "beautify", "minify", "parse"],
   },
   {
     href: "/layanan/chmod-calculator",
@@ -322,6 +386,8 @@ export const menuService = [
     text: "Chmod Calculator",
     category: "Developer Tools",
     icon: ChmodIcon,
+    description: "Hitung permission chmod untuk file dan folder.",
+    keywords: ["chmod", "permission", "linux", "unix", "file"],
   },
   {
     href: "/layanan/slug-generator",
@@ -329,6 +395,8 @@ export const menuService = [
     text: "URL Slug Generator",
     category: "Developer Tools",
     icon: SlugIcon,
+    description: "Buat slug URL yang rapi dan SEO friendly.",
+    keywords: ["slug", "url", "seo", "generator", "string"],
   },
   {
     href: "/layanan/uuid-generator",
@@ -336,6 +404,8 @@ export const menuService = [
     text: "UUID Generator",
     category: "Developer Tools",
     icon: UuidIcon,
+    description: "Generate UUID acak untuk identitas unik.",
+    keywords: ["uuid", "unique", "id", "random", "generator"],
   },
   {
     href: "/layanan/tint-shade-generator",
@@ -343,6 +413,8 @@ export const menuService = [
     text: "Tint Shade Generator",
     category: "Developer Tools",
     icon: TintShadeIcon,
+    description: "Buat variasi tint dan shade warna.",
+    keywords: ["color", "tint", "shade", "palette", "generator"],
   },
   {
     href: "/layanan/keyword-permutation",
@@ -350,6 +422,8 @@ export const menuService = [
     text: "Keyword Permutation",
     category: "SEO Tools",
     icon: KeywordPermIcon,
+    description: "Generate variasi kombinasi keyword.",
+    keywords: ["keyword", "permutation", "seo", "variant", "generator"],
   },
   {
     href: "/layanan/title-meta-checker",
@@ -357,6 +431,8 @@ export const menuService = [
     text: "Meta Title Checker",
     category: "SEO Tools",
     icon: TitleCheckIcon,
+    description: "Periksa panjang dan kualitas title meta.",
+    keywords: ["title", "meta", "seo", "checker", "length"],
   },
   {
     href: "/layanan/page-size-checker",
@@ -364,6 +440,8 @@ export const menuService = [
     text: "Page Size Checker",
     category: "Developer Tools",
     icon: PageSizeIcon,
+    description: "Cek ukuran halaman web dan sumbernya.",
+    keywords: ["page", "size", "performance", "website", "checker"],
   },
   {
     href: "/layanan/campaign-url-builder",
@@ -371,6 +449,8 @@ export const menuService = [
     text: "Campaign URL Builder",
     category: "SEO Tools",
     icon: ToaIcon,
+    description: "Buat URL campaign dengan parameter tracking.",
+    keywords: ["campaign", "url", "utm", "builder", "tracking"],
   },
   {
     href: "/layanan/gerbang-logika",
@@ -378,5 +458,7 @@ export const menuService = [
     text: "Gerbang Logika",
     category: "Developer Tools",
     icon: LampIcon,
+    description: "Belajar dan simulasi gerbang logika digital.",
+    keywords: ["logic", "gate", "boolean", "digital", "simulation"],
   },
 ];

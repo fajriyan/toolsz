@@ -1,6 +1,6 @@
 import Changelog from "@/components/Changelog";
 import GalleryFadeSlide from "@/components/GalleryFadeSlide";
-import Image from "next/image";
+import ServiceQuickSearch from "@/components/ServiceQuickSearch";
 import Link from "next/link";
 import {
   PointerOne,
@@ -100,6 +100,8 @@ export default function Home() {
         </div>
         {/* End Hero Image Assets  */}
       </section>
+
+      <ServiceQuickSearch />
 
       <section className="container mx-auto my-[150px] px-5 md:px-0 ">
         <div className="py-5">
