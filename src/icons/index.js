@@ -28,6 +28,7 @@ export { default as KeywordDensityIcon } from "./KeywordDensityIcon";
 export { default as FaviconIcon } from "./FaviconIcon";
 export { default as BcryptIcon } from "./BcryptIcon";
 export { default as ImageExtractIcon } from "./ImageExtractIcon";
+export { default as ImageCompressorIcon } from "./ImageCompressorIcon";
 export { default as ResponsiveCssIcon } from "./ResponsiveCssIcon";
 export { default as JsonFormatterIcon } from "./JsonFormatterIcon";
 export { default as ChmodIcon } from "./ChmodIcon";

@@ -29,6 +29,7 @@ import {
   FaviconIcon,
   BcryptIcon,
   ImageExtractIcon,
+  ImageCompressorIcon,
   ResponsiveCssIcon,
   JsonFormatterIcon,
   ChmodIcon,
@@ -336,6 +337,15 @@ export const menuService = [
     icon: ImageExtractIcon,
     description: "Ekstrak gambar dari halaman web.",
     keywords: ["image", "extractor", "scrape", "web", "download"],
+  },
+  {
+    href: "/layanan/image-compressor",
+    top: 1,
+    text: "Image Compressor",
+    category: "Developer Tools",
+    icon: ImageCompressorIcon,
+    description: "Kompres gambar langsung di browser tanpa backend.",
+    keywords: ["image", "compressor", "compress", "webp", "jpg"],
   },
   // {
   //   href: "/layanan/crawler-simulator",
