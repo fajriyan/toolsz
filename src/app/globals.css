@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .scroll-custom::-webkit-scrollbar {
   width: 5px;
 }
@@ -129,7 +133,8 @@
 }
 
 @keyframes flicker {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 25px rgba(16, 185, 129, 0.7);
   }

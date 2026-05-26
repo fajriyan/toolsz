@@ -1,4 +1,5 @@
 import Changelog from "@/components/Changelog";
+import DonationSection from "@/components/DonationSection";
 import GalleryFadeSlide from "@/components/GalleryFadeSlide";
 import ServiceQuickSearch from "@/components/ServiceQuickSearch";
 import Link from "next/link";
@@ -45,7 +46,7 @@ export default function Home() {
             <h1 className="font-bold text-3xl sm:text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
               Gunakan{" "}
               <Link
-                href={"/layanan"}
+                href={"/#search"}
                 className="text-cyan-200 border px-5 rounded-md duration-500 transition-colors border-cyan-700 bg-gradient-to-r hover:to-cyan-900 from-gray-700 via-gray-900 to-black"
               >
                 Tools Online
@@ -101,7 +102,9 @@ export default function Home() {
         {/* End Hero Image Assets  */}
       </section>
 
-      <ServiceQuickSearch />
+      <div className="scroll-m-10" id="search">
+        <ServiceQuickSearch />
+      </div>
 
       <section className="container mx-auto my-[150px] px-5 md:px-0 ">
         <div className="py-5">
@@ -266,6 +269,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <DonationSection />
     </main>
   );
 }

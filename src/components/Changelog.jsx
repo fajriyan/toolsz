@@ -23,7 +23,7 @@ function Changelog() {
   }, []);
 
   return (
-    <p className="px-3 text-[16px] line-clamp-1">
+    <p className="pr-3 text-[16px] line-clamp-1">
       {(data?.commit?.author?.name || "fajriyan") + " : "}
       <span className="capitalize">{data?.commit?.message || "loading"}</span>
     </p>

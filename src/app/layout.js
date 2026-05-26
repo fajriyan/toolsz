@@ -1,10 +1,7 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
-import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Temukan Tools Online (Word Counter, Lorem Generator) | Toolsz",
@@ -152,7 +149,7 @@ export default function RootLayout({ children }) {
           content="gT1MhrQYGDjzx4R4YXRq6BXsHvBk7C15mksRwb6wUSo"
         />
       </head>
-      <body className={inter.className}>
+      <body className="antialiased">
           <Navbar />
           {children}
           <Footer />
