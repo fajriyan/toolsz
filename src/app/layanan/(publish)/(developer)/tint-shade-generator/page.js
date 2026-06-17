@@ -41,10 +41,67 @@ function shade(hex, p) {
   );
 }
 
+function rgbToHsl(r, g, b) {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+
+  let h;
+  let s;
+  const l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0;
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+    switch (max) {
+      case r:
+        h = ((g - b) / d + (g < b ? 6 : 0)) * 60;
+        break;
+      case g:
+        h = ((b - r) / d + 2) * 60;
+        break;
+      default:
+        h = ((r - g) / d + 4) * 60;
+    }
+  }
+
+  return {
+    h: Math.round(h),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100),
+  };
+}
+
+function formatColor(hex, format) {
+  const { r, g, b } = hexToRgb(hex);
+
+  switch (format) {
+    case "RGB":
+      return `rgb(${r}, ${g}, ${b})`;
+
+    case "RGBA":
+      return `rgba(${r}, ${g}, ${b}, 1)`;
+
+    case "HSL":
+      const hsl = rgbToHsl(r, g, b);
+      return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+
+    default:
+      return hex;
+  }
+}
+
 export default function TintShadeGenerator() {
   const [hexInput, setHexInput] = useState("#10b981");
   const [baseColor, setBaseColor] = useState("#10b981");
   const [steps, setSteps] = useState(10);
+  const [copyFormat, setCopyFormat] = useState("HEX");
 
   const percentages = Array.from({ length: steps }, (_, i) =>
     Math.round(((i + 1) * 100) / steps),
@@ -84,7 +141,10 @@ export default function TintShadeGenerator() {
 
   function copyAllHex() {
     const list = generateScale()
-      .flatMap((i) => [i.tint, i.shade])
+      .flatMap((i) => [
+        formatColor(i.tint, copyFormat),
+        formatColor(i.shade, copyFormat),
+      ])
       .join("\n");
     navigator.clipboard.writeText(list);
     toast(`Copy Semua Hex Berhasil`, {
@@ -98,8 +158,11 @@ export default function TintShadeGenerator() {
   }
 
   function copyHex(hex) {
-    navigator.clipboard.writeText(hex);
-    toast(`Copy Berhasil : ${hex}`, {
+    const formatted = formatColor(hex, copyFormat);
+
+    navigator.clipboard.writeText(formatted);
+
+    toast(`Copy Berhasil : ${formatted}`, {
       icon: "👌",
       style: {
         borderRadius: "10px",
@@ -140,6 +203,26 @@ export default function TintShadeGenerator() {
   }
 
   const scale = generateScale();
+
+  function randomColor() {
+    const random =
+      "#" +
+      Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0");
+
+    setHexInput(random);
+    setBaseColor(random);
+
+    toast(`Random Color : ${random}`, {
+      icon: "🎨",
+      style: {
+        borderRadius: "10px",
+        background: "#fff",
+        color: "#000",
+      },
+    });
+  }
 
   return (
     <main className="">
@@ -231,7 +314,7 @@ export default function TintShadeGenerator() {
                 >
                   <path d="m3 2 1.578 17.834L12 22l7.468-2.165L21 2H3Zm13.3 14.722-4.293 1.204H12l-4.297-1.204-.297-3.167h2.108l.15 1.526 2.335.639 2.34-.64.245-3.05h-7.27l-.187-2.006h7.64l.174-2.006H6.924l-.176-2.006h10.506l-.954 10.71Z" />
                 </svg>
-                Copy HEX
+                Copy {copyFormat}
               </button>
 
               <button
@@ -250,6 +333,38 @@ export default function TintShadeGenerator() {
                   <path d="M11.782 5.72a4.773 4.773 0 0 0-4.8 4.173 3.43 3.43 0 0 1 2.741-1.687c1.689 0 2.974 1.972 3.758 2.587a5.733 5.733 0 0 0 5.382.935c2-.638 2.934-2.865 3.137-3.921-.969 1.379-2.44 2.207-4.259 1.231-1.253-.673-2.19-3.438-5.959-3.318ZM6.8 11.979A4.772 4.772 0 0 0 2 16.151a3.431 3.431 0 0 1 2.745-1.687c1.689 0 2.974 1.972 3.758 2.587a5.733 5.733 0 0 0 5.382.935c2-.638 2.933-2.865 3.137-3.921-.97 1.379-2.44 2.208-4.259 1.231-1.253-.673-2.19-3.443-5.963-3.317Z" />
                 </svg>
                 Export Tailwind
+              </button>
+
+              <select
+                value={copyFormat}
+                onChange={(e) => setCopyFormat(e.target.value)}
+                className="bg-white border border-slate-700 rounded px-3 py-2"
+              >
+                <option value="HEX">HEX</option>
+                <option value="RGB">RGB</option>
+                <option value="RGBA">RGBA</option>
+                <option value="HSL">HSL</option>
+              </select>
+
+              <button
+                onClick={randomColor}
+                className="group bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
+              >
+                <svg
+                  className="w-5 h-5 group-hover:rotate-180 duration-700"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 4v5h.582m14.836 2A8.001 8.001 0 0 0 4.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 0 1-15.357-2m15.357 2H15"
+                  />
+                </svg>
+                Random
               </button>
             </div>
           </div>
@@ -272,7 +387,7 @@ export default function TintShadeGenerator() {
                       style={{ background: baseColor }}
                     />
                     <p className="text-center mt-2 font-mono text-xs bg-white px-1 absolute top-1 left-2 rounded">
-                      Base {baseColor}
+                      Base {formatColor(baseColor, copyFormat)}
                     </p>
                     <svg
                       className="w-5 h-5 text-white absolute top-2 right-2"
@@ -304,7 +419,7 @@ export default function TintShadeGenerator() {
                         style={{ background: i.tint }}
                       />
                       <p className="text-center mt-2 text-xs font-mono bg-white px-1 absolute top-1 left-2 rounded">
-                        {i.p}% {i.tint}
+                        {i.p}% {formatColor(i.tint, copyFormat)}
                       </p>
                       <svg
                         className="w-5 h-5 text-white absolute top-2 right-2"
@@ -338,7 +453,7 @@ export default function TintShadeGenerator() {
                       style={{ background: baseColor }}
                     />
                     <p className="text-center mt-2 font-mono text-xs bg-white px-1 absolute top-1 left-2 rounded">
-                      Base {baseColor}
+                      Base {formatColor(baseColor, copyFormat)}
                     </p>
 
                     <svg
@@ -371,7 +486,7 @@ export default function TintShadeGenerator() {
                         style={{ background: i.shade }}
                       />
                       <p className="text-center mt-2 text-xs font-mono bg-white px-1 absolute top-1 left-2 rounded">
-                        {i.p}% {i.shade}
+                        {i.p}% {formatColor(i.shade, copyFormat)}
                       </p>
                       <svg
                         className="w-5 h-5 text-white absolute top-2 right-2"
