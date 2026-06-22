@@ -1,3 +1,6 @@
+import ServiceVersionBadge from "@/components/ServiceVersionBadge";
+import version from "./version";
+
 export const metadata = {
   title: "Favicon & Apple Icon Checker | SEO Tools",
   description: "Cek icon yang digunakan pada halaman website kalian",
@@ -24,6 +27,14 @@ export const metadata = {
 };
 
 const LayoutDefault = ({ children }) => {
-  return <>{children}</>;
+  return (
+    <>
+      <ServiceVersionBadge
+        record={version}
+        variant="floating"
+      />
+      {children}
+    </>
+  );
 };
 export default LayoutDefault;

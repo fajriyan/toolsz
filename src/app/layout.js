@@ -125,7 +125,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id">
+    <html lang="id" data-scroll-behavior="smooth">
       <head>
         <Script
           async
@@ -150,9 +150,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-          <Navbar />
-          {children}
-          <Footer />
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );

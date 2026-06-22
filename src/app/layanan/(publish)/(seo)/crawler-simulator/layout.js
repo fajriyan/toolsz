@@ -1,3 +1,6 @@
+import ServiceVersionBadge from "@/components/ServiceVersionBadge";
+import version from "./version";
+
 export const metadata = {
   title: "Crawler Simulator Online | SEO Tools",
   description: "  Alat sederhana untuk simulasi bot Google Crawling website.",
@@ -24,6 +27,14 @@ export const metadata = {
 };
 
 const LayoutDefault = ({ children }) => {
-  return <>{children}</>;
+  return (
+    <>
+      <ServiceVersionBadge
+        record={version}
+        variant="floating"
+      />
+      {children}
+    </>
+  );
 };
 export default LayoutDefault;

@@ -1,4 +1,5 @@
 import { menuService } from "@/data/menuService";
+import ServiceVersionBadge from "@/components/ServiceVersionBadge";
 import Link from "next/link";
 
 const Layanan = () => {
@@ -35,13 +36,19 @@ const Layanan = () => {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="border flex items-center gap-2 p-3 rounded-md hover:border-slate-800"
+                      className="border flex flex-col items-start gap-2 p-3 rounded-md hover:border-slate-800"
                       title={item.text}
                     >
-                      <Icon className="w-5 h-5" />
-                      <h2 className="font-semibold text-left line-clamp-1">
-                        {item.text}
-                      </h2>
+                      <div className="flex items-center gap-2">
+                        <Icon className="w-5 h-5" />
+                        <h2 className="font-semibold text-left line-clamp-1">
+                          {item.text}
+                        </h2>
+                      </div>
+                      <ServiceVersionBadge
+                        record={item.version}
+                        variant="pill"
+                      />
                     </Link>
                   );
                 })}

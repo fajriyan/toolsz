@@ -42,8 +42,9 @@ import {
   ToaIcon,
   LampIcon,
 } from "@/icons";
+import { getServiceVersionFromHref } from "@/data/serviceVersions";
 
-export const menuService = [
+const rawMenuService = [
   {
     href: "/layanan/word-counter",
     top: 1,
@@ -472,3 +473,8 @@ export const menuService = [
     keywords: ["logic", "gate", "boolean", "digital", "simulation"],
   },
 ];
+
+export const menuService = rawMenuService.map((item) => ({
+  ...item,
+  version: getServiceVersionFromHref(item.href),
+}));

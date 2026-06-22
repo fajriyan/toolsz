@@ -1,3 +1,6 @@
+import ServiceVersionBadge from "@/components/ServiceVersionBadge";
+import version from "./version";
+
 export const metadata = {
   title: "Campaign URL Builder | SEO Tools",
   description:
@@ -26,6 +29,14 @@ export const metadata = {
 };
 
 const LayoutDefault = ({ children }) => {
-  return <>{children}</>;
+  return (
+    <>
+      <ServiceVersionBadge
+        record={version}
+        variant="floating"
+      />
+      {children}
+    </>
+  );
 };
 export default LayoutDefault;
