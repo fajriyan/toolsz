@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { menuService } from "@/data/menuService";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const topServices = menuService.filter((item) => item.top === 1);
 
@@ -197,6 +197,7 @@ const scoreServiceMatch = (service, query) => {
 
 export default function ServiceQuickSearch() {
   const [query, setQuery] = useState("");
+  const searchInputRef = useRef(null);
   const [randomSuggestions, setRandomSuggestions] = useState(() =>
     menuService.slice(0, 10),
   );
@@ -230,21 +231,41 @@ export default function ServiceQuickSearch() {
     ? rankedSearchResults
     : randomSuggestions;
 
-
   const [activeIndex, setActiveIndex] = useState(0);
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setActiveIndex((prev) => (prev + 1) % topServices.length);
-  }, 3000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % topServices.length);
+    }, 3000);
 
-  return () => clearInterval(interval);
-}, [topServices.length]);
+    return () => clearInterval(interval);
+  }, [topServices.length]);
 
-const rotatedSuggestions = [
-  ...topServices.slice(activeIndex),
-  ...topServices.slice(0, activeIndex),
-];
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const isMac = navigator.platform.toUpperCase().includes("MAC");
+
+      const isShortcut =
+        (isMac && event.metaKey && event.key.toLowerCase() === "k") ||
+        (!isMac && event.ctrlKey && event.key.toLowerCase() === "k");
+
+      if (!isShortcut) return;
+
+      event.preventDefault();
+      searchInputRef.current?.focus();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const rotatedSuggestions = [
+    ...topServices.slice(activeIndex),
+    ...topServices.slice(0, activeIndex),
+  ];
 
   return (
     <section className="container mx-auto px-5 md:px-0 py-12 md:py-16">
@@ -288,6 +309,7 @@ const rotatedSuggestions = [
                   />
                 </svg>
                 <input
+                  ref={searchInputRef}
                   id="service-search"
                   type="text"
                   value={query}
@@ -385,7 +407,7 @@ const rotatedSuggestions = [
                 onClick={() => setQuery(suggestion.text)}
                 className="rounded-full min-w-max bg-white px-3 py-1.5 text-xs font-medium text-slate-700 ring-1 ring-slate-200 transition hover:ring-cyan-400 hover:text-cyan-700"
               >
-                #{index +1} {suggestion.text}
+                #{index + 1} {suggestion.text}
               </button>
             ))}
           </div>
