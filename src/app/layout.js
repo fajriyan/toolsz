@@ -2,6 +2,8 @@ import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
+import { SearchModalProvider } from "@/contexts/SearchModalContext";
+import QuickSearchModal from "@/components/QuickSearchModal";
 
 export const metadata = {
   title: "Temukan Tools Online (Word Counter, Lorem Generator) | Toolsz",
@@ -150,9 +152,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+        <SearchModalProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <QuickSearchModal />
+        </SearchModalProvider>
       </body>
     </html>
   );

@@ -4,273 +4,287 @@ import GalleryFadeSlide from "@/components/GalleryFadeSlide";
 import ServiceQuickSearch from "@/components/ServiceQuickSearch";
 import Link from "next/link";
 import {
-  PointerOne,
-  MetaIcon,
-  CronIcon,
-  YoutubeIcon,
-  BcryptIcon,
-  JsonFormatterIcon,
-  TextCompareIcon,
-  ImageExtractIcon,
-  RobotsIcon,
+   PointerOne,
+   MetaIcon,
+   CronIcon,
+   YoutubeIcon,
+   BcryptIcon,
+   JsonFormatterIcon,
+   TextCompareIcon,
+   ImageExtractIcon,
+   RobotsIcon,
 } from "@/icons";
 
 export default function Home() {
-  return (
-    <main className="">
-      <section className="container mx-auto flex items-center px-5 md:px-0 h-[90dvh] gap-0 sm:gap-14">
-        <div className="w-full md:w-[60%]  flex flex-wrap flex-col gap-5 justify-center">
-          {/* Start Bar Update */}
-          <Link
-            href={"/changelog"}
-            className="py-1 border hover:border-slate-700 group rounded-full  w-[300px] md:w-max flex items-center"
-          >
-            <span className="px-5 text-[16px] line-clamp-1">
-              <Changelog />
-            </span>
-            <button className="me-[5px] bg-black rounded-full p-1  hover:bg-slate-900">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="#fff"
-                className="bi bi-arrow-right-circle-fill group-hover:animate-pulse"
-                viewBox="0 0 16 16"
-              >
-                <path d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-              </svg>
-            </button>
-          </Link>
-          {/* End Bar Update  */}
-          <div className="">
-            <h1 className="font-bold text-3xl sm:text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
-              Gunakan{" "}
-              <Link
-                href={"/#search"}
-                className="text-cyan-200 border px-5 rounded-md duration-500 transition-colors border-cyan-700 bg-gradient-to-r hover:to-cyan-900 from-gray-700 via-gray-900 to-black"
-              >
-                Tools Online
-              </Link>{" "}
-              Praktis, Ringan, dan Gratis di{" "}
-              <span className="text-sky-800">Toolsz</span>
-            </h1>
-          </div>
-          <p className="md:w-[90%] text-[15px] sm:text-[16px] md:text-[18px]">
-            Toolsz berisi kumpulan tools online gratis yang ringan dan mudah
-            digunakan langsung dari browser Kalian. Didesain untuk mendukung
-            produktivitas tanpa perlu instalasi atau pendaftaran.
-          </p>
-          <div className=" flex gap-4 items-center mt-3">
-            <div className="relative group">
-              <Link
-                href="/layanan/"
-                className="relative inline-block p-px font-semibold leading-6 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black cursor-pointer rounded-xl shadow-emerald-900/30 transition-all duration-300 ease-in-out hover:shadow-cyan-600 py-2.5 px-6 hover:ring-4 ring-cyan-600"
-              >
-                Mulai Explorasi
-              </Link>
+   return (
+      <main className="">
+         <section className="container mx-auto flex items-center px-5 md:px-0 h-[90dvh] gap-0 sm:gap-14">
+            <div className="w-full md:w-[60%]  flex flex-wrap flex-col gap-5 justify-center">
+               {/* Start Bar Update */}
+               <Link
+                  href={"/changelog"}
+                  className="py-1 border hover:border-slate-700 group rounded-full  w-[300px] md:w-max flex items-center"
+               >
+                  <span className="px-5 text-[16px] line-clamp-1">
+                     <Changelog />
+                  </span>
+                  <button className="me-[5px] bg-black rounded-full p-1  hover:bg-slate-900">
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="#fff"
+                        className="bi bi-arrow-right-circle-fill group-hover:animate-pulse"
+                        viewBox="0 0 16 16"
+                     >
+                        <path d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                     </svg>
+                  </button>
+               </Link>
+               {/* End Bar Update  */}
+               <div className="">
+                  <h1 className="font-bold text-3xl sm:text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
+                     Gunakan{" "}
+                     <Link
+                        href={"/#search"}
+                        className="text-cyan-200 border px-5 rounded-md duration-500 transition-colors border-cyan-700 bg-gradient-to-r hover:to-cyan-900 from-gray-700 via-gray-900 to-black"
+                     >
+                        Tools Online
+                     </Link>{" "}
+                     Praktis, Ringan, dan Gratis di{" "}
+                     <span className="text-sky-800">Toolsz</span>
+                  </h1>
+               </div>
+               <p className="md:w-[90%] text-[15px] sm:text-[16px] md:text-[18px]">
+                  Toolsz berisi kumpulan tools online gratis yang ringan dan
+                  mudah digunakan langsung dari browser Kalian. Didesain untuk
+                  mendukung produktivitas tanpa perlu instalasi atau
+                  pendaftaran.
+               </p>
+               <div className=" flex gap-4 items-center mt-3">
+                  <div className="relative group">
+                     <Link
+                        href="/layanan/"
+                        className="relative inline-block p-px font-semibold leading-6 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black cursor-pointer rounded-xl shadow-emerald-900/30 transition-all duration-300 ease-in-out hover:shadow-cyan-600 py-2.5 px-6 hover:ring-4 ring-cyan-600"
+                     >
+                        Mulai Explorasi
+                     </Link>
+                  </div>
+
+                  <a
+                     href="https://github.com/fajriyan/toolsz"
+                     className="hover:underline flex items-center gap-1"
+                  >
+                     <svg
+                        className="w-6 h-6 text-gray-800"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                     >
+                        <path d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" />
+                     </svg>
+                  </a>
+               </div>
+            </div>
+            {/* Start Hero Image Assets  */}
+            <div className="relative md:w-[40%]">
+               <GalleryFadeSlide
+                  images={[
+                     "https://images.unsplash.com/photo-1651611243377-2c15b94ad613?q=80&w=2500&auto=format&fit=crop",
+                     "https://images.unsplash.com/photo-1740568439425-8ef0deafe965?q=80&w=2532&auto=format&fit=crop",
+                     "https://images.unsplash.com/photo-1679173480513-8e2d4f583b86?q=80&w=1035&auto=format&fit=crop",
+                     "https://images.unsplash.com/photo-1676799910063-a349396b70e7?q=80&w=1035&auto=format&fit=crop",
+                  ]}
+               />
+            </div>
+            {/* End Hero Image Assets  */}
+         </section>
+
+         <section className="container mx-auto my-[150px] px-5 md:px-0 ">
+            <div className="py-5">
+               <h2 className="text-2xl md:text-center font-semibold">
+                  Layanan yang Paling Banyak Digunakan
+               </h2>
+               <p className="md:text-center mt-2 text-sm">
+                  Beragam layanan populer yang siap menunjang produktivitas
+                  Anda.
+               </p>
             </div>
 
-            <a
-              href="https://github.com/fajriyan/toolsz"
-              className="hover:underline flex items-center gap-1"
-            >
-              <svg
-                className="w-6 h-6 text-gray-800"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        {/* Start Hero Image Assets  */}
-        <div className="relative md:w-[40%]">
-          <GalleryFadeSlide
-            images={[
-              "https://images.unsplash.com/photo-1651611243377-2c15b94ad613?q=80&w=2500&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1740568439425-8ef0deafe965?q=80&w=2532&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1679173480513-8e2d4f583b86?q=80&w=1035&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1676799910063-a349396b70e7?q=80&w=1035&auto=format&fit=crop",
-            ]}
-          />
-        </div>
-        {/* End Hero Image Assets  */}
-      </section>
-
-      <div className="scroll-m-10" id="search">
-        <ServiceQuickSearch />
-      </div>
-
-      <section className="container mx-auto my-[150px] px-5 md:px-0 ">
-        <div className="py-5">
-          <h2 className="text-2xl md:text-center font-semibold">
-            Layanan yang Paling Banyak Digunakan
-          </h2>
-          <p className="md:text-center mt-2 text-sm">
-            Beragam layanan populer yang siap menunjang produktivitas Anda.
-          </p>
-        </div>
-
-        <div>
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-4 xl:grid-cols-5 md:gap-4 py-4">
-            <Link
-              href={"/layanan/word-counter"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <PointerOne className="w-10 h-10" />
-              <h3 className="font-semibold text-center">Word Counter</h3>
-              <div className="text-xs">
-                Hitung Kata Berulang dengan Penyajian Statistik Lengkap
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/meta-generator"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <MetaIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">Meta Generator</h3>
-              <div className="text-xs">
-                Buat Meta tag meta dan detail penting tentang halaman web milik
-                anda.
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/cron-generator"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <CronIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">Cron Generator</h3>
-              <div className="text-xs">
-                Buat dan preview cron expression untuk scheduler Anda.
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/youtube-embed-generator"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <YoutubeIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">Youtube Embed Code</h3>
-              <div className="text-xs">
-                Sematkan video youtube pada situs dengan pilihan banyak option
-                mudah
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/bcrypt-hash-generator"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <BcryptIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">
-                Bcrypt Hash Generator
-              </h3>
-              <div className="text-xs">
-                Hasilkan hash bcrypt dengan mudah dan verifikasi keasliannya.
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/json-formatter"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <JsonFormatterIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">JSON Formatter</h3>
-              <div className="text-xs">
-                Beautify, minify, dan kelola JSON dengan cepat dan rapi.
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/text-compare"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <TextCompareIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">Text Compare </h3>
-              <div className="text-xs">
-                Komparasikan Perbedaan 2 text/ kalimat dengan mudah
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/image-extractor"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <ImageExtractIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">Image Extractor</h3>
-              <div className="text-xs">
-                Alat sederhana untuk mengekstrak dan mengunduh gambar dari
-                halaman web.
-              </div>
-            </Link>
-            <Link
-              href={"/layanan/robots-generator"}
-              className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
-            >
-              <RobotsIcon className="w-10 h-10" />
-              <h3 className="font-semibold text-center">
-                Robots.txt Generator
-              </h3>
-              <div className="text-xs">
-                Hasilkan Robots.txt SEO Friendly dengan UI yang Simple
-              </div>
-            </Link>
-          </div>
-        </div>
-        <p className="text-xs text-center">
-          Terdapat Lebih dari 15+ Tools. Nantikan update dari kami terkait tools
-          lainnya, pendekatan pembuatan tools yang digunakan adalah <br />{" "}
-          Developer & SEO, namun tidak menutup kemungkinaan untuk menyediakan
-          tools di bidang lain.{" "}
-          <Link className="underline hover:text-cyan-700" href={"/layanan"}>
-            Semua Tools
-          </Link>
-        </p>
-      </section>
-
-      <section className="container mx-auto my-[150px] px-5 md:px-0 ">
-        <div className="h-[400px] sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center  bg-cover bg-[url('https://i.giphy.com/fMYhlRdVtRnsk.webp')]">
-          <div className="absolute w-full h-full bg-black/70"></div>
-          <div className="relative z-[3] p-5 md:p-10">
-            <h2 className="text-4xl text-white font-light">
-              Butuh tools tapi{" "}
-              <span className="font-bold">Belum tersedia?</span>
-            </h2>
-            <div className="text-white text-lg font-light mt-3 mb-8">
-              Jangan khawatir, ajukan ide kalian maka kami akan wujudkan ide
-              kalian dengan cara yang luar biasa.
+            <div>
+               <div className="grid grid-cols-1 gap-2 md:grid-cols-4 xl:grid-cols-5 md:gap-4 py-4">
+                  <Link
+                     href={"/layanan/word-counter"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <PointerOne className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">Word Counter</h3>
+                     <div className="text-xs">
+                        Hitung Kata Berulang dengan Penyajian Statistik Lengkap
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/meta-generator"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <MetaIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        Meta Generator
+                     </h3>
+                     <div className="text-xs">
+                        Buat Meta tag meta dan detail penting tentang halaman
+                        web milik anda.
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/cron-generator"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <CronIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        Cron Generator
+                     </h3>
+                     <div className="text-xs">
+                        Buat dan preview cron expression untuk scheduler Anda.
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/youtube-embed-generator"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <YoutubeIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        Youtube Embed Code
+                     </h3>
+                     <div className="text-xs">
+                        Sematkan video youtube pada situs dengan pilihan banyak
+                        option mudah
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/bcrypt-hash-generator"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <BcryptIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        Bcrypt Hash Generator
+                     </h3>
+                     <div className="text-xs">
+                        Hasilkan hash bcrypt dengan mudah dan verifikasi
+                        keasliannya.
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/json-formatter"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <JsonFormatterIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        JSON Formatter
+                     </h3>
+                     <div className="text-xs">
+                        Beautify, minify, dan kelola JSON dengan cepat dan rapi.
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/text-compare"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <TextCompareIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        Text Compare{" "}
+                     </h3>
+                     <div className="text-xs">
+                        Komparasikan Perbedaan 2 text/ kalimat dengan mudah
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/image-extractor"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <ImageExtractIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        Image Extractor
+                     </h3>
+                     <div className="text-xs">
+                        Alat sederhana untuk mengekstrak dan mengunduh gambar
+                        dari halaman web.
+                     </div>
+                  </Link>
+                  <Link
+                     href={"/layanan/robots-generator"}
+                     className="border flex flex-col items-start gap-2 p-4 rounded-md hover:border-slate-800 "
+                  >
+                     <RobotsIcon className="w-10 h-10" />
+                     <h3 className="font-semibold text-center">
+                        Robots.txt Generator
+                     </h3>
+                     <div className="text-xs">
+                        Hasilkan Robots.txt SEO Friendly dengan UI yang Simple
+                     </div>
+                  </Link>
+               </div>
             </div>
-            <a
-              href="https://github.com/fajriyan/toolsz/issues"
-              target="_blank"
-              className="py-3 px-6 border flex items-center gap-2 border-white font-medium rounded-xl hover:ring-4 ring-cyan-600 bg-white/90 backdrop-blur-sm text-gray-900 w-max"
-            >
-              <svg
-                className="w-6 h-6 text-gray-800"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeWidth="2"
-                  d="M8.737 8.737a21.49 21.49 0 0 1 3.308-2.724m0 0c3.063-2.026 5.99-2.641 7.331-1.3 1.827 1.828.026 6.591-4.023 10.64-4.049 4.049-8.812 5.85-10.64 4.023-1.33-1.33-.736-4.218 1.249-7.253m6.083-6.11c-3.063-2.026-5.99-2.641-7.331-1.3-1.827 1.828-.026 6.591 4.023 10.64m3.308-9.34a21.497 21.497 0 0 1 3.308 2.724m2.775 3.386c1.985 3.035 2.579 5.923 1.248 7.253-1.336 1.337-4.245.732-7.295-1.275M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
-                />
-              </svg>
-              Submit Ide Kalian!
-            </a>
-            <p className="absolute hidden md:block lg:-bottom-[10%] right-7 text-xs text-slate-300 mt-1">
-              Tenang ini Gratis kok
+            <p className="text-xs text-center">
+               Terdapat Lebih dari 15+ Tools. Nantikan update dari kami terkait
+               tools lainnya, pendekatan pembuatan tools yang digunakan adalah{" "}
+               <br /> Developer & SEO, namun tidak menutup kemungkinaan untuk
+               menyediakan tools di bidang lain.{" "}
+               <Link
+                  className="underline hover:text-cyan-700"
+                  href={"/layanan"}
+               >
+                  Semua Tools
+               </Link>
             </p>
-          </div>
-        </div>
-      </section>
+         </section>
 
-      <DonationSection />
-    </main>
-  );
+         <section className="container mx-auto my-[150px] px-5 md:px-0 ">
+            <div className="h-[400px] sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center  bg-cover bg-[url('https://i.giphy.com/fMYhlRdVtRnsk.webp')]">
+               <div className="absolute w-full h-full bg-black/70"></div>
+               <div className="relative z-[3] p-5 md:p-10">
+                  <h2 className="text-4xl text-white font-light">
+                     Butuh tools tapi{" "}
+                     <span className="font-bold">Belum tersedia?</span>
+                  </h2>
+                  <div className="text-white text-lg font-light mt-3 mb-8">
+                     Jangan khawatir, ajukan ide kalian maka kami akan wujudkan
+                     ide kalian dengan cara yang luar biasa.
+                  </div>
+                  <a
+                     href="https://github.com/fajriyan/toolsz/issues"
+                     target="_blank"
+                     className="py-3 px-6 border flex items-center gap-2 border-white font-medium rounded-xl hover:ring-4 ring-cyan-600 bg-white/90 backdrop-blur-sm text-gray-900 w-max"
+                  >
+                     <svg
+                        className="w-6 h-6 text-gray-800"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                     >
+                        <path
+                           stroke="currentColor"
+                           strokeLinecap="round"
+                           strokeWidth="2"
+                           d="M8.737 8.737a21.49 21.49 0 0 1 3.308-2.724m0 0c3.063-2.026 5.99-2.641 7.331-1.3 1.827 1.828.026 6.591-4.023 10.64-4.049 4.049-8.812 5.85-10.64 4.023-1.33-1.33-.736-4.218 1.249-7.253m6.083-6.11c-3.063-2.026-5.99-2.641-7.331-1.3-1.827 1.828-.026 6.591 4.023 10.64m3.308-9.34a21.497 21.497 0 0 1 3.308 2.724m2.775 3.386c1.985 3.035 2.579 5.923 1.248 7.253-1.336 1.337-4.245.732-7.295-1.275M14 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                        />
+                     </svg>
+                     Submit Ide Kalian!
+                  </a>
+                  <p className="absolute hidden md:block lg:-bottom-[10%] right-7 text-xs text-slate-300 mt-1">
+                     Tenang ini Gratis kok
+                  </p>
+               </div>
+            </div>
+         </section>
+
+         <DonationSection />
+      </main>
+   );
 }

@@ -241,27 +241,6 @@ export default function ServiceQuickSearch() {
     return () => clearInterval(interval);
   }, [topServices.length]);
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      const isMac = navigator.platform.toUpperCase().includes("MAC");
-
-      const isShortcut =
-        (isMac && event.metaKey && event.key.toLowerCase() === "k") ||
-        (!isMac && event.ctrlKey && event.key.toLowerCase() === "k");
-
-      if (!isShortcut) return;
-
-      event.preventDefault();
-      searchInputRef.current?.focus();
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
   const rotatedSuggestions = [
     ...topServices.slice(activeIndex),
     ...topServices.slice(0, activeIndex),
