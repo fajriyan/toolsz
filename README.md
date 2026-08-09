@@ -21,8 +21,6 @@ if this project helps you, you can give it a cup of coffee. thanks!
 
 ## How to run it
 
-opencode -s ses_03f6c0686ffeFSPnQlTH6hGLEm
-
 Untuk menjalankan project ini kalian bisa melakukan dengan 2 cara, sebagai berikut :
 
 ### `Access Here (Online)`
