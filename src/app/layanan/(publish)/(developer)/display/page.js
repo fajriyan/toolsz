@@ -1,7 +1,7 @@
 "use client"
 import dynamic from "next/dynamic";
 
-const Utils = dynamic(() => import("@/app/layanan/(publish)/(developer)/display/utils"), {
+const Utils = dynamic(() => import("./utils"), {
   ssr: false,
   loading: () => <span className="">loading</span>,
 });

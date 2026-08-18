@@ -1,6 +1,6 @@
 "use client";
 
-import GalleryFadeSlide from "@/components/GalleryFadeSlide";
+import GalleryFadeSlide from "../../../../../components/GalleryFadeSlide";
 import { useState, useMemo, useRef } from "react";
 
 export default function Page() {

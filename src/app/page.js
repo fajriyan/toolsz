@@ -1,7 +1,7 @@
-import Changelog from "@/components/Changelog";
-import DonationSection from "@/components/DonationSection";
-import GalleryFadeSlide from "@/components/GalleryFadeSlide";
-import ServiceQuickSearch from "@/components/ServiceQuickSearch";
+import Changelog from "../components/Changelog";
+import DonationSection from "../components/DonationSection";
+import GalleryFadeSlide from "../components/GalleryFadeSlide";
+import ServiceQuickSearch from "../components/ServiceQuickSearch";
 import Link from "next/link";
 import {
    PointerOne,
