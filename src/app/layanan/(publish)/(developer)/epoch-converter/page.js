@@ -3,25 +3,37 @@
 import { useEffect, useMemo, useState } from "react";
 
 export default function EpochConverterPage() {
-  const [nowSec, setNowSec] = useState(() => Math.floor(Date.now() / 1000));
-  const [inputEpoch, setInputEpoch] = useState(
-    String(Math.floor(Date.now() / 1000)),
-  );
+  const [mounted, setMounted] = useState(false);
+  const [nowSec, setNowSec] = useState(0);
+  const [inputEpoch, setInputEpoch] = useState("0");
   const [assumeMillis, setAssumeMillis] = useState(false);
   const [relative, setRelative] = useState("");
   const [errorEpoch, setErrorEpoch] = useState(""); // pesan error untuk input epoch
 
   // Fields for date -> epoch
-  const [year, setYear] = useState(new Date().getFullYear());
-  const [month, setMonth] = useState(new Date().getMonth() + 1);
-  const [day, setDay] = useState(new Date().getDate());
-  const [hour, setHour] = useState(new Date().getHours() % 12 || 12);
-  const [minute, setMinute] = useState(new Date().getMinutes());
-  const [second, setSecond] = useState(new Date().getSeconds());
-  const [ampm, setAmpm] = useState(new Date().getHours() >= 12 ? "PM" : "AM");
+  const [year, setYear] = useState(2000);
+  const [month, setMonth] = useState(1);
+  const [day, setDay] = useState(1);
+  const [hour, setHour] = useState(12);
+  const [minute, setMinute] = useState(0);
+  const [second, setSecond] = useState(0);
+  const [ampm, setAmpm] = useState("AM");
   const [zoneMode, setZoneMode] = useState("local"); // local or gmt
 
   useEffect(() => {
+    // Set real values after mount to avoid hydration mismatch
+    const now = new Date();
+    setNowSec(Math.floor(Date.now() / 1000));
+    setInputEpoch(String(Math.floor(Date.now() / 1000)));
+    setYear(now.getFullYear());
+    setMonth(now.getMonth() + 1);
+    setDay(now.getDate());
+    setHour(now.getHours() % 12 || 12);
+    setMinute(now.getMinutes());
+    setSecond(now.getSeconds());
+    setAmpm(now.getHours() >= 12 ? "PM" : "AM");
+    setMounted(true);
+
     const t = setInterval(() => setNowSec(Math.floor(Date.now() / 1000)), 1000);
     return () => clearInterval(t);
   }, []);
@@ -154,15 +166,29 @@ export default function EpochConverterPage() {
     setInputEpoch(String(epochSec));
   }
 
+  if (!mounted) {
+    return (
+      <main className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0 pb-20">
+        <div className="py-5">
+          <h1 className="text-xl text-center font-semibold">
+            Timestamp Converter | Developer Tools
+          </h1>
+          <p className="text-center text-xs">
+            Konversi antara Unix timestamp dan tanggal manusia dengan mudah.
+          </p>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="container mx-auto min-h-[83vh] z-0 px-3 md:px-0 pb-20">
       <div className="py-5">
         <h1 className="text-xl text-center font-semibold">
-          Epoch → Tanggal | Developer Tools
+          Timestamp Converter | Developer Tools
         </h1>
         <p className="text-center text-xs">
-          Alat sederhana untuk mengonversi Unix epoch (detik/ms) ke tanggal dan
-          sebaliknya.
+          Konversi antara Unix timestamp dan tanggal manusia dengan mudah.
         </p>
       </div>
 

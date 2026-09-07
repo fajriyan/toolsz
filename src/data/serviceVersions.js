@@ -4,6 +4,7 @@ import cssMinifyVersion from "@/app/layanan/(publish)/(developer)/css-minify/ver
 import cssUnminifyVersion from "@/app/layanan/(publish)/(developer)/css-unminify/version";
 import displayVersion from "@/app/layanan/(publish)/(developer)/display/version";
 import dummyFileVersion from "@/app/layanan/(publish)/(developer)/dummy-file/version";
+import epochConverterVersion from "@/app/layanan/(publish)/(developer)/epoch-converter/version";
 import easyCdnVersion from "@/app/layanan/(publish)/(developer)/easy-cdn/version";
 import flexPlaygroundVersion from "@/app/layanan/(publish)/(developer)/flex-playground/version";
 import gerbangLogikaVersion from "@/app/layanan/(publish)/(developer)/gerbang-logika/version";
@@ -58,6 +59,7 @@ export const serviceVersionRegistry = {
   "css-unminify": cssUnminifyVersion,
   display: displayVersion,
   "dummy-file": dummyFileVersion,
+  "epoch-converter": epochConverterVersion,
   "easy-cdn": easyCdnVersion,
   "flex-playground": flexPlaygroundVersion,
   "gerbang-logika": gerbangLogikaVersion,
