@@ -1,3 +1,4 @@
+import base64ConverterVersion from "@/app/layanan/(draft)/base64-converter/version";
 import bcryptHashGeneratorVersion from "@/app/layanan/(publish)/(developer)/bcrypt-hash-generator/version";
 import chmodCalculatorVersion from "@/app/layanan/(publish)/(developer)/chmod-calculator/version";
 import cssMinifyVersion from "@/app/layanan/(publish)/(developer)/css-minify/version";
@@ -53,6 +54,7 @@ const DEFAULT_SERVICE_VERSION = {
 
 // Add per-service overrides here when a feature gets its own release history.
 export const serviceVersionRegistry = {
+  "base64-converter": base64ConverterVersion,
   "bcrypt-hash-generator": bcryptHashGeneratorVersion,
   "chmod-calculator": chmodCalculatorVersion,
   "css-minify": cssMinifyVersion,

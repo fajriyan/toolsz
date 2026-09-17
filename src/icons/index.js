@@ -40,3 +40,4 @@ export { default as TitleCheckIcon } from "./TitleCheckIcon";
 export { default as PageSizeIcon } from "./PageSizeIcon";
 export { default as ToaIcon } from "./ToaIcon";
 export { default as LampIcon } from "./LampIcon";
+export { default as Base64Icon } from "./Base64Icon";

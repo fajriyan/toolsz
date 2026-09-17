@@ -41,6 +41,7 @@ import {
    PageSizeIcon,
    ToaIcon,
    LampIcon,
+   Base64Icon,
 } from "@/icons";
 import { getServiceVersionFromHref } from "@/data/serviceVersions";
 
@@ -480,6 +481,15 @@ const rawMenuService = [
       icon: CronIcon,
       description: "Konversi antara Unix timestamp dan tanggal manusia.",
       keywords: ["timestamp", "epoch", "unix", "date", "converter"],
+   },
+   {
+      href: "/layanan/base64-converter",
+      top: 0,
+      text: "Base64 Converter",
+      category: "Developer Tools",
+      icon: Base64Icon,
+      description: "Encode dan decode teks ke/from Base64 dengan cepat.",
+      keywords: ["base64", "encoder", "decoder", "encode", "decode"],
    },
    {
       href: "/layanan/og-viewer",
