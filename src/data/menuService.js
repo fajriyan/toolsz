@@ -1,5 +1,6 @@
 import {
    PointerOne,
+   Base64Icon,
    LoremIcon,
    PdfIcon,
    DisplayIcon,
@@ -41,7 +42,6 @@ import {
    PageSizeIcon,
    ToaIcon,
    LampIcon,
-   Base64Icon,
 } from "@/icons";
 import { getServiceVersionFromHref } from "@/data/serviceVersions";
 
@@ -485,10 +485,10 @@ const rawMenuService = [
    {
       href: "/layanan/base64-converter",
       top: 0,
-      text: "Base64 Converter",
+      text: "Base64 Encoder/Decoder",
       category: "Developer Tools",
       icon: Base64Icon,
-      description: "Encode dan decode teks ke/from Base64 dengan cepat.",
+      description: "Encode teks ke Base64 atau decode Base64 ke teks asli.",
       keywords: ["base64", "encoder", "decoder", "encode", "decode"],
    },
    {

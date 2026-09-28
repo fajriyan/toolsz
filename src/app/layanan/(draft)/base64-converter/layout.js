@@ -1,9 +1,9 @@
 export const metadata = {
   title: "Base64 Encoder/Decoder Online | Toolsz",
   description:
-    "Encode dan decode teks ke/from Base64 dengan cepat dan mudah",
+    "Encode teks menjadi Base64 atau decode Base64 menjadi teks asli, plus dukungan format URL safe.",
   keywords:
-    "base64, encoder, decoder, online, tools, encode, decode",
+    "base64 encoder, base64 decoder, base64 online, encode decode base64",
   robots: "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
   alternates: {
     canonical: `${process.env.SITE_URL}/layanan/base64-converter`,
@@ -11,7 +11,7 @@ export const metadata = {
   openGraph: {
     title: "Base64 Encoder/Decoder Online | Toolsz",
     description:
-      "Encode dan decode teks ke/from Base64 dengan cepat dan mudah",
+      "Encode teks menjadi Base64 atau decode Base64 menjadi teks asli, plus dukungan format URL safe.",
     url: `${process.env.SITE_URL}/layanan/base64-converter`,
     type: "website",
     images: [

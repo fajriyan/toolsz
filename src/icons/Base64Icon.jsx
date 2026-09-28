@@ -17,7 +17,14 @@ const Base64Icon = (props) => {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
-        d="M4 7V4h16v3M9 20h6M12 4v16"
+        d="M7 4v16M17 4v16M12 4v16"
+      />
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M4 9h6M14 9h6M4 15h6M14 15h6"
       />
     </svg>
   );
