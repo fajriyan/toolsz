@@ -116,7 +116,7 @@ const highlightText = (text, query, fallbackToken = "") => {
       part.toLowerCase() === query.toLowerCase() ? (
         <mark
           key={`${part}-${index}`}
-          className="rounded bg-cyan-100 px-1 text-cyan-900"
+          className="rounded-sm bg-cyan-100 px-1 text-cyan-900"
         >
           {part}
         </mark>
@@ -137,7 +137,7 @@ const highlightText = (text, query, fallbackToken = "") => {
       part.toLowerCase() === fallbackToken.toLowerCase() ? (
         <mark
           key={`${part}-${index}`}
-          className="rounded bg-cyan-100 px-1 text-cyan-900"
+          className="rounded-sm bg-cyan-100 px-1 text-cyan-900"
         >
           {part}
         </mark>
@@ -294,7 +294,7 @@ export default function ServiceQuickSearch() {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Contoh: json, cron, password, seo..."
-                  className="w-full rounded-2xl border border-slate-200 bg-white px-12 py-4 text-sm text-slate-900 outline-none transition focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100"
+                  className="w-full rounded-2xl border border-slate-200 bg-white px-12 py-4 text-sm text-slate-900 outline-hidden transition focus:border-cyan-500 focus:ring-4 focus:ring-cyan-100"
                 />
               </div>
             </div>

@@ -126,7 +126,7 @@ export default function CDNGenerator() {
                 Output CDN Scripts
               </span>
               <textarea
-                className="w-full min-h-[150px] p-2 font-mono border-none focus-within:outline-none resize-none rounded-md text-xs overflow-x-auto"
+                className="w-full min-h-[150px] p-2 font-mono border-none focus-within:outline-hidden resize-none rounded-md text-xs overflow-x-auto"
                 value={getScripts()}
                 ref={previewRef}
                 readOnly
@@ -134,7 +134,7 @@ export default function CDNGenerator() {
 
               <button
                 onClick={handleCopy}
-                className="bg-gradient-to-r absolute top-3 right-3 from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+                className="bg-linear-to-r absolute top-3 right-3 from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

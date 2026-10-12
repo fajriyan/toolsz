@@ -100,7 +100,7 @@ export default function UUIDGenerator() {
             <select
               value={version}
               onChange={(e) => setVersion(e.target.value)}
-              className="border rounded px-2 py-[8px] w-full"
+              className="border rounded-sm px-2 py-[8px] w-full"
             >
               <option value="v1">Version 1 (Timestamp-based)</option>
               <option value="v4">Version 4 (Random)</option>
@@ -117,7 +117,7 @@ export default function UUIDGenerator() {
               max={10000}
               value={amount}
               onChange={(e) => setAmount(+e.target.value)}
-              className="border rounded px-2 py-1.5 w-full"
+              className="border rounded-sm px-2 py-1.5 w-full"
             />
           </div>
 
@@ -183,7 +183,7 @@ export default function UUIDGenerator() {
         <div className="flex gap-3 mt-3">
           <button
             onClick={generate}
-            className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
+            className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
           >
             Generate UUID
           </button>
@@ -195,7 +195,7 @@ export default function UUIDGenerator() {
           </span>
           <textarea
             readOnly
-            className="w-full h-64 rounded font-mono border-none focus-within:outline-none resize-none"
+            className="w-full h-64 rounded-sm font-mono border-none focus-within:outline-hidden resize-none"
             value={result.join("\n")}
           />
         </div>

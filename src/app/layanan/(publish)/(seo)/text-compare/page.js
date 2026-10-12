@@ -168,7 +168,7 @@ export default function ComparePage() {
           </select>
           <button
             onClick={mode == "line" ? handleCompare : handleCompareWords}
-            className="flex bg-gradient-to-r from-gray-800 to-slate-900 hover:from-cyan-950 hover:to-cyan-950 font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center"
+            className="flex bg-linear-to-r from-gray-800 to-slate-900 hover:from-cyan-950 hover:to-cyan-950 font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center"
           >
             Compare
           </button>

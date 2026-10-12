@@ -180,7 +180,7 @@ export default function Page() {
                         </label>
                         <select
                            onChange={handlePresetChange}
-                           className="w-full p-2 border border-slate-300 rounded"
+                           className="w-full p-2 border border-slate-300 rounded-sm"
                         >
                            {presets.map((preset, idx) => (
                               <option key={idx} value={idx}>
@@ -196,7 +196,7 @@ export default function Page() {
                         </label>
                         <input
                            type="text"
-                           className="w-full p-2 border border-slate-300 rounded"
+                           className="w-full p-2 border border-slate-300 rounded-sm"
                            value={pattern}
                            onChange={(e) => setPattern(e.target.value)}
                            placeholder="e.g. hello\\d+"
@@ -209,7 +209,7 @@ export default function Page() {
                         </label>
                         <input
                            type="text"
-                           className="w-full p-2 border border-slate-300 rounded"
+                           className="w-full p-2 border border-slate-300 rounded-sm"
                            value={flags}
                            onChange={(e) => setFlags(e.target.value)}
                            placeholder="e.g. gi"
@@ -224,7 +224,7 @@ export default function Page() {
                         </label>
                         <textarea
                            rows="5"
-                           className="w-full p-2 border border-slate-300 rounded"
+                           className="w-full p-2 border border-slate-300 rounded-sm"
                            value={text}
                            onChange={(e) => setText(e.target.value)}
                            placeholder="Enter text here..."
@@ -233,7 +233,7 @@ export default function Page() {
 
                      <button
                         onClick={testRegex}
-                        className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-4 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex items-center gap-2 mt-4"
+                        className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-4 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex items-center gap-2 mt-4"
                      >
                         Tes Pola Regex
                      </button>

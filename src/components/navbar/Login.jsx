@@ -42,7 +42,7 @@ function LoginContent() {
       <div className="flex gap-2">
          {/* <button
         onClick={() => signIn("github")}
-        className="bg-gradient-to-r from-gray-800 to-slate-900 font-medium text-white py-2 px-3 min-w-max rounded-lg"
+        className="bg-linear-to-r from-gray-800 to-slate-900 font-medium text-white py-2 px-3 min-w-max rounded-lg"
       >
         <svg
           className="w-6 h-6 text-white"
@@ -58,7 +58,7 @@ function LoginContent() {
       </button> */}
          {/* <a
         href="https://github.com/fajriyan/toolsz" target="_blank"
-        className="bg-gradient-to-r from-gray-800 to-slate-900 font-medium text-white py-2 px-3 min-w-max rounded-lg"
+        className="bg-linear-to-r from-gray-800 to-slate-900 font-medium text-white py-2 px-3 min-w-max rounded-lg"
       >
         <svg
           className="w-6 h-6 text-white"
@@ -74,7 +74,7 @@ function LoginContent() {
       </a> */}
          {/* <button
         onClick={() => signIn("google")}
-        className="bg-gradient-to-r from-gray-800 to-slate-900 font-medium text-white py-2 px-3 min-w-max rounded-lg"
+        className="bg-linear-to-r from-gray-800 to-slate-900 font-medium text-white py-2 px-3 min-w-max rounded-lg"
       >
         <svg
           className="w-6 h-6 text-white"

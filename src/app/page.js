@@ -47,7 +47,7 @@ export default function Home() {
                      Gunakan{" "}
                      <Link
                         href={"/#search"}
-                        className="text-cyan-200 border px-5 rounded-md duration-500 transition-colors border-cyan-700 bg-gradient-to-r hover:to-cyan-900 from-gray-700 via-gray-900 to-black"
+                        className="text-cyan-200 border px-5 rounded-md duration-500 transition-colors border-cyan-700 bg-linear-to-r hover:to-cyan-900 from-gray-700 via-gray-900 to-black"
                      >
                         Tools Online
                      </Link>{" "}
@@ -65,7 +65,7 @@ export default function Home() {
                   <div className="relative group">
                      <Link
                         href="/layanan/"
-                        className="relative inline-block p-px font-semibold leading-6 text-white bg-gradient-to-r from-gray-700 via-gray-900 to-black cursor-pointer rounded-xl shadow-emerald-900/30 transition-all duration-300 ease-in-out hover:shadow-cyan-600 py-2.5 px-6 hover:ring-4 ring-cyan-600"
+                        className="relative inline-block p-px font-semibold leading-6 text-white bg-linear-to-r from-gray-700 via-gray-900 to-black cursor-pointer rounded-xl shadow-emerald-900/30 transition-all duration-300 ease-in-out hover:shadow-cyan-600 py-2.5 px-6 hover:ring-4 ring-cyan-600"
                      >
                         Mulai Explorasi
                      </Link>
@@ -245,7 +245,7 @@ export default function Home() {
          <section className="container mx-auto my-[150px] px-5 md:px-0 ">
             <div className="h-[400px] sm:h-[450px] object-cover overflow-hidden relative rounded-2xl flex flex-col justify-center  bg-cover bg-[url('https://i.giphy.com/fMYhlRdVtRnsk.webp')]">
                <div className="absolute w-full h-full bg-black/70"></div>
-               <div className="relative z-[3] p-5 md:p-10">
+               <div className="relative z-3 p-5 md:p-10">
                   <h2 className="text-4xl text-white font-light">
                      Butuh tools tapi{" "}
                      <span className="font-bold">Belum tersedia?</span>
@@ -257,7 +257,7 @@ export default function Home() {
                   <a
                      href="https://github.com/fajriyan/toolsz/issues"
                      target="_blank"
-                     className="py-3 px-6 border flex items-center gap-2 border-white font-medium rounded-xl hover:ring-4 ring-cyan-600 bg-white/90 backdrop-blur-sm text-gray-900 w-max"
+                     className="py-3 px-6 border flex items-center gap-2 border-white font-medium rounded-xl hover:ring-4 ring-cyan-600 bg-white/90 backdrop-blur-xs text-gray-900 w-max"
                   >
                      <svg
                         className="w-6 h-6 text-gray-800"
@@ -277,7 +277,7 @@ export default function Home() {
                      </svg>
                      Submit Ide Kalian!
                   </a>
-                  <p className="absolute hidden md:block lg:-bottom-[10%] right-7 text-xs text-slate-300 mt-1">
+                  <p className="absolute hidden md:block lg:bottom-[-10%] right-7 text-xs text-slate-300 mt-1">
                      Tenang ini Gratis kok
                   </p>
                </div>

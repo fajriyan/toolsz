@@ -82,7 +82,7 @@ export default function SHAForm() {
             </select>
             <button
               onClick={handleConvert}
-              className="flex bg-gradient-to-r from-gray-800 to-slate-900 hover:from-cyan-950 hover:to-cyan-950 font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center"
+              className="flex bg-linear-to-r from-gray-800 to-slate-900 hover:from-cyan-950 hover:to-cyan-950 font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center"
             >
               Convert
             </button>
@@ -98,7 +98,7 @@ export default function SHAForm() {
               </div>
               <button
                 onClick={handleCopy}
-                className="bg-gradient-to-r absolute top-3 right-3 from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+                className="bg-linear-to-r absolute top-3 right-3 from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

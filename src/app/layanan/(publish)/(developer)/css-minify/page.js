@@ -48,7 +48,7 @@ export default function MinifyCssPage() {
         </div>
         <div className="flex gap-2">
           <button
-            className="bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
+            className="bg-linear-to-r hover:bg-linear-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
             onClick={handleMinify}
           >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list-columns" viewBox="0 0 16 16">

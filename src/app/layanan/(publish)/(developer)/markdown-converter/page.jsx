@@ -34,7 +34,7 @@ export default function MarkdownConverterPage() {
           <div>
             <label className="block mb-2 font-medium">Markdown Input</label>
             <textarea
-              className="w-full h-[400px] p-4 border rounded resize-none font-mono border-slate-700"
+              className="w-full h-[400px] p-4 border rounded-sm resize-none font-mono border-slate-700"
               value={markdown}
               onChange={(e) => setMarkdown(e.target.value)}
             />

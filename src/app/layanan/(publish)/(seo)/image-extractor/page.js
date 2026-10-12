@@ -272,12 +272,12 @@ export default function Page() {
             placeholder="Masukkan URL Website"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full px-3 py-2 focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded mb-4"
+            className="w-full px-3 py-2 focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm mb-4"
           />
           <button
             onClick={handleExtract}
             disabled={loading || !url}
-            className="block bg-gradient-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg"
+            className="block bg-linear-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg"
           >
             {loading ? "Memuat Website..." : "Identifikasi Website"}
           </button>
@@ -419,7 +419,7 @@ export default function Page() {
                     return (
                       <div
                         key={i}
-                        className={`relative border hover:shadow-md hover:-translate-y-1 duration-200 bg-white rounded-xl overflow-hidden shadow-sm flex flex-col ${
+                        className={`relative border hover:shadow-md hover:-translate-y-1 duration-200 bg-white rounded-xl overflow-hidden shadow-xs flex flex-col ${
                           isSelected ? "ring-2 ring-slate-800" : ""
                         }`}
                       >
@@ -515,23 +515,23 @@ export default function Page() {
           <div className="mt-10 animate-pulse">
             <div className="border rounded-md p-4 space-y-4">
               <div className="flex flex-wrap gap-3 items-center justify-between">
-                <div className="h-4 w-40 bg-gray-200 rounded"></div>
+                <div className="h-4 w-40 bg-gray-200 rounded-sm"></div>
                 <div className="flex flex-wrap gap-2">
-                  <div className="h-8 w-24 bg-gray-200 rounded"></div>
-                  <div className="h-8 w-32 bg-gray-200 rounded"></div>
-                  <div className="h-8 w-28 bg-gray-200 rounded"></div>
+                  <div className="h-8 w-24 bg-gray-200 rounded-sm"></div>
+                  <div className="h-8 w-32 bg-gray-200 rounded-sm"></div>
+                  <div className="h-8 w-28 bg-gray-200 rounded-sm"></div>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-2 justify-between border-b pb-3">
                 <div className="flex gap-2">
-                  <div className="h-8 w-24 bg-gray-200 rounded"></div>
-                  <div className="h-8 w-24 bg-gray-200 rounded"></div>
+                  <div className="h-8 w-24 bg-gray-200 rounded-sm"></div>
+                  <div className="h-8 w-24 bg-gray-200 rounded-sm"></div>
                 </div>
                 <div className="flex gap-2">
-                  <div className="h-8 w-36 bg-gray-200 rounded"></div>
-                  <div className="h-8 w-32 bg-gray-200 rounded"></div>
-                  <div className="h-8 w-28 bg-gray-200 rounded"></div>
+                  <div className="h-8 w-36 bg-gray-200 rounded-sm"></div>
+                  <div className="h-8 w-32 bg-gray-200 rounded-sm"></div>
+                  <div className="h-8 w-28 bg-gray-200 rounded-sm"></div>
                 </div>
               </div>
 
@@ -539,13 +539,13 @@ export default function Page() {
                 {[...Array(10)].map((_, i) => (
                   <div
                     key={i}
-                    className="border bg-white rounded-xl overflow-hidden shadow-sm p-3 flex flex-col"
+                    className="border bg-white rounded-xl overflow-hidden shadow-xs p-3 flex flex-col"
                   >
                     <div className="border border-slate-200 p-2 h-32 sm:h-56 bg-gray-200 rounded-lg"></div>
                     <div className="mt-2 flex-1 flex flex-col justify-between text-xs">
-                      <div className="h-3 w-full bg-gray-200 rounded mb-2"></div>
+                      <div className="h-3 w-full bg-gray-200 rounded-sm mb-2"></div>
                       <div className="flex items-center justify-between text-[11px]">
-                        <div className="h-2 w-4 bg-gray-200 rounded"></div>
+                        <div className="h-2 w-4 bg-gray-200 rounded-sm"></div>
                         <div className="flex gap-2">
                           <div className="h-5 w-5 bg-gray-200 rounded-full"></div>
                           <div className="h-5 w-5 bg-gray-200 rounded-full"></div>

@@ -45,7 +45,7 @@ export default function FindReplacePage() {
 
       <div className="md:w-[80%] xl:w-[50%] mx-auto">
         <textarea
-          className="w-full p-2 border border-slate-700 rounded"
+          className="w-full p-2 border border-slate-700 rounded-sm"
           rows="14"
           placeholder="Masukkan teks asli di sini..."
           value={originalText}
@@ -56,14 +56,14 @@ export default function FindReplacePage() {
           <input
             type="text"
             placeholder={useRegex ? "Masukkan Regex pattern" : "Cari kata..."}
-            className="flex-1 p-2 border border-slate-700 rounded w-full sm:w-1/2"
+            className="flex-1 p-2 border border-slate-700 rounded-sm w-full sm:w-1/2"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <input
             type="text"
             placeholder="Ganti dengan..."
-            className="flex-1 p-2 border border-slate-700 rounded w-full sm:w-1/2"
+            className="flex-1 p-2 border border-slate-700 rounded-sm w-full sm:w-1/2"
             value={replaceText}
             onChange={(e) => setReplaceText(e.target.value)}
           />
@@ -88,7 +88,7 @@ export default function FindReplacePage() {
         {regexError && <p className="text-red-600 text-sm">{regexError}</p>}
 
         <button
-          className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 mt-7"
+          className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 mt-7"
           onClick={handleReplace}
         >
           Replace
@@ -97,7 +97,7 @@ export default function FindReplacePage() {
         {resultText && (
           <div>
             <h2 className="font-semibold mt-4">Hasil:</h2>
-            <div className="whitespace-pre-wrap border p-2 rounded bg-gray-50">
+            <div className="whitespace-pre-wrap border p-2 rounded-sm bg-gray-50">
               {resultText}
             </div>
           </div>

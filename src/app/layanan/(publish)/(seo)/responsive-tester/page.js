@@ -103,14 +103,14 @@ export default function ResponsiveTester() {
             placeholder="Enter URL (e.g. https://example.com)"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full p-3 rounded border border-gray-300"
+            className="w-full p-3 rounded-sm border border-gray-300"
           />
 
           <div className="sm:w-[35%] md:w-[20%]">
             <select
               value={selectedDevice}
               onChange={(e) => setSelectedDevice(e.target.value)}
-              className="w-full p-3 rounded border border-gray-300"
+              className="w-full p-3 rounded-sm border border-gray-300"
             >
               {Object.keys(devices).map((group) => (
                 <optgroup key={group} label={group}>
@@ -127,7 +127,7 @@ export default function ResponsiveTester() {
           <button
             onClick={fetchHtml}
             disabled={loading || !url}
-            className="px-4 py-2 bg-gray-800 text-white rounded"
+            className="px-4 py-2 bg-gray-800 text-white rounded-sm"
           >
             {loading ? "Loading..." : "Preview"}
           </button>

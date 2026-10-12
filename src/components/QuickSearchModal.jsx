@@ -97,7 +97,7 @@ const highlightText = (text, query, fallbackToken = "") => {
          part.toLowerCase() === query.toLowerCase() ? (
             <mark
                key={`${part}-${index}`}
-               className="rounded bg-cyan-100 px-0.5 text-cyan-900"
+               className="rounded-sm bg-cyan-100 px-0.5 text-cyan-900"
             >
                {part}
             </mark>
@@ -117,7 +117,7 @@ const highlightText = (text, query, fallbackToken = "") => {
          part.toLowerCase() === fallbackToken.toLowerCase() ? (
             <mark
                key={`${part}-${index}`}
-               className="rounded bg-cyan-100 px-0.5 text-cyan-900"
+               className="rounded-sm bg-cyan-100 px-0.5 text-cyan-900"
             >
                {part}
             </mark>
@@ -270,7 +270,7 @@ export default function QuickSearchModal() {
       <div
          ref={backdropRef}
          onClick={handleBackdropClick}
-         className={`fixed inset-0 z-[9999] flex items-start justify-center bg-black/50 pt-[15vh] px-4 transition-opacity duration-200 ease-out ${
+         className={`fixed inset-0 z-9999 flex items-start justify-center bg-black/50 pt-[15vh] px-4 transition-opacity duration-200 ease-out ${
             isAnimating ? "opacity-100" : "opacity-0"
          }`}
       >
@@ -303,9 +303,9 @@ export default function QuickSearchModal() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Cari tools"
-                  className="flex-1 bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400"
+                  className="flex-1 bg-transparent text-sm text-slate-900 outline-hidden placeholder:text-slate-400"
                />
-               <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded border border-slate-200 bg-slate-50 px-1.5 py-0.5 text-[10px] font-medium text-slate-500">
+               <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded-sm border border-slate-200 bg-slate-50 px-1.5 py-0.5 text-[10px] font-medium text-slate-500">
                   ESC
                </kbd>
             </div>
@@ -381,26 +381,26 @@ export default function QuickSearchModal() {
             <div className="flex items-center justify-between border-t border-slate-100 bg-slate-50 px-4 py-2.5 text-[11px] text-slate-500">
                <div className="flex items-center gap-3">
                   <span className="flex items-center gap-1">
-                     <kbd className="rounded border border-slate-200 bg-white px-1 py-0.5 font-mono">
+                     <kbd className="rounded-sm border border-slate-200 bg-white px-1 py-0.5 font-mono">
                         ↑
                      </kbd>
-                     <kbd className="rounded border border-slate-200 bg-white px-1 py-0.5 font-mono">
+                     <kbd className="rounded-sm border border-slate-200 bg-white px-1 py-0.5 font-mono">
                         ↓
                      </kbd>
                      navigasi
                   </span>
                   <span className="flex items-center gap-1">
-                     <kbd className="rounded border border-slate-200 bg-white px-1 py-0.5 font-mono">
+                     <kbd className="rounded-sm border border-slate-200 bg-white px-1 py-0.5 font-mono">
                         ↵
                      </kbd>
                      buka
                   </span>
                </div>
                <span className="flex items-center gap-1">
-                  <kbd className="rounded border border-slate-200 bg-white px-1 py-0.5 font-mono">
+                  <kbd className="rounded-sm border border-slate-200 bg-white px-1 py-0.5 font-mono">
                      {shortcutKey}
                   </kbd>
-                  <kbd className="rounded border border-slate-200 bg-white px-1 py-0.5 font-mono">
+                  <kbd className="rounded-sm border border-slate-200 bg-white px-1 py-0.5 font-mono">
                      K
                   </kbd>
                   toggle

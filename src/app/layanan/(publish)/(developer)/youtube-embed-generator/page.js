@@ -89,7 +89,7 @@ export default function Home() {
                 type="text"
                 value={videoId}
                 onChange={(e) => setVideoId(e.target.value)}
-                className="mt-1 p-2 border rounded w-full"
+                className="mt-1 p-2 border rounded-sm w-full"
                 placeholder="Masukkan ID video"
               />
             </label>
@@ -160,7 +160,7 @@ export default function Home() {
                 <select
                   value={ivLoadPolicy}
                   onChange={(e) => setIvLoadPolicy(Number(e.target.value))}
-                  className="mt-1 p-2 border rounded w-full"
+                  className="mt-1 p-2 border rounded-sm w-full"
                 >
                   <option value={1}>Show Annotations</option>
                   <option value={3}>Hide Annotations</option>
@@ -182,7 +182,7 @@ export default function Home() {
           ></iframe>
         </div>
 
-        <div className="lg:w-[100%] 2xl:w-[30%] p-4 border rounded-md space-y-4">
+        <div className="lg:w-full 2xl:w-[30%] p-4 border rounded-md space-y-4">
           <h2 className="text-lg font-bold">Embed Code</h2>
           <textarea
             value={`<iframe src="${embedUrl}" width="560" height="315" allow="autoplay; encrypted-media; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -195,7 +195,7 @@ className="">
           ></textarea>
           <button
             onClick={copyEmbedCode}
-            className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+            className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -224,7 +224,7 @@ function Checkbox({ label, checked, onChange }) {
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+        className="h-4 w-4 text-blue-600 border-gray-300 rounded-sm focus:ring-blue-500"
       />
       <span>{label}</span>
     </label>

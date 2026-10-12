@@ -97,12 +97,12 @@ export default function KeywordCheckerPage() {
               placeholder="Masukkan URL halaman"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              className="w-full px-3 py-2 focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded mb-4"
+              className="w-full px-3 py-2 focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm mb-4"
             />
 
             <div className="flex flex-col md:flex-row gap-5">
               <select
-                className="w-full px-3 py-2 focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded mb-4"
+                className="w-full px-3 py-2 focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm mb-4"
                 value={lang}
                 onChange={(e) => setLang(e.target.value)}
               >
@@ -111,7 +111,7 @@ export default function KeywordCheckerPage() {
               </select>
 
               <select
-                className="w-full px-3 py-2 focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded mb-4"
+                className="w-full px-3 py-2 focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm mb-4"
                 value={ngram}
                 onChange={(e) => setNgram(Number(e.target.value))}
               >
@@ -125,7 +125,7 @@ export default function KeywordCheckerPage() {
             <button
               onClick={fetchKeywords}
               disabled={loading || !url}
-              className="block bg-gradient-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg"
+              className="block bg-linear-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg"
             >
               {loading ? "Memuat..." : "Analisis Keyword"}
             </button>
@@ -137,7 +137,7 @@ export default function KeywordCheckerPage() {
 
               {Object.keys(topKeywords).length > 0 && (
                 <>
-                  <div className="mb-5 max-w-xl mx-auto p-4 border rounded bg-gray-50">
+                  <div className="mb-5 max-w-xl mx-auto p-4 border rounded-sm bg-gray-50">
                     <h2 className="text-lg font-semibold mb-2">Top Keyword</h2>
                     <ul className="list-disc list-inside space-y-2 text-sm">
                       {[1, 2, 3, 4].map((n) =>
@@ -154,7 +154,7 @@ export default function KeywordCheckerPage() {
                   <div className="mt-2 text-center">
                     <button
                       onClick={exportToCSV}
-                      className="block bg-gradient-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg text-sm"
+                      className="block bg-linear-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg text-sm"
                     >
                       Export ke CSV
                     </button>
@@ -195,18 +195,18 @@ export default function KeywordCheckerPage() {
             ) : (
               <div className="">
                 <div className=" mx-auto animate-pulse">
-                  <h3 className="font-semibold mb-2 bg-gray-300 rounded w-48 h-6"></h3>
+                  <h3 className="font-semibold mb-2 bg-gray-300 rounded-sm w-48 h-6"></h3>
                   <table className="w-full border text-sm">
                     <thead>
                       <tr className="bg-gray-100">
                         <th className="border p-2 text-left">
-                          <div className="h-4 bg-gray-300 rounded w-24"></div>
+                          <div className="h-4 bg-gray-300 rounded-sm w-24"></div>
                         </th>
                         <th className="border p-2 text-center">
-                          <div className="h-4 bg-gray-300 rounded w-12 mx-auto"></div>
+                          <div className="h-4 bg-gray-300 rounded-sm w-12 mx-auto"></div>
                         </th>
                         <th className="border p-2 text-center">
-                          <div className="h-4 bg-gray-300 rounded w-16 mx-auto"></div>
+                          <div className="h-4 bg-gray-300 rounded-sm w-16 mx-auto"></div>
                         </th>
                       </tr>
                     </thead>
@@ -214,13 +214,13 @@ export default function KeywordCheckerPage() {
                       {[...Array(10)].map((_, i) => (
                         <tr key={i} className="border text-center">
                           <td className="border p-2 text-left">
-                            <div className="h-4 bg-gray-300 rounded w-32"></div>
+                            <div className="h-4 bg-gray-300 rounded-sm w-32"></div>
                           </td>
                           <td className="border p-2">
-                            <div className="h-4 bg-gray-300 rounded w-8 mx-auto"></div>
+                            <div className="h-4 bg-gray-300 rounded-sm w-8 mx-auto"></div>
                           </td>
                           <td className="border p-2">
-                            <div className="h-4 bg-gray-300 rounded w-12 mx-auto"></div>
+                            <div className="h-4 bg-gray-300 rounded-sm w-12 mx-auto"></div>
                           </td>
                         </tr>
                       ))}

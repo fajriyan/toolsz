@@ -196,7 +196,7 @@ const LineRow = memo(function LineRow({
 
    return (
       <div
-         className="relative pr-3 whitespace-pre-wrap break-words group-hover:bg-gray-200"
+         className="relative pr-3 whitespace-pre-wrap wrap-break-word group-hover:bg-gray-200"
          style={{ paddingLeft: `${depth * indent + (foldable ? 1.2 : 0)}ch` }}
       >
          {foldable && (
@@ -311,10 +311,10 @@ export default function JsonFormatterPage() {
                   value={inputJson}
                   style={{ resize: "none" }}
                   onChange={(e) => setInputJson(e.target.value)}
-                  className="border rounded p-3 min-h-[300px] font-mono text-sm"
+                  className="border rounded-sm p-3 min-h-[300px] font-mono text-sm"
                />
 
-               <div className="border rounded h-[400px] lg:h-[500px] overflow-auto bg-gray-50">
+               <div className="border rounded-sm h-[400px] lg:h-[500px] overflow-auto bg-gray-50">
                   <div className="grid grid-cols-[40px_1fr] font-mono text-sm leading-6">
                      {viewMode === "tree" &&
                         lines.map((line, index) => (
@@ -336,7 +336,7 @@ export default function JsonFormatterPage() {
                               <div className="text-right text-xs flex justify-center items-start pt-1 bg-gray-100 text-gray-500 select-none group-hover:bg-gray-200">
                                  {index + 1}
                               </div>
-                              <div className="pr-3 whitespace-pre-wrap break-words group-hover:bg-gray-200">
+                              <div className="pr-3 whitespace-pre-wrap wrap-break-word group-hover:bg-gray-200">
                                  {line || " "}
                               </div>
                            </div>
@@ -360,14 +360,14 @@ export default function JsonFormatterPage() {
 
                   <button
                      onClick={handleFormat}
-                     className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
+                     className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
                   >
                      Format / Beautify
                   </button>
 
                   <button
                      onClick={handleMinify}
-                     className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
+                     className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
                   >
                      Minify / Compact
                   </button>

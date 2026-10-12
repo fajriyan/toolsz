@@ -205,7 +205,7 @@ const LogicGate = () => {
           {Object.entries(gateDefinitions).map(([key, value]) => (
             <article
               key={key}
-              className="rounded-3xl border min-w-[450px] border-slate-200 bg-white p-6 shadow-sm"
+              className="rounded-3xl border min-w-[450px] border-slate-200 bg-white p-6 shadow-xs"
             >
               <h3 className="text-xl font-semibold text-slate-900">
                 {value.label}

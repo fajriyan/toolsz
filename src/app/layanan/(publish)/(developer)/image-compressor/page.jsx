@@ -881,7 +881,7 @@ export default function ImageCompressorPage() {
          </div>
 
          <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
                <div
                   onDragEnter={handleDragEnter}
                   onDragOver={(e) => e.preventDefault()}
@@ -1008,7 +1008,7 @@ export default function ImageCompressorPage() {
                               format: e.target.value,
                            }))
                         }
-                        className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-900"
+                        className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-hidden focus:border-slate-900"
                      >
                         <option value="webp">WebP</option>
                         <option value="jpg">JPG</option>
@@ -1067,7 +1067,7 @@ export default function ImageCompressorPage() {
                               maxWidth: e.target.value,
                            }))
                         }
-                        className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-900"
+                        className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-hidden focus:border-slate-900"
                      />
                   </label>
 
@@ -1086,7 +1086,7 @@ export default function ImageCompressorPage() {
                               maxHeight: e.target.value,
                            }))
                         }
-                        className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-900"
+                        className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-hidden focus:border-slate-900"
                      />
                   </label>
                </div>
@@ -1096,7 +1096,7 @@ export default function ImageCompressorPage() {
                      type="button"
                      onClick={handleCompress}
                      disabled={!canCompress}
-                     className="rounded-full bg-gradient-to-r from-slate-900 to-slate-700 px-5 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
+                     className="rounded-full bg-linear-to-r from-slate-900 to-slate-700 px-5 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
                   >
                      {isCompressing ? "Mengecilkan..." : "Compress Image"}
                   </button>
@@ -1123,7 +1123,7 @@ export default function ImageCompressorPage() {
                )}
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xs">
                <div className="flex items-center justify-between gap-2">
                   <div>
                      <h2 className="text-base font-semibold">Hasil Kompresi</h2>

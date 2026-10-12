@@ -40,11 +40,11 @@ export default function RemoveWhitespacePage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Silahkan Masukkan kata/ link disini"
-              className="border border-slate-700 rounded w-full h-48 py-2 px-3"
+              className="border border-slate-700 rounded-sm w-full h-48 py-2 px-3"
             />
             <button
               onClick={handleRemoveWhitespace}
-              className="mt-4 bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
+              className="mt-4 bg-linear-to-r hover:bg-linear-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
             >
               Hapus Whitespace
             </button>
@@ -54,11 +54,11 @@ export default function RemoveWhitespacePage() {
               value={output}
               readOnly
               placeholder="Hasil Akan tampil disini"
-              className="border border-slate-700 rounded w-full h-48 py-2 px-3"
+              className="border border-slate-700 rounded-sm w-full h-48 py-2 px-3"
             />
             <button
               onClick={handleCopy}
-              className="mt-4 bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
+              className="mt-4 bg-linear-to-r hover:bg-linear-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
             >
               {copied ? (
                 <svg

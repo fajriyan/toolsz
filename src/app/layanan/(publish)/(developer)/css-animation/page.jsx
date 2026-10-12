@@ -175,7 +175,7 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="bg-white p-4 rounded border border-slate-300 w-full space-y-4">
+      <div className="bg-white p-4 rounded-sm border border-slate-300 w-full space-y-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div>
             <label className="block font-semibold mb-1">Preset Animasi</label>
@@ -234,7 +234,7 @@ export default function Page() {
       <div className="mt-8 border border-slate-300 rounded-md overflow-hidden p-4">
         <h2 className="text-lg font-semibold mb-2">Preview</h2>
         <div
-          className="w-32 h-32 bg-blue-500 text-white flex items-center justify-center rounded shadow"
+          className="w-32 h-32 bg-blue-500 text-white flex items-center justify-center rounded-sm shadow-sm"
           style={previewStyle}
         >
           <img
@@ -242,14 +242,14 @@ export default function Page() {
             alt="box toolsz"
             width="auto"
             height="auto"
-            className="rounded-sm"
+            className="rounded-xs"
           />
         </div>
       </div>
 
       <div className="mt-8">
         <h2 className="text-lg font-semibold mb-2">Hasil CSS</h2>
-        <pre className="bg-black text-green-300 p-4 rounded overflow-auto text-sm whitespace-pre-wrap">
+        <pre className="bg-black text-green-300 p-4 rounded-sm overflow-auto text-sm whitespace-pre-wrap">
           {cssOutput}
         </pre>
       </div>

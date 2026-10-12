@@ -88,7 +88,7 @@ export default function Page() {
         placeholder="Masukkan URL..."
         value={url}
         onChange={(e) => setUrl(e.target.value)}
-        className="w-full p-3 border rounded"
+        className="w-full p-3 border rounded-sm"
       />
 
       <label className="flex items-center gap-2 text-sm">
@@ -103,7 +103,7 @@ export default function Page() {
       <button
         onClick={extractVideos}
         disabled={loading}
-        className="px-4 py-2 rounded bg-blue-600 text-white"
+        className="px-4 py-2 rounded-sm bg-blue-600 text-white"
       >
         {loading ? "Loading..." : "Extract Video"}
       </button>
@@ -114,15 +114,15 @@ export default function Page() {
 
           <button
             onClick={downloadZip}
-            className="px-4 py-2 rounded bg-green-600 text-white"
+            className="px-4 py-2 rounded-sm bg-green-600 text-white"
           >
             Download ZIP
           </button>
 
           <div className="space-y-3">
             {videos.map((v, i) => (
-              <div key={i} className="p-3 border rounded">
-                <video src={v} controls className="w-full rounded" />
+              <div key={i} className="p-3 border rounded-sm">
+                <video src={v} controls className="w-full rounded-sm" />
                 <a
                   href={v}
                   download

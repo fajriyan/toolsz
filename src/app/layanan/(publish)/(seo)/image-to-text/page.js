@@ -131,7 +131,7 @@ export default function OCRPage() {
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="border rounded px-3 py-2 w-[30%]"
+              className="border rounded-sm px-3 py-2 w-[30%]"
             >
               {LANGUAGES.map((lang) => (
                 <option key={lang.code} value={lang.code}>
@@ -160,7 +160,7 @@ export default function OCRPage() {
                 className="max-w-full h-[53dvh] mt-4 border border-slate-300 rounded-md object-contain"
               />
               <button
-                className="mt-2 bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
+                className="mt-2 bg-linear-to-r hover:bg-linear-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
                 onClick={handleOCR}
               >
                 {loading ? "Memproses..." : "Analisis Gambar"}
@@ -173,13 +173,13 @@ export default function OCRPage() {
           {result && (
             <div>
               <h2 className="text-lg font-semibold">Hasil OCR:</h2>
-              <pre className="bg-gray-100 p-4 rounded whitespace-pre-wrap h-[30dvh] overflow-y-auto">
+              <pre className="bg-gray-100 p-4 rounded-sm whitespace-pre-wrap h-[30dvh] overflow-y-auto">
                 {result}
               </pre>
 
               <button
                 onClick={handleCorrect}
-                className="mt-2 bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
+                className="mt-2 bg-linear-to-r hover:bg-linear-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
               >
                 {fixing ? "Memeriksa..." : "Perbaiki Typo"}
               </button>
@@ -191,7 +191,7 @@ export default function OCRPage() {
               <h2 className="text-lg font-semibold">
                 Teks Setelah Diperbaiki:
               </h2>
-              <pre className="bg-green-100 p-4 rounded whitespace-pre-wrap h-[30dvh] overflow-y-auto">
+              <pre className="bg-green-100 p-4 rounded-sm whitespace-pre-wrap h-[30dvh] overflow-y-auto">
                 {corrected}
               </pre>
             </div>

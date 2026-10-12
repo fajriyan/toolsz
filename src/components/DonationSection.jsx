@@ -70,7 +70,7 @@ const donationLinks = [
 export default function DonationSection() {
    return (
       <section className="container mx-auto my-[150px] px-5 md:px-0">
-         <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-950 to-slate-950 px-6 py-10 shadow-2xl sm:px-8 md:px-10 md:py-12">
+         <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-linear-to-br from-slate-950 to-slate-950 px-6 py-10 shadow-2xl sm:px-8 md:px-10 md:py-12">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.22),transparent_36%),radial-gradient(circle_at_bottom_left,rgba(251,191,36,0.18),transparent_30%)]" />
             <div className="relative z-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
                <div className="space-y-4 text-white">

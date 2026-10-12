@@ -248,20 +248,20 @@ export default function TintShadeGenerator() {
                 type="text"
                 value={hexInput}
                 onChange={(e) => setHexInput(e.target.value)}
-                className="bg-white border border-slate-700 rounded px-3 py-2 w-32 font-mono"
+                className="bg-white border border-slate-700 rounded-sm px-3 py-2 w-32 font-mono"
               />
 
               <input
                 type="color"
                 value={hexInput}
                 onChange={(e) => setHexInput(e.target.value)}
-                className="h-10 w-10 border border-slate-700 rounded"
+                className="h-10 w-10 border border-slate-700 rounded-sm"
               />
 
               <select
                 value={steps}
                 onChange={(e) => setSteps(Number(e.target.value))}
-                className="bg-white border border-slate-700 rounded px-3 py-2"
+                className="bg-white border border-slate-700 rounded-sm px-3 py-2"
               >
                 <option value={5}>5</option>
                 <option value={10}>10</option>
@@ -270,7 +270,7 @@ export default function TintShadeGenerator() {
 
               <button
                 onClick={handleGenerate}
-                className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
+                className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
               >
                 <svg
                   className="w-5 h-5 text-white"
@@ -301,7 +301,7 @@ export default function TintShadeGenerator() {
 
               <button
                 onClick={copyAllHex}
-                className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
+                className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
               >
                 <svg
                   className="w-5 h-5 text-white"
@@ -319,7 +319,7 @@ export default function TintShadeGenerator() {
 
               <button
                 onClick={copyTailwind}
-                className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
+                className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
               >
                 <svg
                   className="w-5 h-5 text-white"
@@ -338,7 +338,7 @@ export default function TintShadeGenerator() {
               <select
                 value={copyFormat}
                 onChange={(e) => setCopyFormat(e.target.value)}
-                className="bg-white border border-slate-700 rounded px-3 py-2"
+                className="bg-white border border-slate-700 rounded-sm px-3 py-2"
               >
                 <option value="HEX">HEX</option>
                 <option value="RGB">RGB</option>
@@ -348,7 +348,7 @@ export default function TintShadeGenerator() {
 
               <button
                 onClick={randomColor}
-                className="group bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
+                className="group bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-3 py-2.5 rounded-lg flex gap-2 items-center"
               >
                 <svg
                   className="w-5 h-5 group-hover:rotate-180 duration-700"
@@ -383,10 +383,10 @@ export default function TintShadeGenerator() {
                     className="cursor-pointer group relative"
                   >
                     <div
-                      className="h-24 rounded border border-slate-400 group-hover:ring-2 ring-cyan-700"
+                      className="h-24 rounded-sm border border-slate-400 group-hover:ring-2 ring-cyan-700"
                       style={{ background: baseColor }}
                     />
-                    <p className="text-center mt-2 font-mono text-xs bg-white px-1 absolute top-1 left-2 rounded">
+                    <p className="text-center mt-2 font-mono text-xs bg-white px-1 absolute top-1 left-2 rounded-sm">
                       Base {formatColor(baseColor, copyFormat)}
                     </p>
                     <svg
@@ -415,10 +415,10 @@ export default function TintShadeGenerator() {
                       className="cursor-pointer group relative"
                     >
                       <div
-                        className="h-24 rounded border border-slate-400 group-hover:ring-2 ring-cyan-700"
+                        className="h-24 rounded-sm border border-slate-400 group-hover:ring-2 ring-cyan-700"
                         style={{ background: i.tint }}
                       />
-                      <p className="text-center mt-2 text-xs font-mono bg-white px-1 absolute top-1 left-2 rounded">
+                      <p className="text-center mt-2 text-xs font-mono bg-white px-1 absolute top-1 left-2 rounded-sm">
                         {i.p}% {formatColor(i.tint, copyFormat)}
                       </p>
                       <svg
@@ -449,10 +449,10 @@ export default function TintShadeGenerator() {
                     className="cursor-pointer group relative"
                   >
                     <div
-                      className="h-24 rounded border border-slate-400 group-hover:ring-2 ring-cyan-700"
+                      className="h-24 rounded-sm border border-slate-400 group-hover:ring-2 ring-cyan-700"
                       style={{ background: baseColor }}
                     />
-                    <p className="text-center mt-2 font-mono text-xs bg-white px-1 absolute top-1 left-2 rounded">
+                    <p className="text-center mt-2 font-mono text-xs bg-white px-1 absolute top-1 left-2 rounded-sm">
                       Base {formatColor(baseColor, copyFormat)}
                     </p>
 
@@ -482,10 +482,10 @@ export default function TintShadeGenerator() {
                       className="cursor-pointer group relative"
                     >
                       <div
-                        className="h-24 rounded border border-slate-400 group-hover:ring-2 ring-cyan-700"
+                        className="h-24 rounded-sm border border-slate-400 group-hover:ring-2 ring-cyan-700"
                         style={{ background: i.shade }}
                       />
-                      <p className="text-center mt-2 text-xs font-mono bg-white px-1 absolute top-1 left-2 rounded">
+                      <p className="text-center mt-2 text-xs font-mono bg-white px-1 absolute top-1 left-2 rounded-sm">
                         {i.p}% {formatColor(i.shade, copyFormat)}
                       </p>
                       <svg

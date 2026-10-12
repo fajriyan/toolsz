@@ -36,20 +36,20 @@ function NavbarContent() {
 
    return (
       <>
-         <div className="bg-white text-black border-b top-0 sticky z-[999]">
+         <div className="bg-white text-black border-b top-0 sticky z-999">
             {/* Start Menu Mobile  */}
             <div
                className={
                   mMob
-                     ? "w-full h-[100vh] left-0 absolute bg-white border-b overflow-hidden transition-all duration-500 z-[99]"
-                     : "w-full h-0 left-0 absolute bg-white overflow-hidden transition-all duration-500 z-[99]"
+                     ? "w-full h-screen left-0 absolute bg-white border-b overflow-hidden transition-all duration-500 z-99"
+                     : "w-full h-0 left-0 absolute bg-white overflow-hidden transition-all duration-500 z-99"
                }
             >
                <div className="px-3 h-[60px] flex justify-between items-center border-b">
                   <Link href={"/"} className="md:w-[13%]">
                      <Image
                         className={
-                           currentRoute === "/" ? "rounded-sm " : " rounded-sm "
+                           currentRoute === "/" ? "rounded-xs " : " rounded-xs "
                         }
                         src="/favicon.png"
                         alt="Logo toolsz"
@@ -58,7 +58,7 @@ function NavbarContent() {
                      />
                   </Link>
                   <div className="flex items-center gap-3">
-                     <button className="bg-gradient-to-r from-gray-800 to-slate-900 font-medium text-white px-3 py-2 rounded-lg flex gap-1 items-center">
+                     <button className="bg-linear-to-r from-gray-800 to-slate-900 font-medium text-white px-3 py-2 rounded-lg flex gap-1 items-center">
                         <svg
                            xmlns="http://www.w3.org/2000/svg"
                            width="16"
@@ -84,7 +84,7 @@ function NavbarContent() {
                      </svg>
                   </div>
                </div>
-               <div className="grid grid-cols-2 overflow-scroll h-[90dvh] w-full gap-1 px-1 py-2 z-[99]">
+               <div className="grid grid-cols-2 overflow-scroll h-[90dvh] w-full gap-1 px-1 py-2 z-99">
                   {menuService.map((item) => {
                      const Icon = item.icon;
                      return (
@@ -126,7 +126,7 @@ function NavbarContent() {
                <Link href={"/"} className="md:w-[13%]">
                   <Image
                      className={
-                        currentRoute === "/" ? "rounded-sm " : " rounded-sm "
+                        currentRoute === "/" ? "rounded-xs " : " rounded-xs "
                      }
                      src="/favicon.png"
                      alt="Logo toolsz"
@@ -146,7 +146,7 @@ function NavbarContent() {
                      <div className="flex items-center gap-[7px]">
                         <Link
                            href={"/layanan"}
-                           className="flex flex-grow items-center gap-1"
+                           className="flex grow items-center gap-1"
                         >
                            {" "}
                            {currentRoute.startsWith("/layanan") &&
@@ -170,7 +170,7 @@ function NavbarContent() {
                         </svg>
                      </div>
 
-                     <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] w-full bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-[99]">
+                     <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 translate-y-24 transition-all duration-500  absolute left-0 top-[60px] min-h-[200px] w-full bg-white rounded-md border p-2 flex gap-5 font-normal cursor-default z-99">
                         <div className="container mx-auto px-3 lg:px-0 pt-4">
                            {Object.entries(grouped).map(([category, items]) => (
                               <div key={category} className="mb-6">
@@ -258,7 +258,7 @@ function NavbarContent() {
                   <a
                      href="https://saweria.co/fajriyan"
                      target="_blank"
-                     className="hidden md:flex bg-gradient-to-r hover:ring-2 ring-cyan-600 from-gray-800 to-slate-900 font-medium text-white px-3 py-2 min-w-max rounded-lg gap-1 items-center"
+                     className="hidden md:flex bg-linear-to-r hover:ring-2 ring-cyan-600 from-gray-800 to-slate-900 font-medium text-white px-3 py-2 min-w-max rounded-lg gap-1 items-center"
                   >
                      <svg
                         xmlns="http://www.w3.org/2000/svg"

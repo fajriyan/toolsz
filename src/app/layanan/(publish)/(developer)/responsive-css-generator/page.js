@@ -200,7 +200,7 @@ h1 {
         <div className="flex flex-wrap items-start gap-3 mb-6">
           <button
             onClick={generate}
-            className="bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
+            className="bg-linear-to-r hover:bg-linear-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
           >
             Generate Responsive CSS
           </button>
@@ -256,7 +256,7 @@ h1 {
 
             {/* Preview Box */}
             <div
-              className="border rounded-lg shadow-sm bg-white overflow-hidden"
+              className="border rounded-lg shadow-xs bg-white overflow-hidden"
               style={{ width: previewWidth }}
             >
               <div className="container p-4">

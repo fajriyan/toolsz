@@ -60,12 +60,12 @@ export default function HomePage() {
             placeholder="Masukkan URL..."
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="border border-slate-400 p-2 w-full rounded mb-2"
+            className="border border-slate-400 p-2 w-full rounded-sm mb-2"
           />
 
           <button
             onClick={fetchMeta}
-            className="mt-2 bg-gradient-to-r hover:bg-gradient-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
+            className="mt-2 bg-linear-to-r hover:bg-linear-to-b from-gray-800 to-slate-900 hover:to-slate-950 text-white px-5 py-[7px] rounded-md flex items-center gap-1"
             disabled={loading}
           >
             {loading ? "Memuat..." : "Inspeksi Website"}

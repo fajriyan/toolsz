@@ -41,7 +41,7 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-3 md:items-center">
           <div>
             <select
-              className="border border-slate-500 rounded w-full py-2 px-3"
+              className="border border-slate-500 rounded-sm w-full py-2 px-3"
               value={lang}
               onChange={(e) => setLang(e.target.value)}
             >
@@ -53,7 +53,7 @@ export default function Home() {
           <div>
             <input
               type="text"
-              className="border border-slate-500 rounded w-full py-2 px-3 md:min-w-[400px]"
+              className="border border-slate-500 rounded-sm w-full py-2 px-3 md:min-w-[400px]"
               value={exclude}
               onChange={(e) => setExclude(e.target.value)}
               placeholder="Exclude Kata (pisahkan dengan koma)"
@@ -63,7 +63,7 @@ export default function Home() {
 
         <button
           onClick={checkSpelling}
-          className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-4 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex items-center gap-2 mt-5"
+          className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-4 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex items-center gap-2 mt-5"
         >
           Cek Typo
         </button>

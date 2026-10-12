@@ -102,7 +102,7 @@ export default function MyFetchExample() {
 
       <form
         onSubmit={handleGenerate}
-        className="bg-white border rounded-lg shadow p-5 space-y-6"
+        className="bg-white border rounded-lg shadow-sm p-5 space-y-6"
       >
         {/* URL & Method */}
         <div className="space-y-2">
@@ -112,7 +112,7 @@ export default function MyFetchExample() {
             placeholder="https://api.example.com/data"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full border p-2 rounded text-sm"
+            className="w-full border p-2 rounded-sm text-sm"
             required
           />
         </div>
@@ -122,7 +122,7 @@ export default function MyFetchExample() {
           <select
             value={method}
             onChange={(e) => setMethod(e.target.value)}
-            className="w-full border p-2 rounded text-sm"
+            className="w-full border p-2 rounded-sm text-sm"
           >
             {["GET", "POST", "PUT", "PATCH", "DELETE"].map((m) => (
               <option key={m}>{m}</option>
@@ -138,7 +138,7 @@ export default function MyFetchExample() {
           <select
             value={authType}
             onChange={(e) => setAuthType(e.target.value)}
-            className="w-full border p-2 rounded text-sm"
+            className="w-full border p-2 rounded-sm text-sm"
           >
             <option value="none">Tidak ada</option>
             <option value="bearer">Bearer Token</option>
@@ -151,7 +151,7 @@ export default function MyFetchExample() {
               placeholder="Masukkan token..."
               value={token}
               onChange={(e) => setToken(e.target.value)}
-              className="w-full border p-2 rounded text-sm"
+              className="w-full border p-2 rounded-sm text-sm"
             />
           )}
         </div>
@@ -166,14 +166,14 @@ export default function MyFetchExample() {
                 placeholder="Key (misal: Content-Type)"
                 value={h.key}
                 onChange={(e) => handleHeaderChange(i, "key", e.target.value)}
-                className="w-1/2 border p-2 rounded text-sm"
+                className="w-1/2 border p-2 rounded-sm text-sm"
               />
               <input
                 type="text"
                 placeholder="Value (misal: application/json)"
                 value={h.value}
                 onChange={(e) => handleHeaderChange(i, "value", e.target.value)}
-                className="w-1/2 border p-2 rounded text-sm"
+                className="w-1/2 border p-2 rounded-sm text-sm"
               />
               {i > 0 && (
                 <button
@@ -205,7 +205,7 @@ export default function MyFetchExample() {
               placeholder='{"name": "John"}'
               value={body}
               onChange={(e) => setBody(e.target.value)}
-              className="w-full border p-2 rounded font-mono text-sm"
+              className="w-full border p-2 rounded-sm font-mono text-sm"
               rows={4}
             />
           </div>
@@ -213,7 +213,7 @@ export default function MyFetchExample() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          className="w-full bg-blue-600 text-white py-2 rounded-sm hover:bg-blue-700 transition"
         >
           🚀 Generate Code
         </button>
@@ -224,7 +224,7 @@ export default function MyFetchExample() {
         <div className="bg-gray-900 text-green-300 p-4 rounded-lg overflow-auto relative">
           <button
             onClick={handleCopy}
-            className="absolute top-2 right-2 text-xs bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded"
+            className="absolute top-2 right-2 text-xs bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded-sm"
           >
             Copy
           </button>

@@ -50,12 +50,12 @@ export default function FaviconCheckerPage() {
           placeholder="Masukkan URL (https://...)"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="w-full px-3 py-2 focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded mb-4"
+          className="w-full px-3 py-2 focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm mb-4"
         />
         <button
           onClick={fetchIcons}
           disabled={loading}
-          className="block bg-gradient-to-r w-max from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] text-center cursor-pointer rounded-lg"
+          className="block bg-linear-to-r w-max from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] text-center cursor-pointer rounded-lg"
         >
           {loading ? "Memuat..." : "Periksa Favicon"}
         </button>
@@ -63,7 +63,7 @@ export default function FaviconCheckerPage() {
         {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
 
         {icons.length > 0 && (
-          <div className="mt-8 border border-gray-300 rounded p-4 overflow-hidden">
+          <div className="mt-8 border border-gray-300 rounded-sm p-4 overflow-hidden">
             <h3 className="text-lg font-semibold mb-4">Favicon Check</h3>
 
             {/* Logic status */}
@@ -79,7 +79,7 @@ export default function FaviconCheckerPage() {
                     <p className="text-red-600 font-medium">
                       ❌ Your website does not have a favicon.
                     </p>
-                    <pre className="mt-2 bg-gray-100 p-2 rounded text-xs text-gray-800 overflow-auto">
+                    <pre className="mt-2 bg-gray-100 p-2 rounded-sm text-xs text-gray-800 overflow-auto">
                       {`<link rel="icon" href="/favicon.ico">`}
                     </pre>
                   </div>
@@ -99,7 +99,7 @@ export default function FaviconCheckerPage() {
                     <p className="text-yellow-600">
                       ⚠️ Android Chrome favicon not set.
                     </p>
-                    <pre className="mt-2 bg-gray-100 p-2 rounded text-xs text-gray-800 overflow-auto">
+                    <pre className="mt-2 bg-gray-100 p-2 rounded-sm text-xs text-gray-800 overflow-auto">
                       {`<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">`}
                     </pre>
                   </div>
@@ -113,7 +113,7 @@ export default function FaviconCheckerPage() {
                 ) : (
                   <div>
                     <p className="text-red-600">❌ iOS favicon not set.</p>
-                    <pre className="mt-2 bg-gray-100 p-2 rounded text-xs text-gray-800 overflow-auto">
+                    <pre className="mt-2 bg-gray-100 p-2 rounded-sm text-xs text-gray-800 overflow-auto">
                       {`<link rel="apple-touch-icon" href="/apple-touch-icon.png">`}
                     </pre>
                   </div>
@@ -275,7 +275,7 @@ export default function FaviconCheckerPage() {
 
                           <div>
                             <p className="text-gray-500">HTML Tag:</p>
-                            <pre className="bg-gray-100 p-2 rounded text-xs overflow-auto">
+                            <pre className="bg-gray-100 p-2 rounded-sm text-xs overflow-auto">
                               {linkTag}
                             </pre>
                           </div>

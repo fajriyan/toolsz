@@ -39,13 +39,13 @@ export default function TitleMetaChecker() {
           placeholder="https://fajriyan.pages.dev"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="w-full px-3 py-2 focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded"
+          className="w-full px-3 py-2 focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm"
         />
 
         <button
           onClick={checkSEO}
           disabled={loading}
-          className="bg-gradient-to-r mt-4 hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
+          className="bg-linear-to-r mt-4 hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
         >
           {loading ? "Checking..." : "Inspeksi Website"}
         </button>

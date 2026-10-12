@@ -54,7 +54,7 @@ export default function BcryptPage() {
             value={textToHash}
             onChange={(e) => setTextToHash(e.target.value)}
             placeholder="Enter text to hash"
-            className="border p-2 rounded w-full mb-4"
+            className="border p-2 rounded-sm w-full mb-4"
           />
 
           <div className="">
@@ -118,18 +118,18 @@ export default function BcryptPage() {
             className={`flex font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center ${
               isGenerateDisabled
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-gray-800 to-slate-900 hover:from-gray-900 hover:to-slate-800"
+                : "bg-linear-to-r from-gray-800 to-slate-900 hover:from-gray-900 hover:to-slate-800"
             }`}
           >
             Generate Hash
           </button>
 
           {generatedHash && (
-            <div className="mt-4 p-2 bg-gray-100 rounded break-all flex items-center justify-between">
-              <div className="break-words w-[85%]">{generatedHash}</div>
+            <div className="mt-4 p-2 bg-gray-100 rounded-sm break-all flex items-center justify-between">
+              <div className="wrap-break-word w-[85%]">{generatedHash}</div>
               <button
                 onClick={() => navigator.clipboard.writeText(generatedHash)}
-                className="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600 text-sm"
+                className="ml-2 bg-gray-500 text-white px-2 py-1 rounded-sm hover:bg-gray-600 text-sm"
               >
                 Copy
               </button>
@@ -150,7 +150,7 @@ export default function BcryptPage() {
             value={hashToVerify}
             onChange={(e) => setHashToVerify(e.target.value)}
             placeholder="Paste the bcrypt hash"
-            className="border p-2 rounded w-full mb-4"
+            className="border p-2 rounded-sm w-full mb-4"
           />
 
           <label className="block mb-2 font-medium">Original Text</label>
@@ -159,7 +159,7 @@ export default function BcryptPage() {
             value={originalText}
             onChange={(e) => setOriginalText(e.target.value)}
             placeholder="Enter the original text"
-            className="border p-2 rounded w-full mb-4"
+            className="border p-2 rounded-sm w-full mb-4"
           />
 
           <button
@@ -168,7 +168,7 @@ export default function BcryptPage() {
             className={`flex font-medium text-white px-3 py-[7px] min-w-max rounded-lg gap-1 items-center ${
               isVerifyDisabled
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-gray-800 to-slate-900 hover:from-gray-900 hover:to-slate-800"
+                : "bg-linear-to-r from-gray-800 to-slate-900 hover:from-gray-900 hover:to-slate-800"
             }`}
           >
             Verify Hash

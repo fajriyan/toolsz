@@ -126,7 +126,7 @@ const QRCodeGenerator = () => {
                 <div className="mt-5">
                   <button
                     onClick={handleDownload}
-                    className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex gap-2 items-center"
+                    className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex gap-2 items-center"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

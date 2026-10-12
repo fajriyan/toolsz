@@ -12,7 +12,7 @@ export default function LengthIndicator({ value = 0, min = 30, max = 60 }) {
   }
 
   return (
-    <div className="w-full h-3 rounded bg-white overflow-hidden border">
+    <div className="w-full h-3 rounded-sm bg-white overflow-hidden border">
       <div
         className={`h-full transition-all duration-300 ${color}`}
         style={{ width: `${percent}%` }}

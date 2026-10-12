@@ -197,7 +197,7 @@ export default function CronGenerator() {
             <div className="relative" ref={tzMenuRef}>
                <textarea
                   rows={1}
-                  className="w-full border-2 rounded-md border-slate-800 lg:max-w-xl font-mono p-3 mt-2 focus:outline-none focus:ring text-center text-3xl font-semibold text-slate-800 focus:ring-blue-200"
+                  className="w-full border-2 rounded-md border-slate-800 lg:max-w-xl font-mono p-3 mt-2 focus:outline-hidden focus:ring-3 text-center text-3xl font-semibold text-slate-800 focus:ring-blue-200"
                   value={cronString}
                   onChange={onCronStringChange}
                   style={{ resize: "none" }}
@@ -272,7 +272,7 @@ export default function CronGenerator() {
                   </label>
                   <select
                      id="preset"
-                     className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+                     className="w-full border rounded-sm px-3 py-2 focus:outline-hidden focus:ring-3 focus:ring-blue-200"
                      value={presetValue}
                      onChange={onPresetChange}
                   >
@@ -298,7 +298,7 @@ export default function CronGenerator() {
                         </label>
                         <select
                            id={`select-${field}`}
-                           className="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+                           className="w-full border rounded-sm px-3 py-2 focus:outline-hidden focus:ring-3 focus:ring-blue-200"
                            value={
                               opsiWaktu[field].includes(fieldValues[field])
                                  ? fieldValues[field]
@@ -328,7 +328,7 @@ export default function CronGenerator() {
                            id={`input-${field}`}
                            type="text"
                            placeholder={field}
-                           className="w-full border rounded px-3 py-2 capitalize text-md focus:outline-none focus:ring focus:ring-blue-200"
+                           className="w-full border rounded-sm px-3 py-2 capitalize text-md focus:outline-hidden focus:ring-3 focus:ring-blue-200"
                            value={fieldValues[field]}
                            onChange={(e) => updateField(field, e.target.value)}
                         />

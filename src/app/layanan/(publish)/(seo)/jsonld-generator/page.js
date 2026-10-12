@@ -65,7 +65,7 @@ export default function JsonLdGenerator() {
                 ? handleArrayChange(fullPath, e.target.value)
                 : handleInputChange(fullPath, e.target.value)
             }
-            className="w-full border rounded p-2"
+            className="w-full border rounded-sm p-2"
           />
         </div>
       );
@@ -84,7 +84,7 @@ export default function JsonLdGenerator() {
 
       <div className=" flex flex-wrap justify-between text-slate-800">
         {/* Form Section */}
-        <div className=" bg-white rounded w-full lg:w-[65%]">
+        <div className=" bg-white rounded-sm w-full lg:w-[65%]">
           <div className="border border-slate-500 rounded-lg p-3 pt-5 relative">
             <span className="absolute text-sm bg-white -top-3 left-3 px-2">
               Peraturan
@@ -94,7 +94,7 @@ export default function JsonLdGenerator() {
               <select
                 value={selectedType}
                 onChange={(e) => handleTypeChange(e.target.value)}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 rounded-sm"
               >
                 {schemaTypes.map((type) => (
                   <option key={type} value={type}>
@@ -109,11 +109,11 @@ export default function JsonLdGenerator() {
           </div>
         </div>
         {/* Output Section */}
-        <div className="border border-slate-500 rounded-lg p-3 pt-5 sticky top-[80px] w-full lg:w-[30%] !z-0 mt-10 lg:mt-0">
+        <div className="border border-slate-500 rounded-lg p-3 pt-5 sticky top-[80px] w-full lg:w-[30%] z-0! mt-10 lg:mt-0">
           <span className="absolute text-sm bg-white -top-3 left-3 px-2">
             Hasil JSON LD
           </span>
-          <pre className="rounded overflow-auto text-sm whitespace-pre-wrap border-none">
+          <pre className="rounded-sm overflow-auto text-sm whitespace-pre-wrap border-none">
             {jsonLd}
           </pre>
           <div className="absolute top-3 right-3">
@@ -138,7 +138,7 @@ export default function JsonLdGenerator() {
                   </div>
                 ));
               }}
-              className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+              className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

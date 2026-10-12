@@ -51,7 +51,7 @@ export default function Home() {
             <button
               onClick={checkPage}
               disabled={loading}
-              className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
+              className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
             >
               {loading ? "Tunggu Sebentar ya" : "Cek Ukuran Website"}
             </button>
@@ -103,28 +103,28 @@ export default function Home() {
                 <tbody className="animate-pulse">
                   <tr className="border-t">
                     <td className="px-4 py-3">
-                      <div className="h-4 bg-gray-300 rounded w-40"></div>
+                      <div className="h-4 bg-gray-300 rounded-sm w-40"></div>
                     </td>
                     <td className="px-4 py-3">
-                      <div className="h-4 bg-gray-300 rounded w-24"></div>
-                    </td>
-                  </tr>
-
-                  <tr className="border-t">
-                    <td className="px-4 py-3">
-                      <div className="h-4 bg-gray-300 rounded w-40"></div>
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="h-4 bg-gray-300 rounded w-24"></div>
+                      <div className="h-4 bg-gray-300 rounded-sm w-24"></div>
                     </td>
                   </tr>
 
                   <tr className="border-t">
                     <td className="px-4 py-3">
-                      <div className="h-4 bg-gray-300 rounded w-40"></div>
+                      <div className="h-4 bg-gray-300 rounded-sm w-40"></div>
                     </td>
                     <td className="px-4 py-3">
-                      <div className="h-4 bg-gray-300 rounded w-24"></div>
+                      <div className="h-4 bg-gray-300 rounded-sm w-24"></div>
+                    </td>
+                  </tr>
+
+                  <tr className="border-t">
+                    <td className="px-4 py-3">
+                      <div className="h-4 bg-gray-300 rounded-sm w-40"></div>
+                    </td>
+                    <td className="px-4 py-3">
+                      <div className="h-4 bg-gray-300 rounded-sm w-24"></div>
                     </td>
                   </tr>
                 </tbody>

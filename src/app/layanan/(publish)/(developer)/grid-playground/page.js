@@ -101,7 +101,7 @@ ${items.map((item) => `  <div className="grid-item">${item}</div>`).join("\n")}
           <div className="flex gap-3 flex-wrap">
             <button
               onClick={addItem}
-              className="bg-slate-900 flex-grow text-white py-2 px-5 rounded-md flex items-center gap-2"
+              className="bg-slate-900 grow text-white py-2 px-5 rounded-md flex items-center gap-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ ${items.map((item) => `  <div className="grid-item">${item}</div>`).join("\n")}
 
             <button
               onClick={removeItem}
-              className={`bg-red-800 flex-grow text-white py-2 px-5 rounded-md flex items-center gap-2 ${
+              className={`bg-red-800 grow text-white py-2 px-5 rounded-md flex items-center gap-2 ${
                 items.length === 0 ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={items.length === 0}

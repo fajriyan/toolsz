@@ -183,11 +183,11 @@ export default function ChmodCalculator() {
             <div className="space-y-1 mt-4">
               <strong>Chmod Command:</strong>
 
-              <div className="bg-gray-100 rounded p-2 font-mono text-sm">
+              <div className="bg-gray-100 rounded-sm p-2 font-mono text-sm">
                 chmod {numericPermission} -R filename
               </div>
 
-              <div className="bg-gray-100 rounded p-2 font-mono text-sm">
+              <div className="bg-gray-100 rounded-sm p-2 font-mono text-sm">
                 chmod {symbolicPermission} -R filename
               </div>
             </div>

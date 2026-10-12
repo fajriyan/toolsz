@@ -192,7 +192,7 @@ ${generatedUrl}
   };
 
   const getInputClass = (field) =>
-    `w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 ${
+    `w-full px-3 py-2 border rounded-lg text-sm focus:outline-hidden focus:ring-2 ${
       errors[field]
         ? "border-red-500 focus:ring-red-500"
         : "border-gray-300 focus:ring-cyan-600"
@@ -319,13 +319,13 @@ ${generatedUrl}
                   value={generatedUrl}
                   readOnly
                   rows={10}
-                  className="w-full p-2 text-sm border-none focus-within:outline-none"
+                  className="w-full p-2 text-sm border-none focus-within:outline-hidden"
                 />
 
                 <div className="flex gap-2">
                   <button
                     onClick={copyToClipboard}
-                    className="bg-gradient-to-r hover:ring-2 ring-cyan-600 from-gray-800 to-slate-900 font-medium text-sm text-white px-4 py-[7px] min-w-max rounded-lg"
+                    className="bg-linear-to-r hover:ring-2 ring-cyan-600 from-gray-800 to-slate-900 font-medium text-sm text-white px-4 py-[7px] min-w-max rounded-lg"
                   >
                     Copy URL
                   </button>

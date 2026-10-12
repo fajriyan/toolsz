@@ -82,31 +82,31 @@ export default function MinifyCssPage() {
             value={inputText}
             onChange={(e) => handleInputChange(e.target.value)}
             placeholder="Contoh : UPPERCASE ADALAH SEPERTI INI. Capitalize Hanya Kapital Di Awal Saja. Sentence case hanya kapital pada awal kalimat saja. dan lowercase semua teks menjadi kecil."
-            className="w-full p-2 h-[250px] resize-none rounded-md focus-within:outline-none"
+            className="w-full p-2 h-[250px] resize-none rounded-md focus-within:outline-hidden"
           />
         </div>
 
         <div className="mt-2 flex gap-2 flex-wrap">
           <button
-            className={`bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800`}
+            className={`bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800`}
             onClick={convertToUppercase}
           >
             UPPER CASE
           </button>
           <button
-            className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+            className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             onClick={convertToCapitalize}
           >
             Capitalize Case
           </button>
           <button
-            className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+            className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             onClick={convertToSentenceCase}
           >
             Sentence case
           </button>
           <button
-            className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+            className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-5 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             onClick={convertToLowercase}
           >
             lower case
@@ -168,7 +168,7 @@ export default function MinifyCssPage() {
             readOnly
             placeholder="..."
             value={convertText}
-            className="w-full min-h-[180px] p-2 relative z-0 focus-within:outline-none resize-none rounded-md"
+            className="w-full min-h-[180px] p-2 relative z-0 focus-within:outline-hidden resize-none rounded-md"
           />
         </div>
       </div>

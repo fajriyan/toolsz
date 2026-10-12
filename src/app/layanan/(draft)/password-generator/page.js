@@ -103,7 +103,7 @@ export default function Page() {
             <span>Strength</span>
             <span>{strength.label}</span>
           </div>
-          <div className="w-full h-2 bg-gray-200 rounded overflow-hidden">
+          <div className="w-full h-2 bg-gray-200 rounded-sm overflow-hidden">
             <div
               className={`h-2 ${strength.color} transition-all duration-500`}
               style={{ width: strength.width }}
@@ -183,7 +183,7 @@ export default function Page() {
             {passwords.map((pwd, i) => (
               <div
                 key={i}
-                className="flex justify-between items-center bg-gray-50 p-2 rounded"
+                className="flex justify-between items-center bg-gray-50 p-2 rounded-sm"
               >
                 <span className="text-xs break-all">{pwd}</span>
                 <button

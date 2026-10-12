@@ -96,7 +96,7 @@ export default function SlugGeneratorPage() {
             Pengaturan
           </span>
           <select
-            className="border p-1 rounded"
+            className="border p-1 rounded-sm"
             value={separator}
             onChange={(e) => setSeparator(e.target.value)}
           >
@@ -189,7 +189,7 @@ export default function SlugGeneratorPage() {
             Output Slug
           </span>
           <input
-            className="w-full border p-2 rounded bg-gray-100 focus-within:outline-none"
+            className="w-full border p-2 rounded-sm bg-gray-100 focus-within:outline-hidden"
             value={slugResult}
             readOnly
           />
@@ -198,14 +198,14 @@ export default function SlugGeneratorPage() {
         <div className="flex gap-3 mt-3">
           <button
             onClick={copySlug}
-            className="bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
+            className="bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
           >
             {copied ? "Copied!" : "Copy Slug"}
           </button>
 
           <button
             onClick={clearText}
-            className=" bg-gradient-to-r hover:bg-gradient-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
+            className=" bg-linear-to-r hover:bg-linear-to-b text-sm from-gray-800 to-slate-700 hover:to-slate-950 text-white px-5 py-2 rounded-lg flex items-center gap-1"
           >
             Clear
           </button>

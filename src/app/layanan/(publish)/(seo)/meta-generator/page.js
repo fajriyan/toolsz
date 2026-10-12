@@ -107,7 +107,7 @@ export default function Home() {
                   name="charSet"
                   value={metaTags.charSet}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-sm"
                 >
                   <option value="UTF-8">UTF-8</option>
                   <option value="UTF-16">UTF-16</option>
@@ -143,7 +143,7 @@ export default function Home() {
                     name={field.name}
                     value={metaTags[field.name]}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm"
                   />
                 </div>
               ))}
@@ -228,7 +228,7 @@ export default function Home() {
                     name={dropdown.name}
                     value={metaTags[dropdown.name]}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-sm"
                   >
                     {dropdown.options.map((option) => (
                       <option key={option} value={option}>
@@ -243,13 +243,13 @@ export default function Home() {
         </div>
 
         {/* Preview Section */}
-        <div className="border p-4 border-slate-700 rounded h-min sticky top-[80px] w-full md:w-[30%] !z-0 mt-10 md:mt-0">
+        <div className="border p-4 border-slate-700 rounded-sm h-min sticky top-[80px] w-full md:w-[30%] z-0! mt-10 md:mt-0">
            <span className="absolute text-sm bg-white -top-3 left-3 px-2">
            Preview Meta Tag
           </span>
           <pre
             ref={previewRef}
-            className="bg-white py-0 rounded text-xs overflow-x-auto mt-1"
+            className="bg-white py-0 rounded-sm text-xs overflow-x-auto mt-1"
           >
             {`<!-- Meta Here -->
 <meta charSet="${metaTags.charSet}"/>
@@ -282,7 +282,7 @@ export default function Home() {
           <div className="flex gap-3 mt-4">
             <button
               onClick={handleCopy}
-              className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+              className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -301,7 +301,7 @@ export default function Home() {
             <button
               type="button"
               onClick={resetForm}
-              className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+              className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

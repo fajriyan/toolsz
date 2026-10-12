@@ -10,7 +10,7 @@ import {
 function VersionContent({ record, variant }) {
   if (variant === "pill") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full border border-slate-300 bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-sm">
+      <span className="inline-flex items-center gap-1 rounded-full border border-slate-300 bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-700 shadow-xs">
         <span className="uppercase tracking-[0.18em] text-slate-500">
           Versi
         </span>
@@ -79,7 +79,7 @@ function VersionContent({ record, variant }) {
 
   return (
     <details className="group relative inline-block">
-      <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-slate-900">
+      <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-700 shadow-xs transition hover:border-slate-900">
         <span className="uppercase tracking-[0.18em] text-slate-500">
           Versi
         </span>

@@ -288,8 +288,8 @@ const WordCounter = () => {
                               className="flex items-center justify-between border-b py-1 text-sm"
                            >
                               {item.word}
-                              <span className="border border-slate-700 py-[1px] rounded-md pl-1 pr-2">
-                                 <span className="bg-slate-800 text-white px-2 rounded-sm font-semibold">
+                              <span className="border border-slate-700 py-px rounded-md pl-1 pr-2">
+                                 <span className="bg-slate-800 text-white px-2 rounded-xs font-semibold">
                                     {item.count}
                                  </span>{" "}
                                  {item.percentage.toFixed(2)}%
@@ -309,7 +309,7 @@ const WordCounter = () => {
                      type="text"
                      value={excludedWords}
                      onChange={handleExcludedWordsChange}
-                     className="w-full rounded-md p-2 border-none text-sm focus-within:outline-none"
+                     className="w-full rounded-md p-2 border-none text-sm focus-within:outline-hidden"
                      placeholder="Pilih Kata, pisahkan dengan spasi"
                   />
                </div>

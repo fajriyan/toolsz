@@ -112,7 +112,7 @@ export default function RobotsTxtGenerator() {
             <select
               value={access}
               onChange={handleAccessChange}
-              className="border border-slate-700 rounded w-full py-2 px-3"
+              className="border border-slate-700 rounded-sm w-full py-2 px-3"
             >
               <option value="Allow">Allow</option>
               <option value="Disallow">Disallow</option>
@@ -125,7 +125,7 @@ export default function RobotsTxtGenerator() {
               type="number"
               value={crawlDelay}
               onChange={handleCrawlDelayChange}
-              className="border border-slate-700 rounded w-full py-2 px-3"
+              className="border border-slate-700 rounded-sm w-full py-2 px-3"
               placeholder="Contoh: 10"
             />
           </div>
@@ -136,7 +136,7 @@ export default function RobotsTxtGenerator() {
               type="url"
               value={sitemap}
               onChange={handleSitemapChange}
-              className="border border-slate-700 rounded w-full py-2 px-3"
+              className="border border-slate-700 rounded-sm w-full py-2 px-3"
               placeholder="Contoh: https://toolsz.vercel.app/sitemap.xml"
             />
           </div>
@@ -144,7 +144,7 @@ export default function RobotsTxtGenerator() {
           <div className="mb-4">
             <button
               onClick={handleAddDirective}
-              className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-4 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex items-center gap-2"
+              className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-4 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800 flex items-center gap-2"
             >
                <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +163,7 @@ export default function RobotsTxtGenerator() {
           {directives.map((directive, index) => (
             <div
               key={index}
-              className="mb-4 p-4 border border-slate-700 rounded"
+              className="mb-4 p-4 border border-slate-700 rounded-sm"
             >
               <div className="mb-2 flex justify-between">
                 <label className="block mb-2">Directive #{index + 1}</label>
@@ -191,7 +191,7 @@ export default function RobotsTxtGenerator() {
                     onChange={(e) =>
                       handleDirectiveChange(index, "bot", e.target.value)
                     }
-                    className="border border-slate-700 rounded w-full h-[40px] px-3"
+                    className="border border-slate-700 rounded-sm w-full h-[40px] px-3"
                     placeholder="Contoh: Googlebot"
                   />
                 </div>
@@ -202,7 +202,7 @@ export default function RobotsTxtGenerator() {
                     onChange={(e) =>
                       handleDirectiveChange(index, "access", e.target.value)
                     }
-                    className="border border-slate-700 rounded w-full h-[40px] px-3"
+                    className="border border-slate-700 rounded-sm w-full h-[40px] px-3"
                   >
                     <option value="Allow">Allow</option>
                     <option value="Disallow">Disallow</option>
@@ -216,7 +216,7 @@ export default function RobotsTxtGenerator() {
                     onChange={(e) =>
                       handleDirectiveChange(index, "direction", e.target.value)
                     }
-                    className="border border-slate-700 rounded w-full h-[40px] px-3"
+                    className="border border-slate-700 rounded-sm w-full h-[40px] px-3"
                     placeholder="Contoh: /"
                   />
                 </div>
@@ -231,7 +231,7 @@ export default function RobotsTxtGenerator() {
             <div className=" flex space-x-2 mb-4">
               <button
                 onClick={handleDownload}
-                className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+                className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +247,7 @@ export default function RobotsTxtGenerator() {
               </button>
               <button
                 onClick={handleCopy}
-                className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+                className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -264,7 +264,7 @@ export default function RobotsTxtGenerator() {
               </button>
               <button
                 onClick={handleReset}
-                className="bg-gradient-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
+                className="bg-linear-to-r from-gray-800 to-slate-900 hover:from-slate-950 hover:to-black text-white px-3 py-[7px] rounded-md focus:ring-2 ring-offset-2 ring-slate-800"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -282,7 +282,7 @@ export default function RobotsTxtGenerator() {
               </button>
             </div>
             <textarea
-              className="border border-slate-700 rounded w-full h-48 py-2 px-3"
+              className="border border-slate-700 rounded-sm w-full h-48 py-2 px-3"
               value={preview}
               readOnly
             ></textarea>

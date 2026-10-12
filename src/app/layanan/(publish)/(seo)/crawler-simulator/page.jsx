@@ -87,13 +87,13 @@ export default function HtmlViewer() {
             placeholder="Masukkan URL Website"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full px-3 py-2 focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded mb-4"
+            className="w-full px-3 py-2 focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm mb-4"
           />
           <div className="flex gap-3 items-center">
             <select
               value={userAgent}
               onChange={(e) => setUserAgent(e.target.value)}
-              className="focus-within:outline-none focus:border-cyan-700 border border-gray-300 rounded  p-2"
+              className="focus-within:outline-hidden focus:border-cyan-700 border border-gray-300 rounded-sm  p-2"
             >
               <option value="googlebot">Googlebot</option>
               <option value="bingbot">Bingbot</option>
@@ -101,7 +101,7 @@ export default function HtmlViewer() {
             </select>
             <button
               onClick={handleFetch}
-              className="block bg-gradient-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg"
+              className="block bg-linear-to-r from-gray-800 to-slate-900 hover:ring-2 ring-cyan-500 font-medium text-white px-3 py-[7px] w-full text-center cursor-pointer rounded-lg"
             >
               {loading ? "Memuat Website..." : "Identifikasi Website"}
             </button>

@@ -114,7 +114,7 @@ export default function Home() {
 
       {/* Canvas Area */}
       <div
-        className="border rounded-lg bg-white shadow relative select-none"
+        className="border rounded-lg bg-white shadow-sm relative select-none"
         style={{ width: canvasSize, height: canvasSize }}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
@@ -133,25 +133,25 @@ export default function Home() {
       <div className="flex gap-3 mt-2">
         <button
           onClick={zoomOut}
-          className="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded"
+          className="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded-sm"
         >
           -
         </button>
         <button
           onClick={zoomIn}
-          className="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded"
+          className="bg-gray-300 hover:bg-gray-400 px-3 py-1 rounded-sm"
         >
           +
         </button>
         <button
           onClick={autoFit}
-          className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white px-4 py-1 rounded-sm hover:bg-blue-600"
         >
           Auto Fit
         </button>
         <button
           onClick={combineAndDownload}
-          className="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600"
+          className="bg-green-500 text-white px-4 py-1 rounded-sm hover:bg-green-600"
         >
           Download
         </button>
@@ -164,7 +164,7 @@ export default function Home() {
           <img
             src={resultUrl}
             alt="Hasil Twibbon"
-            className="w-64 h-64 border rounded shadow"
+            className="w-64 h-64 border rounded-sm shadow-sm"
           />
         </div>
       )}
