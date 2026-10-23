@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import JSZip from "jszip";
 
 const DEFAULT_SETTINGS = {
    format: "webp",
@@ -625,15 +626,14 @@ const compressImage = async (file, settings) => {
 };
 
 export default function ImageCompressorPage() {
-   const [file, setFile] = useState(null);
+   const [files, setFiles] = useState([]);
    const [settings, setSettings] = useState(DEFAULT_SETTINGS);
    const [isDragging, setIsDragging] = useState(false);
    const [isCompressing, setIsCompressing] = useState(false);
    const [isPreparing, setIsPreparing] = useState(false);
    const [error, setError] = useState("");
-   const [result, setResult] = useState(null);
+   const [results, setResults] = useState([]);
    const [originalPreviewUrl, setOriginalPreviewUrl] = useState("");
-   const [compressedPreviewUrl, setCompressedPreviewUrl] = useState("");
 
    const [rotation, setRotation] = useState(0);
    const [crop, setCrop] = useState(DEFAULT_CROP);
@@ -645,9 +645,13 @@ export default function ImageCompressorPage() {
    const dragDepthRef = useRef(0);
    const orientedCanvasRef = useRef(null);
    const rotatedCanvasRef = useRef(null);
-   const objectUrlsRef = useRef({ original: "", compressed: "" });
+   const objectUrlsRef = useRef({ original: "" });
+   const resultUrlsRef = useRef([]);
 
-   const canCompress = Boolean(file) && !isCompressing && !isPreparing;
+   const singleFile = files.length === 1 ? files[0].file : null;
+   const singleResult = files.length === 1 ? results[0] : null;
+   const doneResults = results.filter((item) => item.status === "done");
+   const canCompress = files.length > 0 && !isCompressing && !isPreparing;
    const outputExt = getOutputExt(settings.format);
 
    const cropPixelWidth =
@@ -668,10 +672,17 @@ export default function ImageCompressorPage() {
       setWorkingPreviewUrl(rotated.toDataURL("image/jpeg", 0.85));
    };
 
-   const onPickFile = async (selectedFile) => {
-      if (!selectedFile) return;
+   const clearResultUrls = () => {
+      resultUrlsRef.current.forEach((url) => URL.revokeObjectURL(url));
+      resultUrlsRef.current = [];
+   };
 
-      if (!selectedFile.type?.startsWith("image/")) {
+   const onPickFiles = async (selectedFiles) => {
+      const validFiles = Array.from(selectedFiles || []).filter((item) =>
+         item?.type?.startsWith("image/"),
+      );
+
+      if (validFiles.length === 0) {
          setError("File harus berupa gambar.");
          return;
       }
@@ -679,14 +690,17 @@ export default function ImageCompressorPage() {
       // Reset semua state terkait file/editor sebelumnya
       if (objectUrlsRef.current.original)
          URL.revokeObjectURL(objectUrlsRef.current.original);
-      if (objectUrlsRef.current.compressed)
-         URL.revokeObjectURL(objectUrlsRef.current.compressed);
-      objectUrlsRef.current = { original: "", compressed: "" };
+      objectUrlsRef.current = { original: "" };
+      clearResultUrls();
 
       setError("");
-      setResult(null);
-      setFile(selectedFile);
-      setCompressedPreviewUrl("");
+      setResults([]);
+      setFiles(
+         validFiles.map((item) => ({
+            id: crypto.randomUUID(),
+            file: item,
+         })),
+      );
       setRotation(0);
       setCrop(DEFAULT_CROP);
       setWorkingPreviewUrl("");
@@ -694,7 +708,11 @@ export default function ImageCompressorPage() {
       setIsCropOpen(false);
       orientedCanvasRef.current = null;
       rotatedCanvasRef.current = null;
+      setOriginalPreviewUrl("");
 
+      if (validFiles.length !== 1) return;
+
+      const selectedFile = validFiles[0];
       const previewUrl = URL.createObjectURL(selectedFile);
       objectUrlsRef.current.original = previewUrl;
       setOriginalPreviewUrl(previewUrl);
@@ -727,8 +745,7 @@ export default function ImageCompressorPage() {
    };
 
    const handleFileInputChange = (event) => {
-      const selectedFile = event.target.files?.[0];
-      onPickFile(selectedFile);
+      onPickFiles(event.target.files);
       event.target.value = "";
    };
 
@@ -750,8 +767,7 @@ export default function ImageCompressorPage() {
       event.preventDefault();
       dragDepthRef.current = 0;
       setIsDragging(false);
-      const droppedFile = event.dataTransfer.files?.[0];
-      onPickFile(droppedFile);
+      onPickFiles(event.dataTransfer.files);
    };
 
    const handleRotate = (delta) => {
@@ -760,21 +776,21 @@ export default function ImageCompressorPage() {
       setRotation(next);
       applyRotation(orientedCanvasRef.current, next);
       setCrop(DEFAULT_CROP);
-      setResult(null);
+      setResults([]);
    };
 
    const handleResetCrop = () => {
       setCrop(DEFAULT_CROP);
-      setResult(null);
+      setResults([]);
    };
 
    const handleCompress = async () => {
-      if (!file) {
+      if (files.length === 0) {
          setError("Pilih gambar dulu.");
          return;
       }
 
-      if (!rotatedCanvasRef.current) {
+      if (files.length === 1 && !rotatedCanvasRef.current) {
          setError(
             "Gambar belum siap diproses. Tunggu sebentar lalu coba lagi.",
          );
@@ -783,70 +799,125 @@ export default function ImageCompressorPage() {
 
       setIsCompressing(true);
       setError("");
+      clearResultUrls();
+      setResults(
+         files.map((item) => ({
+            id: item.id,
+            sourceName: item.file.name,
+            originalSize: item.file.size,
+            status: "pending",
+         })),
+      );
+
+      const output = new Array(files.length);
+      let cursor = 0;
+
+      // ponytail: 3 worker paralel, naikkan bila batch besar & device kuat.
+      const runNext = async () => {
+         while (cursor < files.length) {
+            const index = cursor;
+            cursor += 1;
+            const item = files[index];
+
+            try {
+               const source =
+                  files.length === 1 && rotatedCanvasRef.current
+                     ? await buildEditedBlob(rotatedCanvasRef.current, crop)
+                     : item.file;
+               const compressed = await compressImage(source, settings);
+               const fileName = `${getBaseName(item.file.name)}-compressed.${outputExt}`;
+               const previewUrl = URL.createObjectURL(compressed.blob);
+               resultUrlsRef.current.push(previewUrl);
+
+               output[index] = {
+                  id: item.id,
+                  sourceName: item.file.name,
+                  status: "done",
+                  blob: compressed.blob,
+                  fileName,
+                  previewUrl,
+                  originalSize: item.file.size,
+                  compressedSize: compressed.blob.size,
+                  originalWidth: compressed.originalWidth,
+                  originalHeight: compressed.originalHeight,
+                  targetWidth: compressed.targetWidth,
+                  targetHeight: compressed.targetHeight,
+                  changePercent: Math.round(
+                     (1 - compressed.blob.size / item.file.size) * 100,
+                  ),
+               };
+            } catch (err) {
+               output[index] = {
+                  id: item.id,
+                  sourceName: item.file.name,
+                  originalSize: item.file.size,
+                  status: "error",
+                  error: err?.message || "Kompresi gagal.",
+               };
+            }
+
+            setResults((prev) =>
+               prev.map((entry, entryIndex) =>
+                  entryIndex === index ? output[index] : entry,
+               ),
+            );
+         }
+      };
 
       try {
-         const editedBlob = await buildEditedBlob(
-            rotatedCanvasRef.current,
-            crop,
+         await Promise.all(
+            Array.from({ length: Math.min(3, files.length) }, runNext),
          );
-         const output = await compressImage(editedBlob, settings);
-         const baseName = getBaseName(file.name);
-         const fileName = `${baseName}-compressed.${outputExt}`;
-         const changePercent = Math.round(
-            (1 - output.blob.size / file.size) * 100,
-         );
-
-         setResult({
-            blob: output.blob,
-            fileName,
-            originalSize: file.size,
-            compressedSize: output.blob.size,
-            originalWidth: output.originalWidth,
-            originalHeight: output.originalHeight,
-            targetWidth: output.targetWidth,
-            targetHeight: output.targetHeight,
-            changePercent,
-         });
-
-         if (objectUrlsRef.current.compressed) {
-            URL.revokeObjectURL(objectUrlsRef.current.compressed);
+         const failed = output.filter((item) => item?.status === "error").length;
+         if (failed > 0) {
+            setError(`${failed} gambar gagal dikompres.`);
          }
-         const compressedUrl = URL.createObjectURL(output.blob);
-         objectUrlsRef.current.compressed = compressedUrl;
-         setCompressedPreviewUrl(compressedUrl);
-      } catch (err) {
-         setError(err?.message || "Kompresi gagal.");
       } finally {
          setIsCompressing(false);
       }
    };
 
-   const handleDownload = () => {
-      if (!result?.blob) return;
-
-      const url = URL.createObjectURL(result.blob);
+   const triggerDownload = (blob, fileName) => {
+      const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = result.fileName;
+      link.download = fileName;
       link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
+   };
+
+   const handleDownload = (item) => {
+      if (item?.blob) triggerDownload(item.blob, item.fileName);
+   };
+
+   const handleDownloadAll = async () => {
+      if (doneResults.length === 0) return;
+      if (doneResults.length === 1) {
+         handleDownload(doneResults[0]);
+         return;
+      }
+
+      const zip = new JSZip();
+      doneResults.forEach((item, index) => {
+         zip.file(`${index + 1}-${item.fileName}`, item.blob);
+      });
+      const blob = await zip.generateAsync({ type: "blob" });
+      triggerDownload(blob, "compressed-images.zip");
    };
 
    const handleReset = () => {
       if (objectUrlsRef.current.original)
          URL.revokeObjectURL(objectUrlsRef.current.original);
-      if (objectUrlsRef.current.compressed)
-         URL.revokeObjectURL(objectUrlsRef.current.compressed);
-      objectUrlsRef.current = { original: "", compressed: "" };
+      objectUrlsRef.current = { original: "" };
+      clearResultUrls();
 
-      setFile(null);
-      setResult(null);
+      setFiles([]);
+      setResults([]);
       setError("");
       setSettings(DEFAULT_SETTINGS);
       setIsDragging(false);
       dragDepthRef.current = 0;
       setOriginalPreviewUrl("");
-      setCompressedPreviewUrl("");
 
       setRotation(0);
       setCrop(DEFAULT_CROP);
@@ -862,13 +933,14 @@ export default function ImageCompressorPage() {
    };
 
    const formatIsJpg = settings.format === "jpg";
-   const compressionLabel = result
-      ? result.changePercent > 0
-         ? `Hemat sekitar ${result.changePercent}% ukuran file.`
-         : result.changePercent < 0
-           ? `Hasil lebih besar sekitar ${Math.abs(result.changePercent)}% dibanding file asli.`
-           : "Ukuran file tidak berubah."
-      : "";
+   const compressionLabel =
+      singleResult?.status === "done"
+         ? singleResult.changePercent > 0
+            ? `Hemat sekitar ${singleResult.changePercent}% ukuran file.`
+            : singleResult.changePercent < 0
+              ? `Hasil lebih besar sekitar ${Math.abs(singleResult.changePercent)}% dibanding file asli.`
+              : "Ukuran file tidak berubah."
+         : "";
 
    return (
       <div className="container mx-auto min-h-[83vh] px-3 md:px-0">
@@ -893,9 +965,10 @@ export default function ImageCompressorPage() {
                         : "border-slate-300 bg-slate-50/60"
                   }`}
                >
-                  <p className="text-sm font-semibold">Drop image di sini</p>
+                  <p className="text-sm font-semibold">Drop gambar di sini</p>
                   <p className="mt-1 text-xs text-slate-500">
-                     atau pilih file JPG, PNG, dan WebP dari perangkatmu.
+                     Pilih banyak file sekaligus. Semua file diproses dengan
+                     pengaturan yang sama.
                   </p>
 
                   <label className="mt-4 inline-flex cursor-pointer items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white">
@@ -903,6 +976,7 @@ export default function ImageCompressorPage() {
                         ref={fileInputRef}
                         type="file"
                         accept="image/*"
+                        multiple
                         className="hidden"
                         onChange={handleFileInputChange}
                      />
@@ -910,7 +984,15 @@ export default function ImageCompressorPage() {
                   </label>
                </div>
 
-               {file && (
+               {files.length > 1 && (
+                  <p className="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-xs text-slate-600">
+                     Mode batch: {files.length} gambar akan dikompres dengan
+                     format, quality, width, dan height yang sama. Crop & rotate
+                     hanya tersedia untuk 1 gambar.
+                  </p>
+               )}
+
+               {singleFile && (
                   <div className="mt-4">
                      <button
                         type="button"
@@ -973,10 +1055,10 @@ export default function ImageCompressorPage() {
                                  <CropEditor
                                     src={workingPreviewUrl}
                                     crop={crop}
-                                    onCropChange={(next) => {
-                                       setCrop(next);
-                                       setResult(null);
-                                    }}
+                                     onCropChange={(next) => {
+                                        setCrop(next);
+                                        setResults([]);
+                                     }}
                                     width={workingDims.width}
                                     height={workingDims.height}
                                  />
@@ -1098,7 +1180,11 @@ export default function ImageCompressorPage() {
                      disabled={!canCompress}
                      className="rounded-full bg-linear-to-r from-slate-900 to-slate-700 px-5 py-2 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                     {isCompressing ? "Mengecilkan..." : "Compress Image"}
+                     {isCompressing
+                        ? `Mengecilkan ${doneResults.length}/${files.length}...`
+                        : files.length > 1
+                          ? `Compress ${files.length} Images`
+                          : "Compress Image"}
                   </button>
                   <button
                      type="button"
@@ -1111,13 +1197,23 @@ export default function ImageCompressorPage() {
 
                {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
-               {file && (
+               {files.length > 0 && (
                   <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                     <p className="text-sm font-semibold">File dipilih</p>
+                     <p className="text-sm font-semibold">
+                        {files.length} file dipilih
+                     </p>
                      <div className="mt-2 grid gap-1 text-sm text-slate-600">
-                        <span>{file.name}</span>
-                        <span>{formatBytes(file.size)}</span>
-                        <span>{file.type || "image"}</span>
+                        {files.map((item) => (
+                           <div
+                              key={item.id}
+                              className="flex items-center justify-between gap-3"
+                           >
+                              <span className="truncate">{item.file.name}</span>
+                              <span className="shrink-0 text-xs text-slate-500">
+                                 {formatBytes(item.file.size)}
+                              </span>
+                           </div>
+                        ))}
                      </div>
                   </div>
                )}
@@ -1128,71 +1224,181 @@ export default function ImageCompressorPage() {
                   <div>
                      <h2 className="text-base font-semibold">Hasil Kompresi</h2>
                      <p className="text-xs text-slate-500">
-                        Preview before/after dan file hasil download.
+                        {files.length > 1
+                           ? `${doneResults.length} dari ${files.length} gambar selesai.`
+                           : "Preview before/after dan file hasil download."}
                      </p>
                   </div>
-                  {result && (
+                  {doneResults.length > 0 && (
                      <button
                         type="button"
-                        onClick={handleDownload}
+                        onClick={handleDownloadAll}
                         className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700"
                      >
-                        Download
+                        {doneResults.length > 1 ? "Download ZIP" : "Download"}
                      </button>
                   )}
                </div>
 
-               <div className="mt-4 grid gap-4 md:grid-cols-2">
-                  <PreviewCard
-                     title="Original"
-                     subtitle={file ? formatBytes(file.size) : "Belum ada file"}
-                     src={originalPreviewUrl}
-                     alt="Original preview"
-                  />
-                  <PreviewCard
-                     title="Compressed"
-                     subtitle={
-                        result
-                           ? formatBytes(result.compressedSize)
-                           : "Belum diproses"
-                     }
-                     src={compressedPreviewUrl}
-                     alt="Compressed preview"
-                  />
-               </div>
-
-               {result && (
-                  <div className="mt-5 rounded-2xl bg-slate-50 p-4">
-                     <div className="grid gap-3 sm:grid-cols-2">
-                        <InfoRow
-                           label="Original Size"
-                           value={formatBytes(result.originalSize)}
-                        />
-                        <InfoRow
-                           label="Compressed Size"
-                           value={formatBytes(result.compressedSize)}
-                        />
-                        <InfoRow
-                           label="Resolusi (setelah crop)"
-                           value={`${result.originalWidth} x ${result.originalHeight}`}
-                        />
-                        <InfoRow
-                           label="Resolusi Akhir"
-                           value={`${result.targetWidth} x ${result.targetHeight}`}
-                        />
-                     </div>
-                     <div
-                        className={`mt-4 rounded-xl px-4 py-3 text-sm font-medium ${
-                           result.changePercent > 0
-                              ? "bg-emerald-50 text-emerald-800"
-                              : result.changePercent < 0
-                                ? "bg-amber-50 text-amber-800"
-                                : "bg-white text-slate-800"
-                        }`}
-                     >
-                        {compressionLabel}
-                     </div>
+               {files.length === 0 && (
+                  <div className="mt-4 flex min-h-64 items-center justify-center rounded-2xl bg-slate-50 px-6 py-16 text-center text-sm text-slate-500">
+                     Hasil kompresi akan muncul di sini.
                   </div>
+               )}
+
+               {files.length === 1 && (
+                  <>
+                     <div className="mt-4 grid gap-4 md:grid-cols-2">
+                        <PreviewCard
+                           title="Original"
+                           subtitle={
+                              singleFile
+                                 ? formatBytes(singleFile.size)
+                                 : "Belum ada file"
+                           }
+                           src={originalPreviewUrl}
+                           alt="Original preview"
+                        />
+                        <PreviewCard
+                           title="Compressed"
+                           subtitle={
+                              singleResult?.status === "done"
+                                 ? formatBytes(singleResult.compressedSize)
+                                 : "Belum diproses"
+                           }
+                           src={
+                              singleResult?.status === "done"
+                                 ? singleResult.previewUrl
+                                 : ""
+                           }
+                           alt="Compressed preview"
+                        />
+                     </div>
+
+                     {singleResult?.status === "done" && (
+                        <div className="mt-5 rounded-2xl bg-slate-50 p-4">
+                           <div className="grid gap-3 sm:grid-cols-2">
+                              <InfoRow
+                                 label="Original Size"
+                                 value={formatBytes(singleResult.originalSize)}
+                              />
+                              <InfoRow
+                                 label="Compressed Size"
+                                 value={formatBytes(singleResult.compressedSize)}
+                              />
+                              <InfoRow
+                                 label="Resolusi (setelah crop)"
+                                 value={`${singleResult.originalWidth} x ${singleResult.originalHeight}`}
+                              />
+                              <InfoRow
+                                 label="Resolusi Akhir"
+                                 value={`${singleResult.targetWidth} x ${singleResult.targetHeight}`}
+                              />
+                           </div>
+                           <div
+                              className={`mt-4 rounded-xl px-4 py-3 text-sm font-medium ${
+                                 singleResult.changePercent > 0
+                                    ? "bg-emerald-50 text-emerald-800"
+                                    : singleResult.changePercent < 0
+                                      ? "bg-amber-50 text-amber-800"
+                                      : "bg-white text-slate-800"
+                              }`}
+                           >
+                              {compressionLabel}
+                           </div>
+                        </div>
+                     )}
+                  </>
+               )}
+
+               {files.length > 1 && (
+                  <>
+                     <div className="mt-4 grid gap-2">
+                        {files.map((item, index) => {
+                           const resultItem = results[index];
+                           const status = resultItem?.status || "pending";
+
+                           return (
+                              <div
+                                 key={item.id}
+                                 className="flex items-center gap-3 rounded-xl border border-slate-200 p-3"
+                              >
+                                 <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-slate-100">
+                                    {resultItem?.previewUrl ? (
+                                       <img
+                                          src={resultItem.previewUrl}
+                                          alt={item.file.name}
+                                          className="h-full w-full object-cover"
+                                       />
+                                    ) : (
+                                       <span className="text-[10px] uppercase text-slate-400">
+                                          img
+                                       </span>
+                                    )}
+                                 </div>
+
+                                 <div className="min-w-0 flex-1">
+                                    <p className="truncate text-sm font-medium text-slate-800">
+                                       {item.file.name}
+                                    </p>
+                                    <p className="text-xs text-slate-500">
+                                       {formatBytes(item.file.size)}
+                                       {status === "done" &&
+                                          ` → ${formatBytes(resultItem.compressedSize)} (${resultItem.changePercent > 0 ? `-${resultItem.changePercent}%` : resultItem.changePercent < 0 ? `+${Math.abs(resultItem.changePercent)}%` : "0%"})`}
+                                       {status === "pending" &&
+                                          (isCompressing
+                                             ? " · menunggu/diproses..."
+                                             : " · belum diproses")}
+                                       {status === "error" &&
+                                          ` · ${resultItem.error}`}
+                                    </p>
+                                 </div>
+
+                                 {status === "done" && (
+                                    <button
+                                       type="button"
+                                       onClick={() => handleDownload(resultItem)}
+                                       className="shrink-0 rounded-full border border-slate-300 px-3 py-1.5 text-xs font-medium text-slate-700"
+                                    >
+                                       Download
+                                    </button>
+                                 )}
+                              </div>
+                           );
+                        })}
+                     </div>
+
+                     {doneResults.length > 0 && (
+                        <div className="mt-4 rounded-2xl bg-slate-50 p-4">
+                           <div className="grid gap-3 sm:grid-cols-3">
+                              <InfoRow
+                                 label="Selesai"
+                                 value={`${doneResults.length} / ${files.length}`}
+                              />
+                              <InfoRow
+                                 label="Total Asli"
+                                 value={formatBytes(
+                                    doneResults.reduce(
+                                       (total, item) =>
+                                          total + item.originalSize,
+                                       0,
+                                    ),
+                                 )}
+                              />
+                              <InfoRow
+                                 label="Total Hasil"
+                                 value={formatBytes(
+                                    doneResults.reduce(
+                                       (total, item) =>
+                                          total + item.compressedSize,
+                                       0,
+                                    ),
+                                 )}
+                              />
+                           </div>
+                        </div>
+                     )}
+                  </>
                )}
             </div>
          </div>
