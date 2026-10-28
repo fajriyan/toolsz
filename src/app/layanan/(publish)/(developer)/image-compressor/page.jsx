@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import JSZip from "jszip";
-import heic2any from "heic2any";
 
 const DEFAULT_SETTINGS = {
    format: "webp",
@@ -162,6 +161,7 @@ const isHeicFile = (file) => {
 
 const convertHeicToJpeg = async (file) => {
    try {
+      const heic2any = (await import("heic2any")).default;
       const converted = await heic2any({
          blob: file,
          toType: "image/jpeg",
