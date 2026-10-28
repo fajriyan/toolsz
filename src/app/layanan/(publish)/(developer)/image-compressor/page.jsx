@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import JSZip from "jszip";
+import heic2any from "heic2any";
 
 const DEFAULT_SETTINGS = {
    format: "webp",
@@ -145,6 +146,37 @@ const applyOrientationTransform = (ctx, width, height, orientation) => {
 
 const isJpegFile = (file) =>
    /^image\/jpe?g$/i.test(file.type || "") || /\.jpe?g$/i.test(file.name || "");
+
+const isHeicFile = (file) => {
+   const type = (file?.type || "").toLowerCase();
+   const name = (file?.name || "").toLowerCase();
+   return (
+      type === "image/heic" ||
+      type === "image/heif" ||
+      type === "image/heic-sequence" ||
+      type === "image/heif-sequence" ||
+      name.endsWith(".heic") ||
+      name.endsWith(".heif")
+   );
+};
+
+const convertHeicToJpeg = async (file) => {
+   try {
+      const converted = await heic2any({
+         blob: file,
+         toType: "image/jpeg",
+         quality: 0.9,
+      });
+      const blob = Array.isArray(converted) ? converted[0] : converted;
+      return new File([blob], file.name.replace(/\.[^.]+$/, ".jpg"), {
+         type: "image/jpeg",
+      });
+   } catch (err) {
+      throw new Error(
+         err?.message || "Gagal mengonversi HEIC/HEIF. Coba format lain.",
+      );
+   }
+};
 
 const getExifOrientation = async (file) => {
    if (!isJpegFile(file)) return 1;
@@ -678,12 +710,29 @@ export default function ImageCompressorPage() {
    };
 
    const onPickFiles = async (selectedFiles) => {
-      const validFiles = Array.from(selectedFiles || []).filter((item) =>
-         item?.type?.startsWith("image/"),
-      );
+      const rawFiles = Array.from(selectedFiles || []);
+      const validFiles = [];
+      setError("");
+
+      for (const item of rawFiles) {
+         if (!item) continue;
+         if (isHeicFile(item)) {
+            try {
+               const converted = await convertHeicToJpeg(item);
+               validFiles.push(converted);
+               continue;
+            } catch (err) {
+               setError(err?.message || "Gagal mengonversi HEIC/HEIF.");
+               continue;
+            }
+         }
+         if (item?.type?.startsWith("image/")) {
+            validFiles.push(item);
+         }
+      }
 
       if (validFiles.length === 0) {
-         setError("File harus berupa gambar.");
+         if (!error) setError("File harus berupa gambar.");
          return;
       }
 

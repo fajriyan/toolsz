@@ -17,6 +17,7 @@
       "diff": "^8.0.2",
       "dompurify": "^3.2.6",
       "gray-matter": "^4.0.3",
+      "heic2any": "^0.0.4",
       "interactjs": "^1.10.27",
       "jszip": "^3.10.1",
       "lorem-ipsum": "^2.0.8",
