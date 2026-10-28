@@ -44,15 +44,8 @@ export default function Home() {
                {/* End Bar Update  */}
                <div className="">
                   <h1 className="font-bold text-3xl sm:text-4xl leading-[40px] md:text-5xl md:leading-[55px]">
-                     Gunakan{" "}
-                     <Link
-                        href={"/#search"}
-                        className="text-cyan-200 border px-5 rounded-md duration-500 transition-colors border-cyan-700 bg-linear-to-r hover:to-cyan-900 from-gray-700 via-gray-900 to-black"
-                     >
-                        Tools Online
-                     </Link>{" "}
-                     Praktis, Ringan, dan Gratis di{" "}
-                     <span className="text-sky-800">Toolsz</span>
+                     Toolsz: Pilihan Tepat Tools Online Praktis, Ringan;
+                     <span className="text-sky-800"> 100% Gratis.</span>
                   </h1>
                </div>
                <p className="md:w-[90%] text-[15px] sm:text-[16px] md:text-[18px]">
