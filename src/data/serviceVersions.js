@@ -11,6 +11,7 @@ import flexPlaygroundVersion from "@/app/layanan/(publish)/(developer)/flex-play
 import gerbangLogikaVersion from "@/app/layanan/(publish)/(developer)/gerbang-logika/version";
 import gridPlaygroundVersion from "@/app/layanan/(publish)/(developer)/grid-playground/version";
 import imageCompressorVersion from "@/app/layanan/(publish)/(developer)/image-compressor/version";
+import pdfImageExtractorVersion from "@/app/layanan/(publish)/(developer)/pdf-image-extractor/version";
 import jsonFormatterVersion from "@/app/layanan/(publish)/(developer)/json-formatter/version";
 import markdownConverterVersion from "@/app/layanan/(publish)/(developer)/markdown-converter/version";
 import pageSizeCheckerVersion from "@/app/layanan/(publish)/(developer)/page-size-checker/version";
@@ -67,6 +68,7 @@ export const serviceVersionRegistry = {
   "gerbang-logika": gerbangLogikaVersion,
   "grid-playground": gridPlaygroundVersion,
   "image-compressor": imageCompressorVersion,
+  "pdf-image-extractor": pdfImageExtractorVersion,
   "json-formatter": jsonFormatterVersion,
   "markdown-converter": markdownConverterVersion,
   "page-size-checker": pageSizeCheckerVersion,

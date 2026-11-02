@@ -349,6 +349,15 @@ const rawMenuService = [
       description: "Kompres gambar langsung di browser tanpa backend.",
       keywords: ["image", "compressor", "compress", "webp", "jpg"],
    },
+   {
+      href: "/layanan/pdf-image-extractor",
+      top: 0,
+      text: "PDF Image Extractor",
+      category: "Developer Tools",
+      icon: ViewerIcon,
+      description: "Ekstrak gambar tertanam dari file PDF langsung di browser.",
+      keywords: ["pdf", "image", "extract", "extractor", "jpg", "png"],
+   },
    // {
    //   href: "/layanan/crawler-simulator",
    //   top: 0,
